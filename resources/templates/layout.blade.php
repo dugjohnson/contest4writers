@@ -23,8 +23,8 @@
 <div class="row">
     <div class="large-12 columns">
         <div class="right">
-            <a href="auth/login" class="tiny button">Log In</a>
-            <a href="auth/register" class="tiny button">Register</a>
+            <a href="/auth/login" class="tiny button">Log In</a>
+            <a href="/auth/register" class="tiny button">Register</a>
         </div>
         <div class="nav-bar">
             <ul class="button-group">
