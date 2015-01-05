@@ -15,8 +15,8 @@ return [
 	*/
 
 	'mailgun' => [
-		'domain' => '',
-		'secret' => '',
+		'domain' => 'writingcontest.website',
+		'secret' => 'key-6jcj3jyer271976tv3wt104wa3ffqsg2',
 	],
 
 	'mandrill' => [
