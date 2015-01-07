@@ -23,7 +23,12 @@
 <div class="row">
     <div class="large-12 columns">
         <div class="right">
-            <a href="/auth/login" class="tiny button">Log In</a>
+            @if(Auth::check())
+               <a href="/auth/logout" class="tiny button">Log Out</a>
+            @else
+                <a href="/auth/login" class="tiny button">Log In</a>
+            @endif
+            
             <a href="/auth/register" class="tiny button">Register</a>
         </div>
         <div class="nav-bar">
