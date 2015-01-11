@@ -12,6 +12,7 @@ class JudgeController extends Controller {
      */
     public function index()
     {
+        return view('judge.index');
         //
     }
 
@@ -43,7 +44,13 @@ class JudgeController extends Controller {
      */
     public function show($id)
     {
+        $user =  \Contest\User::find($id);
+        $judge = \Contest\Judge::find(106);
+        $data = array('user' => $user,
+                      'judge' => $judge);
+  //      dd($data);
         //
+        return view('judge.show', $data);
     }
 
     /**

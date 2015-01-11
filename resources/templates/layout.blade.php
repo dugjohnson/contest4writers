@@ -2,7 +2,9 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="/css/foundation.css"/>
+    <link rel="stylesheet" href="/css/foundation.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/js/foundation.min.js"></script>
     <script src="/js/vendor/modernizr.js"></script>
     <link href='/css/app.css' rel='stylesheet' type='text/css'>
 
@@ -11,7 +13,7 @@
 
 <div class="row">
     <div class="large-12 columns">
-        <div class="panel">
+        <div class="panel banner">
             <h3>RWA® Mystery/Suspense Chapter presents</h3>
 
             <h1>The Daphne du Maurier Award</h1>
@@ -24,19 +26,20 @@
     <div class="large-12 columns">
         <div class="right">
             @if(Auth::check())
-               <a href="/auth/logout" class="tiny button">Log Out</a>
+                <a href="/auth/logout" class="tiny button">Log Out</a>
+                <a href="/users/{!! Auth::user()->id !!}" class="tiny button">Profile</a>
             @else
                 <a href="/auth/login" class="tiny button">Log In</a>
             @endif
-            
+
             <a href="/auth/register" class="tiny button">Register</a>
         </div>
         <div class="nav-bar">
             <ul class="button-group">
-                <li><a href="#" class="button">Enter the Competition</a></li>
-                <li><a href="#" class="button">Be a Judge</a></li>
-                <li><a href="#" class="button">Coordinators</a></li>
-                <li><a href="#" class="button">Administrators</a></li>
+                <li><a href="/entries" class="button">Enter the Competition</a></li>
+                <li><a href="/judges" class="button">Be a Judge</a></li>
+                <li><a href="/coordinators" class="button">Coordinators</a></li>
+                <li><a href="/administrators" class="button">Administrators</a></li>
             </ul>
         </div>
         <hr/>
@@ -44,10 +47,11 @@
 </div>
 <div class="row">
     <div class="large-9 columns" role="content">
-        <div class="container">
-            <div class="content">
-                @yield('content')
-                <div class="quote">{{ Inspiring::quote() }}</div>
+        <div class="large-12 columns container">
+            <div class="row">
+                <div class="content">
+                    @yield('content')
+                </div>
             </div>
         </div>
     </div>
@@ -73,6 +77,9 @@
     <div class="large-12 columns">
         <hr/>
         <div class="row">
+        <div class="large-12 columns container quote">{{ Inspiring::quote() }}</div>
+        </div>
+        <div class="row">
             <div class="large-6 columns">
                 <p>©2015 Kiss of Death/RWA Mystery/Romantic Suspense Chapter 144</p>
             </div>
@@ -87,8 +94,6 @@
         </div>
     </div>
 </footer>
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
 <script>
     $(document).foundation();
 </script>
