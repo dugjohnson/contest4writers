@@ -83,7 +83,7 @@
             <div class="large-6 columns">
                 <p>©2015 Kiss of Death/RWA Mystery/Romantic Suspense Chapter 144</p>
             </div>
-            <div class="large-6 columns">
+<!--            <div class="large-6 columns">
                 <ul class="inline-list right">
                     <li><a href="#">Enter</a></li>
                     <li><a href="#">Judge</a></li>
@@ -91,6 +91,7 @@
                     <li><a href="#">Administer</a></li>
                 </ul>
             </div>
+-->
         </div>
     </div>
 </footer>
