@@ -15,6 +15,15 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
+Route::get('entries/create/pub','EntryController@createPub');
+Route::get('entries/create/unpub','EntryController@createUnpub');
+Route::any('entries/storepub','EntryController@storePub');
+Route::any('entries/storeunpub','EntryController@storeUnpub');
+
+Route::resource('judges','JudgeController');
+Route::resource('entries','EntryController');
+Route::resource('users','UserController');
+
 /*
 |--------------------------------------------------------------------------
 | Authentication & Password Reset Controllers
@@ -26,9 +35,6 @@ Route::get('home', 'HomeController@index');
 |
 */
 
-Route::resource('judges','JudgeController');
-Route::resource('entries','EntryController');
-Route::resource('users','UserController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

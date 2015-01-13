@@ -13,36 +13,11 @@
 
 <div class="row">
     <div class="large-12 columns">
-        <div class="panel">
-            <h3>RWA® Mystery/Suspense Chapter presents</h3>
+        <div class="panel-title">
+            <p>RWA® Mystery/Suspense Chapter presents</p>
 
-            <h1>The Daphne du Maurier Award</h1>
-
-            <h2>FOR EXCELLENCE IN MYSTERY/SUSPENSE</h2>
+            <p>The Daphne du Maurier Award for Excellence in Mystery/Suspense</p>
         </div>
-    </div>
-</div>
-<div class="row">
-    <div class="large-12 columns">
-        <div class="right">
-            @if(Auth::check())
-                <a href="/users/{!! Auth::user()->id !!}" class="tiny button">Edit Your Profile</a>
-                <a href="/auth/logout" class="tiny button">Log Out</a>
-            @else
-                <a href="/auth/login" class="tiny button">Log In</a>
-                <a href="/auth/register" class="tiny button">Register</a>
-            @endif
-
-        </div>
-        <div class="nav-bar">
-            <ul class="button-group">
-                <li><a href="/entries" class="button">Enter the Competition</a></li>
-                <li><a href="/judges" class="button">Be a Judge</a></li>
-                <li><a href="/coordinators" class="button">Coordinators</a></li>
-                <li><a href="/administrators" class="button">Administrators</a></li>
-            </ul>
-        </div>
-        <hr/>
     </div>
 </div>
 <div class="row">
