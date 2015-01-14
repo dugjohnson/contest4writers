@@ -1,4 +1,4 @@
-<div class="panel">
+<div class="panel radius">
     <p>Payments will be maintained through myRWA invoicing and may be submitted using PayPal, Credit Card,
         Personal check on US bank, or Money Order in US funds.
         In order for your entry to be official, you must create a myRWA invoice.</p>
@@ -13,5 +13,5 @@
     @else
         <p>Entry Fee: $15 for KOD members; $30 non-KOD members.</p>
     @endif
-    <a class="tiny button" href="http://www.rwa.org/e/in/eid=297" target="_blank">Go to myRWA</a>
+    <a class="tiny button radius" href="http://www.rwa.org/e/in/eid=297" target="_blank">Go to myRWA</a>
 </div>

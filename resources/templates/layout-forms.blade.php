@@ -13,7 +13,7 @@
 
 <div class="row">
     <div class="small-12 columns">
-        <div class="panel">
+        <div class="panel radius">
             <a href="/">
                 <p>RWA® Mystery/Suspense Chapter presents: The Daphne du Maurier Award for Excellence in
                     Mystery/Suspense</p>

@@ -3,8 +3,8 @@
 @section('content')
 
     <ul class="button-group">
-        <li><a href="/entries/create/pub" class="button">Create Published Entry</a></li>
-        <li><a href="/entries/create/unpub" class="button">Create Unpublished Entry</a></li>
+        <li><a href="/entries/create/pub" class="button radius">Create Published Entry</a></li>
+        <li><a href="/entries/create/unpub" class="button radius">Create Unpublished Entry</a></li>
     </ul>
 
     <table>

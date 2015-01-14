@@ -1,2 +1,2 @@
-{!! Form::submit('Submit!', array('class'=>'button')) !!}
+{!! Form::submit('Submit!', array('class'=>'button radius')) !!}
 {!! Form::close() !!}

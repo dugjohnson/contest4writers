@@ -1,4 +1,4 @@
-<div class="panel">
+<div class="panel radius">
     <p>
       <label>  {!! Form::checkbox('readRules', null, null, ['id' => 'readRules', 'class'=>'large']) !!}
           &nbsp; &nbsp; Check before continuing

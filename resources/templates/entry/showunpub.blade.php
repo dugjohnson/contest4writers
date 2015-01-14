@@ -2,6 +2,6 @@
 
 @section('content')
     @include('entry.formunpub')
-    <a href="/entries" class="button">Back to Entries</a>
+    <a href="/entries" class="button radius">Back to Entries</a>
 
 @stop

@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <div class="panel">
+    <div class="panel radius">
         <p>Welcome to the Daphne du Maurier Award for Excellence in Mystery/Suspense.</p>
 
         <p> Bookmark this page for all your Daphne needs.

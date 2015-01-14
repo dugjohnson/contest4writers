@@ -88,9 +88,10 @@ class EntryController extends Controller
         if ($request->published == false) {
             //deal with upload
             // $entry->filename = $request->filename;
-            $entry->filename = 'Deal with upload';
+            if ($request->hasFile('filename')){
+                $entry->filename = $this->saveFile($request);
 
-
+            }
         } else {
             $entry->publisher = $request->publisher;
             $entry->editor = $request->editor;
@@ -154,14 +155,22 @@ class EntryController extends Controller
             return view('entry.editunpub', array('categories' => $this->categories, 'monthlist' => $this->months, 'entry' => $entry));
         }
     }
-
+    protected function saveFile($request)
+    {
+        $fileName = date('ymdHis').mt_rand(1000,9999).'.rtf';
+        $destination = $_SERVER["DOCUMENT_ROOT"].'/uploads/entries/';
+        $request->file('filename')->move($destination,$fileName);
+        return $fileName;
+        
+        
+    }
     /**
      * Update the specified resource in storage.
      *
      * @param  int $id
      * @return Response
      */
-    public function update($id, Requests\EditEntryRequest $request)
+    public function update(Requests\EditEntryRequest $request, $id)
     {
         $entry = Entry::find($id);
         $entry->published = $request->published;
