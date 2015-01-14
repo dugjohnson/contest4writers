@@ -14,7 +14,7 @@
 </div>
 <div class="panel">
     <p>
-        {!! Form::checkbox('iAgree', '0', null, ['id' => 'iAgree']) !!}
+        {!! Form::checkbox('readRules', null, null, ['id' => 'readRules']) !!}
         I have read the rules and guidelines governing The Daphne du Maurier Award for Excellence in
         Mystery/Suspense
         Contest for published writers and attest to my eligibility.  I understand that judging is subjective and

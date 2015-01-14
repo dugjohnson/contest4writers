@@ -2,13 +2,10 @@
 
 use Contest\Entry;
 use Contest\Http\Requests;
-use Contest\Http\Controllers\Controller;
-use Contest\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Routing;
+use Carbon\Carbon;
 
 class EntryController extends Controller
 {
@@ -33,9 +30,8 @@ class EntryController extends Controller
      */
     public function index()
     {
-        $id = \Auth::user()->id;
+        $id = \Auth::id();
         return redirect('entries/'.$id);
-        return view('entry.index');
 
     }
 
@@ -49,7 +45,7 @@ class EntryController extends Controller
         $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories);
         $monthSelector = array_merge(array('' => 'Pick a Month'), $this->months);
         $entry = new Entry();
-        $entrant = \Contest\User::find( \Auth::user()->id);
+        $entrant = \Contest\User::find( \Auth::id());
         $entry->author = $entrant->writingName;
         return view('entry.formpub', array('categories' => $categorySelector, 'monthlist' => $monthSelector, 'entry'=> $entry));
     }
@@ -64,14 +60,14 @@ class EntryController extends Controller
         //
         $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories);
         $entry = new Entry();
-        $entrant = \Contest\User::find( \Auth::user()->id);
+        $entrant = \Contest\User::find( \Auth::id());
         $entry->author = $entrant->writingName;
         return view('entry.formunpub', array('categories' => $categorySelector, 'entry'=> $entry));
     }
 
     public function addEntry($request)
     {
-        $id = Auth::user()->id;
+        $id = Auth::id();
         // redirect
         $entry = new Entry();
         $entry->published = $request->published;
@@ -79,8 +75,8 @@ class EntryController extends Controller
         $entry->author = $request->author;
         $entry->title = $request->title;
         $entry->category = $request->category;
-        $entry->dateOfEntry = \Carbon::now();
-        $entry->signed = $request->signed;
+        $entry->dateOfEntry = Carbon::now();
+        $entry->readRules = $request->readRules;
         $entry->invoiceNumber = $request->invoiceNumber;
         //$entry->dateOfEntry = $request->dateOfEntry;
         if ($request->published == false) {
@@ -93,11 +89,11 @@ class EntryController extends Controller
             $entry->publisher = $request->publisher;
             $entry->editor = $request->editor;
             $entry->publicationMonth = $request->publicationMonth;
+            $entry->enteredByPublisher = $request->enteredByPublisher;
         }
         $entry->save();
         header('Location: /entries/'.$id);
         exit;
-        return redirect('/entries/'.$id);
     }
 
     /**
@@ -128,7 +124,7 @@ class EntryController extends Controller
      */
     public function show($id)
     {
-        $entries = Entry::where('user_id','=',$id)->get();
+        $entries = \Contest\Entry::where('user_id','=',$id)->get();
         return view('entry.show',array('entries'=>$entries));
     }
 

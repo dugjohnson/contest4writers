@@ -14,13 +14,13 @@
 <div class="row">
     <div class="large-12 columns">
         <div class="panel">
-        <a href="/">
-            <h3>RWA® Mystery/Suspense Chapter presents</h3>
+            <a href="/">
+                <h3>RWA® Mystery/Suspense Chapter presents</h3>
 
-            <h1>The Daphne du Maurier Award</h1>
+                <h1>The Daphne du Maurier Award</h1>
 
-            <h2>FOR EXCELLENCE IN MYSTERY/SUSPENSE</h2>
-        </a>
+                <h2>FOR EXCELLENCE IN MYSTERY/SUSPENSE</h2>
+            </a>
         </div>
     </div>
 </div>
@@ -41,13 +41,17 @@
                 @if(Auth::check())
                     <li><a href="/entries/{!! Auth::user()->id !!}" class="button">Enter the Competition</a></li>
                     <li><a href="/judges/{!! Auth::user()->id !!}" class="button">Be a Judge</a></li>
-                    <li><a href="/coordinators/{!! Auth::user()->id !!}" class="button">Coordinators</a></li>
-                    <li><a href="/administrators/{!! Auth::user()->id !!}" class="button">Administrators</a></li>
+                    @if(false)
+                        <li><a href="/coordinators/{!! Auth::user()->id !!}" class="button">Coordinators</a></li>
+                        <li><a href="/administrators/{!! Auth::user()->id !!}" class="button">Administrators</a></li>
+                    @endif
                 @else
                     <li><a href="/entries" class="button">Enter the Competition</a></li>
                     <li><a href="/judges" class="button">Be a Judge</a></li>
-                    <li><a href="/coordinators" class="button">Coordinators</a></li>
-                    <li><a href="/administrators" class="button">Administrators</a></li>
+                    @if(false)
+                        <li><a href="/coordinators" class="button">Coordinators</a></li>
+                        <li><a href="/administrators" class="button">Administrators</a></li>
+                    @endif
                 @endif
             </ul>
         </div>

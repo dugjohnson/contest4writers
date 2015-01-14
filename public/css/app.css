@@ -30,15 +30,20 @@ body {
 .quote {
     font-size: 2em;
 }
+
 .banner {
     background-image: url("/img/main-banner.png");
     background-size: 100%;
     background-repeat: no-repeat;
 
 }
+
 .banner h1, .banner h2, .banner h3 {
     color: darkorange;
 
-    
+}
+
+ul.error li {
+    color: red;
 }
 

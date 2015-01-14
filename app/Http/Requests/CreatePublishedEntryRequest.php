@@ -1,7 +1,5 @@
 <?php namespace Contest\Http\Requests;
 
-use Contest\Http\Requests\Request;
-
 class CreatePublishedEntryRequest extends Request {
 
 	/**
@@ -25,7 +23,7 @@ class CreatePublishedEntryRequest extends Request {
 			'author' => 'required',
 			'title' => 'required',
 			'category' => 'required',
-			'signed' => 'required',
+			'readRules' => 'required',
 			'publisher' => 'required',
 			'editor' => 'required',
 			'publicationMonth' => 'required'

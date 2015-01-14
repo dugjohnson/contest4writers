@@ -1,19 +1,13 @@
 @extends('layout-nonav')
 
 @section('content')
-    @if ($errors->any())
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{!! $error !!}</li>
-            @endforeach
-        </ul>
-    @endif
+    @include('errors')
     {!! Form::open()  !!}
     {!! Form::hidden('published',true) !!}
     <!-- Entered By Publisher Form Input -->
     <div class="form-group">
-        {!! Form::label('enteredByPublisher', 'Entered By Publisher:') !!}
-        {!! Form::checkbox('enteredByPublisher',null, ['class' => 'form-control']) !!}
+        {!! Form::label('enteredByPublisher', 'Entered By Publisher (not Author):') !!}
+        {!! Form::checkbox('enteredByPublisher',true, ['class' => 'form-control']) !!}
     </div>
     <!-- Author Name Form Input -->
     <div class="form-group">
