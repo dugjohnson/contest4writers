@@ -38,20 +38,11 @@
         </div>
         <div class="nav-bar">
             <ul class="button-group">
-                @if(Auth::check())
-                    <li><a href="/entries/{!! Auth::user()->id !!}" class="button">Enter the Competition</a></li>
-                    <li><a href="/judges/{!! Auth::user()->id !!}" class="button">Be a Judge</a></li>
-                    @if(false)
-                        <li><a href="/coordinators/{!! Auth::user()->id !!}" class="button">Coordinators</a></li>
-                        <li><a href="/administrators/{!! Auth::user()->id !!}" class="button">Administrators</a></li>
-                    @endif
-                @else
-                    <li><a href="/entries" class="button">Enter the Competition</a></li>
-                    <li><a href="/judges" class="button">Be a Judge</a></li>
-                    @if(false)
-                        <li><a href="/coordinators" class="button">Coordinators</a></li>
-                        <li><a href="/administrators" class="button">Administrators</a></li>
-                    @endif
+                <li><a href="/entries" class="button">Enter the Competition</a></li>
+                <li><a href="/judges" class="button">Be a Judge</a></li>
+                @if(false)
+                    <li><a href="/coordinators" class="button">Coordinators</a></li>
+                    <li><a href="/administrators" class="button">Administrators</a></li>
                 @endif
             </ul>
         </div>

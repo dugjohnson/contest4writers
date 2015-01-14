@@ -12,7 +12,7 @@ class EntryController extends Controller
 
     public $categories = ['CA' => 'Category', 'HI' => 'Historical', 'IN' => 'Inspirational', 'MA' => 'Mainstream', 'PA' => 'Paranormal', 'ST' => 'Single Title',];
     public $months = ['01/14' => '01/14', '02/14' => '02/14', '03/14' => '03/14', '04/14' => '04/14', '05/14' => '05/14', '06/14' => '06/14', '07/14' => '07/14', '08/14' => '08/14', '09/14' => '09/14', '10/14' => '10/14', '11/14' => '11/14', '12/14' => '12/14'];
-
+    public $entrantID;
     /**
      * Create a new controller instance.
      *
@@ -21,6 +21,7 @@ class EntryController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->entrantID = \Auth::id();
     }
 
     /**
@@ -30,8 +31,10 @@ class EntryController extends Controller
      */
     public function index()
     {
-        $id = \Auth::id();
-        return redirect('entries/'.$id);
+        $entries = \Contest\Entry::where('user_id','=',$this->entrantID)->get();
+        return view('entry.index',array('entries'=>$entries));
+
+        return redirect('entries/'.$this->entrantID);
 
     }
 
@@ -45,9 +48,9 @@ class EntryController extends Controller
         $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories);
         $monthSelector = array_merge(array('' => 'Pick a Month'), $this->months);
         $entry = new Entry();
-        $entrant = \Contest\User::find( \Auth::id());
+        $entrant = \Contest\User::find($this->entrantID);
         $entry->author = $entrant->writingName;
-        return view('entry.formpub', array('categories' => $categorySelector, 'monthlist' => $monthSelector, 'entry'=> $entry));
+        return view('entry.createpub', array('categories' => $categorySelector, 'monthlist' => $monthSelector, 'entry'=> $entry));
     }
 
     /**
@@ -60,9 +63,9 @@ class EntryController extends Controller
         //
         $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories);
         $entry = new Entry();
-        $entrant = \Contest\User::find( \Auth::id());
+        $entrant = \Contest\User::find( $this->entrantID );
         $entry->author = $entrant->writingName;
-        return view('entry.formunpub', array('categories' => $categorySelector, 'entry'=> $entry));
+        return view('entry.createunpub', array('categories' => $categorySelector, 'entry'=> $entry));
     }
 
     public function addEntry($request)
@@ -71,7 +74,7 @@ class EntryController extends Controller
         // redirect
         $entry = new Entry();
         $entry->published = $request->published;
-        $entry->user_id = $id;
+        $entry->user_id = $this->entrantID;
         $entry->author = $request->author;
         $entry->title = $request->title;
         $entry->category = $request->category;
@@ -92,7 +95,7 @@ class EntryController extends Controller
             $entry->enteredByPublisher = $request->enteredByPublisher;
         }
         $entry->save();
-        header('Location: /entries/'.$id);
+        header('Location: /entries');
         exit;
     }
 
@@ -124,8 +127,13 @@ class EntryController extends Controller
      */
     public function show($id)
     {
-        $entries = \Contest\Entry::where('user_id','=',$id)->get();
-        return view('entry.show',array('entries'=>$entries));
+        $entry = Entry::find($id);
+        if ($entry->published){
+            return view('entry.showpub',array('categories' => $this->categories, 'monthlist' => $this->months, 'entry'=> $entry));
+        } else {
+            return view('entry.showunpub',array('categories' => $this->categories, 'monthlist' => $this->months, 'entry'=> $entry));
+        }
+
     }
 
     /**
@@ -136,7 +144,12 @@ class EntryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $entry = Entry::find($id);
+        if ($entry->published){
+            return view('entry.editpub',array('categories' => $this->categories, 'monthlist' => $this->months, 'entry'=> $entry));
+        } else {
+            return view('entry.editunpub',array('categories' => $this->categories, 'monthlist' => $this->months, 'entry'=> $entry));
+        }
     }
 
     /**
@@ -145,9 +158,25 @@ class EntryController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, Requests\EditEntryRequest $request)
     {
-        //
+        $entry = Entry::find($id);
+        $entry->published = $request->published;
+        $entry->author = $request->author;
+        $entry->title = $request->title;
+        $entry->category = $request->category;
+        $entry->invoiceNumber = $request->invoiceNumber;
+        //$entry->dateOfEntry = $request->dateOfEntry;
+        if ($request->published == true) {
+            $entry->publisher = $request->publisher;
+            $entry->editor = $request->editor;
+            $entry->publicationMonth = $request->publicationMonth;
+            $entry->enteredByPublisher = $request->enteredByPublisher;
+        }
+        $entry->save();
+        header('Location: /entries');
+        exit;
+
     }
 
 }

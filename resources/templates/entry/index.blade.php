@@ -6,7 +6,23 @@
         <li><a href="/entries/create/pub" class="button">Create Published Entry</a></li>
         <li><a href="/entries/create/unpub" class="button">Create Unpublished Entry</a></li>
     </ul>
-    
-    <div class="panel"><p>You will be asked to log in when you choose to make an entry. If you haven't registered yet, you should do that first.</p></div>
 
+    <table>
+        <thead>
+        <tr>
+            <td>Title</td>
+            <td>Author</td>
+            <td>Action</td>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($entries as $entry)
+        <tr>
+            <td>{{ $entry->title }}</td>
+            <td>{{ $entry->author }}</td>
+            <td><a href="/entries/{{ $entry->id }}">Show</a> / <a href="/entries/{{ $entry->id }}/edit">Edit</a> </td>
+        </tr>
+        @endforeach
+        </tbody>
+    </table>
 @stop
