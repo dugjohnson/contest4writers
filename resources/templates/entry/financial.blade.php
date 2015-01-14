@@ -8,7 +8,10 @@
         invoice and entry numbers on your payment.</p>
 
     <p> Entries without completed entry form and payment will not be judged.</p>
-
-    <p>Entry Fee: $15 for KOD members; $30 non-KOD members.</p>
+    @if($entry->published)
+        <p>Entry Fee: $30</p>
+    @else
+        <p>Entry Fee: $15 for KOD members; $30 non-KOD members.</p>
+    @endif
     <a class="tiny button" href="http://www.rwa.org/e/in/eid=297" target="_blank">Go to myRWA</a>
 </div>

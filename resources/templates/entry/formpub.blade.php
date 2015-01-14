@@ -1,7 +1,8 @@
 <!-- Entered By Publisher Form Input -->
 <div class="form-group">
-    {!! Form::label('enteredByPublisher', 'Entered By Publisher (not Author):') !!}
-    {!! Form::checkbox('enteredByPublisher',true, ['class' => 'form-control']) !!}
+    {!! Form::hidden('enteredByPublisher', true, ['class' => 'form-control']) !!}
+    <label>{!! Form::checkbox('enteredByPublisher', null, false, ['class' => 'form-control']) !!}
+        &nbsp; &nbsp;Entered By Publisher (not Author)</label>
 </div>
 <!-- Author Name Form Input -->
 <div class="form-group">

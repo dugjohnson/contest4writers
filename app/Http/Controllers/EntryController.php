@@ -13,6 +13,7 @@ class EntryController extends Controller
     public $categories = ['CA' => 'Category', 'HI' => 'Historical', 'IN' => 'Inspirational', 'MA' => 'Mainstream', 'PA' => 'Paranormal', 'ST' => 'Single Title',];
     public $months = ['01/14' => '01/14', '02/14' => '02/14', '03/14' => '03/14', '04/14' => '04/14', '05/14' => '05/14', '06/14' => '06/14', '07/14' => '07/14', '08/14' => '08/14', '09/14' => '09/14', '10/14' => '10/14', '11/14' => '11/14', '12/14' => '12/14'];
     public $entrantID;
+
     /**
      * Create a new controller instance.
      *
@@ -31,10 +32,10 @@ class EntryController extends Controller
      */
     public function index()
     {
-        $entries = \Contest\Entry::where('user_id','=',$this->entrantID)->get();
-        return view('entry.index',array('entries'=>$entries));
+        $entries = \Contest\Entry::where('user_id', '=', $this->entrantID)->get();
+        return view('entry.index', array('entries' => $entries));
 
-        return redirect('entries/'.$this->entrantID);
+        return redirect('entries/' . $this->entrantID);
 
     }
 
@@ -50,7 +51,8 @@ class EntryController extends Controller
         $entry = new Entry();
         $entrant = \Contest\User::find($this->entrantID);
         $entry->author = $entrant->writingName;
-        return view('entry.createpub', array('categories' => $categorySelector, 'monthlist' => $monthSelector, 'entry'=> $entry));
+        $entry->published = true;
+        return view('entry.createpub', array('categories' => $categorySelector, 'monthlist' => $monthSelector, 'entry' => $entry));
     }
 
     /**
@@ -63,9 +65,10 @@ class EntryController extends Controller
         //
         $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories);
         $entry = new Entry();
-        $entrant = \Contest\User::find( $this->entrantID );
+        $entrant = \Contest\User::find($this->entrantID);
         $entry->author = $entrant->writingName;
-        return view('entry.createunpub', array('categories' => $categorySelector, 'entry'=> $entry));
+        $entry->published = false;
+        return view('entry.createunpub', array('categories' => $categorySelector, 'entry' => $entry));
     }
 
     public function addEntry($request)
@@ -128,10 +131,10 @@ class EntryController extends Controller
     public function show($id)
     {
         $entry = Entry::find($id);
-        if ($entry->published){
-            return view('entry.showpub',array('categories' => $this->categories, 'monthlist' => $this->months, 'entry'=> $entry));
+        if ($entry->published) {
+            return view('entry.showpub', array('categories' => $this->categories, 'monthlist' => $this->months, 'entry' => $entry));
         } else {
-            return view('entry.showunpub',array('categories' => $this->categories, 'monthlist' => $this->months, 'entry'=> $entry));
+            return view('entry.showunpub', array('categories' => $this->categories, 'monthlist' => $this->months, 'entry' => $entry));
         }
 
     }
@@ -145,10 +148,10 @@ class EntryController extends Controller
     public function edit($id)
     {
         $entry = Entry::find($id);
-        if ($entry->published){
-            return view('entry.editpub',array('categories' => $this->categories, 'monthlist' => $this->months, 'entry'=> $entry));
+        if ($entry->published) {
+            return view('entry.editpub', array('categories' => $this->categories, 'monthlist' => $this->months, 'entry' => $entry));
         } else {
-            return view('entry.editunpub',array('categories' => $this->categories, 'monthlist' => $this->months, 'entry'=> $entry));
+            return view('entry.editunpub', array('categories' => $this->categories, 'monthlist' => $this->months, 'entry' => $entry));
         }
     }
 
@@ -171,12 +174,14 @@ class EntryController extends Controller
             $entry->publisher = $request->publisher;
             $entry->editor = $request->editor;
             $entry->publicationMonth = $request->publicationMonth;
-            $entry->enteredByPublisher = $request->enteredByPublisher;
+            if (isset($request->enteredByPublisher)) {
+                $entry->enteredByPublisher = $request->enteredByPublisher;
+            } else {
+                $entry->enteredByPublisher = false;
+            }
         }
         $entry->save();
         header('Location: /entries');
         exit;
-
     }
-
 }
