@@ -5,13 +5,16 @@ use Contest\Http\Requests;
 use Contest\Http\Controllers\Controller;
 use Contest\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Routing;
 
 class EntryController extends Controller
 {
 
     public $categories = ['CA' => 'Category', 'HI' => 'Historical', 'IN' => 'Inspirational', 'MA' => 'Mainstream', 'PA' => 'Paranormal', 'ST' => 'Single Title',];
-    public $months = ['01/14'=>'01/14', '02/14'=>'02/14', '03/14'=>'03/14', '04/14'=>'04/14', '05/14'=>'05/14', '06/14'=>'06/14', '07/14'=>'07/14', '08/14'=>'08/14', '09/14'=>'09/14', '10/14'=>'10/14', '11/14'=>'11/14', '12/14'=>'12/14' ];
+    public $months = ['01/14' => '01/14', '02/14' => '02/14', '03/14' => '03/14', '04/14' => '04/14', '05/14' => '05/14', '06/14' => '06/14', '07/14' => '07/14', '08/14' => '08/14', '09/14' => '09/14', '10/14' => '10/14', '11/14' => '11/14', '12/14' => '12/14'];
+
     /**
      * Create a new controller instance.
      *
@@ -29,6 +32,8 @@ class EntryController extends Controller
      */
     public function index()
     {
+        $id = \Auth::user()->id;
+        return redirect('entries/'.$id);
         return view('entry.index');
 
     }
@@ -58,7 +63,7 @@ class EntryController extends Controller
         return view('entry.createunpub', array('categories' => $categorySelector));
     }
 
-    public function addEntry(Request  $request)
+    public function addEntry($request)
     {
         $id = Auth::user()->id;
         // redirect
@@ -75,16 +80,16 @@ class EntryController extends Controller
             // $entry->filename = $request->filename;
             $entry->filename = 'Deal with upload';
 
-            
+
         } else {
             $entry->publisher = $request->publisher;
             $entry->editor = $request->editor;
             $entry->publicationMonth = $request->publicationMonth;
         }
         $entry->save();
-        Session::flash('message', 'Successfully added Entry!');
-        return redirect('entries/' . $id);
-
+        header('Location: /entries/'.$id);
+        exit;
+        return redirect('/entries/'.$id);
     }
 
     /**
@@ -94,9 +99,9 @@ class EntryController extends Controller
      */
     public function storePub(Requests\CreatePublishedEntryRequest $request)
     {
-       $this->addEntry($request);
+        $this->addEntry($request);
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -115,7 +120,8 @@ class EntryController extends Controller
      */
     public function show($id)
     {
-        //
+        $entries = Entry::where('user_id','=',$id)->get();
+        return view('entry.show',array('entries'=>$entries));
     }
 
     /**

@@ -14,11 +14,13 @@
 <div class="row">
     <div class="large-12 columns">
         <div class="panel">
+        <a href="/">
             <h3>RWA® Mystery/Suspense Chapter presents</h3>
 
             <h1>The Daphne du Maurier Award</h1>
 
             <h2>FOR EXCELLENCE IN MYSTERY/SUSPENSE</h2>
+        </a>
         </div>
     </div>
 </div>
@@ -36,10 +38,17 @@
         </div>
         <div class="nav-bar">
             <ul class="button-group">
-                <li><a href="/entries" class="button">Enter the Competition</a></li>
-                <li><a href="/judges" class="button">Be a Judge</a></li>
-                <li><a href="/coordinators" class="button">Coordinators</a></li>
-                <li><a href="/administrators" class="button">Administrators</a></li>
+                @if(Auth::check())
+                    <li><a href="/entries/{!! Auth::user()->id !!}" class="button">Enter the Competition</a></li>
+                    <li><a href="/judges/{!! Auth::user()->id !!}" class="button">Be a Judge</a></li>
+                    <li><a href="/coordinators/{!! Auth::user()->id !!}" class="button">Coordinators</a></li>
+                    <li><a href="/administrators/{!! Auth::user()->id !!}" class="button">Administrators</a></li>
+                @else
+                    <li><a href="/entries" class="button">Enter the Competition</a></li>
+                    <li><a href="/judges" class="button">Be a Judge</a></li>
+                    <li><a href="/coordinators" class="button">Coordinators</a></li>
+                    <li><a href="/administrators" class="button">Administrators</a></li>
+                @endif
             </ul>
         </div>
         <hr/>
@@ -77,21 +86,21 @@
     <div class="large-12 columns">
         <hr/>
         <div class="row">
-        <div class="large-12 columns container quote">{{ Inspiring::quote() }}</div>
+            <div class="large-12 columns container quote">{{ Inspiring::quote() }}</div>
         </div>
         <div class="row">
             <div class="large-6 columns">
                 <p>©2015 Kiss of Death/RWA Mystery/Romantic Suspense Chapter 144</p>
             </div>
-<!--            <div class="large-6 columns">
-                <ul class="inline-list right">
-                    <li><a href="#">Enter</a></li>
-                    <li><a href="#">Judge</a></li>
-                    <li><a href="#">Coordinate</a></li>
-                    <li><a href="#">Administer</a></li>
-                </ul>
-            </div>
--->
+            <!--            <div class="large-6 columns">
+                            <ul class="inline-list right">
+                                <li><a href="#">Enter</a></li>
+                                <li><a href="#">Judge</a></li>
+                                <li><a href="#">Coordinate</a></li>
+                                <li><a href="#">Administer</a></li>
+                            </ul>
+                        </div>
+            -->
         </div>
     </div>
 </footer>

@@ -17,8 +17,8 @@ Route::get('home', 'HomeController@index');
 
 Route::get('entries/create/pub','EntryController@createPub');
 Route::get('entries/create/unpub','EntryController@createUnpub');
-Route::any('entries/storepub','EntryController@storePub');
-Route::any('entries/storeunpub','EntryController@storeUnpub');
+Route::post('entries/create/pub','EntryController@storePub');
+Route::post('entries/create/unpub','EntryController@storeUnpub');
 
 Route::resource('judges','JudgeController');
 Route::resource('entries','EntryController');

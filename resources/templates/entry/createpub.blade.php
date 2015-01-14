@@ -8,7 +8,7 @@
             @endforeach
         </ul>
     @endif
-    {!! Form::open(array('url' => 'entries/storepub','method' => 'POST'))  !!}
+    {!! Form::open()  !!}
     {!! Form::hidden('published',true) !!}
     <!-- Author Name Form Input -->
     <div class="form-group">
