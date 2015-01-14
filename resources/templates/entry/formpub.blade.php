@@ -10,47 +10,45 @@
     @endif
     {!! Form::open()  !!}
     {!! Form::hidden('published',true) !!}
+    <!-- Entered By Publisher Form Input -->
+    <div class="form-group">
+        {!! Form::label('enteredByPublisher', 'Entered By Publisher:') !!}
+        {!! Form::checkbox('enteredByPublisher',null, ['class' => 'form-control']) !!}
+    </div>
     <!-- Author Name Form Input -->
     <div class="form-group">
         {!! Form::label('author', 'Author Name:') !!}
-        {!! Form::text('author',null, ['class' => 'form-control']) !!}
+        {!! Form::text('author',$entry->author, ['class' => 'form-control']) !!}
     </div>
     <!-- Title Form Input -->
     <div class="form-group">
         {!! Form::label('title', 'Title:') !!}
-        {!! Form::text('title',null, ['class' => 'form-control']) !!}
+        {!! Form::text('title',$entry->title, ['class' => 'form-control']) !!}
     </div>
     <!-- Category Form Input -->
     <div class="form-group">
         {!! Form::label('category', 'Category:') !!}
-        {!! Form::select('category', $categories , null , ['class' => 'form-control']) !!}
+        {!! Form::select('category', $categories , $entry->category , ['class' => 'form-control']) !!}
     </div>
     <!-- Publisher Form Input -->
     <div class="form-group">
         {!! Form::label('publisher', 'Publisher:') !!}
-        {!! Form::text('publisher',null, ['class' => 'form-control']) !!}
+        {!! Form::text('publisher',$entry->publisher, ['class' => 'form-control']) !!}
     </div>
     <!-- Editor Form Input -->
     <div class="form-group">
         {!! Form::label('editor', 'Editor:') !!}
-        {!! Form::text('editor',null, ['class' => 'form-control']) !!}
+        {!! Form::text('editor',$entry->editor, ['class' => 'form-control']) !!}
     </div>
     <!-- Publication Month Form Input -->
     <div class="form-group">
         {!! Form::label('publicationMonth', 'Publication or Release Month (see rules):') !!}
-        {!! Form::select('publicationMonth',$monthlist,null, ['class' => 'form-control']) !!}
-    </div>
-    <!-- Signed Form Input -->
-    <div class="form-group">
-        {!! Form::label('signed', 'Signed (type your name):') !!}
-        {!! Form::text('signed',null, ['class' => 'form-control']) !!}
+        {!! Form::select('publicationMonth', $monthlist, $entry->publicationMonth, ['class' => 'form-control']) !!}
     </div>
     <!-- Invoice Number Form Input -->
     <div class="form-group">
         {!! Form::label('invoiceNumber', 'Invoice Number:') !!}
-        {!! Form::text('invoiceNumber',null, ['class' => 'form-control']) !!}
+        {!! Form::text('invoiceNumber',$entry->invoiceNumber, ['class' => 'form-control']) !!}
     </div>
-
-    {!! Form::submit('Submit!') !!}
-    {!! Form::close() !!}
+    @include('entry.bottom')
 @stop

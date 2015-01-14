@@ -5,6 +5,7 @@ use Contest\Http\Requests;
 use Contest\Http\Controllers\Controller;
 use Contest\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Routing;
@@ -45,10 +46,12 @@ class EntryController extends Controller
      */
     public function createPub()
     {
-        //
         $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories);
         $monthSelector = array_merge(array('' => 'Pick a Month'), $this->months);
-        return view('entry.createpub', array('categories' => $categorySelector, 'monthlist' => $monthSelector));
+        $entry = new Entry();
+        $entrant = \Contest\User::find( \Auth::user()->id);
+        $entry->author = $entrant->writingName;
+        return view('entry.formpub', array('categories' => $categorySelector, 'monthlist' => $monthSelector, 'entry'=> $entry));
     }
 
     /**
@@ -60,7 +63,10 @@ class EntryController extends Controller
     {
         //
         $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories);
-        return view('entry.createunpub', array('categories' => $categorySelector));
+        $entry = new Entry();
+        $entrant = \Contest\User::find( \Auth::user()->id);
+        $entry->author = $entrant->writingName;
+        return view('entry.formunpub', array('categories' => $categorySelector, 'entry'=> $entry));
     }
 
     public function addEntry($request)
@@ -73,7 +79,9 @@ class EntryController extends Controller
         $entry->author = $request->author;
         $entry->title = $request->title;
         $entry->category = $request->category;
+        $entry->dateOfEntry = \Carbon::now();
         $entry->signed = $request->signed;
+        $entry->invoiceNumber = $request->invoiceNumber;
         //$entry->dateOfEntry = $request->dateOfEntry;
         if ($request->published == false) {
             //deal with upload
