@@ -13,5 +13,4 @@
     @else
         <p>Entry Fee: $15 for KOD members; $30 non-KOD members.</p>
     @endif
-    <a class="tiny button radius" href="http://www.rwa.org/e/in/eid=297" target="_blank">Go to myRWA</a>
 </div>

@@ -32,6 +32,9 @@
     <div panel radius>
     <p>For multiple entries you can make one RWA invoice using the same invoice number to complete your entries. Please
         edit each entry when you are finished to input the invoice number. Each entry will generate an individual confirmation email.</p>
+        <a class="button radius" href="http://www.rwa.org/publisheddaphne" target="_blank">Click to go to myRWA UNPUBLISHED www.rwa.org/unpublisheddaphne</a>
+        <a class="button radius" href="http://www.rwa.org/publisheddaphne" target="_blank">Click to go to myRWA PUBLISHED www.rwa.org/publisheddaphne</a>
+
     </div>
 @stop
 
