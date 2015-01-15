@@ -6,7 +6,7 @@
     {!! Form::hidden('published',false) !!}
     @include('entry.formunpub')
     @include('entry.financial')
-    <a class="small button radius" href="http://www.rwa.org/publisheddaphne" target="_blank">Click to go to myRWA www.rwa.org/unpublisheddaphne</a>
+    <a class="small button radius" href="http://www.rwa.org/unpublisheddaphne" target="_blank">Click to go to myRWA www.rwa.org/unpublisheddaphne</a>
 
     @include('entry.readrules')
     <!-- Upload File Form Input -->
