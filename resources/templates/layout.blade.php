@@ -38,8 +38,8 @@
         </div>
         <div class="nav-bar">
             <ul class="button-group">
-                <li><a href="/entries" class="button radius">Enter the Competition</a></li>
-                <li><a href="/judges" class="button radius">Be a Judge</a></li>
+                <li><a href="/entries" class="button radius">Entries</a></li>
+                <li><a href="/judges" class="button radius">Judges</a></li>
                 @if(false)
                     <li><a href="/coordinators" class="button radius">Coordinators</a></li>
                     <li><a href="/administrators" class="button radius">Administrators</a></li>
@@ -60,19 +60,14 @@
         </div>
     </div>
 
-    <!--		<aside class="large-3 columns">
-
-                <h5>Categories</h5>
-                <ul class="side-nav">
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Code</a></li>
-                    <li><a href="#">Design</a></li>
-                    <li><a href="#">Fun</a></li>
-                    <li><a href="#">Weasels</a></li>
-                </ul>
+    		<aside class="large-3 columns">
+                <div class="row">
+                    <div class="content">
+                        @yield('sidebar','')
+                    </div>
+                </div>
 
             </aside>
-    -->
 
 
 </div>
