@@ -61,8 +61,8 @@
     </div>
     <!-- State Form Input -->
     <div class="form-group">
-        {!! Form::label('state', 'State:') !!}
-        {!! Form::text('state',$state, ['class' => 'form-control']) !!}
+        {!! Form::label('state', 'State (2 letter code):') !!}
+        {!! Form::text('state',$state, ['class' => 'form-control','maxlength'=>2]) !!}
     </div>
     <!-- Zip Form Input -->
     <div class="form-group">
