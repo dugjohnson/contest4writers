@@ -9,4 +9,10 @@
         agree to hold harmless the Mystery/Suspense Chapter #144 of the Romance Writers of America&reg;, the contest
         committee and contest judges for any and all disputes arising from this contest or from circumstances beyond
         their control.</p>
+    <!-- Title Form Input -->
+    <div class="form-group">
+        {!! Form::label('signed', 'Signed (type your name):') !!}
+        {!! Form::text('signed',$entry->signed, ['class' => 'form-control']) !!}
+    </div>
+
 </div>

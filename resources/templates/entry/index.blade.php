@@ -12,6 +12,7 @@
         <tr>
             <td>Title</td>
             <td>Author</td>
+            <td>Category</td>
             <td>Action</td>
         </tr>
         </thead>
@@ -20,6 +21,7 @@
             <tr>
                 <td>{{ $entry->title }}</td>
                 <td>{{ $entry->author }}</td>
+                <td>{{ $entry->category }}</td>
                 <td><a href="/entries/{{ $entry->id }}">Show</a> / <a href="/entries/{{ $entry->id }}/edit">Edit</a>
                 </td>
             </tr>
@@ -29,6 +31,7 @@
 @stop
 
 @section('sidebar')
+    @include('admin.contacts')
     <div panel radius>
         <p>For multiple entries you can make one RWA invoice using the same invoice number to complete your entries.
             Please
@@ -42,5 +45,6 @@
             You can confirm that your entry in the area to the left after you've entered it.</p>
 
     </div>
+    @include('admin.contacts')
 @stop
 

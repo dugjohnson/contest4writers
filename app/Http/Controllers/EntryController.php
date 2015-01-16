@@ -83,6 +83,7 @@ class EntryController extends Controller
         $entry->category = $request->category;
         $entry->dateOfEntry = Carbon::now();
         $entry->readRules = $request->readRules;
+        $entry->signed = $request->signed;
         $entry->invoiceNumber = $request->invoiceNumber;
         //$entry->dateOfEntry = $request->dateOfEntry;
         if ($request->published == false) {
