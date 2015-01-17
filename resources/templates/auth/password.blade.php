@@ -1,5 +1,10 @@
 @extends('layout')
 @section('content')
+    @if(Session::has('status'))
+        <div class="alert-box success">
+            {{ Session::get('status') }}
+        </div>
+    @endif
     {!! Form::open() !!}
     @if ($errors->any())
         <ul>

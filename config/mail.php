@@ -55,6 +55,7 @@ return [
 	*/
 
 	'from' => ['address' => 'no_reply@rwamysterysuspense.org', 'name' => 'Daphne Competition'],
+	'subject' => 'Email from the Daphne Competition',
 
 	/*
 	|--------------------------------------------------------------------------

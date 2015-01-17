@@ -74,6 +74,6 @@
         {!! Form::label('country', 'Country:') !!}
         {!! Form::text('country',$country, ['class' => 'form-control']) !!}
     </div>
-    {!! Form::submit('Submit!') !!}
+    {!! Form::submit('Submit!',['class'=>'button radius']) !!}
     {!! Form::close() !!}
 @stop

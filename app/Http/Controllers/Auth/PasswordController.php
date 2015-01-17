@@ -2,6 +2,8 @@
 
 use Contest\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Contracts\Auth\PasswordBroker;
+use Illuminate\Http\Request;
 
 class PasswordController extends Controller {
 
@@ -18,4 +20,23 @@ class PasswordController extends Controller {
 
 	use ResetsPasswords;
 
+	// overrides underlying function in ResetsPasswords to allow subject until I can figure out a better way
+	public function postEmail(Request $request)
+	{
+		$this->validate($request, ['email' => 'required']);
+
+		$response = $this->passwords->sendResetLink($request->only('email'), function($message)
+		{
+			$message->subject('Password Reset code from Daphne Competition');
+		});
+
+		switch ($response)
+		{
+			case PasswordBroker::RESET_LINK_SENT:
+				return redirect()->back()->with('status', trans($response));
+
+			case PasswordBroker::INVALID_USER:
+				return redirect()->back()->withErrors(['email' => trans($response)]);
+		}
+	}
 }

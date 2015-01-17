@@ -1,8 +1,8 @@
 @extends('layout')
 
 @section('content')
-    <p>First Name: {{ $firstName }}
-        Last Name: {{ $lastName }}</p>
+    <p>First Name: {{ $firstName }}<p>
+    <p>Last Name: {{ $lastName }}</p>
     <p>Writing/Author Name: {{ $writingName }}</p>
     <p>Email (Primary): {{ $email }}</p>
     <p>Email (Secondary): {{ $email2 }}</p>
@@ -14,6 +14,9 @@
     <p>State: {{ $state }}
     <p>Zip: {{ $zipCode }}</p>
     <p>Country: {{ $country }}</p>
-    <a href="/users/{{$id}}/edit">Edit Profile</a>
 
+@stop
+
+@section('sidebar')
+    <a class="button radius" href="/users/{{$id}}/edit">Edit Profile</a>
 @stop
