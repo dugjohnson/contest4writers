@@ -18,9 +18,4 @@ class PasswordController extends Controller {
 
 	use ResetsPasswords;
 
-	public function postReset(Request $request){
-		
-		
-	}
-
 }
