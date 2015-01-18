@@ -1,19 +1,23 @@
 <?php namespace Contest\Http\Controllers;
 
 use Contest\Entry;
+use Contest\Http\EntryHelper;
 use Contest\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Routing;
 use Carbon\Carbon;
 
+
 class EntryController extends Controller
 {
 
-    public $categories = ['CA' => 'Category', 'HI' => 'Historical', 'IN' => 'Inspirational', 'MA' => 'Mainstream', 'PA' => 'Paranormal', 'ST' => 'Single Title',];
     public $months = ['01/14' => '01/14', '02/14' => '02/14', '03/14' => '03/14', '04/14' => '04/14', '05/14' => '05/14', '06/14' => '06/14', '07/14' => '07/14', '08/14' => '08/14', '09/14' => '09/14', '10/14' => '10/14', '11/14' => '11/14', '12/14' => '12/14'];
     public $entrantID;
-
+    const LEAVE_OUT_CAPPED = true;
+    
+    use EntryHelper;
+    
     /**
      * Create a new controller instance.
      *
@@ -46,7 +50,7 @@ class EntryController extends Controller
      */
     public function createPub()
     {
-        $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories);
+        $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories(self::LEAVE_OUT_CAPPED));
         $monthSelector = array_merge(array('' => 'Pick a Month'), $this->months);
         $entry = new Entry();
         $entrant = \Contest\User::find($this->entrantID);
@@ -63,7 +67,7 @@ class EntryController extends Controller
     public function createUnpub()
     {
         //
-        $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories);
+        $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories(self::LEAVE_OUT_CAPPED));
         $entry = new Entry();
         $entrant = \Contest\User::find($this->entrantID);
         $entry->author = $entrant->writingName;
@@ -134,9 +138,9 @@ class EntryController extends Controller
     {
         $entry = Entry::find($id);
         if ($entry->published) {
-            return view('entry.showpub', array('categories' => $this->categories, 'monthlist' => $this->months, 'entry' => $entry));
+            return view('entry.showpub', array('categories' => $this->categories(), 'monthlist' => $this->months, 'entry' => $entry));
         } else {
-            return view('entry.showunpub', array('categories' => $this->categories, 'monthlist' => $this->months, 'entry' => $entry));
+            return view('entry.showunpub', array('categories' => $this->categories(), 'monthlist' => $this->months, 'entry' => $entry));
         }
 
     }
@@ -151,9 +155,9 @@ class EntryController extends Controller
     {
         $entry = Entry::find($id);
         if ($entry->published) {
-            return view('entry.editpub', array('categories' => $this->categories, 'monthlist' => $this->months, 'entry' => $entry));
+            return view('entry.editpub', array('categories' => $this->categories(self::LEAVE_OUT_CAPPED), 'monthlist' => $this->months, 'entry' => $entry));
         } else {
-            return view('entry.editunpub', array('categories' => $this->categories, 'monthlist' => $this->months, 'entry' => $entry));
+            return view('entry.editunpub', array('categories' => $this->categories(self::LEAVE_OUT_CAPPED), 'monthlist' => $this->months, 'entry' => $entry));
         }
     }
     protected function saveFile($request)
