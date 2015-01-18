@@ -12,7 +12,7 @@
 <P  >If any of this information is incorrect please visit <A  HREF="http://writingcontest.website/"><FONT COLOR="#0000ff"><U>http://writingcontest.website/</U></FONT></A></P>
 <P  >Sign in and click Edit Profile</P>
 
-@include('entry.infounpub')
+@include('entry.infopub')
 
 <P  >Entries without completed entry form and payment will not be judged.</P>
 
