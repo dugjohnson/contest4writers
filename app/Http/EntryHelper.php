@@ -45,7 +45,7 @@ trait EntryHelper
      */
     public function categoriesByCaps(&$categories = Array(), $showAboveCapacity = false)
     {
-        $categoryCounts = $this->getCategoriesCounts();
+        $categoryCounts = $this->getCategoryCounts();
         foreach ($categoryCounts as $categoryCount) {
             if ($this->categoryHasReachedCapacity($categoryCount) == (!$showAboveCapacity)) {
                 unset($categories[$categoryCount->category]);
@@ -64,14 +64,14 @@ trait EntryHelper
     public function categoryHasReachedCapacity($categoryCount)
     {
         $capacity = $this->categoryCapacity();
-        return ($categoryCount->categorycount > $capacity[$categoryCount->category][$this->getPublishedString($categoryCount->published)]);
+        return ($categoryCount->categorycount >= $capacity[$categoryCount->category][$this->getPublishedString($categoryCount->published)]);
 
     }
 
     /**
      *
      */
-    public function getCategoriesCounts()
+    public function getCategoryCounts()
     {
         return DB::table('entries')
             ->select(DB::raw('category, published, count(*) as categorycount'))

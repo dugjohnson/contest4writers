@@ -23,6 +23,7 @@ Route::post('entries/create/unpub','EntryController@storeUnpub');
 Route::resource('judges','JudgeController');
 Route::resource('entries','EntryController');
 Route::resource('users','UserController');
+Route::resource('reports','ReportsController');
 
 /*
 |--------------------------------------------------------------------------
