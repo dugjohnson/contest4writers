@@ -3,10 +3,15 @@
 namespace Contest\Http;
 
 
+use Contest\Http\Controllers\AdminHelper;
+use Contest\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 trait EntryHelper
 {
+
+    use AdminHelper;
     /**
      * @return array
      */
@@ -78,6 +83,25 @@ trait EntryHelper
             ->groupBy('category', 'published')
             ->get();
 
+    }
+    
+    public function sendConfirmation($entry){
+        $templateToUse = ($entry->published?'entry.emails.confirmpub':'entry.emails.confirmunpub');
+        $user = User::find($entry->user_id);
+        $ccEmails = Array();
+        $ccEmails[] = $this->getAdminEmail('JC');
+        $ccEmails[] = $this->getAdminEmail('OC');
+        $ccEmails[] = $this->getAdminEmail($entry->category,$entry->published);
+        $ccEmails[] = ['email'=>'doug@asknice.com','name'=>'Webmaster'];
+
+        Mail::send($templateToUse,array('user'=>$user,'entry'=>$entry),function($message) use ($entry,$user,$ccEmails) {
+           $message->to($user->email,$user->writingName)->subject('Daphne Update for '.$entry->title);
+            foreach($ccEmails as $email){
+                $message->cc($email['email'],$email['name']);
+            }
+
+        });
+        
     }
 
 }

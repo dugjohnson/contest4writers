@@ -8,71 +8,71 @@
             @endforeach
         </ul>
     @endif
-    {!! Form::open(['route' => ['users.update',$id], 'method' => 'PATCH']) !!}
+    {!! Form::open(['route' => ['users.update',$user->id], 'method' => 'PATCH']) !!}
     <!-- First Name Form Input -->
     <div class="form-group">
         {!! Form::label('firstName', 'First Name:') !!}
-        {!! Form::text('firstName',$firstName, ['class' => 'form-control']) !!}
+        {!! Form::text('firstName',$user->firstName, ['class' => 'form-control']) !!}
     </div>
     <!-- Last Name Form Input -->
     <div class="form-group">
         {!! Form::label('lastName', 'Last Name:') !!}
-        {!! Form::text('lastName',$lastName, ['class' => 'form-control']) !!}
+        {!! Form::text('lastName',$user->lastName, ['class' => 'form-control']) !!}
     </div>
     <!-- WritingName Form Input -->
     <div class="form-group">
         {!! Form::label('writingName', 'WritingName:') !!}
-        {!! Form::text('writingName',$writingName, ['class' => 'form-control']) !!}
+        {!! Form::text('writingName',$user->writingName, ['class' => 'form-control']) !!}
     </div>
     <!-- Email Primary Form Input -->
     <div class="form-group">
         {!! Form::label('email', 'Email (Primary):') !!}
-        {!! Form::text('email',$email, ['class' => 'form-control']) !!}
+        {!! Form::text('email',$user->email, ['class' => 'form-control']) !!}
     </div>
     <!-- Email2 Form Input -->
     <div class="form-group">
         {!! Form::label('email2', 'Email (Secondary):') !!}
-        {!! Form::text('email2',$email2, ['class' => 'form-control']) !!}
+        {!! Form::text('email2',$user->email2, ['class' => 'form-control']) !!}
     </div>
     <!-- Daytime Phone Form Input -->
     <div class="form-group">
         {!! Form::label('phone1', 'Daytime Phone:') !!}
-        {!! Form::text('phone1',$phone1, ['class' => 'form-control']) !!}
+        {!! Form::text('phone1',$user->phone1, ['class' => 'form-control']) !!}
     </div>
     <!-- Evening Phone Form Input -->
     <div class="form-group">
         {!! Form::label('phone2', 'Evening Phone:') !!}
-        {!! Form::text('phone2',$phone2, ['class' => 'form-control']) !!}
+        {!! Form::text('phone2',$user->phone2, ['class' => 'form-control']) !!}
     </div>
     <!-- Alternate Phone Form Input -->
     <div class="form-group">
         {!! Form::label('phone3', 'Alternate Phone:') !!}
-        {!! Form::text('phone3',$phone3, ['class' => 'form-control']) !!}
+        {!! Form::text('phone3',$user->phone3, ['class' => 'form-control']) !!}
     </div>
     <!-- Street Form Input -->
     <div class="form-group">
         {!! Form::label('street', 'Street:') !!}
-        {!! Form::text('street',$street, ['class' => 'form-control']) !!}
+        {!! Form::text('street',$user->street, ['class' => 'form-control']) !!}
     </div>
     <!-- City Form Input -->
     <div class="form-group">
         {!! Form::label('city', 'City:') !!}
-        {!! Form::text('city',$city, ['class' => 'form-control']) !!}
+        {!! Form::text('city',$user->city, ['class' => 'form-control']) !!}
     </div>
     <!-- State Form Input -->
     <div class="form-group">
         {!! Form::label('state', 'State (2 letter code):') !!}
-        {!! Form::text('state',$state, ['class' => 'form-control','maxlength'=>2]) !!}
+        {!! Form::text('state',$user->state, ['class' => 'form-control','maxlength'=>2]) !!}
     </div>
     <!-- Zip Form Input -->
     <div class="form-group">
         {!! Form::label('zipCode', 'Zip:') !!}
-        {!! Form::text('zipCode',$zipCode, ['class' => 'form-control']) !!}
+        {!! Form::text('zipCode',$user->zipCode, ['class' => 'form-control']) !!}
     </div>
     <!-- Country Form Input -->
     <div class="form-group">
         {!! Form::label('country', 'Country:') !!}
-        {!! Form::text('country',$country, ['class' => 'form-control']) !!}
+        {!! Form::text('country',$user->country, ['class' => 'form-control']) !!}
     </div>
     {!! Form::submit('Submit!',['class'=>'button radius']) !!}
     {!! Form::close() !!}

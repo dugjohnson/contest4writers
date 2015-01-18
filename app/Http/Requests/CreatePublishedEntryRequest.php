@@ -26,6 +26,7 @@ class CreatePublishedEntryRequest extends Request {
 			'readRules' => 'required',
 			'publisher' => 'required',
 			'editor' => 'required',
+			'signed' => 'required',
 			'publicationMonth' => 'required'
 		];
 	}

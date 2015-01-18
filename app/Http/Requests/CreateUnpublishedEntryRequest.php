@@ -24,6 +24,7 @@ class CreateUnpublishedEntryRequest extends Request {
 			'title' => 'required',
 			'category' => 'required',
 			'readRules' => 'required',
+			'signed' => 'required',
 			'filename' => 'required'
 		];
 	}

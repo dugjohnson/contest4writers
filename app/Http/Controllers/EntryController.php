@@ -104,6 +104,7 @@ class EntryController extends Controller
             $entry->enteredByPublisher = $request->enteredByPublisher;
         }
         $entry->save();
+        $this->sendConfirmation($entry);
         header('Location: /entries');
         exit;
     }
@@ -195,6 +196,8 @@ class EntryController extends Controller
             }
         }
         $entry->save();
+        $this->sendConfirmation($entry);
+
         header('Location: /entries');
         exit;
     }
