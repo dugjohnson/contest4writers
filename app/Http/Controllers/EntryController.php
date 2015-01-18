@@ -15,6 +15,8 @@ class EntryController extends Controller
     public $months = ['01/14' => '01/14', '02/14' => '02/14', '03/14' => '03/14', '04/14' => '04/14', '05/14' => '05/14', '06/14' => '06/14', '07/14' => '07/14', '08/14' => '08/14', '09/14' => '09/14', '10/14' => '10/14', '11/14' => '11/14', '12/14' => '12/14'];
     public $entrantID;
     const LEAVE_OUT_CAPPED = true;
+    const PUBLISHED = true;
+    const UNPUBLISHED = false;
     
     use EntryHelper;
     
@@ -50,7 +52,7 @@ class EntryController extends Controller
      */
     public function createPub()
     {
-        $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories(self::LEAVE_OUT_CAPPED));
+        $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories(self::LEAVE_OUT_CAPPED, self::PUBLISHED));
         $monthSelector = array_merge(array('' => 'Pick a Month'), $this->months);
         $entry = new Entry();
         $entrant = \Contest\User::find($this->entrantID);
@@ -67,7 +69,7 @@ class EntryController extends Controller
     public function createUnpub()
     {
         //
-        $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories(self::LEAVE_OUT_CAPPED));
+        $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories(self::LEAVE_OUT_CAPPED, self::UNPUBLISHED));
         $entry = new Entry();
         $entrant = \Contest\User::find($this->entrantID);
         $entry->author = $entrant->writingName;

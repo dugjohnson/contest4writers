@@ -30,11 +30,11 @@ trait EntryHelper
      * @param bool $leaveOutCapped
      * @return array|void
      */
-    public function categories($leaveOutCapped = false)
+    public function categories($leaveOutCapped = false,$published=null)
     {
         $categories = ['CA' => 'Category', 'HI' => 'Historical', 'IN' => 'Inspirational', 'MA' => 'Mainstream', 'PA' => 'Paranormal', 'ST' => 'Single Title',];
         if ($leaveOutCapped) {
-            $this->categoriesByCaps($categories);
+            $this->categoriesByCaps($categories,$published);
             if (empty($categories)) {
                 $categories = Array();
 
@@ -48,9 +48,9 @@ trait EntryHelper
      * @param array $categories
      * @param bool $showAboveCapacity - if false shows only those at or below capacity, if true shows only those above capacity
      */
-    public function categoriesByCaps(&$categories = Array(), $showAboveCapacity = false)
+    public function categoriesByCaps(&$categories, $published=null, $showAboveCapacity = false)
     {
-        $categoryCounts = $this->getCategoryCounts();
+        $categoryCounts = $this->getCategoryCounts($published);
         foreach ($categoryCounts as $categoryCount) {
             if ($this->categoryHasReachedCapacity($categoryCount) == (!$showAboveCapacity)) {
                 unset($categories[$categoryCount->category]);
@@ -76,12 +76,23 @@ trait EntryHelper
     /**
      *
      */
-    public function getCategoryCounts()
+    public function getCategoryCounts($published = null)
     {
-        return DB::table('entries')
-            ->select(DB::raw('category, published, count(*) as categorycount'))
-            ->groupBy('category', 'published')
-            ->get();
+        //todo: this could be tighter
+        if (is_null($published)){
+            return DB::table('entries')
+                ->select(DB::raw('category, published, count(*) as categorycount'))
+                ->groupBy('category', 'published')
+                ->get();
+
+        } else {
+            return DB::table('entries')
+                ->select(DB::raw('category, published, count(*) as categorycount'))
+                ->where('published','=',$published)
+                ->groupBy('category', 'published')
+                ->get();
+
+        }
 
     }
     
