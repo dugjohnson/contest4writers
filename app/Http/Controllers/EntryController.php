@@ -4,6 +4,7 @@ use Contest\Entry;
 use Contest\Http\EntryHelper;
 use Contest\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Routing;
 use Carbon\Carbon;
@@ -202,5 +203,17 @@ class EntryController extends Controller
 
         header('Location: /entries');
         exit;
+    }
+
+    public function sendold(){
+        if ($this->entrantID == 1) {
+            $oldEntries = DB::table('entries')
+                ->where('created_at', '<=', '2015-01-17')
+                ->get();
+            foreach ($oldEntries as $entry) {
+                $this->sendConfirmation($entry);
+            }
+        }
+        return redirect('home');
     }
 }
