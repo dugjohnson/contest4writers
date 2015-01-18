@@ -3,7 +3,7 @@
 <BODY>
 <P  ><B>RWA&reg;Mystery/Suspense Chapter presents</B></P>
 <P  ><B>The Daphne du Maurier Award</B></P>
-<P  ><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE UNPUBLISHED DIVISION 2015</B></P>
+<P  ><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE PUBLISHED DIVISION 2015</B></P>
 
 <P  >The following information has been submitted. However, your entry is not accepted until payment is received. See information below.</P>
 
