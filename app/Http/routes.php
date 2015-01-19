@@ -15,8 +15,6 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'WelcomeController@index');
 
-Route::get('doug/sendold', 'EntryController@sendold');
-
 Route::get('entries/create/pub','EntryController@createPub');
 Route::get('entries/create/unpub','EntryController@createUnpub');
 Route::post('entries/create/pub','EntryController@storePub');

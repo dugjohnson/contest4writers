@@ -204,16 +204,4 @@ class EntryController extends Controller
         header('Location: /entries');
         exit;
     }
-
-    public function sendold(){
-        if ($this->entrantID == 1) {
-            $oldEntries = DB::table('entries')
-                ->where('created_at', '<=', '2015-01-17')
-                ->get();
-            foreach ($oldEntries as $entry) {
-                $this->sendConfirmation($entry);
-            }
-        }
-        return redirect('home');
-    }
 }
