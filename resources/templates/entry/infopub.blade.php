@@ -1,4 +1,3 @@
-<p>Entered By Publisher (not Author):  {{$entry->enteredByPublisher?'Yes':'No'}}</p>
 <p>Author Name: {{$entry->author}}</p>
     <p>Title: {{$entry->title}}</p>
     <p>Category: {{$entry->category}}</p>

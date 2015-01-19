@@ -1,5 +1,6 @@
 <?php namespace Contest\Http\Controllers;
 
+use Contest\Entry;
 use Contest\Http\EntryHelper;
 use Contest\Http\Requests;
 use Contest\Http\Controllers\Controller;
@@ -31,7 +32,8 @@ class ReportsController extends Controller {
 			return redirect('home');
 		}
 		$categoryCounts = $this->getCategoryCounts();
-		return view('reports.index',['categoryCounts'=>$categoryCounts]);
+		$entries = Entry::all();
+		return view('reports.index',['categoryCounts'=>$categoryCounts,'entries'=>$entries->sortBy('title')]);
 	}
 
 	/**
