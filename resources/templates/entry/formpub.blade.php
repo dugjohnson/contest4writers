@@ -36,6 +36,6 @@
 </div>
 <!-- Invoice Number Form Input -->
 <div class="form-group">
-    {!! Form::label('invoiceNumber', 'Invoice Number:') !!}
-    {!! Form::text('invoiceNumber',$entry->invoiceNumber, ['class' => 'form-control']) !!}
+    {!! Form::label('invoiceNumber', 'Invoice Number (5 digits from myRWA):') !!}
+    {!! Form::text('invoiceNumber',$entry->invoiceNumber, ['class' => 'form-control','maxlength'=>'5']) !!}
 </div>
