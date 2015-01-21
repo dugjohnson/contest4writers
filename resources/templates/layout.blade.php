@@ -28,7 +28,7 @@
     <div class="large-12 columns">
         <div class="right">
             @if(Auth::check())
-                <a href="/users/{!! Auth::user()->id !!}" class="tiny button radius">Check Your Profile</a>
+                <a href="/users/{!! Auth::user()->id !!}" class="tiny button radius {!! (Auth::user()->hasFilledInProfile()?'':'alert') !!}">Check Your Profile</a>
                 <a href="/auth/logout" class="tiny button radius">Log Out</a>
             @else
                 <a href="/auth/login" class="tiny button radius">Log In</a>
