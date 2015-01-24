@@ -10,6 +10,7 @@
     <table>
         <thead>
         <tr>
+            <td>Entry #</td>
             <td>Title</td>
             <td>Author</td>
             <td>Category</td>
@@ -19,6 +20,7 @@
         <tbody>
         @foreach($entries as $entry)
             <tr>
+                <td>{{ $entry->id }}</td>
                 <td>{{ $entry->title }}</td>
                 <td>{{ $entry->author }}</td>
                 <td>{{ $entry->category }}</td>
