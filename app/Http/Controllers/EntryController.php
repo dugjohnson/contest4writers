@@ -97,8 +97,6 @@ class EntryController extends Controller
         $entry->invoiceNumber = $request->invoiceNumber;
         $entry->author2 = $request->author2;
         $entry->author2Email = $request->author2Email;
-        $entry->author2firstName = $request->author2firstName;
-        $entry->author2lastName = $request->author2lastName;
 
         //$entry->dateOfEntry = $request->dateOfEntry;
         if ($request->published == false) {
@@ -209,8 +207,6 @@ class EntryController extends Controller
         $entry->authorEmail = $request->authorEmail;
         $entry->author2 = $request->author2;
         $entry->author2Email = $request->author2Email;
-        $entry->author2firstName = $request->author2firstName;
-        $entry->author2lastName = $request->author2lastName;
 
         $entry->save();
         $this->sendConfirmation($entry);

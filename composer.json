@@ -7,13 +7,13 @@
 	"require": {
 		"laravel/framework": "~5.0",
 	  	"illuminate/html": "5.0.*@dev",
-	  	"guzzlehttp/guzzle": "~4.0"
+	  	"guzzlehttp/guzzle": "~4.0",
+  	    "barryvdh/laravel-ide-helper": "~1.11@dev"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",
 		"phpspec/phpspec": "~2.1",
-	    "way/generators": "~3.0",
-		"barryvdh/laravel-ide-helper": "~1.11@dev"
+	    "way/generators": "~3.0"
 	},
 	"autoload": {
 		"classmap": [

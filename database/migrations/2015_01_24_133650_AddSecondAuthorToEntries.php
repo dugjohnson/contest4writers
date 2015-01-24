@@ -17,8 +17,6 @@ class AddSecondAuthorToEntries extends Migration {
 			//
 			$table->text('authorEmail');
 			$table->text('author2');
-			$table->text('author2firstName');
-			$table->text('author2lastName');
 			$table->text('author2Email');
 			
 		});
@@ -36,8 +34,6 @@ class AddSecondAuthorToEntries extends Migration {
 		{
 			$table->dropColumn('authorEmail');
 			$table->dropColumn('author2');
-			$table->dropColumn('author2firstName');
-			$table->dropColumn('author2lastName');
 			$table->dropColumn('author2Email');
 			//
 		});
