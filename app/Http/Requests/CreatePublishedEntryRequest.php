@@ -21,6 +21,8 @@ class CreatePublishedEntryRequest extends Request {
 	{
 		return [
 			'author' => 'required',
+			'email'  => 'required|email',
+			'email2'  => 'email',
 			'title' => 'required',
 			'category' => 'required',
 			'readRules' => 'required',

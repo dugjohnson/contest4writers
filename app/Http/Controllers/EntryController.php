@@ -58,6 +58,7 @@ class EntryController extends Controller
         $entry = new Entry();
         $entrant = \Contest\User::find($this->entrantID);
         $entry->author = $entrant->writingName;
+        $entry->authorEmail = $entrant->email;
         $entry->published = true;
         return view('entry.createpub', array('categories' => $categorySelector, 'monthlist' => $monthSelector, 'entry' => $entry));
     }
@@ -74,6 +75,7 @@ class EntryController extends Controller
         $entry = new Entry();
         $entrant = \Contest\User::find($this->entrantID);
         $entry->author = $entrant->writingName;
+        $entry->authorEmail = $entrant->email;
         $entry->published = false;
         return view('entry.createunpub', array('categories' => $categorySelector, 'entry' => $entry));
     }
@@ -86,12 +88,18 @@ class EntryController extends Controller
         $entry->published = $request->published;
         $entry->user_id = $this->entrantID;
         $entry->author = $request->author;
+        $entry->authorEmail = $request->authorEmail;
         $entry->title = $request->title;
         $entry->category = $request->category;
         $entry->dateOfEntry = Carbon::now();
         $entry->readRules = $request->readRules;
         $entry->signed = $request->signed;
         $entry->invoiceNumber = $request->invoiceNumber;
+        $entry->author2 = $request->author2;
+        $entry->author2Email = $request->author2Email;
+        $entry->author2firstName = $request->author2firstName;
+        $entry->author2lastName = $request->author2lastName;
+
         //$entry->dateOfEntry = $request->dateOfEntry;
         if ($request->published == false) {
             //deal with upload
@@ -198,6 +206,12 @@ class EntryController extends Controller
                 $entry->enteredByPublisher = false;
             }
         }
+        $entry->authorEmail = $request->authorEmail;
+        $entry->author2 = $request->author2;
+        $entry->author2Email = $request->author2Email;
+        $entry->author2firstName = $request->author2firstName;
+        $entry->author2lastName = $request->author2lastName;
+
         $entry->save();
         $this->sendConfirmation($entry);
 
