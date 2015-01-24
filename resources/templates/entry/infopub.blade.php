@@ -7,7 +7,3 @@
 <p>Editor: {{$entry->editor}}</p>
 <p>Publication or Release Month (see rules): {{$entry->publicationMonth}}</p>
 <p>Invoice Number: {{$entry->invoiceNumber}}</p>
-@if ($entry->author2)
-    <p>Author 2 Writing Name: {{$entry->author2}}</p>
-    <p>Author 2 Email: {{$entry->author2Email}}</p>
-@endif

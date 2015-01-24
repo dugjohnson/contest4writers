@@ -18,9 +18,9 @@ class EntryController extends Controller
     const LEAVE_OUT_CAPPED = true;
     const PUBLISHED = true;
     const UNPUBLISHED = false;
-    
+
     use EntryHelper;
-    
+
     /**
      * Create a new controller instance.
      *
@@ -95,16 +95,15 @@ class EntryController extends Controller
         $entry->readRules = $request->readRules;
         $entry->signed = $request->signed;
         $entry->invoiceNumber = $request->invoiceNumber;
-        $entry->author2 = $request->author2;
-        $entry->author2Email = $request->author2Email;
 
         //$entry->dateOfEntry = $request->dateOfEntry;
         if ($request->published == false) {
             //deal with upload
             // $entry->filename = $request->filename;
-            if ($request->hasFile('filename')){
+            $entry->author2 = $request->author2;
+            $entry->author2Email = $request->author2Email;
+            if ($request->hasFile('filename')) {
                 $entry->filename = $this->saveFile($request);
-
             }
         } else {
             $entry->publisher = $request->publisher;
@@ -170,15 +169,17 @@ class EntryController extends Controller
             return view('entry.editunpub', array('categories' => $this->categories(self::LEAVE_OUT_CAPPED), 'monthlist' => $this->months, 'entry' => $entry));
         }
     }
+
     protected function saveFile($request)
     {
-        $fileName = date('ymdHis').mt_rand(1000,9999).'.rtf';
-        $destination = $_SERVER["DOCUMENT_ROOT"].'/uploads/entries/';
-        $request->file('filename')->move($destination,$fileName);
+        $fileName = date('ymdHis') . mt_rand(1000, 9999) . '.rtf';
+        $destination = $_SERVER["DOCUMENT_ROOT"] . '/uploads/entries/';
+        $request->file('filename')->move($destination, $fileName);
         return $fileName;
-        
-        
+
+
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -205,8 +206,10 @@ class EntryController extends Controller
             }
         }
         $entry->authorEmail = $request->authorEmail;
-        $entry->author2 = $request->author2;
-        $entry->author2Email = $request->author2Email;
+        if (!$request->published) {
+            $entry->author2 = $request->author2;
+            $entry->author2Email = $request->author2Email;
+        }
 
         $entry->save();
         $this->sendConfirmation($entry);
