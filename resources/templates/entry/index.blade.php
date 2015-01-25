@@ -6,7 +6,6 @@
         <li><a href="/entries/create/pub" class="button radius">Enter Published Contest</a></li>
         <li><a href="/entries/create/unpub" class="button radius">Enter Unpublished Contest</a></li>
     </ul>
-
     <table>
         <thead>
         <tr>
