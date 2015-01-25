@@ -1,6 +1,7 @@
 <?php namespace Contest\Http\Controllers\Auth;
 
 use Contest\Http\Controllers\Controller;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Http\Request;
@@ -19,6 +20,21 @@ class PasswordController extends Controller {
 	*/
 
 	use ResetsPasswords;
+
+	/**
+	 * Create a new password controller instance.
+	 *
+	 * @param  Guard  $auth
+	 * @param  PasswordBroker  $passwords
+	 * @return void
+	 */
+	public function __construct(Guard $auth, PasswordBroker $passwords)
+	{
+		$this->auth = $auth;
+		$this->passwords = $passwords;
+
+		$this->middleware('guest');
+	}
 
 	// overrides underlying function in ResetsPasswords to allow subject until I can figure out a better way
 	public function postEmail(Request $request)

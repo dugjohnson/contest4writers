@@ -15,16 +15,18 @@ Route::get('/', 'WelcomeController@index');
 Route::get('home', 'WelcomeController@index');
 Route::get('coordinators', 'AdminController@index');
 Route::get('administrators', 'AdminController@index');
+//todo: Need to make the below read the action and translate to method
+Route::get('coordinators/entries', 'AdminController@entries');
 
-Route::get('entries/create/pub','EntryController@createPub');
-Route::get('entries/create/unpub','EntryController@createUnpub');
-Route::post('entries/create/pub','EntryController@storePub');
-Route::post('entries/create/unpub','EntryController@storeUnpub');
+Route::get('entries/create/pub', 'EntryController@createPub');
+Route::get('entries/create/unpub', 'EntryController@createUnpub');
+Route::post('entries/create/pub', 'EntryController@storePub');
+Route::post('entries/create/unpub', 'EntryController@storeUnpub');
 
-Route::resource('judges','JudgeController');
-Route::resource('entries','EntryController');
-Route::resource('users','UserController');
-Route::resource('reports','ReportsController');
+Route::resource('judges', 'JudgeController');
+Route::resource('entries', 'EntryController');
+Route::resource('users', 'UserController');
+Route::resource('reports', 'ReportsController');
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,6 @@ Route::resource('reports','ReportsController');
 
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
 ]);

@@ -20,13 +20,19 @@ class AdminController extends Controller {
         $this->middleware('auth');
         $this->adminPerson = \Auth::user();
         if (! $this->adminPerson->isCoordinator()){
-            return new RedirectResponse(url('/home'));
+            return redirect('/home');
         }
         $this->isAdmin = $this->adminPerson->isAdministrator();
     }
     
     public function index(){
         return view('admin.index',['isAdmin'=>$this->isAdmin]);
+        
+    }
+    
+    public function entries(){
+        
+        
         
     }
 
