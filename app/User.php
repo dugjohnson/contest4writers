@@ -18,6 +18,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     protected $table = 'users';
 
+    protected $rolesList = null;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -32,9 +34,65 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     protected $hidden = ['password', 'remember_token'];
 
+    protected function hasRoles()
+    {
+        if (is_null($this->rolesList)) {
+            $this->rolesList = Role::where('user_id', '=', $this->id)->get();
+        }
+        return count($this->rolesList) > 0;
+    }
+
+
+    public function roles()
+    {
+        return $this->hasMany('Role');
+
+
+    }
+
     public function hasFilledInProfile()
     {
         return ('' <> $this->lastName);
+
+    }
+
+    public function hasAccessTo($category, $published)
+    {
+        $hasAccess = false;
+        if (!$this->hasRoles()) {
+            return $hasAccess;
+        };
+        foreach ($this->rolesList as $role) {
+            if (('OC' == $role->role) || ('JC' == $role->role) || ('CC' == $role->role && $category == $role->category && $published == $role->published)) {
+                $hasAccess = true;
+                break;
+            }
+        }
+        return $hasAccess;
+
+    }
+    public function isCoordinator(){
+        return ($this->isAdmin() or $this->isCoordinatorOfType());
+        
+    }
+    public function isAdmin() {
+        return ($this->isCoordinatorOfType('OC') || $this->isCoordinatorOfType('JC'));
+        
+    }
+
+    public function isCoordinatorOfType($type = 'CC')
+    {
+        $hasAccess = false;
+        if (!$this->hasRoles()) {
+            return $hasAccess;
+        };
+        foreach ($this->rolesList as $role) {
+            if ($type == $role->role) {
+                $hasAccess = true;
+                break;
+            }
+        }
+        return $hasAccess;
 
     }
 

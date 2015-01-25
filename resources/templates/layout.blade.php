@@ -28,7 +28,9 @@
     <div class="large-12 columns">
         <div class="right">
             @if(Auth::check())
-                <a href="/users/{!! Auth::user()->id !!}" class="tiny button radius {!! (Auth::user()->hasFilledInProfile()?'':'alert') !!}">Check Your Profile</a>
+                <a href="/users/{!! Auth::user()->id !!}"
+                   class="tiny button radius {!! (Auth::user()->hasFilledInProfile()?'':'alert') !!}">Check Your
+                    Profile</a>
                 <a href="/auth/logout" class="tiny button radius">Log Out</a>
             @else
                 <a href="/auth/login" class="tiny button radius">Log In</a>
@@ -40,9 +42,13 @@
             <ul class="button-group">
                 <li><a href="/entries" class="button radius">Entries</a></li>
                 <li><a href="/judges" class="button radius">Judges</a></li>
-                @if(false)
-                    <li><a href="/coordinators" class="button radius">Coordinators</a></li>
-                    <li><a href="/administrators" class="button radius">Administrators</a></li>
+                @if(Auth::check())
+                    @if(Auth::user()->isCoordinator())
+                        <li><a href="/coordinators" class="button radius">Coordinators</a></li>
+                    @endif
+                    @if( Auth::user()->isAdmin() )
+                        <li><a href="/administrators" class="button radius">Administrators</a></li>
+                    @endif
                 @endif
             </ul>
         </div>
@@ -60,14 +66,14 @@
         </div>
     </div>
 
-    		<aside class="large-3 columns">
-                <div class="row">
-                    <div class="content">
-                        @yield('sidebar','')
-                    </div>
-                </div>
+    <aside class="large-3 columns">
+        <div class="row">
+            <div class="content">
+                @yield('sidebar','')
+            </div>
+        </div>
 
-            </aside>
+    </aside>
 
 
 </div>
