@@ -72,15 +72,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     }
     public function isCoordinator(){
-        return ($this->isAdmin() or $this->isCoordinatorOfType());
+        return ($this->isAdministrator() or $this->hasRole());
         
     }
-    public function isAdmin() {
-        return ($this->isCoordinatorOfType('OC') || $this->isCoordinatorOfType('JC'));
+    public function isAdministrator() {
+        return ($this->hasRole('OC') || $this->hasRole('JC'));
         
     }
 
-    public function isCoordinatorOfType($type = 'CC')
+    public function hasRole($type = 'CC')
     {
         $hasAccess = false;
         if (!$this->hasRoles()) {

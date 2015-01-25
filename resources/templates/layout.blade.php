@@ -46,7 +46,7 @@
                     @if(Auth::user()->isCoordinator())
                         <li><a href="/coordinators" class="button radius">Coordinators</a></li>
                     @endif
-                    @if( Auth::user()->isAdmin() )
+                    @if( Auth::user()->isAdministrator() )
                         <li><a href="/administrators" class="button radius">Administrators</a></li>
                     @endif
                 @endif

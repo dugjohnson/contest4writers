@@ -12,8 +12,9 @@
 */
 
 Route::get('/', 'WelcomeController@index');
-
 Route::get('home', 'WelcomeController@index');
+Route::get('coordinators', 'AdminController@index');
+Route::get('administrators', 'AdminController@index');
 
 Route::get('entries/create/pub','EntryController@createPub');
 Route::get('entries/create/unpub','EntryController@createUnpub');
