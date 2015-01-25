@@ -9,6 +9,12 @@
     {!! Form::label('author', 'Author Name:') !!}
     {!! Form::text('author',$entry->author, ['class' => 'form-control']) !!}
 </div>
+<!-- Author Name Form Input -->
+<div class="form-group">
+    {!! Form::label('authorEmail', 'Author Email:') !!}
+    {!! Form::text('authorEmail',$entry->authorEmail, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Title Form Input -->
 <div class="form-group">
     {!! Form::label('title', 'Title:') !!}
