@@ -20,10 +20,11 @@
                 <td>{{ $entry->author }}</td>
                 <td>{{ $entry->category }}</td>
                 <td>{!! ($entry->published?'Yes':'No') !!}</td>
-                <td><a href="/entries/{{ $entry->id }}">Show</a> / <a href="/entries/{{ $entry->id }}/edit">Edit</a>
+                <td><a href="/coordinators/entries/{{ $entry->id }}">Show</a> / <a href="/coordinators/entries/{{ $entry->id }}/edit">Edit</a>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
+    <a href="/coordinators" class="button radius">Return</a>
     @stop

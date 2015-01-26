@@ -18,6 +18,7 @@ class EntryController extends Controller
     const LEAVE_OUT_CAPPED = true;
     const PUBLISHED = true;
     const UNPUBLISHED = false;
+    protected $isCoordinator = false;
 
     use EntryHelper;
 
@@ -40,7 +41,7 @@ class EntryController extends Controller
     public function index()
     {
         $entries = \Contest\Entry::where('user_id', '=', $this->entrantID)->get();
-        return view('entry.index', array('entries' => $entries));
+        return view('entry.index', array('entries' => $entries,'isCoordinator'=>$this->isCoordinator));
 
         return redirect('entries/' . $this->entrantID);
 
@@ -147,9 +148,9 @@ class EntryController extends Controller
     {
         $entry = Entry::find($id);
         if ($entry->published) {
-            return view('entry.showpub', array('categories' => $this->categories(), 'monthlist' => $this->months, 'entry' => $entry));
+            return view('entry.showpub', array('categories' => $this->categories(), 'monthlist' => $this->months, 'entry' => $entry,'isCoordinator'=>$this->isCoordinator));
         } else {
-            return view('entry.showunpub', array('categories' => $this->categories(), 'monthlist' => $this->months, 'entry' => $entry));
+            return view('entry.showunpub', array('categories' => $this->categories(), 'monthlist' => $this->months, 'entry' => $entry,'isCoordinator'=>$this->isCoordinator));
         }
 
     }
@@ -164,9 +165,9 @@ class EntryController extends Controller
     {
         $entry = Entry::find($id);
         if ($entry->published) {
-            return view('entry.editpub', array('categories' => $this->categories(self::LEAVE_OUT_CAPPED), 'monthlist' => $this->months, 'entry' => $entry));
+            return view('entry.editpub', array('categories' => $this->categories(self::LEAVE_OUT_CAPPED), 'monthlist' => $this->months, 'entry' => $entry,'isCoordinator'=>$this->isCoordinator));
         } else {
-            return view('entry.editunpub', array('categories' => $this->categories(self::LEAVE_OUT_CAPPED), 'monthlist' => $this->months, 'entry' => $entry));
+            return view('entry.editunpub', array('categories' => $this->categories(self::LEAVE_OUT_CAPPED), 'monthlist' => $this->months, 'entry' => $entry,'isCoordinator'=>$this->isCoordinator));
         }
     }
 
@@ -189,12 +190,14 @@ class EntryController extends Controller
     public function update(Requests\EditEntryRequest $request, $id)
     {
         $entry = Entry::find($id);
+        if (1==$request->isCoordinator) {
+            $this->isCoordinator = true;
+        }
         $entry->published = $request->published;
         $entry->author = $request->author;
         $entry->title = $request->title;
         $entry->category = $request->category;
         $entry->invoiceNumber = $request->invoiceNumber;
-        //$entry->dateOfEntry = $request->dateOfEntry;
         if ($request->published == true) {
             $entry->publisher = $request->publisher;
             $entry->editor = $request->editor;
@@ -210,11 +213,28 @@ class EntryController extends Controller
             $entry->author2 = $request->author2;
             $entry->author2Email = $request->author2Email;
         }
+        if ($this->isCoordinator) {
+            $entry->received = $request->received;
+            $entry->finalist = $request->finalist;
+        }
 
         $entry->save();
-        $this->sendConfirmation($entry);
+        if ($this->isCoordinator) {
+            header('Location: /coordinators/entries');
+        } else {
+            $this->sendConfirmation($entry);
+            header('Location: /entries');
+        }
 
-        header('Location: /entries');
         exit;
+    }
+
+    public function coordinatorShow($id){
+        $this->isCoordinator = true;
+        return $this->show($id);
+    }
+    public function coordinatorEdit($id){
+        $this->isCoordinator = true;
+        return $this->edit($id);
     }
 }

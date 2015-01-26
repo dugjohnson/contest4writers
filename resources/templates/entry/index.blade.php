@@ -6,29 +6,7 @@
         <li><a href="/entries/create/pub" class="button radius">Enter Published Contest</a></li>
         <li><a href="/entries/create/unpub" class="button radius">Enter Unpublished Contest</a></li>
     </ul>
-    <table>
-        <thead>
-        <tr>
-            <td>Entry #</td>
-            <td>Title</td>
-            <td>Author</td>
-            <td>Category</td>
-            <td>Action</td>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($entries as $entry)
-            <tr>
-                <td>{{ $entry->id }}</td>
-                <td>{{ $entry->title }}</td>
-                <td>{{ $entry->author }}</td>
-                <td>{{ $entry->category }}</td>
-                <td><a href="/entries/{{ $entry->id }}">Show</a> / <a href="/entries/{{ $entry->id }}/edit">Edit</a>
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
+@include('entry.entryListing')
 @stop
 
 @section('sidebar')

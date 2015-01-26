@@ -1,4 +1,3 @@
-<p>{{$test}}</p>
 <table>
     <thead>
     <tr>
@@ -18,7 +17,8 @@
         <td>{{ $entry->author }}</td>
         <td>{{ $entry->category }}</td>
         <td>{!! ($entry->published?'Yes':'No') !!}</td>
-        <td><a href="/entries/{{ $entry->id }}">Show</a> / <a href="/entries/{{ $entry->id }}/edit">Edit</a>
+        <td><a href="/entries/{{ $entry->id }}">Show</a> /
+           @if($entry->received) <strong>Locked</strong> @else <a href="/entries/{{ $entry->id }}/edit">Edit</a> @endif
         </td>
     </tr>
     @endforeach
