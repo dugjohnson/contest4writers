@@ -6,7 +6,7 @@
         @include('entry.infopub')
         @if ($isCoordinator)
             @include('entry.infoadmin')
-            <a href="/coordinators/entries" class="button radius">Back to Entries</a>
+            <a href="/coordinators/entries" class="button radius">Back to Coordinator Entries</a>
         @else
             <a href="/entries" class="button radius">Back to Entries</a>
         @endif

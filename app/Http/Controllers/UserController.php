@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 class UserController extends Controller
 {
 
+    public $isCoordinator = false;
     /**
      * Display a listing of the resource.
      *
@@ -51,7 +52,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('user.show', ['user'=>$user]);
+        return view('user.show', ['user'=>$user,'isCoordinator'=>$this->isCoordinator]);
     }
 
     /**
@@ -96,5 +97,10 @@ class UserController extends Controller
         return redirect('users/' . $id);
 
 
+    }
+    
+    public function coordinatorShow($id){
+        $this->isCoordinator = true;
+        return $this->show($id);
     }
 }

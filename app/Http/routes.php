@@ -19,6 +19,7 @@ Route::get('administrators', 'AdminController@index');
 Route::get('coordinators/entries', 'AdminController@entries');
 Route::get('coordinators/entries/{id}', 'EntryController@coordinatorShow');
 Route::get('coordinators/entries/{id}/edit', 'EntryController@coordinatorEdit');
+Route::get('coordinators/users/{id}', 'UserController@coordinatorShow');
 
 Route::get('entries/create/pub', 'EntryController@createPub');
 Route::get('entries/create/unpub', 'EntryController@createUnpub');
