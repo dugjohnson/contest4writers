@@ -10,6 +10,10 @@
         <P>For information and questions about the contests, categories, rules, etc., please click here: <A
                     HREF="http://rwamysterysuspense.org/daphne">http://rwamysterysuspense.org/daphne</A></p>
 
+        <p><strong>ATTENTION:  Published Authors ONLY</strong></p>
+        <p>Single Title category has now capped and is closed to further submissions.
+            ALL OTHER CATEGORIES REMAIN OPEN at this time.
+            (This notice does not affect Unpublished)</p>
         <P><B>To get started (Judging and/or Entering):</B></p>
 
         <P>- <B>If you are a returning judge</B>, the first step is to reset your password (because you don't actually
