@@ -19,6 +19,11 @@
                     Mystery/Suspense</p>
             </a>
         </div>
+        <div class="right">
+            @if(Auth::check())
+                <a href="/auth/logout" class="tiny button radius">Log Out</a>
+            @endif
+        </div>
     </div>
 </div>
 <div class="row">

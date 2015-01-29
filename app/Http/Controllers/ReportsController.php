@@ -32,8 +32,7 @@ class ReportsController extends Controller {
 			return redirect('home');
 		}
 		$categoryCounts = $this->getCategoryCounts();
-		$entries = Entry::all();
-		return view('reports.index',['categoryCounts'=>$categoryCounts,'entries'=>$entries->sortBy('title')]);
+		return view('reports.index',['categoryCounts'=>$categoryCounts]);
 	}
 
 	/**

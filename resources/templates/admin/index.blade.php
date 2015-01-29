@@ -4,4 +4,5 @@
     @if ($isAdmin)
         @include(('admin.administrator'))
     @endif
+    @include('reports.categorytotals')
 @stop

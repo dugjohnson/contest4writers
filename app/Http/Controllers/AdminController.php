@@ -1,6 +1,7 @@
 <?php namespace Contest\Http\Controllers;
 
 use Contest\Http\Requests;
+use Contest\Http\EntryHelper;
 use Contest\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -9,7 +10,7 @@ class AdminController extends Controller {
     
     protected $adminPerson;
     protected $isAdmin;
-
+    use EntryHelper;
     /**
      * Create a new controller instance.
      *
@@ -19,14 +20,15 @@ class AdminController extends Controller {
     {
         $this->middleware('auth');
         $this->adminPerson = \Auth::user();
-        if (! $this->adminPerson->isCoordinator()){
+        if (! ($this->adminPerson && $this->adminPerson->isCoordinator())){
             return redirect('/home');
         }
         $this->isAdmin = $this->adminPerson->isAdministrator();
     }
     
     public function index(){
-        return view('admin.index',['isAdmin'=>$this->isAdmin]);
+        $categoryCounts = $this->getCategoryCountsByCoordinator($this->adminPerson);
+        return view('admin.index',['isAdmin'=>$this->isAdmin, 'categoryCounts'=>$categoryCounts]);
         
     }
     

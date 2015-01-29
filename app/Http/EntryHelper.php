@@ -73,6 +73,27 @@ trait EntryHelper
 
     }
 
+    public function getCategoryCountsByCoordinator($adminPerson){
+        $roles = $adminPerson->getRoles();
+        $whereStatement = '';
+        foreach ($roles as $role){
+            if ($role->role == 'OC' || $role->role == 'JC'){
+                $whereStatement = 'true';
+                break;
+            }
+            if (strlen($whereStatement)>0){
+                $whereStatement .= ' OR ';
+
+            }
+            $whereStatement .= " ( '$role->category' = category and $role->published = published) ";
+        }
+        return DB::table('entries')
+            ->select(DB::raw('category, published, count(*) as categorycount'))
+            ->whereRaw($whereStatement)
+            ->groupBy('category', 'published')
+            ->get();
+
+    }
     /**
      *
      */
