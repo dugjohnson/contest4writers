@@ -19,12 +19,14 @@ Route::get('administrators', 'AdminController@index');
 Route::get('coordinators/entries', 'AdminController@entries');
 Route::get('coordinators/entries/{id}', 'EntryController@coordinatorShow');
 Route::get('coordinators/entries/{id}/edit', 'EntryController@coordinatorEdit');
+Route::get('coordinators/entries/{id}/upload', 'EntryController@coordinatorUpload');
 Route::get('coordinators/users/{id}', 'UserController@coordinatorShow');
 
 Route::get('entries/create/pub', 'EntryController@createPub');
 Route::get('entries/create/unpub', 'EntryController@createUnpub');
 Route::post('entries/create/pub', 'EntryController@storePub');
 Route::post('entries/create/unpub', 'EntryController@storeUnpub');
+Route::get('entries/{id}/upload', 'EntryController@upload');
 
 Route::resource('judges', 'JudgeController');
 Route::resource('entries', 'EntryController');

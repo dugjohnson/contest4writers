@@ -11,16 +11,24 @@
     </thead>
     <tbody>
     @foreach($entries as $entry)
-    <tr>
-        <td>{{ $entry->id }}</td>
-        <td>{{ $entry->title }}</td>
-        <td>{{ $entry->author }}</td>
-        <td>{{ $entry->category }}</td>
-        <td>{!! ($entry->published?'Yes':'No') !!}</td>
-        <td><a href="/entries/{{ $entry->id }}">Show</a> /
-           @if($entry->received) <strong>Locked</strong> @else <a href="/entries/{{ $entry->id }}/edit">Edit</a> @endif
-        </td>
-    </tr>
+        <tr>
+            <td>{{ $entry->id }}</td>
+            <td>{{ $entry->title }}</td>
+            <td>{{ $entry->author }}</td>
+            <td>{{ $entry->category }}</td>
+            <td>{!! ($entry->published?'Yes':'No') !!}</td>
+            <td><a href="/entries/{{ $entry->id }}">Show</a> /
+                @if($entry->received)
+                    <strong>Locked</strong>
+                @else
+                    <a href="/entries/{{ $entry->id }}/edit">Edit</a>
+                    @if (! $entry->published)
+                        <br>
+                        <a href="/entries/{{ $entry->id }}/upload">Upload/Replace Entry</a>
+                    @endif
+                @endif
+            </td>
+        </tr>
     @endforeach
     </tbody>
 </table>

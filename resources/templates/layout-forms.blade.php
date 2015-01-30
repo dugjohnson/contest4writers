@@ -32,20 +32,14 @@
         </div>
     </div>
 
-    <!--		<aside class="large-3 columns">
+    <aside class="large-3 columns">
+        <div class="row">
+            <div class="content">
+                @yield('sidebar','')
+            </div>
+        </div>
 
-                <h5>Categories</h5>
-                <ul class="side-nav">
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Code</a></li>
-                    <li><a href="#">Design</a></li>
-                    <li><a href="#">Fun</a></li>
-                    <li><a href="#">Weasels</a></li>
-                </ul>
-
-            </aside>
-    -->
-
+    </aside>
 
 </div>
 
@@ -59,15 +53,6 @@
             <div class="large-6 columns">
                 <p>©2015 Kiss of Death/RWA Mystery/Romantic Suspense Chapter 144</p>
             </div>
-            <!--            <div class="large-6 columns">
-                            <ul class="inline-list right">
-                                <li><a href="#">Enter</a></li>
-                                <li><a href="#">Judge</a></li>
-                                <li><a href="#">Coordinate</a></li>
-                                <li><a href="#">Administer</a></li>
-                            </ul>
-                        </div>
-            -->
         </div>
     </div>
 </footer>

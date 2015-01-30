@@ -181,6 +181,12 @@ class EntryController extends Controller
 
     }
 
+    public function upload($id)
+    {
+        $entry = Entry::find($id);
+        return view('entry.upload', array('entry' => $entry,'isCoordinator'=>$this->isCoordinator));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -236,5 +242,9 @@ class EntryController extends Controller
     public function coordinatorEdit($id){
         $this->isCoordinator = true;
         return $this->edit($id);
+    }
+    public function coordinatorUpload($id){
+        $this->isCoordinator = true;
+        return $this->upload($id);
     }
 }
