@@ -26,7 +26,8 @@ Route::get('entries/create/pub', 'EntryController@createPub');
 Route::get('entries/create/unpub', 'EntryController@createUnpub');
 Route::post('entries/create/pub', 'EntryController@storePub');
 Route::post('entries/create/unpub', 'EntryController@storeUnpub');
-Route::get('entries/{id}/upload', 'EntryController@upload');
+Route::get('entries/{id}/upload', 'EntryController@getUpload');
+Route::post('entries/{id}/upload', 'EntryController@postUpload');
 
 Route::resource('judges', 'JudgeController');
 Route::resource('entries', 'EntryController');

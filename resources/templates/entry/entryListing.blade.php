@@ -17,14 +17,14 @@
             <td>{{ $entry->author }}</td>
             <td>{{ $entry->category }}</td>
             <td>{!! ($entry->published?'Yes':'No') !!}</td>
-            <td><a href="/entries/{{ $entry->id }}">Show</a> /
+            <td><a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}">Show</a> /
                 @if($entry->received)
                     <strong>Locked</strong>
                 @else
-                    <a href="/entries/{{ $entry->id }}/edit">Edit</a>
+                    <a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}/edit">Edit</a>
                     @if (! $entry->published)
                         <br>
-                        <a href="/entries/{{ $entry->id }}/upload">Upload/Replace Entry</a>
+                        <a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}/upload">Upload/Replace Entry</a>
                     @endif
                 @endif
             </td>

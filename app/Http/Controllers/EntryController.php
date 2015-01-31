@@ -61,7 +61,7 @@ class EntryController extends Controller
         $entry->author = $entrant->writingName;
         $entry->authorEmail = $entrant->email;
         $entry->published = true;
-        return view('entry.createpub', array('categories' => $categorySelector, 'monthlist' => $monthSelector, 'entry' => $entry));
+        return view('entry.createpub', array('categories' => $categorySelector, 'monthlist' => $monthSelector, 'entry' => $entry,'isCoordinator'=>$this->isCoordinator));
     }
 
     /**
@@ -78,7 +78,7 @@ class EntryController extends Controller
         $entry->author = $entrant->writingName;
         $entry->authorEmail = $entrant->email;
         $entry->published = false;
-        return view('entry.createunpub', array('categories' => $categorySelector, 'entry' => $entry));
+        return view('entry.createunpub', array('categories' => $categorySelector, 'entry' => $entry,'isCoordinator'=>$this->isCoordinator));
     }
 
     public function addEntry($request)
@@ -97,10 +97,7 @@ class EntryController extends Controller
         $entry->signed = $request->signed;
         $entry->invoiceNumber = $request->invoiceNumber;
 
-        //$entry->dateOfEntry = $request->dateOfEntry;
         if ($request->published == false) {
-            //deal with upload
-            // $entry->filename = $request->filename;
             $entry->author2 = $request->author2;
             $entry->author2Email = $request->author2Email;
             if ($request->hasFile('filename')) {
@@ -171,17 +168,36 @@ class EntryController extends Controller
         }
     }
 
-    protected function saveFile($request)
+    protected function saveFile($request,$filename='')
     {
-        $fileName = date('ymdHis') . mt_rand(1000, 9999) . '.rtf';
+        if (! $filename){
+          $filename = date('ymdHis') . mt_rand(1000, 9999) . '.rtf';
+        }
         $destination = $_SERVER["DOCUMENT_ROOT"] . '/uploads/entries/';
-        $request->file('filename')->move($destination, $fileName);
-        return $fileName;
-
-
+        if (file_exists($destination.$filename)){
+            unlink($destination.$filename);
+        }
+        $request->file('filename')->move($destination, $filename);
+        return $filename;
     }
+    
+    public function postUpload(Requests\UploadFileRequest $request, $id)
+    {
+        if (1==$request->isCoordinator) {
+            $this->isCoordinator = true;
+        }
+        $filename = Entry::find($id)->filename;
+        $this->saveFile($request,$filename);
+        if ($this->isCoordinator) {
+            header('Location: /coordinators/entries');
+        } else {
+            header('Location: /entries');
+        }
 
-    public function upload($id)
+        exit;
+    }
+    
+    public function getUpload($id)
     {
         $entry = Entry::find($id);
         return view('entry.upload', array('entry' => $entry,'isCoordinator'=>$this->isCoordinator));
@@ -245,6 +261,6 @@ class EntryController extends Controller
     }
     public function coordinatorUpload($id){
         $this->isCoordinator = true;
-        return $this->upload($id);
+        return $this->getUpload($id);
     }
 }

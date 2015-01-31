@@ -52,7 +52,7 @@ class AdminController extends Controller {
             $entries = \Contest\Entry::whereRaw($whereStatement)->orderBy('category')->orderBy('published')->get();
             
         }
-        return view('admin.entry.entries', array('entries' => $entries));
+        return view('admin.entry.entries', array('entries' => $entries,'isCoordinator'=>true));
         
         
         
