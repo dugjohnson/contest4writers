@@ -14,19 +14,26 @@
         <tr>
             <td>{{ $entry->id }}</td>
             <td>{{ $entry->title }}</td>
-            <td>{{ $entry->author }}</td>
+            <td>
+                @if($isCoordinator)
+                    <a href="/coordinators/users/{{ $entry->user_id }}">{{ $entry->author }}</a>
+                @else
+                    {{ $entry->author }}
+                @endif
+            </td>
             <td>{{ $entry->category }}</td>
             <td>{!! ($entry->published?'Yes':'No') !!}</td>
             <td><a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}">Show</a> /
                 @if($entry->received)
                     <strong>Locked @if($isCoordinator)
                             <a href="/coordinators/entries/{{ $entry->id }}/edit">Edit</a>
-                    @endif</strong>
+                        @endif</strong>
                 @else
                     <a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}/edit">Edit</a>
                     @if (! $entry->published)
                         <br>
-                        <a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}/upload">Upload/Replace Entry</a>
+                        <a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}/upload">Upload/Replace
+                            Entry</a>
                     @endif
                 @endif
             </td>
