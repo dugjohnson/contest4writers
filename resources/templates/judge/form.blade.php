@@ -1,6 +1,8 @@
-Judging this year
+<div class="form-group">
+    {!! Form::label('judgeThisYear', 'Judging this year:') !!}
+    {!! Form::select('judgeThisYear', $judgeThisYear,$judge->judgeThisYear , ['class' => 'form-control']) !!}
+</div>
 
-I will judge:
 <!-- JudgePub Form Input -->
 <div class="form-group">
     {!! Form::label('judgePub', 'Published:') !!}

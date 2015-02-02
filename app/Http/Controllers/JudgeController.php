@@ -74,7 +74,7 @@ class JudgeController extends Controller
         $judge->vampires = 1;
         $judge->religious = 1;
 
-        return view('judge.create', array('judge' => $judge,'preferenceLevels'=>$this->preferenceLevels));
+        return view('judge.create', $this->judgeFormData($judge));
 //        return view('judge.create');
     }
 
@@ -98,7 +98,7 @@ class JudgeController extends Controller
     {
         //      dd($data);
         //
-        return view('judge.show',  array('judge' => $this->judge,'preferenceLevels'=>$this->preferenceLevels));
+        return view('judge.show', $this->judgeFormData($this->judge));
     }
 
     /**
@@ -110,6 +110,7 @@ class JudgeController extends Controller
     public function edit($id)
     {
         //
+        return view('judge.edit', $this->judgeFormData($this->judge));
     }
 
     /**

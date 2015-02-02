@@ -5,6 +5,7 @@
     @include('errors')
     {!! Form::open()  !!}
     {!! Form::hidden('user_id',$judge->user_id) !!}
+
     @include('judge.form')
-    {!! Form::close() !!}
+    @include('judge.formclose')
 @stop
