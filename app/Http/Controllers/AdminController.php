@@ -1,10 +1,7 @@
 <?php namespace Contest\Http\Controllers;
 
 use Contest\Http\Requests;
-use Contest\Http\EntryHelper;
-use Contest\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
+use Contest\Http\Controllers\Helpers\EntryHelper;
 
 class AdminController extends Controller {
     

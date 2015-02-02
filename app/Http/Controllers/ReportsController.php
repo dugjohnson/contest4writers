@@ -1,11 +1,7 @@
 <?php namespace Contest\Http\Controllers;
 
-use Contest\Entry;
-use Contest\Http\EntryHelper;
+use Contest\Http\Controllers\Helpers\EntryHelper;
 use Contest\Http\Requests;
-use Contest\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
 
 class ReportsController extends Controller {
 

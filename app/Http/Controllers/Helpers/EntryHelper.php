@@ -1,9 +1,8 @@
 <?php
 
-namespace Contest\Http;
+namespace Contest\Http\Controllers\Helpers;
 
 
-use Contest\Http\Controllers\AdminHelper;
 use Contest\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;

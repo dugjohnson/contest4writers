@@ -1,0 +1,16 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: doug
+ * Date: 2/1/2015
+ * Time: 7:48 AM
+ */
+
+namespace Contest\Http\Controllers\Helpers;
+
+
+trait JudgeHelper {
+
+    public $preferenceLevels = ['4'=>'Top choice', '3'=>'Love to judge','2'=>'Would judge if asked','1'=>'Would judge in an emergency','0'=>'Will not judge'];
+
+}

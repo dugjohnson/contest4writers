@@ -11,18 +11,5 @@ class Judge extends Model {
 	 */
 	protected $table = 'judges';
 
-//	/**
-//	 * The attributes that are mass assignable.
-//	 *
-//	 * @var array
-//	 */
-//	protected $fillable = ['email', 'password'];
-//
-//	/**
-//	 * The attributes excluded from the model's JSON form.
-//	 *
-//	 * @var array
-//	 */
-//	protected $hidden = ['password', 'remember_token'];
 
 }

@@ -1,10 +1,9 @@
 <?php namespace Contest\Http\Controllers;
 
 use Contest\Entry;
-use Contest\Http\EntryHelper;
+use Contest\Http\Controllers\Helpers\EntryHelper;
 use Contest\Http\Requests;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Routing;
 use Carbon\Carbon;

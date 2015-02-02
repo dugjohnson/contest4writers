@@ -6,7 +6,7 @@
  * Time: 11:59 AM
  */
 
-namespace Contest\Http\Controllers;
+namespace Contest\Http\Controllers\Helpers;
 
 trait AdminHelper
 {
