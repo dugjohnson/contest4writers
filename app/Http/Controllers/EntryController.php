@@ -82,7 +82,6 @@ class EntryController extends Controller
 
     public function addEntry($request)
     {
-        $id = Auth::id();
         // redirect
         $entry = new Entry();
         $entry->published = $request->published;

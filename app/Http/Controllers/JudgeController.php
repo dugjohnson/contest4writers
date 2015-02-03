@@ -83,9 +83,12 @@ class JudgeController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Requests\JudgeRequest $request)
     {
-        //
+        $judge = new Judge;
+        // set defaults
+        $this->fillInFields($request, $judge);
+        $judge->save();
     }
 
     /**
@@ -98,7 +101,8 @@ class JudgeController extends Controller
     {
         //      dd($data);
         //
-        return view('judge.show', $this->judgeFormData($this->judge));
+        $judge = Judge::find($id);
+        return view('judge.show', $this->judgeFormData($judge));
     }
 
     /**
@@ -119,9 +123,41 @@ class JudgeController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function update($id)
+    public function update(Requests\JudgeRequest $request, $id)
     {
         //
+        $judge = Judge::find($id);
+        $this->fillInFields($request, $judge);
+        $judge->save();
+    }
+
+    /**
+     * @param Requests\JudgeRequest $request
+     * @param $judge
+     */
+    public function fillInFields(Requests\JudgeRequest $request, $judge)
+    {
+        $judge->user_id = $this->judgeUserID;
+        $judge->judgePub = $request->judgePub;
+        $judge->judgeUnpub = $request->judgeUnpub;
+        $judge->judgeEitherNotBoth = $request->judgeEitherNotBoth;
+        $judge->maxpubentries = $request->maxpubentries;
+        $judge->maxunpubentries = $request->maxunpubentries;
+        $judge->mainstream = $request->mainstream;
+        $judge->category = $request->category;
+        $judge->historical = $request->historical;
+        $judge->singleTitle = $request->singleTitle;
+        $judge->paranormal = $request->paranormal;
+        $judge->inspirational = $request->inspirational;
+        $judge->erotic = $request->erotic;
+        $judge->glbt = $request->glbt;
+        $judge->bsdm = $request->bsdm;
+        $judge->vampires = $request->vampires;
+        $judge->religious = $request->religious;
+        $judge->comments = $request->comments;
+        if (isset($request->internalComments)) {
+            $judge->internalComments = $request->internalComments;
+        }
     }
 
 }

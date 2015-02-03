@@ -1,3 +1,5 @@
+{!! Form::hidden('user_id',$judge->user_id) !!}
+
 <div class="form-group">
     {!! Form::label('judgeThisYear', 'Judging this year:') !!}
     {!! Form::select('judgeThisYear', $judgeThisYear,$judge->judgeThisYear , ['class' => 'form-control']) !!}
