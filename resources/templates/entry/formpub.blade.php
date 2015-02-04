@@ -35,8 +35,3 @@
     {!! Form::label('publicationMonth', 'Publication or Release Month (see rules):') !!}
     {!! Form::select('publicationMonth', $monthlist, $entry->publicationMonth, ['class' => 'form-control']) !!}
 </div>
-<!-- Invoice Number Form Input -->
-<div class="form-group">
-    {!! Form::label('invoiceNumber', 'Invoice Number (5 digits from myRWA):') !!}
-    {!! Form::text('invoiceNumber',$entry->invoiceNumber, ['class' => 'form-control','maxlength'=>'5']) !!}
-</div>

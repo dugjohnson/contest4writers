@@ -1,4 +1,9 @@
 <div class="panel callout radius">
+    <!-- Invoice Number Form Input -->
+    <div class="form-group">
+        {!! Form::label('invoiceNumber', 'Invoice Number (5 digits from myRWA):') !!}
+        {!! Form::text('invoiceNumber',$entry->invoiceNumber, ['class' => 'form-control','maxlength'=>'5']) !!}
+    </div>
     <p>Payments will be maintained through myRWA invoicing and may be submitted using PayPal, Credit Card,
         Personal check on US bank, or Money Order in US funds.
         In order for your entry to be official, you must create a myRWA invoice.</p>

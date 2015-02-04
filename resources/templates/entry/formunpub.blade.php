@@ -13,11 +13,6 @@
     {!! Form::label('title', 'Title:') !!}
     {!! Form::text('title',$entry->title, ['class' => 'form-control']) !!}
 </div>
-<!-- Invoice Number Form Input -->
-<div class="form-group">
-    {!! Form::label('invoiceNumber', 'Invoice Number (5 digits from myRWA):') !!}
-    {!! Form::text('invoiceNumber',$entry->invoiceNumber, ['class' => 'form-control','maxlength'=>'5']) !!}
-</div>
 <div class="panel radius">
     <p>Optional: Only fill in if two authors worked on this entry.</p>
     <!-- Author Name Form Input -->

@@ -216,7 +216,6 @@ class EntryController extends Controller
         $entry->published = $request->published;
         $entry->author = $request->author;
         $entry->title = $request->title;
-        $entry->category = $request->category;
         $entry->invoiceNumber = $request->invoiceNumber;
         if ($request->published == true) {
             $entry->publisher = $request->publisher;
@@ -236,6 +235,9 @@ class EntryController extends Controller
         if ($this->isCoordinator) {
             $entry->received = $request->received;
             $entry->finalist = $request->finalist;
+        }
+        if (isset($request->category)){
+            $entry->category = $request->category;
         }
 
         $entry->save();
