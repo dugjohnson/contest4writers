@@ -19,7 +19,7 @@ class JudgeController extends Controller
 
     public function isJudge()
     {
-        return (!$this->judge->isEmpty());
+        return (count($this->judge));
     }
 
     /**
@@ -31,7 +31,7 @@ class JudgeController extends Controller
     {
         $this->middleware('auth');
         $this->judgeUserID = \Auth::id();
-        $this->judge = Judge::where('user_id', '=', $this->judgeUserID)->get();
+        $this->judge = Judge::where('user_id', '=', $this->judgeUserID)->first();
 
     }
 
@@ -89,6 +89,8 @@ class JudgeController extends Controller
         // set defaults
         $this->fillInFields($request, $judge);
         $judge->save();
+        return redirect('judges');
+
     }
 
     /**
@@ -129,6 +131,7 @@ class JudgeController extends Controller
         $judge = Judge::find($id);
         $this->fillInFields($request, $judge);
         $judge->save();
+        return redirect('judges');
     }
 
     /**
@@ -141,6 +144,7 @@ class JudgeController extends Controller
         $judge->judgePub = $request->judgePub;
         $judge->judgeUnpub = $request->judgeUnpub;
         $judge->judgeEitherNotBoth = $request->judgeEitherNotBoth;
+        $judge->judgeThisYear = $request->judgeThisYear;
         $judge->maxpubentries = $request->maxpubentries;
         $judge->maxunpubentries = $request->maxunpubentries;
         $judge->mainstream = $request->mainstream;

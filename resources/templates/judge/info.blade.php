@@ -1,34 +1,34 @@
-<p>Judging this year: {{$judge->judgeThisYear}}</p>
-<p>Published: {{$judge->judgePub}}</p>
+<p>Judging this year: {{$judgeThisYear[$judge->judgeThisYear]}}</p>
+<p>Published: {{$judge->judgePub?'Yes':'No'}}</p>
 <p>Maximum number of published: {{$judge->maxpubentries}}</p>
-<p>Unpublished: {{$judge->judgeUnpub}}</p>
+<p>Unpublished: {{$judge->judgeUnpub?'Yes':'No'}}</p>
 <p>Maximum number of unpublished: {{$judge->maxunpubentries}}</p>
-<p>Either (not both) I’ve indicated the max. number above): {{$judge->judgeEitherNotBoth}}</p>
+<p>Either (not both) I’ve indicated the max. number above): {{$judge->judgeEitherNotBoth?'Yes':'No'}}</p>
 
 <fieldset>
     <legend>Categories</legend>
-    <p>Mainstream: {{$judge->mainstream}}</p>
+    <p>Mainstream: {{$preferenceLevels[$judge->mainstream]}}</p>
 
-    <p>Category : {{$judge->category}}</p>
+    <p>Category : {{$preferenceLevels[$judge->category]}}</p>
 
-    <p>Historical : {{$judge->historical}}</p>
+    <p>Historical : {{$preferenceLevels[$judge->historical]}}</p>
 
-    <p>Single Title : {{$judge->singleTitle}}</p>
+    <p>Single Title : {{$preferenceLevels[$judge->singleTitle]}}</p>
 
-    <p>Paranormal : {{$judge->paranormal}}</p>
+    <p>Paranormal : {{$preferenceLevels[$judge->paranormal]}}</p>
 
-    <p>Inspirational : {{$judge->inspirational}}</p></fieldset>
+    <p>Inspirational : {{$preferenceLevels[$judge->inspirational]}}</p></fieldset>
 <fieldset> 
     <legend>I’d be happy to judge a story with these elements</legend>
-    <p>Erotic or high heat: {{$judge->erotic}}</p>
+    <p>Erotic or high heat: {{$judge->erotic?'Yes':'No'}}</p>
 
-    <p>GLBT: {{$judge->glbt}}</p>
+    <p>GLBT: {{$judge->glbt?'Yes':'No'}}</p>
 
-    <p>BSDM: {{$judge->bsdm}}</p>
+    <p>BSDM: {{$judge->bsdm?'Yes':'No'}}</p>
 
-    <p>Vampires and/or Werewolves: {{$judge->vampires}}</p>
+    <p>Vampires and/or Werewolves: {{$judge->vampires?'Yes':'No'}}</p>
 
-    <p>Religious and/or inspirational content: {{$judge->vampires}}</p>
+    <p>Religious and/or inspirational content: {{$judge->vampires?'Yes':'No'}}</p>
 </fieldset>
 
 <p>Special Instructions/Comments or Notes: (If you’ll be in a different location before published books are shipped,

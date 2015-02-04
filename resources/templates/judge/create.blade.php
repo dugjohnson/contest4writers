@@ -3,7 +3,7 @@
 @section('content')
 
     @include('errors')
-    {!! Form::open()  !!}
+    {!! Form::open(array('url' => 'judges'))  !!}
 
     @include('judge.form')
     @include('judge.formclose')

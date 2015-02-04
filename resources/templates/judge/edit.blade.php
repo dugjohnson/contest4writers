@@ -1,13 +1,9 @@
 @extends('layout-nonav')
 
-@section('contents')
+@section('content')
 
     @include('errors')
-    {!! Form::open()  !!}
+    {!! Form::open(array('url' => 'judges/'.$judge->id,'method'=>'put'))  !!}
     @include('judge.form')
     @include('judge.formclose')
-    Judging this year
-
-    I will judge:
-
 @stop
