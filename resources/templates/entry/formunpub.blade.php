@@ -13,11 +13,6 @@
     {!! Form::label('title', 'Title:') !!}
     {!! Form::text('title',$entry->title, ['class' => 'form-control']) !!}
 </div>
-<!-- Category Form Input -->
-<div class="form-group">
-    {!! Form::label('category', 'Category:') !!}
-    {!! Form::select('category', $categories, $entry->category , ['class' => 'form-control']) !!}
-</div>
 <!-- Invoice Number Form Input -->
 <div class="form-group">
     {!! Form::label('invoiceNumber', 'Invoice Number (5 digits from myRWA):') !!}

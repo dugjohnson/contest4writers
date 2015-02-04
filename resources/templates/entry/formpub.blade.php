@@ -20,11 +20,6 @@
     {!! Form::label('title', 'Title:') !!}
     {!! Form::text('title',$entry->title, ['class' => 'form-control']) !!}
 </div>
-<!-- Category Form Input -->
-<div class="form-group">
-    {!! Form::label('category', 'Category:') !!}
-    {!! Form::select('category', $categories , $entry->category , ['class' => 'form-control']) !!}
-</div>
 <!-- Publisher Form Input -->
 <div class="form-group">
     {!! Form::label('publisher', 'Publisher:') !!}
