@@ -30,22 +30,17 @@
     {!! Form::label('judgeEitherNotBoth', 'Either (not both) I’ve indicated the max. number above:') !!}
     {!! Form::select('judgeEitherNotBoth', ['1'=>'Yes','0'=>'No'] ,$judge->judgeEitherNotBoth , ['class' => 'form-control']) !!}
 </div>
-<p>Unpublished entries will be accessed through a link sent after March 15th.</p>
-<p>Published books will be mailed, US and Canadian addresses only.</p>
+<p>Unpublished entries will be accessed through this site on your page and downloadable as a link. You will receive an email when your entries are available, after March 15th.</p>
+<p>Published books will be mailed after March 15th,  to US and Canadian addresses only.</p>
  
-<p> Due to the Daphne's growing popularity we often find some categories with more entries than expected and truly
-    appreciate judges who are willing to take entries from more than one category to even out the distribution.
-    If you can help in this way, please leave all preferences as Love to judge with the number of entries you are able
-    to judge.</p>
-<p>If you have a definite preference for or against a category, please select Top Choice or Will Not Judge from the
-    list</p>
+<p>Due to the Daphne's continued popularity we often find some categories with more entries than expected and truly appreciate judges who are willing to 
+    take entries from more than one category to even out distribution. If you can help in this way, please leave all preferences as Love to judge.</p>
 
 <h4>Category Preferences</h4>
 <p>If you have a definite preference for or against a category, please select Top Choice or Will Not Judge from the
     list.</p>
-<p>If you are entered in a published category, you can judge the unpublished division.
-    If you are entered in an unpublished category, you can judge the published division.
-    You will not be able to judge in the division and category you are entered.</p>
+<p>If you are entered in one of the categories as either published or unpublished, you may judge in the sister division. 
+    For example you're entered in mainstream published, you can judge mainstream unpublished, and vise versa. </p>
 
 <div class="form-group">
     {!! Form::label('mainstream', 'Mainstream:') !!}
@@ -91,7 +86,7 @@
     {!! Form::radio('vampires',true, $judge->vampires==true, ['class' => 'form-control']) !!} Yes {!! Form::radio('vampires',false, $judge->vampires==false, ['class' => 'form-control']) !!} No
 </div>
 <div class="form-group">
-    {!! Form::label('religious', 'Religious and/or inspirational content:') !!}
+    {!! Form::label('religious', 'Religious and/or inspirational content (in category other than Inspirational):') !!}
     {!! Form::radio('religious',true, $judge->religious==true, ['class' => 'form-control']) !!} Yes {!! Form::radio('religious',false, $judge->religious==false, ['class' => 'form-control']) !!} No
 </div>
 

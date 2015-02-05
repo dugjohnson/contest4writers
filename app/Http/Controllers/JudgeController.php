@@ -4,6 +4,8 @@ use Contest\Http\Controllers\Helpers\EntryHelper;
 use Contest\Http\Controllers\Helpers\JudgeHelper;
 use Contest\Http\Requests;
 use Contest\Judge;
+use Contest\User;
+use Illuminate\Support\Facades\Mail;
 
 class JudgeController extends Controller
 {
@@ -89,8 +91,12 @@ class JudgeController extends Controller
         // set defaults
         $this->fillInFields($request, $judge);
         $judge->save();
+        if ($this->isCoordinator) {
+            return redirect('/coordinators/judges');
+        } else {
+            $this->sendConfirmation($judge);
+        }
         return redirect('judges');
-
     }
 
     /**
@@ -131,6 +137,11 @@ class JudgeController extends Controller
         $judge = Judge::find($id);
         $this->fillInFields($request, $judge);
         $judge->save();
+        if ($this->isCoordinator) {
+            return redirect('/coordinators/judges');
+        } else {
+            $this->sendConfirmation($judge);
+        }
         return redirect('judges');
     }
 
@@ -162,6 +173,24 @@ class JudgeController extends Controller
         if (isset($request->internalComments)) {
             $judge->internalComments = $request->internalComments;
         }
+    }
+
+    public function sendConfirmation($judge){
+        $templateToUse = 'judge.emails.confirm';
+        $user = User::find($judge->user_id);
+        $ccEmails = Array();
+        $ccEmails[] = $this->getAdminEmail('JC');
+        $ccEmails[] = $this->getAdminEmail('OC');
+        $ccEmails[] = ['email'=>'doug@asknice.com','name'=>'Webmaster'];
+
+        Mail::send($templateToUse,$this->judgeFormData($judge),function($message) use ($user,$ccEmails) {
+            $message->to($user->email,$user->writingName)->subject('Daphne Judging Preference Update Confirmation '.$user->writingName);
+            foreach($ccEmails as $email){
+                $message->cc($email['email'],$email['name']);
+            }
+
+        });
+
     }
 
 }
