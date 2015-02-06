@@ -28,7 +28,7 @@
 
     <p>Vampires and/or Werewolves: {{$judge->vampires?'Yes':'No'}}</p>
 
-    <p>Religious and/or inspirational content: {{$judge->vampires?'Yes':'No'}}</p>
+    <p>Religious and/or inspirational content (in category other than Inspirational): {{$judge->vampires?'Yes':'No'}}</p>
 </fieldset>
 
 <p>Special Instructions/Comments or Notes: {{$judge->comments}}</p>
