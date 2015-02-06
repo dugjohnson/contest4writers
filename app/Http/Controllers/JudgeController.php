@@ -72,7 +72,7 @@ class JudgeController extends Controller
         $judge->inspirational = 3;
         $judge->erotic = 1;
         $judge->glbt = 1;
-        $judge->bsdm = 1;
+        $judge->bdsm = 1;
         $judge->vampires = 1;
         $judge->religious = 1;
 
@@ -166,7 +166,7 @@ class JudgeController extends Controller
         $judge->inspirational = $request->inspirational;
         $judge->erotic = $request->erotic;
         $judge->glbt = $request->glbt;
-        $judge->bsdm = $request->bsdm;
+        $judge->bdsm = $request->bdsm;
         $judge->vampires = $request->vampires;
         $judge->religious = $request->religious;
         $judge->comments = $request->comments;

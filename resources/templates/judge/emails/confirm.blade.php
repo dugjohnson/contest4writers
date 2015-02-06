@@ -14,25 +14,11 @@ If you decided to judge, we'll be in touch as the contest entry period winds dow
 <h5>Deadline for judging Unpublished entries is 15th of April.</h5>
 <h5>Deadline for judging Published books is 15th of May.</h5>
 
-<p>Judging this year: {{$judgeThisYear[$judge->judgeThisYear]}}</p>
-<p>Published: {{$judge->judgePub?'Yes':'No'}}</p>
-<p>Maximum number of published: {{$judge->maxpubentries}}</p>
-<p>Unpublished: {{$judge->judgeUnpub?'Yes':'No'}}</p>
-<p>Maximum number of unpublished: {{$judge->maxunpubentries}}</p>
-<p>Either (not both) I’ve indicated the max. number above): {{$judge->judgeEitherNotBoth?'Yes':'No'}}</p>
+@include('judge.info')
 
-<fieldset>
-    <legend>Categories</legend>
-    <p>Mainstream: {{$preferenceLevels[$judge->mainstream]}}</p>
-    <p>Category : {{$preferenceLevels[$judge->category]}}</p>
-    <p>Historical : {{$preferenceLevels[$judge->historical]}}</p>
-    <p>Single Title : {{$preferenceLevels[$judge->singleTitle]}}</p>
-    <p>Paranormal : {{$preferenceLevels[$judge->paranormal]}}</p>
-    <p>Inspirational : {{$preferenceLevels[$judge->inspirational]}}</p>
-</fieldset>
 <h3>Please make sure your contact information in our system is up to date and complete by going to "Check your profile"</h3>
 
-<p>If anything changes with these selections, you can revisit the preference list until March fifteenth.</p>
+<p>If anything changes with these selections, you can revisit the preference list until March 15th.</p>
 
 <p>Any other questions, feel free to contact Nancy J Nicholson, Judge Coordinator at ndjnich@gmail.com.</p>
 

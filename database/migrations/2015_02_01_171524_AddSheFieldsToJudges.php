@@ -17,7 +17,7 @@ class AddSheFieldsToJudges extends Migration {
 			//
 			$table->boolean('erotic')->default(true);
 			$table->boolean('glbt')->default(true);
-			$table->boolean('bsdm')->default(true);
+			$table->boolean('bdsm')->default(true);
 			$table->boolean('vampires')->default(true);
 			$table->boolean('religious')->default(true);
 
@@ -35,7 +35,7 @@ class AddSheFieldsToJudges extends Migration {
 		{
 			$table->dropColumn('erotic');
 			$table->dropColumn('glbt');
-			$table->dropColumn('bsdm');
+			$table->dropColumn('bdsm');
 			$table->dropColumn('vampires');
 			$table->dropColumn('religious');
 			//

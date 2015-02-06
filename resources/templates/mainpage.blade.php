@@ -11,7 +11,7 @@
                     HREF="http://rwamysterysuspense.org/daphne">http://rwamysterysuspense.org/daphne</A></p>
 
         <p><strong>ATTENTION:  Published Authors ONLY</strong></p>
-        <p>Single Title category has now capped and is closed to further submissions.
+        <p>Mainstream and Single Title categories have now capped. Those categories are closed to further submissions.
             ALL OTHER CATEGORIES REMAIN OPEN at this time.
             (This notice does not affect Unpublished)</p>
         <P><B>To get started (Judging and/or Entering):</B></p>

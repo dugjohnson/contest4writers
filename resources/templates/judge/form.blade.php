@@ -7,7 +7,7 @@
 
 <!-- JudgePub Form Input -->
 <div class="form-group">
-    {!! Form::label('judgePub', 'Published:') !!}
+    {!! Form::label('judgePub', 'Published Division:') !!}
     {!! Form::select('judgePub', ['1'=>'Yes','0'=>'No'] ,$judge->judgePub , ['class' => 'form-control']) !!}
 </div>
 <!-- Maxpubentries Form Input -->
@@ -17,7 +17,7 @@
 </div>
 <!-- JudgePub Form Input -->
 <div class="form-group">
-    {!! Form::label('judgeUnpub', 'Unpublished:') !!}
+    {!! Form::label('judgeUnpub', 'Unpublished Division:') !!}
     {!! Form::select('judgeUnpub', ['1'=>'Yes','0'=>'No'] ,$judge->judgeUnpub , ['class' => 'form-control']) !!}
 </div>
 <!-- Maxunpubentries Form Input -->
@@ -78,8 +78,8 @@
     {!! Form::radio('glbt',true, $judge->glbt==true, ['class' => 'form-control']) !!} Yes {!! Form::radio('glbt',false, $judge->glbt==false, ['class' => 'form-control']) !!} No
 </div>
 <div class="form-group">
-    {!! Form::label('bsdm', 'BSDM:') !!}
-    {!! Form::radio('bsdm',true, $judge->bsdm==true, ['class' => 'form-control']) !!} Yes {!! Form::radio('bsdm',false, $judge->bsdm==false, ['class' => 'form-control']) !!} No
+    {!! Form::label('bdsm', 'BDSM:') !!}
+    {!! Form::radio('bdsm',true, $judge->bdsm==true, ['class' => 'form-control']) !!} Yes {!! Form::radio('bdsm',false, $judge->bdsm==false, ['class' => 'form-control']) !!} No
 </div>
 <div class="form-group">
     {!! Form::label('vampires', 'Vampires and/or Werewolves:') !!}
