@@ -48,8 +48,11 @@ class AdminController extends Controller
     {
         
       //todo: Make this work with roles  $judges = Judge::whereRaw($this->getRolesWhereClause($this->adminPerson))->orderBy('category')->orderBy('published')->get();
-        $judges = Judge::all();
-
+        $judges = Judge::with('user')
+            ->join('users', 'users.id', '=', 'judges.user_id')
+            ->orderBy('judgeThisYear')
+            ->orderBy('users.lastName')
+            ->get();
         return view('admin.judge.judges', array('judges' => $judges, 'isCoordinator' => true));
 
 

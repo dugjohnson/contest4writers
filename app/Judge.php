@@ -24,7 +24,7 @@ class Judge extends Model {
     
     public function judgeName() {
         $user = $this->user;
-        return ( empty($user->writingName) ? $user->firstName.' '.$user->firstName : $user->writingName );
+        return ( $user->firstName.' '.$user->lastName );
         
     }
 
