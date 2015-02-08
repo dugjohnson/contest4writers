@@ -15,7 +15,7 @@ trait JudgeHelper {
     public $judgeThisYear = [''=>'Please indicate your participation this year','LJ'=>'I would love to judge this year', 'NY'=>'Ask me next year','EJ'=>'Use me in an emergency','RM'=>'Please remove me from judging list'];
     
     public function judgeFormData($judge){
-       return array('judge' => $judge,'preferenceLevels'=>$this->preferenceLevels,'judgeThisYear'=>$this->judgeThisYear);
+       return array('judge' => $judge,'preferenceLevels'=>$this->preferenceLevels,'judgeThisYear'=>$this->judgeThisYear,'isCoordinator'=>$this->isCoordinator);
         
     }
 

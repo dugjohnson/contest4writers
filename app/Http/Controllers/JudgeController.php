@@ -193,4 +193,13 @@ class JudgeController extends Controller
 
     }
 
+    public function coordinatorShow($id){
+        $this->isCoordinator = true;
+        return $this->show($id);
+    }
+    public function coordinatorEdit($id){
+        $this->isCoordinator = true;
+        return $this->edit($id);
+    }
+
 }

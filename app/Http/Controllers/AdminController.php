@@ -1,13 +1,17 @@
 <?php namespace Contest\Http\Controllers;
 
+use Contest\Entry;
 use Contest\Http\Requests;
 use Contest\Http\Controllers\Helpers\EntryHelper;
+use Contest\Judge;
 
-class AdminController extends Controller {
-    
+class AdminController extends Controller
+{
+
     protected $adminPerson;
     protected $isAdmin;
     use EntryHelper;
+
     /**
      * Create a new controller instance.
      *
@@ -17,42 +21,38 @@ class AdminController extends Controller {
     {
         $this->middleware('auth');
         $this->adminPerson = \Auth::user();
-        if (! ($this->adminPerson && $this->adminPerson->isCoordinator())){
+        if (!($this->adminPerson && $this->adminPerson->isCoordinator())) {
             return redirect('/home');
         }
         $this->isAdmin = $this->adminPerson->isAdministrator();
     }
-    
-    public function index(){
+
+    public function index()
+    {
         $categoryCounts = $this->getCategoryCountsByCoordinator($this->adminPerson);
-        return view('admin.index',['isAdmin'=>$this->isAdmin, 'categoryCounts'=>$categoryCounts]);
-        
+        return view('admin.index', ['isAdmin' => $this->isAdmin, 'categoryCounts' => $categoryCounts]);
+
     }
-    
-    public function entries(){
- //       $entries = \Contest\Entry::where('user_id', '=', $this->entrantID)->get();
-        if ($this->isAdmin){
 
-            $entries = \Contest\Entry::orderBy('category')->orderBy('published')->get();
-            
-        } else {
+    public function entries()
+    {
 
-            $roles = $this->adminPerson->getRoles();
-            $whereStatement = '';
-            foreach ($roles as $role){
-                if (strlen($whereStatement)>0){
-                    $whereStatement .= ' OR ';
-                    
-                }
-                $whereStatement .= " ( '$role->category' = category and $role->published = published) ";
-            }
-            $entries = \Contest\Entry::whereRaw($whereStatement)->orderBy('category')->orderBy('published')->get();
-            
-        }
-        return view('admin.entry.entries', array('entries' => $entries,'isCoordinator'=>true));
+        $entries = Entry::whereRaw($this->getRolesWhereClause($this->adminPerson))->orderBy('category')->orderBy('published')->get();
+
+        return view('admin.entry.entries', array('entries' => $entries, 'isCoordinator' => true));
+
+
+    }
+
+    public function judges()
+    {
         
-        
-        
+      //todo: Make this work with roles  $judges = Judge::whereRaw($this->getRolesWhereClause($this->adminPerson))->orderBy('category')->orderBy('published')->get();
+        $judges = Judge::all();
+
+        return view('admin.judge.judges', array('judges' => $judges, 'isCoordinator' => true));
+
+
     }
 
 }

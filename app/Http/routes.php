@@ -17,6 +17,9 @@ Route::get('coordinators', 'AdminController@index');
 Route::get('administrators', 'AdminController@index');
 //todo: Need to make the below read the action and translate to method
 Route::get('coordinators/entries', 'AdminController@entries');
+Route::get('coordinators/judges', 'AdminController@judges');
+Route::get('coordinators/judges/{id}', 'JudgeController@coordinatorShow');
+Route::get('coordinators/judges/{id}/edit', 'JudgeController@coordinatorEdit');
 Route::get('coordinators/entries/{id}', 'EntryController@coordinatorShow');
 Route::get('coordinators/entries/{id}/edit', 'EntryController@coordinatorEdit');
 Route::get('coordinators/entries/{id}/upload', 'EntryController@coordinatorUpload');

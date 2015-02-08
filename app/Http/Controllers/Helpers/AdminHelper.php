@@ -47,4 +47,25 @@ trait AdminHelper
 
     }
 
+    public function getRolesWhereClause($adminPerson)
+    {
+        $roles = $adminPerson->getRoles();
+        $whereStatement = '';
+        foreach ($roles as $role) {
+            if (empty($role->category)) {
+                continue;
+            }
+            if (strlen($whereStatement) > 0) {
+                $whereStatement .= ' OR ';
+
+            }
+            $whereStatement .= " ( '$role->category' = category and $role->published = published) ";
+        }
+        if (strlen($whereStatement) == 0) {
+            $whereStatement = 'true';
+
+        }
+        return $whereStatement;
+    }
+
 }
