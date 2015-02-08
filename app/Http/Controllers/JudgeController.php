@@ -122,7 +122,8 @@ class JudgeController extends Controller
     public function edit($id)
     {
         //
-        return view('judge.edit', $this->judgeFormData($this->judge));
+        $judge = Judge::find($id);
+        return view('judge.edit', $this->judgeFormData($judge));
     }
 
     /**
