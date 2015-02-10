@@ -13,8 +13,8 @@
             <td>{{ $judge->user_id }}</td>
             <td><a href="/coordinators/users/{{ $judge->user_id }}">{{ $judge->judgeName() }}</a></td>
             <td>{!! $judge->judgeThisYear?$judge->judgeThisYear:'<em><strong>Not updated</strong></em>' !!}</td>
-            <td><a href="/coordinators/judges/{{ $judge->user_id }}">Show</a> / <a
-                        href="/coordinators/judges/{{ $judge->user_id }}/edit">Edit</a></td>
+            <td><a href="/coordinators/judges/{{ $judge->id }}">Show</a> / <a
+                        href="/coordinators/judges/{{ $judge->id }}/edit">Edit</a></td>
         </tr>
     @endforeach
     </tbody>
