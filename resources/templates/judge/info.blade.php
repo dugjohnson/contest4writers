@@ -1,3 +1,4 @@
+<h5>Judge name: {{$judge->judgeName()}}</h5>
 <p>Judging this year: {{$judgeThisYear[$judge->judgeThisYear]}}</p>
 <p>Published Division: {{$judge->judgePub?'Yes':'No'}}</p>
 <p>Maximum number of published: {{$judge->maxpubentries}}</p>
