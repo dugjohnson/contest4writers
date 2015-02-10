@@ -131,16 +131,16 @@
         },
         {
             "name": "danielstjules/stringy",
-            "version": "1.8.1",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/danielstjules/Stringy.git",
-                "reference": "6a7b0391b2baf0bfdca3ec0c8d33ff379c2835ad"
+                "reference": "3cf18e9e424a6dedc38b7eb7ef580edb0929461b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/6a7b0391b2baf0bfdca3ec0c8d33ff379c2835ad",
-                "reference": "6a7b0391b2baf0bfdca3ec0c8d33ff379c2835ad",
+                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/3cf18e9e424a6dedc38b7eb7ef580edb0929461b",
+                "reference": "3cf18e9e424a6dedc38b7eb7ef580edb0929461b",
                 "shasum": ""
             },
             "require": {
@@ -183,7 +183,7 @@
                 "utility",
                 "utils"
             ],
-            "time": "2015-01-08 15:21:43"
+            "time": "2015-02-10 06:19:18"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -641,12 +641,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "50f13bbf47b528cab1a49840e4f70ae5eb8278b0"
+                "reference": "385cb45bd1009ddd6a4c3868ef68eb681bc53e6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/50f13bbf47b528cab1a49840e4f70ae5eb8278b0",
-                "reference": "50f13bbf47b528cab1a49840e4f70ae5eb8278b0",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/385cb45bd1009ddd6a4c3868ef68eb681bc53e6c",
+                "reference": "385cb45bd1009ddd6a4c3868ef68eb681bc53e6c",
                 "shasum": ""
             },
             "require": {
@@ -758,7 +758,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-02-07 02:12:27"
+            "time": "2015-02-08 13:59:23"
         },
         {
             "name": "league/flysystem",
@@ -1321,12 +1321,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "53475e2ab90fce1c199b344658b2691954f72e2c"
+                "reference": "07944837f789bc284206bec1121911ca4bd9008c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/53475e2ab90fce1c199b344658b2691954f72e2c",
-                "reference": "53475e2ab90fce1c199b344658b2691954f72e2c",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/07944837f789bc284206bec1121911ca4bd9008c",
+                "reference": "07944837f789bc284206bec1121911ca4bd9008c",
                 "shasum": ""
             },
             "require": {
@@ -1369,7 +1369,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2015-02-05 06:36:51"
+            "time": "2015-02-08 07:19:48"
         },
         {
             "name": "symfony/debug",
@@ -2153,12 +2153,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "11df16271365ab2bf3ebcd395a4c7a5d55e08656"
+                "reference": "974f648141c3a3a4363b31c24f16d521d623d701"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/11df16271365ab2bf3ebcd395a4c7a5d55e08656",
-                "reference": "11df16271365ab2bf3ebcd395a4c7a5d55e08656",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/974f648141c3a3a4363b31c24f16d521d623d701",
+                "reference": "974f648141c3a3a4363b31c24f16d521d623d701",
                 "shasum": ""
             },
             "require": {
@@ -2223,7 +2223,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2015-01-27 18:02:07"
+            "time": "2015-02-09 21:37:03"
         },
         {
             "name": "phpspec/prophecy",
@@ -2231,12 +2231,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "d647e27524f9f7edc37baf63a114b52f5975808f"
+                "reference": "3a9204c44667c302049ab4eadb02daab789e19ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/d647e27524f9f7edc37baf63a114b52f5975808f",
-                "reference": "d647e27524f9f7edc37baf63a114b52f5975808f",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/3a9204c44667c302049ab4eadb02daab789e19ed",
+                "reference": "3a9204c44667c302049ab4eadb02daab789e19ed",
                 "shasum": ""
             },
             "require": {
@@ -2283,7 +2283,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2015-01-26 10:50:16"
+            "time": "2015-02-09 17:43:38"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2535,12 +2535,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2b1e1e267d0286538b1762aa2c79a96ae1e583c8"
+                "reference": "7c1de6a854a36ba330b352a005a4f5f928619f53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2b1e1e267d0286538b1762aa2c79a96ae1e583c8",
-                "reference": "2b1e1e267d0286538b1762aa2c79a96ae1e583c8",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7c1de6a854a36ba330b352a005a4f5f928619f53",
+                "reference": "7c1de6a854a36ba330b352a005a4f5f928619f53",
                 "shasum": ""
             },
             "require": {
@@ -2599,7 +2599,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-02-06 05:41:08"
+            "time": "2015-02-09 06:38:12"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
