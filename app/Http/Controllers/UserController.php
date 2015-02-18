@@ -3,14 +3,32 @@
 use Contest\Http\Requests\UserRequest;
 use Contest\User;
 use Illuminate\Contracts\Validation;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-
 
 
 class UserController extends Controller
 {
 
     public $isCoordinator = false;
+    public $isAdministrator = false;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+        if (Auth::check()) {
+            $this->isCoordinator = Auth::user()->isCoordinator();
+            $this->isAdministrator = Auth::user()->isAdministrator();
+        }
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +37,13 @@ class UserController extends Controller
     public function index()
     {
         //
-        return Redirect::to('home');
+        $users = User::all();
+        $users->sortBy('lastName');
+        if ($this->isAdministrator) {
+            return view('user.index',['users'=>$users,'isAdministrator'=>$this->isAdministrator]);
+
+        }
+        return redirect('home');
 
     }
 
@@ -52,7 +76,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('user.show', ['user'=>$user,'isCoordinator'=>$this->isCoordinator]);
+        return view('user.show', ['user' => $user, 'isCoordinator' => $this->isCoordinator]);
     }
 
     /**
@@ -64,7 +88,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('user.edit', ['user'=>$user]);
+        return view('user.edit', ['user' => $user]);
     }
 
     /**
@@ -73,7 +97,8 @@ class UserController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function update($id, UserRequest $request) {
+    public function update($id, UserRequest $request)
+    {
         $user = User::find($id);
         // store
         $user = user::find($id);
@@ -98,8 +123,9 @@ class UserController extends Controller
 
 
     }
-    
-    public function coordinatorShow($id){
+
+    public function coordinatorShow($id)
+    {
         $this->isCoordinator = true;
         return $this->show($id);
     }

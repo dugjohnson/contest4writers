@@ -2,14 +2,15 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Judge extends Model {
+class Judge extends Model
+{
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'judges';
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'judges';
 
     public function hasUpdatedPreferences()
     {
@@ -21,11 +22,13 @@ class Judge extends Model {
     {
         return $this->belongsTo('Contest\User');
     }
-    
-    public function judgeName() {
+
+    public function judgeName()
+    {
         $user = $this->user;
-        return ( $user->firstName.' '.$user->lastName );
-        
+        $judgeName = ($user->firstName . ' ' . $user->lastName);
+        return ($judgeName ? $judgeName : 'No Profile');
+
     }
 
 }

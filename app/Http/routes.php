@@ -33,10 +33,14 @@ Route::post('entries/create/unpub', 'EntryController@storeUnpub');
 Route::get('entries/{id}/upload', 'EntryController@getUpload');
 Route::post('entries/{id}/upload', 'EntryController@postUpload');
 
+Route::get('scoresheets/batch', 'ScoresheetsController@getBatch');
+Route::post('scoresheets/batch', 'ScoresheetsController@postBatch');
+
 Route::resource('judges', 'JudgeController');
 Route::resource('entries', 'EntryController');
 Route::resource('users', 'UserController');
 Route::resource('reports', 'ReportsController');
+Route::resource('scoresheets', 'ScoresheetsController');
 
 /*
 |--------------------------------------------------------------------------

@@ -11,18 +11,4 @@ class Entry extends Model {
 	 */
 	protected $table = 'entries';
 
-//	/**
-//	 * The attributes that are mass assignable.
-//	 *
-//	 * @var array
-//	 */
-//	protected $fillable = ['email', 'password'];
-//
-//	/**
-//	 * The attributes excluded from the model's JSON form.
-//	 *
-//	 * @var array
-//	 */
-//	protected $hidden = ['password', 'remember_token'];
-
 }

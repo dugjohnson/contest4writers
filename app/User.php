@@ -42,12 +42,44 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return count($this->rolesList) > 0;
     }
 
+    public function entries()
+    {
+        return $this->hasMany('Contest\Entry');
+    }
+
+    public function isEntrant()
+    {
+        if ($this->entries()->count()>0) {
+            //todo: Add in check for as author, not entrant
+            return true;
+        }
+        return false;
+
+    }
+
+    public function judge()
+    {
+        return $this->hasOne('Contest\Judge');
+    }
+
+    public function isJudge()
+    {
+        if ($this->judge) {
+            return true;
+
+        }
+        return false;
+
+    }
+
 
     public function roles()
     {
-        return $this->hasMany('Contest\Role','user_id');
+        return $this->hasMany('Contest\Role', 'user_id');
     }
-    public function getRoles(){
+
+    public function getRoles()
+    {
         if (!$this->hasRoles()) {
             return null;
         };
@@ -75,13 +107,17 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $hasAccess;
 
     }
-    public function isCoordinator(){
+
+    public function isCoordinator()
+    {
         return ($this->isAdministrator() or $this->hasRole());
-        
+
     }
-    public function isAdministrator() {
+
+    public function isAdministrator()
+    {
         return ($this->hasRole('OC') || $this->hasRole('JC'));
-        
+
     }
 
     public function hasRole($type = 'CC')
