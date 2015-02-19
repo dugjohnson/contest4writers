@@ -36,6 +36,8 @@ Route::post('entries/{id}/upload', 'EntryController@postUpload');
 Route::get('scoresheets/batch', 'ScoresheetsController@getBatch');
 Route::post('scoresheets/batch', 'ScoresheetsController@postBatch');
 
+Route::get('users/{id}/delete', 'UserController@destroy');
+
 Route::resource('judges', 'JudgeController');
 Route::resource('entries', 'EntryController');
 Route::resource('users', 'UserController');

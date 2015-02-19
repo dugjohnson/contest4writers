@@ -40,7 +40,7 @@ class UserController extends Controller
         $users = User::all();
         $users->sortBy('lastName');
         if ($this->isAdministrator) {
-            return view('user.index',['users'=>$users,'isAdministrator'=>$this->isAdministrator]);
+            return view('user.index', ['users' => $users, 'isAdministrator' => $this->isAdministrator]);
 
         }
         return redirect('home');
@@ -67,6 +67,17 @@ class UserController extends Controller
 //		//
 //	}
 //
+public function destroy($id){
+    if (! $this->isAdministrator){
+        return redirect('home');
+    }
+    $user = User::find($id);
+    if ($user->id){
+        $user->delete();
+    }
+    return redirect('users');
+    
+}
     /**
      * Display the specified resource.
      *
@@ -76,7 +87,12 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('user.show', ['user' => $user, 'isCoordinator' => $this->isCoordinator]);
+        if ($this->isAdministrator) {
+            return view('user.admin', ['user' => $user, 'isCoordinator' => $this->isCoordinator]);
+        } else {
+            return view('user.show', ['user' => $user, 'isCoordinator' => $this->isCoordinator]);
+
+        }
     }
 
     /**
@@ -88,7 +104,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('user.edit', ['user' => $user]);
+        return view('user.edit', ['user' => $user, 'isCoordinator' => $this->isCoordinator]);
     }
 
     /**
@@ -99,9 +115,8 @@ class UserController extends Controller
      */
     public function update($id, UserRequest $request)
     {
-        $user = User::find($id);
         // store
-        $user = user::find($id);
+        $user = User::find($id);
         $user->email = $request->email;
         $user->email2 = $request->email2;
         $user->firstName = $request->firstName;

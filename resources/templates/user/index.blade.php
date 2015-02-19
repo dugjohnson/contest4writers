@@ -25,7 +25,11 @@
                 <td>{!!$user->isEntrant()?'Yes':'No'!!}</td>
                 <td>
                     <a href="/users/{{$user->id}}">Show </a>/
-                    <a href="/users/{{$user->id}}/edit"> Edit</a></td>
+                    <a href="/users/{{$user->id}}/edit"> Edit</a>
+                    @if( ! ($user->isJudge() || $user->isEntrant()))
+                        <a href="/users/{{$user->id}}/delete"> Delete</a>
+                    @endif
+                </td>
             </tr>
         @endforeach
         </tbody>
