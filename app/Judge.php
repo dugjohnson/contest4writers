@@ -30,7 +30,11 @@ class Judge extends Model
         return ($judgeName ? $judgeName : 'No Profile');
 
     }
-    
+
+    public function hasScoresheets(){
+        //todo: fix this so it works right
+        return $this->scoresheets() ;
+    }
     public function scoresheets(){
         return $this->hasMany('Contest\Scoresheet');
 

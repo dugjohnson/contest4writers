@@ -1,5 +1,8 @@
 @extends('layout')
 @section('content')
+    @if($judge->hasScoresheets())
+        <a href="/scoresheets" class="button radius">Scoresheets I am judging</a>
+        @endif
     <p>Thank you for taking the time to visit the judge database for the Daphne du Maurier Award for Excellence</p>
     <p>Whether you’re new to judging or updating your preferences we’re happy you’re here. If you decide to judge, we'll
         be in touch as the contest entry period winds down the 15th of March.</p>
