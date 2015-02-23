@@ -20,7 +20,7 @@ class ScoresheetController extends Controller
     
     public function __construct(){
         $this->middleware('auth');
-        $this->judgeID = \Auth::id();
+        $this->judgeID = \Auth::user()->judge->id;
         if (Auth::check()) {
             $this->isCoordinator = Auth::user()->isCoordinator();
             $this->isAdministrator = Auth::user()->isAdministrator();

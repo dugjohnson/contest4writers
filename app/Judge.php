@@ -33,8 +33,13 @@ class Judge extends Model
 
     public function hasScoresheets(){
         //todo: fix this so it works right
-        return $this->scoresheets() ;
+        if ($this->scoresheets()->count() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
+
     public function scoresheets(){
         return $this->hasMany('Contest\Scoresheet');
 
