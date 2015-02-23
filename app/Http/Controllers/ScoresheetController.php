@@ -74,7 +74,8 @@ class ScoresheetController extends Controller
         $scoresheet->sheet = $scoresheet->getScoresheetData()->sheet;
         $viewName = ($scoresheet->published?'allpub':$scoresheet->category);
         $labelList = $this->getLabelList($scoresheet->category,$scoresheet->published);
-        return view('scoresheets.show.'.$viewName, ['scoresheet'=>$scoresheet,'label'=>$labelList]);
+        $tieBreakerList = $this->tieBreakerList($scoresheet->published);
+        return view('scoresheets.show.'.$viewName, ['scoresheet'=>$scoresheet,'label'=>$labelList,'tieBreakerList'=>$tieBreakerList]);
     }
 
     /**
@@ -85,7 +86,12 @@ class ScoresheetController extends Controller
      */
     public function edit($id)
     {
-        return 'edit - '.$id;
+        $scoresheet = Scoresheet::find($id);
+        $scoresheet->sheet = $scoresheet->getScoresheetData()->sheet;
+        $viewName = ($scoresheet->published?'allpub':$scoresheet->category);
+        $labelList = $this->getLabelList($scoresheet->category,$scoresheet->published);
+        $tieBreakerList = $this->tieBreakerList($scoresheet->published);
+        return view('scoresheets.edit.'.$viewName, ['scoresheet'=>$scoresheet,'label'=>$labelList,'tieBreakerList'=>$tieBreakerList]);
         //
     }
 

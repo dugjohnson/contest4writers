@@ -1,117 +1,298 @@
 @extends('layout-scoresheets')
 
+
 @section('content')
     <div id="view-content">
-        PART 1: On a scale of 1 to 5, with 1 being the worst score and 5 being the best, how did the author fulfill the
-        following criteria?
-
+        <div class="panel">
+            <p>SCORING (88 points max.)</p>
+            <p>On a scale of 1 to 5, with 1 being the worst score and 5 being the best, how did the author fulfill the
+            following criteria?</p>
+            <p>Important: We encourage comments both positive and encouraging. For any question scored 3 or less, the
+            Daphne Committee strongly urges that you include comments and/or an explanation.</p>
+        </div>
+        {!! Form::open(array('url' => 'scoresheets/'.$scoresheet->id,'method'=>'put'))  !!}
         <fieldset>
             <legend>OPENING</legend>
-            <p>{{ $label['score01'] }} {{ $scoresheet->sheet->scores->score01 }} </p>
-
-            <p>Comment {{ $scoresheet->sheet->comments->comment01 }} </p>
-
-            <p>{{ $label['score02'] }} {{ $scoresheet->sheet->scores->score02 }} </p>
-
-            <p>Comment {{ $scoresheet->sheet->comments->comment02 }} </p>
+            <div class="form-group">
+                {!! Form::label('score01',  $label['score01']) !!}
+                1 {!! Form::radio('score01[]','1',$scoresheet->sheet->scores->score01==1,['class'=>'scorer form-control']) !!}
+                2 {!! Form::radio('score01[]','2',$scoresheet->sheet->scores->score01==2,['class'=>'scorer form-control']) !!}
+                3 {!! Form::radio('score01[]','3',$scoresheet->sheet->scores->score01==3,['class'=>'scorer form-control']) !!}
+                4 {!! Form::radio('score01[]','4',$scoresheet->sheet->scores->score01==4,['class'=>'scorer form-control']) !!}
+                5 {!! Form::radio('score01[]','5',$scoresheet->sheet->scores->score01==5,['class'=>'scorer form-control']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('comment01', 'Comments:') !!}
+                {!! Form::textarea('comment01',$scoresheet->sheet->comments->comment01, ['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('score02',  $label['score02']) !!}
+                1 {!! Form::radio('score02[]','1',$scoresheet->sheet->scores->score02==1,['class'=>'scorer']) !!}
+                2 {!! Form::radio('score02[]','2',$scoresheet->sheet->scores->score02==2,['class'=>'scorer']) !!}
+                3 {!! Form::radio('score02[]','3',$scoresheet->sheet->scores->score02==3,['class'=>'scorer']) !!}
+                4 {!! Form::radio('score02[]','4',$scoresheet->sheet->scores->score02==4,['class'=>'scorer']) !!}
+                5 {!! Form::radio('score02[]','5',$scoresheet->sheet->scores->score02==5,['class'=>'scorer']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('comment02', 'Comments:') !!}
+                {!! Form::textarea('comment02',$scoresheet->sheet->comments->comment02, ['class' => 'form-control']) !!}
+            </div>
         </fieldset>
 
         <fieldset>
             <legend>PLOT/PACING</legend>
-            <p>{{ $label['score03'] }} {{ $scoresheet->sheet->scores->score03 }} </p>
+            <div class="form-group">
+                {!! Form::label('score03',  $label['score03']) !!}
+                1 {!! Form::radio('score03[]','1',$scoresheet->sheet->scores->score03==1,['class'=>'scorer form-control']) !!}
+                2 {!! Form::radio('score03[]','2',$scoresheet->sheet->scores->score03==2,['class'=>'scorer form-control']) !!}
+                3 {!! Form::radio('score03[]','3',$scoresheet->sheet->scores->score03==3,['class'=>'scorer form-control']) !!}
+                4 {!! Form::radio('score03[]','4',$scoresheet->sheet->scores->score03==4,['class'=>'scorer form-control']) !!}
+                5 {!! Form::radio('score03[]','5',$scoresheet->sheet->scores->score03==5,['class'=>'scorer form-control']) !!}
+            </div>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment03 }}</p>
+            <div class="form-group">
+                {!! Form::label('comment03', 'Comments:') !!}
+                {!! Form::textarea('comment03',$scoresheet->sheet->comments->comment03, ['class' => 'form-control']) !!}
+            </div>
 
-            <p>{{ $label['score04'] }} {{ $scoresheet->sheet->scores->score04 }} </p>
+            <div class="form-group">
+                {!! Form::label('score04',  $label['score04']) !!}
+                1 {!! Form::radio('score04[]','1',$scoresheet->sheet->scores->score04==1,['class'=>'scorer form-control']) !!}
+                2 {!! Form::radio('score04[]','2',$scoresheet->sheet->scores->score04==2,['class'=>'scorer form-control']) !!}
+                3 {!! Form::radio('score04[]','3',$scoresheet->sheet->scores->score04==3,['class'=>'scorer form-control']) !!}
+                4 {!! Form::radio('score04[]','4',$scoresheet->sheet->scores->score04==4,['class'=>'scorer form-control']) !!}
+                5 {!! Form::radio('score04[]','5',$scoresheet->sheet->scores->score04==5,['class'=>'scorer form-control']) !!}
+            </div>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment04 }}</p>
+            <div class="form-group">
+                {!! Form::label('comment04', 'Comments:') !!}
+                {!! Form::textarea('comment04',$scoresheet->sheet->comments->comment04, ['class' => 'form-control']) !!}
+            </div>
+
         </fieldset>
 
         <fieldset>
             <legend>CHARACTERIZATION</legend>
-            <p>{{ $label['score05'] }} {{ $scoresheet->sheet->scores->score05 }} </p>
+            <div class="form-group">
+                {!! Form::label('score05',  $label['score05']) !!}
+                1 {!! Form::radio('score05[]','1',$scoresheet->sheet->scores->score05==1,['class'=>'scorer form-control']) !!}
+                2 {!! Form::radio('score05[]','2',$scoresheet->sheet->scores->score05==2,['class'=>'scorer form-control']) !!}
+                3 {!! Form::radio('score05[]','3',$scoresheet->sheet->scores->score05==3,['class'=>'scorer form-control']) !!}
+                4 {!! Form::radio('score05[]','4',$scoresheet->sheet->scores->score05==4,['class'=>'scorer form-control']) !!}
+                5 {!! Form::radio('score05[]','5',$scoresheet->sheet->scores->score05==5,['class'=>'scorer form-control']) !!}
+            </div>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment05 }}</p>
+            <div class="form-group">
+                {!! Form::label('comment01', 'Comments:') !!}
+                {!! Form::textarea('comment01',$scoresheet->sheet->comments->comment01, ['class' => 'form-control']) !!}
+            </div>
 
-            <p>{{ $label['score06'] }} {{ $scoresheet->sheet->scores->score06 }} </p>
+            <div class="form-group">
+                {!! Form::label('score06',  $label['score06']) !!}
+                1 {!! Form::radio('score06[]','1',$scoresheet->sheet->scores->score06==1,['class'=>'scorer form-control']) !!}
+                2 {!! Form::radio('score06[]','2',$scoresheet->sheet->scores->score06==2,['class'=>'scorer form-control']) !!}
+                3 {!! Form::radio('score06[]','3',$scoresheet->sheet->scores->score06==3,['class'=>'scorer form-control']) !!}
+                4 {!! Form::radio('score06[]','4',$scoresheet->sheet->scores->score06==4,['class'=>'scorer form-control']) !!}
+                5 {!! Form::radio('score06[]','5',$scoresheet->sheet->scores->score06==5,['class'=>'scorer form-control']) !!}
+            </div>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment06 }}</p>
+            <div class="form-group">
+                {!! Form::label('comment06', 'Comments:') !!}
+                {!! Form::textarea('comment06',$scoresheet->sheet->comments->comment06, ['class' => 'form-control']) !!}
+            </div>
         </fieldset>
 
         <fieldset>
             <legend>VOICE/POINT OF VIEW</legend>
-            <p>{{ $label['score07'] }} {{ $scoresheet->sheet->scores->score07 }} </p>
+            <div class="form-group">
+                {!! Form::label('score07',  $label['score07']) !!}
+                1 {!! Form::radio('score07[]','1',$scoresheet->sheet->scores->score07==1,['class'=>'scorer form-control']) !!}
+                2 {!! Form::radio('score07[]','2',$scoresheet->sheet->scores->score07==2,['class'=>'scorer form-control']) !!}
+                3 {!! Form::radio('score07[]','3',$scoresheet->sheet->scores->score07==3,['class'=>'scorer form-control']) !!}
+                4 {!! Form::radio('score07[]','4',$scoresheet->sheet->scores->score07==4,['class'=>'scorer form-control']) !!}
+                5 {!! Form::radio('score07[]','5',$scoresheet->sheet->scores->score07==5,['class'=>'scorer form-control']) !!}
+            </div>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment07 }}</p>
+            <div class="form-group">
+                {!! Form::label('comment07', 'Comments:') !!}
+                {!! Form::textarea('comment07',$scoresheet->sheet->comments->comment07, ['class' => 'form-control']) !!}
+            </div>
 
-            <p>{{ $label['score08'] }} {{ $scoresheet->sheet->scores->score08 }} </p>
+            <div class="form-group">
+                {!! Form::label('score08',  $label['score08']) !!}
+                1 {!! Form::radio('score08[]','1',$scoresheet->sheet->scores->score08==1,['class'=>'scorer form-control']) !!}
+                2 {!! Form::radio('score08[]','2',$scoresheet->sheet->scores->score08==2,['class'=>'scorer form-control']) !!}
+                3 {!! Form::radio('score08[]','3',$scoresheet->sheet->scores->score08==3,['class'=>'scorer form-control']) !!}
+                4 {!! Form::radio('score08[]','4',$scoresheet->sheet->scores->score08==4,['class'=>'scorer form-control']) !!}
+                5 {!! Form::radio('score08[]','5',$scoresheet->sheet->scores->score08==5,['class'=>'scorer form-control']) !!}
+            </div>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment08 }}</p>
+            <div class="form-group">
+                {!! Form::label('comment08', 'Comments:') !!}
+                {!! Form::textarea('comment08',$scoresheet->sheet->comments->comment08, ['class' => 'form-control']) !!}
+            </div>
         </fieldset>
 
         <fieldset>
             <legend>DIALOGUE/NARRATIVE</legend>
-            <p>{{ $label['score09'] }} {{ $scoresheet->sheet->scores->score09 }} </p>
+            <div class="form-group">
+                {!! Form::label('score09',  $label['score09']) !!}
+                1 {!! Form::radio('score09[]','1',$scoresheet->sheet->scores->score09==1,['class'=>'scorer form-control']) !!}
+                2 {!! Form::radio('score09[]','2',$scoresheet->sheet->scores->score09==2,['class'=>'scorer form-control']) !!}
+                3 {!! Form::radio('score09[]','3',$scoresheet->sheet->scores->score09==3,['class'=>'scorer form-control']) !!}
+                4 {!! Form::radio('score09[]','4',$scoresheet->sheet->scores->score09==4,['class'=>'scorer form-control']) !!}
+                5 {!! Form::radio('score09[]','5',$scoresheet->sheet->scores->score09==5,['class'=>'scorer form-control']) !!}
+            </div>
 
-            <p>{{ $label['score10'] }} {{ $scoresheet->sheet->scores->score10 }} </p>
+            <div class="form-group">
+                {!! Form::label('score10',  $label['score10']) !!}
+                1 {!! Form::radio('score10[]','1',$scoresheet->sheet->scores->score10==1,['class'=>'scorer form-control']) !!}
+                2 {!! Form::radio('score10[]','2',$scoresheet->sheet->scores->score10==2,['class'=>'scorer form-control']) !!}
+                3 {!! Form::radio('score10[]','3',$scoresheet->sheet->scores->score10==3,['class'=>'scorer form-control']) !!}
+                4 {!! Form::radio('score10[]','4',$scoresheet->sheet->scores->score10==4,['class'=>'scorer form-control']) !!}
+                5 {!! Form::radio('score10[]','5',$scoresheet->sheet->scores->score10==5,['class'=>'scorer form-control']) !!}
+            </div>
 
-            <p>{{ $label['score11'] }} {{ $scoresheet->sheet->scores->score11 }} </p>
+            <div class="form-group">
+                {!! Form::label('score11',  $label['score11']) !!}
+                1 {!! Form::radio('score11[]','1',$scoresheet->sheet->scores->score11==1,['class'=>'scorer form-control']) !!}
+                2 {!! Form::radio('score11[]','2',$scoresheet->sheet->scores->score11==2,['class'=>'scorer form-control']) !!}
+                3 {!! Form::radio('score11[]','3',$scoresheet->sheet->scores->score11==3,['class'=>'scorer form-control']) !!}
+                4 {!! Form::radio('score11[]','4',$scoresheet->sheet->scores->score11==4,['class'=>'scorer form-control']) !!}
+                5 {!! Form::radio('score11[]','5',$scoresheet->sheet->scores->score11==5,['class'=>'scorer form-control']) !!}
+            </div>
 
-            <p>{{ $label['score12'] }} {{ $scoresheet->sheet->scores->score12 }} </p>
+            <div class="form-group">
+                {!! Form::label('score12',  $label['score12']) !!}
+                1 {!! Form::radio('score12[]','1',$scoresheet->sheet->scores->score12==1,['class'=>'scorer form-control']) !!}
+                2 {!! Form::radio('score12[]','2',$scoresheet->sheet->scores->score12==2,['class'=>'scorer form-control']) !!}
+                3 {!! Form::radio('score12[]','3',$scoresheet->sheet->scores->score12==3,['class'=>'scorer form-control']) !!}
+                4 {!! Form::radio('score12[]','4',$scoresheet->sheet->scores->score12==4,['class'=>'scorer form-control']) !!}
+                5 {!! Form::radio('score12[]','5',$scoresheet->sheet->scores->score12==5,['class'=>'scorer form-control']) !!}
+            </div>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment12 }}</p>
+            <div class="form-group">
+                {!! Form::label('comment12', 'Comments:') !!}
+                {!! Form::textarea('comment12',$scoresheet->sheet->comments->comment12, ['class' => 'form-control']) !!}
+            </div>
         </fieldset>
 
         <fieldset>
             <legend>STORY DETAILS</legend>
-            <p>{{ $label['score13'] }} {{ $scoresheet->sheet->scores->score13 }} </p>
+            <div class="form-group">
+                {!! Form::label('score13',  $label['score13']) !!}
+                1 {!! Form::radio('score13[]','1',$scoresheet->sheet->scores->score13==1,['class'=>'scorer form-control']) !!}
+                2 {!! Form::radio('score13[]','2',$scoresheet->sheet->scores->score13==2,['class'=>'scorer form-control']) !!}
+                3 {!! Form::radio('score13[]','3',$scoresheet->sheet->scores->score13==3,['class'=>'scorer form-control']) !!}
+                4 {!! Form::radio('score13[]','4',$scoresheet->sheet->scores->score13==4,['class'=>'scorer form-control']) !!}
+                5 {!! Form::radio('score13[]','5',$scoresheet->sheet->scores->score13==5,['class'=>'scorer form-control']) !!}
+            </div>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment13 }}</p>
+            <div class="form-group">
+                {!! Form::label('comment13', 'Comments:') !!}
+                {!! Form::textarea('comment13',$scoresheet->sheet->comments->comment13, ['class' => 'form-control']) !!}
+            </div>
 
-            <p>{{ $label['score14'] }} {{ $scoresheet->sheet->scores->score14 }} </p>
+            <div class="form-group">
+                {!! Form::label('score14',  $label['score14']) !!}
+                1 {!! Form::radio('score14[]','1',$scoresheet->sheet->scores->score14==1,['class'=>'scorer form-control']) !!}
+                2 {!! Form::radio('score14[]','2',$scoresheet->sheet->scores->score14==2,['class'=>'scorer form-control']) !!}
+                3 {!! Form::radio('score14[]','3',$scoresheet->sheet->scores->score14==3,['class'=>'scorer form-control']) !!}
+                4 {!! Form::radio('score14[]','4',$scoresheet->sheet->scores->score14==4,['class'=>'scorer form-control']) !!}
+                5 {!! Form::radio('score14[]','5',$scoresheet->sheet->scores->score14==5,['class'=>'scorer form-control']) !!}
+            </div>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment14 }}</p>
+            <div class="form-group">
+                {!! Form::label('comment14', 'Comments:') !!}
+                {!! Form::textarea('comment14',$scoresheet->sheet->comments->comment14, ['class' => 'form-control']) !!}
+            </div>
 
-            <p>{{ $label['score15'] }} {{ $scoresheet->sheet->scores->score15 }} </p>
+            <div class="form-group">
+                {!! Form::label('score15',  $label['score15']) !!}
+                1 {!! Form::radio('score15[]','1',$scoresheet->sheet->scores->score15==1,['class'=>'scorer form-control']) !!}
+                2 {!! Form::radio('score15[]','2',$scoresheet->sheet->scores->score15==2,['class'=>'scorer form-control']) !!}
+                3 {!! Form::radio('score15[]','3',$scoresheet->sheet->scores->score15==3,['class'=>'scorer form-control']) !!}
+                4 {!! Form::radio('score15[]','4',$scoresheet->sheet->scores->score15==4,['class'=>'scorer form-control']) !!}
+                5 {!! Form::radio('score15[]','5',$scoresheet->sheet->scores->score15==5,['class'=>'scorer form-control']) !!}
+            </div>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment15 }}</p>
+            <div class="form-group">
+                {!! Form::label('comment15', 'Comments:') !!}
+                {!! Form::textarea('comment15',$scoresheet->sheet->comments->comment15, ['class' => 'form-control']) !!}
+            </div>
 
-            <p>{{ $label['score16'] }} {{ $scoresheet->sheet->scores->score16 }} </p>
+            <div class="form-group">
+                {!! Form::label('score16',  $label['score16']) !!}
+                1 {!! Form::radio('score16[]','1',$scoresheet->sheet->scores->score16==1,['class'=>'scorer form-control']) !!}
+                2 {!! Form::radio('score16[]','2',$scoresheet->sheet->scores->score16==2,['class'=>'scorer form-control']) !!}
+                3 {!! Form::radio('score16[]','3',$scoresheet->sheet->scores->score16==3,['class'=>'scorer form-control']) !!}
+                4 {!! Form::radio('score16[]','4',$scoresheet->sheet->scores->score16==4,['class'=>'scorer form-control']) !!}
+                5 {!! Form::radio('score16[]','5',$scoresheet->sheet->scores->score16==5,['class'=>'scorer form-control']) !!}
+            </div>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment16 }}</p>
+            <div class="form-group">
+                {!! Form::label('comment16', 'Comments:') !!}
+                {!! Form::textarea('comment16',$scoresheet->sheet->comments->comment16, ['class' => 'form-control']) !!}
+            </div>
 
-            <p>{{ $label['score17'] }} {{ $scoresheet->sheet->scores->score17 }} </p>
+            <div class="form-group">
+                {!! Form::label('score17',  $label['score17']) !!}
+                1 {!! Form::radio('score17[]','1',$scoresheet->sheet->scores->score17==1,['class'=>'scorer form-control']) !!}
+                2 {!! Form::radio('score17[]','2',$scoresheet->sheet->scores->score17==2,['class'=>'scorer form-control']) !!}
+                3 {!! Form::radio('score17[]','3',$scoresheet->sheet->scores->score17==3,['class'=>'scorer form-control']) !!}
+                4 {!! Form::radio('score17[]','4',$scoresheet->sheet->scores->score17==4,['class'=>'scorer form-control']) !!}
+                5 {!! Form::radio('score17[]','5',$scoresheet->sheet->scores->score17==5,['class'=>'scorer form-control']) !!}
+            </div>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment17 }}</p>
+            <div class="form-group">
+                {!! Form::label('comment17', 'Comments:') !!}
+                {!! Form::textarea('comment17',$scoresheet->sheet->comments->comment17, ['class' => 'form-control']) !!}
+            </div>
         </fieldset>
 
         <fieldset>
             <legend>Bonus</legend>
             <p>worth 1 additional point each</p>
 
-            <p>{{ $label['bonus1'] }} {{ $scoresheet->sheet->bonus1 }}</p>
-
-            <p>{{ $label['bonus2'] }} {{ $scoresheet->sheet->bonus2 }}</p>
-
-            <p>{{ $label['bonus3'] }} {{ $scoresheet->sheet->bonus3 }}</p>
+            <div class="form-group">
+                {!! Form::label('bonus1',  $label['bonus1'].'&nbsp;&nbsp;',['class'=>'left']) !!}
+                {!! Form::checkbox('bonus1','1',$scoresheet->sheet->scores->bonus1,['class'=>'scorer form-control']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('bonus2',  $label['bonus2'].'&nbsp;&nbsp;',['class'=>'left']) !!}
+                {!! Form::checkbox('bonus2','1',$scoresheet->sheet->scores->bonus2,['class'=>'scorer form-control']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('bonus3',  $label['bonus3'].'&nbsp;&nbsp;',['class'=>'left']) !!}
+                {!! Form::checkbox('bonus3','1',$scoresheet->sheet->scores->bonus3,['class'=>'scorer form-control']) !!}
+            </div>
         </fieldset>
 
         <fieldset>
             <legend>Part 2</legend>
             <p>PART 2 (For informational purposes and to be used as a tie-breaker if needed) </p>
 
-            <p>{{ $label['tiebreaker'] }} {{ $scoresheet->sheet->tiebreaker }}</p>
+            <div class="form-group">
+                {!! Form::label('tiebreaker', 'Historical:') !!}
+                {!! Form::select('tiebreaker', $tieBreakerList ,$scoresheet->sheet->tiebreaker , ['class' => 'form-control']) !!}
+            </div>
 
-            <p> {{ $scoresheet->sheet->comments->commentFinal }}</p>
+            <div class="form-group">
+                {!! Form::label('commentFinal', 'Comments:') !!}
+                {!! Form::textarea('commentFinal',$scoresheet->sheet->comments->commentFinal, ['class' => 'form-control']) !!}
+            </div>
+
         </fieldset>
 
-        @if ($scoresheet->sheet->judgeName)
+        <fieldset>
+            <div class="form-group">
+                {!! Form::label('judgeName', 'Judge name (optional):') !!}
+                {!! Form::text('judgeName',$scoresheet->sheet->judgeName, ['class' => 'form-control']) !!}
+            </div>
 
-            <fieldset>
+        </fieldset>
+        @include('scoresheets.edit.formclose')
+        {!! Form::close() !!}
 
-                {{ $scoresheet->sheet->judgeName }}
-
-            </fieldset>
-        @endif
     </div>
 @stop
