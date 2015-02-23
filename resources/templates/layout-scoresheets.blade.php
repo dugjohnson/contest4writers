@@ -22,6 +22,12 @@
         <div class="large-12 columns container">
             <div class="row">
                 <div class="content">
+                    <fieldset>
+                        <legend>General Information</legend>
+                        <p><em>Judge ID: </em>{{$scoresheet->judge_id }}<em> Entry ID:</em> {{ $scoresheet->entry_id }}</p>
+                        <p><em>Title:</em>    {{$scoresheet->title }}  <em>Category</em>:    {{$scoresheet->category }}</p>
+                        <p><strong><em>Final Score:</em> {{  $scoresheet->finalScore }}</strong></p>
+                    </fieldset>
                     @yield('content')
                 </div>
             </div>

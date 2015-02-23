@@ -10,5 +10,10 @@ class Entry extends Model {
 	 * @var string
 	 */
 	protected $table = 'entries';
+    
+    public function scoresheets(){
+        return $this->hasMany('Contest\Scoresheet');
+        
+    }
 
 }

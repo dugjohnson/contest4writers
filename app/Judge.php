@@ -30,5 +30,9 @@ class Judge extends Model
         return ($judgeName ? $judgeName : 'No Profile');
 
     }
+    
+    public function scoresheets(){
+        return $this->hasMany('Contest\Scoresheet');
 
+    }
 }
