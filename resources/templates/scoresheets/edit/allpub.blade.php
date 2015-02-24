@@ -5,10 +5,12 @@
     <div id="view-content">
         <div class="panel">
             <p>SCORING (88 points max.)</p>
+
             <p>On a scale of 1 to 5, with 1 being the worst score and 5 being the best, how did the author fulfill the
-            following criteria?</p>
+                following criteria?</p>
+
             <p>Important: We encourage comments both positive and encouraging. For any question scored 3 or less, the
-            Daphne Committee strongly urges that you include comments and/or an explanation.</p>
+                Daphne Committee strongly urges that you include comments and/or an explanation.</p>
         </div>
         {!! Form::open(array('url' => 'scoresheets/'.$scoresheet->id,'method'=>'put'))  !!}
         <fieldset>
@@ -20,10 +22,6 @@
                 3 {!! Form::radio('score01[]','3',$scoresheet->sheet->scores->score01==3,['class'=>'scorer form-control']) !!}
                 4 {!! Form::radio('score01[]','4',$scoresheet->sheet->scores->score01==4,['class'=>'scorer form-control']) !!}
                 5 {!! Form::radio('score01[]','5',$scoresheet->sheet->scores->score01==5,['class'=>'scorer form-control']) !!}
-            </div>
-            <div class="form-group">
-                {!! Form::label('comment01', 'Comments:') !!}
-                {!! Form::textarea('comment01',$scoresheet->sheet->comments->comment01, ['class' => 'form-control']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('score02',  $label['score02']) !!}
@@ -48,11 +46,6 @@
                 3 {!! Form::radio('score03[]','3',$scoresheet->sheet->scores->score03==3,['class'=>'scorer form-control']) !!}
                 4 {!! Form::radio('score03[]','4',$scoresheet->sheet->scores->score03==4,['class'=>'scorer form-control']) !!}
                 5 {!! Form::radio('score03[]','5',$scoresheet->sheet->scores->score03==5,['class'=>'scorer form-control']) !!}
-            </div>
-
-            <div class="form-group">
-                {!! Form::label('comment03', 'Comments:') !!}
-                {!! Form::textarea('comment03',$scoresheet->sheet->comments->comment03, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
@@ -83,11 +76,6 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('comment01', 'Comments:') !!}
-                {!! Form::textarea('comment01',$scoresheet->sheet->comments->comment01, ['class' => 'form-control']) !!}
-            </div>
-
-            <div class="form-group">
                 {!! Form::label('score06',  $label['score06']) !!}
                 1 {!! Form::radio('score06[]','1',$scoresheet->sheet->scores->score06==1,['class'=>'scorer form-control']) !!}
                 2 {!! Form::radio('score06[]','2',$scoresheet->sheet->scores->score06==2,['class'=>'scorer form-control']) !!}
@@ -112,12 +100,6 @@
                 4 {!! Form::radio('score07[]','4',$scoresheet->sheet->scores->score07==4,['class'=>'scorer form-control']) !!}
                 5 {!! Form::radio('score07[]','5',$scoresheet->sheet->scores->score07==5,['class'=>'scorer form-control']) !!}
             </div>
-
-            <div class="form-group">
-                {!! Form::label('comment07', 'Comments:') !!}
-                {!! Form::textarea('comment07',$scoresheet->sheet->comments->comment07, ['class' => 'form-control']) !!}
-            </div>
-
             <div class="form-group">
                 {!! Form::label('score08',  $label['score08']) !!}
                 1 {!! Form::radio('score08[]','1',$scoresheet->sheet->scores->score08==1,['class'=>'scorer form-control']) !!}
@@ -189,22 +171,12 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('comment13', 'Comments:') !!}
-                {!! Form::textarea('comment13',$scoresheet->sheet->comments->comment13, ['class' => 'form-control']) !!}
-            </div>
-
-            <div class="form-group">
                 {!! Form::label('score14',  $label['score14']) !!}
                 1 {!! Form::radio('score14[]','1',$scoresheet->sheet->scores->score14==1,['class'=>'scorer form-control']) !!}
                 2 {!! Form::radio('score14[]','2',$scoresheet->sheet->scores->score14==2,['class'=>'scorer form-control']) !!}
                 3 {!! Form::radio('score14[]','3',$scoresheet->sheet->scores->score14==3,['class'=>'scorer form-control']) !!}
                 4 {!! Form::radio('score14[]','4',$scoresheet->sheet->scores->score14==4,['class'=>'scorer form-control']) !!}
                 5 {!! Form::radio('score14[]','5',$scoresheet->sheet->scores->score14==5,['class'=>'scorer form-control']) !!}
-            </div>
-
-            <div class="form-group">
-                {!! Form::label('comment14', 'Comments:') !!}
-                {!! Form::textarea('comment14',$scoresheet->sheet->comments->comment14, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
@@ -217,11 +189,6 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('comment15', 'Comments:') !!}
-                {!! Form::textarea('comment15',$scoresheet->sheet->comments->comment15, ['class' => 'form-control']) !!}
-            </div>
-
-            <div class="form-group">
                 {!! Form::label('score16',  $label['score16']) !!}
                 1 {!! Form::radio('score16[]','1',$scoresheet->sheet->scores->score16==1,['class'=>'scorer form-control']) !!}
                 2 {!! Form::radio('score16[]','2',$scoresheet->sheet->scores->score16==2,['class'=>'scorer form-control']) !!}
@@ -230,10 +197,6 @@
                 5 {!! Form::radio('score16[]','5',$scoresheet->sheet->scores->score16==5,['class'=>'scorer form-control']) !!}
             </div>
 
-            <div class="form-group">
-                {!! Form::label('comment16', 'Comments:') !!}
-                {!! Form::textarea('comment16',$scoresheet->sheet->comments->comment16, ['class' => 'form-control']) !!}
-            </div>
 
             <div class="form-group">
                 {!! Form::label('score17',  $label['score17']) !!}

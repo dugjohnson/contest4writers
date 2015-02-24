@@ -2,13 +2,12 @@
 
 @section('content')
     <div id="view-content">
-        PART 1: On a scale of 1 to 5, with 1 being the worst score and 5 being the best, how did the author fulfill the following criteria?
+        PART 1: On a scale of 1 to 5, with 1 being the worst score and 5 being the best, how did the author fulfill the
+        following criteria?
 
         <fieldset>
             <legend>OPENING</legend>
             <p>{{ $label['score01'] }} {{ $scoresheet->sheet->scores->score01 }} </p>
-
-            <p>Comment {{ $scoresheet->sheet->comments->comment01 }} </p>
 
             <p>{{ $label['score02'] }} {{ $scoresheet->sheet->scores->score02 }} </p>
 
@@ -19,8 +18,6 @@
             <legend>PLOT/PACING</legend>
             <p>{{ $label['score03'] }} {{ $scoresheet->sheet->scores->score03 }} </p>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment03 }}</p>
-
             <p>{{ $label['score04'] }} {{ $scoresheet->sheet->scores->score04 }} </p>
 
             <p>Comment {{ $scoresheet->sheet->comments->comment04 }}</p>
@@ -30,8 +27,6 @@
             <legend>CHARACTERIZATION</legend>
             <p>{{ $label['score05'] }} {{ $scoresheet->sheet->scores->score05 }} </p>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment05 }}</p>
-
             <p>{{ $label['score06'] }} {{ $scoresheet->sheet->scores->score06 }} </p>
 
             <p>Comment {{ $scoresheet->sheet->comments->comment06 }}</p>
@@ -40,8 +35,6 @@
         <fieldset>
             <legend>VOICE/POINT OF VIEW</legend>
             <p>{{ $label['score07'] }} {{ $scoresheet->sheet->scores->score07 }} </p>
-
-            <p>Comment {{ $scoresheet->sheet->comments->comment07 }}</p>
 
             <p>{{ $label['score08'] }} {{ $scoresheet->sheet->scores->score08 }} </p>
 
@@ -65,19 +58,11 @@
             <legend>STORY DETAILS</legend>
             <p>{{ $label['score13'] }} {{ $scoresheet->sheet->scores->score13 }} </p>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment13 }}</p>
-
             <p>{{ $label['score14'] }} {{ $scoresheet->sheet->scores->score14 }} </p>
-
-            <p>Comment {{ $scoresheet->sheet->comments->comment14 }}</p>
 
             <p>{{ $label['score15'] }} {{ $scoresheet->sheet->scores->score15 }} </p>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment15 }}</p>
-
             <p>{{ $label['score16'] }} {{ $scoresheet->sheet->scores->score16 }} </p>
-
-            <p>Comment {{ $scoresheet->sheet->comments->comment16 }}</p>
 
             <p>{{ $label['score17'] }} {{ $scoresheet->sheet->scores->score17 }} </p>
 
