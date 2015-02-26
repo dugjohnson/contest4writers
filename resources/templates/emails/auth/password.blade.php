@@ -11,7 +11,7 @@
 
 <div>
     To reset your password, complete this form: {!! HTML::link(URL::to('password/reset', array($token))) !!}.<br/>
-    This link will expire in {!! Config::get('auth.reminder.expire', 60) !!} minutes.
+    This link will expire in {!! Config::get('auth.password.expire', 60) !!} minutes.
 </div>
 </body>
 </html>
