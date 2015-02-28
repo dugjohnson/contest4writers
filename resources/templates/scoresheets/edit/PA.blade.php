@@ -1,4 +1,4 @@
-@extends('layout-scoresheets')
+@extends('scoresheets.layout')
 
 @section('content')
     <h1>Paranormal UnPub</h1>

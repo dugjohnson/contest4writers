@@ -1,4 +1,5 @@
-@extends('layout-scoresheets')
+@extends('scoresheets.layout')
+
 
 @section('content')
     <div id="view-content">

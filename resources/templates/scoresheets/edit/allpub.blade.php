@@ -1,5 +1,4 @@
-@extends('layout-scoresheets')
-
+@extends('scoresheets.layout')
 
 @section('content')
     <div id="view-content">
@@ -13,6 +12,7 @@
                 Daphne Committee strongly urges that you include comments and/or an explanation.</p>
         </div>
         {!! Form::open(array('url' => 'scoresheets/'.$scoresheet->id,'method'=>'put'))  !!}
+        @include('scoresheets.edit.formopen')
         <fieldset>
             <legend>OPENING</legend>
             <div class="form-group">

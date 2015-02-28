@@ -5,6 +5,7 @@ use Contest\Http\Controllers\Helpers\ScoresheetHelper;
 use Contest\Http\Requests;
 use Contest\Scoresheet;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 
 class ScoresheetController extends Controller
@@ -12,7 +13,8 @@ class ScoresheetController extends Controller
 
     const COUNT_FOR_PUBLISHED = 3;
     const COUNT_FOR_UNPUBLISHED = 4;
-    public $judgeID;
+    public $judgeID = 0;
+    public $user;
     public $isCoordinator = false;
     public $isAdministrator = false;
     
@@ -20,10 +22,15 @@ class ScoresheetController extends Controller
     
     public function __construct(){
         $this->middleware('auth');
-        $this->judgeID = \Auth::user()->judge->id;
+        
         if (Auth::check()) {
-            $this->isCoordinator = Auth::user()->isCoordinator();
-            $this->isAdministrator = Auth::user()->isAdministrator();
+            $this->user = Auth::user();
+            $this->isCoordinator = $this->user->isCoordinator();
+            $this->isAdministrator = $this->user->isAdministrator();
+            if ($this->user->judge){
+                $this->judgeID = $this->user->judge->id;
+
+            }
         }
 
     }
@@ -95,6 +102,33 @@ class ScoresheetController extends Controller
         //
     }
 
+    private function saveInformation($scoresheet,$information){
+        $sheetData = json_decode($scoresheet->scoresheetData,true);
+        $checkScore = 0;
+        for ($i=1;$i<26;$i++){
+            $score = 'score'.($i<10?'0'.$i:$i);
+            $comment = 'comment'.($i<10?'0'.$i:$i);
+            if (isset($information[$score])){
+                $sheetData['sheet']['scores'][$score] = $information[$score][0];
+                $checkScore += $information[$score][0];
+            }
+            if (isset($information[$comment])){
+                $sheetData['sheet']['comments'][$comment] = $information[$comment];
+            }
+            if ($i<4){
+                $bonus = 'bonus'.$i;
+                $sheetData['sheet'][$bonus] = (isset($information[$bonus])?1:0);
+                $checkScore += $sheetData['sheet'][$bonus];
+            }
+        }
+        $sheetData['tiebreaker'] =  (isset($information['tiebreaker'])?$information['tiebreaker']:0);
+        if (! ($checkScore == $sheetData['finalScore'])){
+            $sheetData['finalScore'] = $checkScore;
+            $scoresheet->finalScore = $checkScore;
+        }
+        $scoresheet->scoresheetData = json_encode($sheetData);
+        $scoresheet->save();
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -103,21 +137,14 @@ class ScoresheetController extends Controller
      */
     public function update($id)
     {
-        //
-        return 'update - '.$id;
+        $scoresheet = Scoresheet::find($id);
+        $information = $_REQUEST;
+        $this->saveInformation($scoresheet,$information);
+        Session::flash('infoMessage','Scoresheet updated');
+        return $this->show($id);
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 
     public function getBatch()
     {
