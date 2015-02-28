@@ -89,6 +89,7 @@ class JudgeController extends Controller
     {
         $judge = new Judge;
         // set defaults
+        $judge->user_id = $this->judgeUserID;
         $this->fillInFields($request, $judge);
         $judge->save();
         if ($this->isCoordinator) {
@@ -152,7 +153,6 @@ class JudgeController extends Controller
      */
     public function fillInFields(Requests\JudgeRequest $request, $judge)
     {
-        $judge->user_id = $this->judgeUserID;
         $judge->judgePub = $request->judgePub;
         $judge->judgeUnpub = $request->judgeUnpub;
         $judge->judgeEitherNotBoth = $request->judgeEitherNotBoth;
