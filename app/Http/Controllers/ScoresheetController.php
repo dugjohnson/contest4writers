@@ -121,6 +121,7 @@ class ScoresheetController extends Controller
                 $checkScore += $sheetData['sheet'][$bonus];
             }
         }
+        $sheetData['sheet']['comments']['commentFinal'] =  (isset($information['commentFinal'])?$information['commentFinal']:'');
         $sheetData['tiebreaker'] =  (isset($information['tiebreaker'])?$information['tiebreaker']:0);
         if (! ($checkScore == $sheetData['finalScore'])){
             $sheetData['finalScore'] = $checkScore;

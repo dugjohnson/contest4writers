@@ -1,3 +1,4 @@
+
 {!! Form::hidden('entry_id',$scoresheet->entry_id) !!}
 {!! Form::hidden('category',$scoresheet->category) !!}
 {!! Form::hidden('finalScore',$scoresheet->finalScore) !!}
