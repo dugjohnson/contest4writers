@@ -2,17 +2,7 @@
 
 @section('content')
     <div id="view-content">
-        <fieldset>
-            <legend>Scoring (123 points max)</legend>
-            <ul>
-                <li>5 = excellent (publishable)</li>
-                <li>4 = good (close to being publishable, but still needs minor work)</li>
-                <li>3 = average (but not special)</li>
-                <li>2 = (shows promise, but needs improvement)</li>
-                <li>1 = poor (needs major work)</li>
-            </ul>
-        </fieldset>
-
+        @include('scoresheets.show.openunpub')
         <fieldset>
             <legend>BEGINNING OF MANUSCRIPT</legend>
             <p>{{ $label['score01'] }} {{ $scoresheet->sheet->scores->score01 }} </p>
@@ -42,7 +32,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>SINGLE TITLE SPECIFIC </legend>
+            <legend>SINGLE TITLE SPECIFIC</legend>
             <p>{{ $label['score10'] }} {{ $scoresheet->sheet->scores->score10 }} </p>
             <p>{{ $label['score11'] }} {{ $scoresheet->sheet->scores->score11 }} </p>
             <p>{{ $label['score12'] }} {{ $scoresheet->sheet->scores->score12 }} </p>
@@ -84,34 +74,7 @@
             <p>Comment {{ $scoresheet->sheet->comments->comment24 }}</p>
 
         </fieldset>
+        @include('scoresheets.show.bonus')
 
-        <fieldset>
-            <legend>Bonus</legend>
-            <p>worth 1 additional point each</p>
-
-            <p>{{ $label['bonus1'] }} {{ $scoresheet->sheet->scores->bonus1 }}</p>
-
-            <p>{{ $label['bonus2'] }} {{ $scoresheet->sheet->scores->bonus2 }}</p>
-
-            <p>{{ $label['bonus3'] }} {{ $scoresheet->sheet->scores->bonus3 }}</p>
-        </fieldset>
-
-        <fieldset>
-            <legend>Final Thoughts</legend>
-            <p>Tiebreaker statement that best describes this particular entry.</p>
-
-            <p>{{ $label['tiebreaker'] }} {{ $scoresheet->sheet->tiebreaker }}</p>
-
-            <p> {{ $scoresheet->sheet->comments->commentFinal }}</p>
-        </fieldset>
-
-        @if ($scoresheet->sheet->judgeName)
-
-            <fieldset>
-
-                {{ $scoresheet->sheet->judgeName }}
-
-            </fieldset>
-        @endif
     </div>
 @stop

@@ -117,8 +117,8 @@ class ScoresheetController extends Controller
             }
             if ($i<4){
                 $bonus = 'bonus'.$i;
-                $sheetData['sheet'][$bonus] = (isset($information[$bonus])?1:0);
-                $checkScore += $sheetData['sheet'][$bonus];
+                $sheetData['sheet']['scores'][$bonus] = (isset($information[$bonus])?1:0);
+                $checkScore += $sheetData['sheet']['scores'][$bonus];
             }
         }
         $sheetData['sheet']['comments']['commentFinal'] =  (isset($information['commentFinal'])?$information['commentFinal']:'');
