@@ -240,7 +240,8 @@ trait ScoresheetHelper
     {
         if ($published) {
             return array(
-                '10' => "An excellent book; one of the best I've read lately",
+                '0' => '-- Select a tie breaker --',
+                '10' => 'An excellent book; one of the best I\'ve read lately',
                 '9' => 'This book is superb; masterfully written ',
                 '8' => 'A wonderful read',
                 '7' => 'An entertaining read ',
@@ -254,6 +255,7 @@ trait ScoresheetHelper
 
         } else {
             return array(
+                '0' => '-- Select a tie breaker --',
                 '6' => 'This manuscript is superb - masterfully done ',
                 '5' => 'A wonderful read',
                 '4' => 'An entertaining read ',
