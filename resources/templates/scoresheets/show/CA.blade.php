@@ -10,7 +10,7 @@
             <p>{{ $label['score02'] }} {{ $scoresheet->sheet->scores->score02 }} </p>
             <p>{{ $label['score03'] }} {{ $scoresheet->sheet->scores->score03 }} </p>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment03 }}</p>
+            <p>Comments {{ $scoresheet->sheet->comments->comment03 }}</p>
 
         </fieldset>
 
@@ -20,7 +20,7 @@
             <p>{{ $label['score04'] }} {{ $scoresheet->sheet->scores->score04 }} </p>
             <p>{{ $label['score05'] }} {{ $scoresheet->sheet->scores->score05 }} </p>
             <p>{{ $label['score06'] }} {{ $scoresheet->sheet->scores->score06 }} </p>
-            <p>Comment {{ $scoresheet->sheet->comments->comment06 }}</p>
+            <p>Comments {{ $scoresheet->sheet->comments->comment06 }}</p>
         </fieldset>
 
         <fieldset>
@@ -30,7 +30,7 @@
             <p>{{ $label['score09'] }} {{ $scoresheet->sheet->scores->score09 }} </p>
             <p>{{ $label['score10'] }} {{ $scoresheet->sheet->scores->score10 }} </p>
             <p>{{ $label['score11'] }} {{ $scoresheet->sheet->scores->score11 }} </p>
-            <p>Comment {{ $scoresheet->sheet->comments->comment11 }}</p>
+            <p>Comments {{ $scoresheet->sheet->comments->comment11 }}</p>
 
         </fieldset>
 
@@ -39,7 +39,7 @@
             <p>{{ $label['score12'] }} {{ $scoresheet->sheet->scores->score12 }} </p>
             <p>{{ $label['score13'] }} {{ $scoresheet->sheet->scores->score13 }} </p>
             <p>{{ $label['score14'] }} {{ $scoresheet->sheet->scores->score14 }} </p>
-            <p>Comment {{ $scoresheet->sheet->comments->comment14 }}</p>
+            <p>Comments {{ $scoresheet->sheet->comments->comment14 }}</p>
 
         </fieldset>
 
@@ -49,7 +49,7 @@
             <p>{{ $label['score16'] }} {{ $scoresheet->sheet->scores->score16 }} </p>
             <p>{{ $label['score17'] }} {{ $scoresheet->sheet->scores->score17 }} </p>
             <p>{{ $label['score18'] }} {{ $scoresheet->sheet->scores->score18 }} </p>
-            <p>Comment {{ $scoresheet->sheet->comments->comment18 }}</p>
+            <p>Comments {{ $scoresheet->sheet->comments->comment18 }}</p>
 
        </fieldset>
 
@@ -57,13 +57,13 @@
             <legend>SETTING</legend>
             <p>{{ $label['score19'] }} {{ $scoresheet->sheet->scores->score19 }} </p>
             <p>{{ $label['score20'] }} {{ $scoresheet->sheet->scores->score20 }} </p>
-            <p>Comment {{ $scoresheet->sheet->comments->comment20 }}</p>
+            <p>Comments {{ $scoresheet->sheet->comments->comment20 }}</p>
 
         </fieldset>
         <fieldset>
             <legend>POINT OF VIEW</legend>
             <p>{{ $label['score21'] }} {{ $scoresheet->sheet->scores->score21 }} </p>
-            <p>Comment {{ $scoresheet->sheet->comments->comment21 }}</p>
+            <p>Comments {{ $scoresheet->sheet->comments->comment21 }}</p>
 
         </fieldset>
 
@@ -72,7 +72,7 @@
             <p>{{ $label['score22'] }} {{ $scoresheet->sheet->scores->score22 }} </p>
             <p>{{ $label['score23'] }} {{ $scoresheet->sheet->scores->score23 }} </p>
             <p>{{ $label['score24'] }} {{ $scoresheet->sheet->scores->score24 }} </p>
-            <p>Comment {{ $scoresheet->sheet->comments->comment24 }}</p>
+            <p>Comments {{ $scoresheet->sheet->comments->comment24 }}</p>
 
         </fieldset>
         @include('scoresheets.show.bonus')
