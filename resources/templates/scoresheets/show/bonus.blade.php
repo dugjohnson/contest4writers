@@ -1,7 +1,7 @@
 
 <fieldset>
-    <legend>Bonus</legend>
-    <p>worth 1 additional point each</p>
+    <legend>Optional Bonus Points</legend>
+    <p>Check all that apply - Worth 1 additional point each</p>
 
     <p>{{ $label['bonus1'] }} {{ $scoresheet->sheet->scores->bonus1 }}</p>
 

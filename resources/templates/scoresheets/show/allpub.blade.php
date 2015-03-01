@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="view-content">
-        PART 1: On a scale of 1 to 5, with 1 being the worst score and 5 being the best, how did the author fulfill the
+        On a scale of 1 to 5, with 1 being the worst score and 5 being the best, how did the author fulfill the
         following criteria?
 
         <fieldset>
@@ -68,34 +68,6 @@
 
             <p>Comment {{ $scoresheet->sheet->comments->comment17 }}</p>
         </fieldset>
-
-        <fieldset>
-            <legend>Bonus</legend>
-            <p>worth 1 additional point each</p>
-
-            <p>{{ $label['bonus1'] }} {{ $scoresheet->sheet->scores->bonus1 }}</p>
-
-            <p>{{ $label['bonus2'] }} {{ $scoresheet->sheet->scores->bonus2 }}</p>
-
-            <p>{{ $label['bonus3'] }} {{ $scoresheet->sheet->scores->bonus3 }}</p>
-        </fieldset>
-
-        <fieldset>
-            <legend>Part 2</legend>
-            <p>PART 2 (For informational purposes and to be used as a tie-breaker if needed) </p>
-
-            <p>{{ $label['tiebreaker'] }} {{ $scoresheet->sheet->tiebreaker }}</p>
-
-            <p> {{ $scoresheet->sheet->comments->commentFinal }}</p>
-        </fieldset>
-
-        @if ($scoresheet->sheet->judgeName)
-
-            <fieldset>
-
-                {{ $scoresheet->sheet->judgeName }}
-
-            </fieldset>
-        @endif
+        @include('scoresheets.show.bonus')
     </div>
 @stop

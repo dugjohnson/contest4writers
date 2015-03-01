@@ -63,9 +63,9 @@ trait ScoresheetHelper
             switch ($category) {
                 case 'CA':
                     $labelList['score01'] = 'Does the hook pull you into the story?';
-                    $labelList['score02'] = 'Does the author reveal the right amount of information (not too much or too little)?';
+                    $labelList['score02'] = 'Does the author reveal the right amount of information, not too much or too little?';
                     $labelList['score03'] = 'Is there an idea/foreshadow of the mystery/suspense to come in the opening pages?';
-                    $labelList['score04'] = 'Is the plot original and well executed?';
+                    $labelList['score04'] = 'Is the plot original and well-executed?';
                     $labelList['score05'] = 'Does the plot have the potential to sustain an entire book in category (series) romance?';
                     $labelList['score06'] = 'Is the pacing appropriate to category (series) romantic suspense?';
                     $labelList['score07'] = 'Are the characters skillfully developed?';
@@ -73,12 +73,12 @@ trait ScoresheetHelper
                     $labelList['score09'] = 'Do you get a sense of the hero/heroine\'s physical characteristics?';
                     $labelList['score10'] = 'Do you get a sense of the hero/heroine\'s personality?';
                     $labelList['score11'] = 'Is there sexual chemistry between the hero and heroine?';
-                    $labelList['score12'] = 'Do the main characters come together in a timely manner?';
+                    $labelList['score12'] = 'Do the main characters come together in a timely fashion?';
                     $labelList['score13'] = 'Do the main characters come together in a way that is appropriate to the story?';
                     $labelList['score14'] = 'Is the conflict between the main characters appropriate to category (series) romance?';
                     $labelList['score15'] = 'Is there a good balance between dialogue and narrative?';
                     $labelList['score16'] = 'Does the dialogue progress the story and help build the suspense?';
-                    $labelList['score17'] = 'Does the narrative progress the story and help build the suspense';
+                    $labelList['score17'] = 'Does the narrative progress the story and help build the suspense?';
                     $labelList['score18'] = 'Does the dialogue ring true (normal and conversational, not too stiff and unnatural)?';
                     $labelList['score19'] = 'Does the setting give a sense of time and place and set the mood of the story?';
                     $labelList['score20'] = 'Is the setting interwoven into the plot and does it enhance the story rather than pull the reader from it?';
@@ -91,9 +91,9 @@ trait ScoresheetHelper
                     break;
                 case 'HI':
                     $labelList['score01'] = 'Does the hook pull you into the story?';
-                    $labelList['score02'] = 'Does the author reveal the right amount of information (not too much or too little)?';
+                    $labelList['score02'] = 'Does the author reveal the right amount of information, not too much or too little?';
                     $labelList['score03'] = 'Is there an idea/foreshadow of the mystery/suspense to come in the opening pages?';
-                    $labelList['score04'] = 'Is the plot original and well executed?';
+                    $labelList['score04'] = 'Is the plot original and well-executed?';
                     $labelList['score05'] = 'Does the plot have the potential to sustain an entire book in category (series) romance?';
                     $labelList['score06'] = 'Is the pacing appropriate to historical romantic suspense?';
                     $labelList['score07'] = 'Are there any glaring anachronisms that would jolt the reader out of the story?';
@@ -119,9 +119,9 @@ trait ScoresheetHelper
                     break;
                 case 'PA':
                     $labelList['score01'] = 'Does the hook pull you into the story?';
-                    $labelList['score02'] = 'Does the author reveal the right amount of information (not too much or too little)?';
+                    $labelList['score02'] = 'Does the author reveal the right amount of information, not too much or too little?';
                     $labelList['score03'] = 'Is there an idea/foreshadow of the mystery/suspense to come in the opening pages?';
-                    $labelList['score04'] = 'Is the plot original and well executed?';
+                    $labelList['score04'] = 'Is the plot original and well-executed?';
                     $labelList['score05'] = 'Does the plot have the potential to sustain an entire book in P/TT/F mystery/suspense?';
                     $labelList['score06'] = 'Is the pacing appropriate to the type of story?';
                     $labelList['score07'] = 'Are the characters skillfully developed?';
@@ -147,9 +147,9 @@ trait ScoresheetHelper
                     break;
                 case 'ST':
                     $labelList['score01'] = 'Does the hook pull you into the story?';
-                    $labelList['score02'] = 'Does the author reveal the right amount of information (not too much or too little)?';
+                    $labelList['score02'] = 'Does the author reveal the right amount of information, not too much or too little?';
                     $labelList['score03'] = 'Is there an idea/foreshadow of the mystery/suspense to come in the opening pages?';
-                    $labelList['score04'] = 'Is the plot original and well executed?';
+                    $labelList['score04'] = 'Is the plot original and well-executed?';
                     $labelList['score05'] = 'Does the plot have the potential to sustain an entire book in single title mystery/suspense?';
                     $labelList['score06'] = 'Is the pacing appropriate to the type of story?';
                     $labelList['score07'] = 'Are the characters skillfully developed?';
@@ -175,9 +175,9 @@ trait ScoresheetHelper
                     break;
                 case 'MA':
                     $labelList['score01'] = 'Does the hook pull you into the story?';
-                    $labelList['score02'] = 'Does the author reveal the right amount of information (not too much or too little)?';
+                    $labelList['score02'] = 'Does the author reveal the right amount of information, not too much or too little?';
                     $labelList['score03'] = 'In the opening pages, is there an idea/foreshadow of the mystery/suspense to come?';
-                    $labelList['score04'] = 'Is the plot original and well executed?';
+                    $labelList['score04'] = 'Is the plot original and well-executed?';
                     $labelList['score05'] = 'Does the plot have the potential to sustain an entire book in mainstream mystery/suspense?';
                     $labelList['score06'] = 'Is the pacing appropriate to the type of story?';
                     $labelList['score07'] = 'Are the characters skillfully developed?';
@@ -203,9 +203,9 @@ trait ScoresheetHelper
                     break;
                 case 'IN':
                     $labelList['score01'] = 'Does the hook pull you into the story?';
-                    $labelList['score02'] = 'Does the author reveal the right amount of information (not too much or too little)?';
+                    $labelList['score02'] = 'Does the author reveal the right amount of information, not too much or too little?';
                     $labelList['score03'] = 'Is there an idea/foreshadow of the mystery/suspense to come in the opening pages?';
-                    $labelList['score04'] = 'Is the plot original and well executed?';
+                    $labelList['score04'] = 'Is the plot original and well-executed?';
                     $labelList['score05'] = 'Does the plot have the potential to sustain an entire book in historical romance?';
                     $labelList['score06'] = 'Is the pacing appropriate to inspirational romantic suspense?';
                     $labelList['score07'] = 'Is the inspirational element evident?';

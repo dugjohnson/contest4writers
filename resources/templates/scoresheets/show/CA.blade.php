@@ -35,7 +35,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>CATEGORY (SERIES) SPECIFIC</legend>
+            <legend>CATEGORY (SERIES) ROMANCE SPECIFIC</legend>
             <p>{{ $label['score12'] }} {{ $scoresheet->sheet->scores->score12 }} </p>
             <p>{{ $label['score13'] }} {{ $scoresheet->sheet->scores->score13 }} </p>
             <p>{{ $label['score14'] }} {{ $scoresheet->sheet->scores->score14 }} </p>

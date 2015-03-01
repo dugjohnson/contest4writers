@@ -16,8 +16,8 @@
             <tr>
                 <td>{{$scoresheet->entry_id}}</td>
                 <td>{{$scoresheet->title}}</td>
-                <td>{{$scoresheet->category}}</td>
-                <td>{!! ($scoresheet->published?'Yes':'No') !!}</td>
+                <td>{!! $categories[ $scoresheet->category ] !!}</td>
+                <td>{!! ($scoresheet->published?'Published':'Unpublished') !!}</td>
                 <td>
                     <a href="/scoresheets/{{$scoresheet->id}}">Show</a>  /
                     <a href="/scoresheets/{{$scoresheet->id}}/edit">Edit</a>

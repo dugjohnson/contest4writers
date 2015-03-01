@@ -1,6 +1,7 @@
 <?php namespace Contest\Http\Controllers;
 
 use Contest\Entry;
+use Contest\Http\Controllers\Helpers\EntryHelper;
 use Contest\Http\Controllers\Helpers\ScoresheetHelper;
 use Contest\Http\Requests;
 use Contest\Scoresheet;
@@ -19,6 +20,7 @@ class ScoresheetController extends Controller
     public $isAdministrator = false;
     
     use ScoresheetHelper;
+    use EntryHelper;
     
     public function __construct(){
         $this->middleware('auth');
@@ -44,7 +46,7 @@ class ScoresheetController extends Controller
     {
         //
         $scoresheets = Scoresheet::where('judge_id','=',$this->judgeID)->get();
-        return view('scoresheets.index',['scoresheets'=>$scoresheets]);
+        return view('scoresheets.index',['scoresheets'=>$scoresheets,'categories'=>$this->categories()]);
     }
 
     /**
@@ -82,7 +84,7 @@ class ScoresheetController extends Controller
         $viewName = ($scoresheet->published?'allpub':$scoresheet->category);
         $labelList = $this->getLabelList($scoresheet->category,$scoresheet->published);
         $tieBreakerList = $this->tieBreakerList($scoresheet->published);
-        return view('scoresheets.show.'.$viewName, ['scoresheet'=>$scoresheet,'label'=>$labelList,'tieBreakerList'=>$tieBreakerList]);
+        return view('scoresheets.show.'.$viewName, ['scoresheet'=>$scoresheet,'label'=>$labelList,'tieBreakerList'=>$tieBreakerList,'categories'=>$this->categories()]);
     }
 
     /**
@@ -98,7 +100,7 @@ class ScoresheetController extends Controller
         $viewName = ($scoresheet->published?'allpub':$scoresheet->category);
         $labelList = $this->getLabelList($scoresheet->category,$scoresheet->published);
         $tieBreakerList = $this->tieBreakerList($scoresheet->published);
-        return view('scoresheets.edit.'.$viewName, ['scoresheet'=>$scoresheet,'label'=>$labelList,'tieBreakerList'=>$tieBreakerList]);
+        return view('scoresheets.edit.'.$viewName, ['scoresheet'=>$scoresheet,'label'=>$labelList,'tieBreakerList'=>$tieBreakerList,'categories'=>$this->categories()]);
         //
     }
 

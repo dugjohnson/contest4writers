@@ -1,10 +1,10 @@
 
 <fieldset>
-    <legend>Bonus</legend>
-    <p>worth 1 additional point each</p>
+    <legend>Optional Bonus Points</legend>
+    <p>Check all that apply - Worth 1 additional point each</p>
     <div class="form-group">
-        <label for="bonus2">{{ $label['bonus2'] }}
-        {!! Form::checkbox('bonus2','1',$scoresheet->sheet->scores->bonus2,['class'=>'scorer form-control']) !!}
+        <label for="bonus1">{{ $label['bonus1'] }}
+        {!! Form::checkbox('bonus1','1',$scoresheet->sheet->scores->bonus1,['class'=>'scorer form-control']) !!}
             </label>
     </div>
     <div class="form-group">
