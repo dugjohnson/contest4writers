@@ -8,6 +8,8 @@
             <td>Title</td>
             <td>Category</td>
             <td>Published</td>
+            <td>Download Entry</td>
+            <td>Upload Comments</td>
             <td>Action</td>
         </tr>
         </thead>
@@ -19,7 +21,17 @@
                 <td>{!! $categories[ $scoresheet->category ] !!}</td>
                 <td>{!! ($scoresheet->published?'Published':'Unpublished') !!}</td>
                 <td>
-                    <a href="/scoresheets/{{$scoresheet->id}}">Show</a>  /
+                    @if ($scoresheet->published)
+                        ---
+                    @else
+                        <a href="/uploads/entries/{{ $scoresheet->entry->filename }}">Download</a>
+                    @endif
+                </td>
+                <td>
+                    Upload
+                </td>
+                <td>
+                    <a href="/scoresheets/{{$scoresheet->id}}">Show</a> /
                     <a href="/scoresheets/{{$scoresheet->id}}/edit">Edit</a>
 
                 </td>

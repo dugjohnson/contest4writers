@@ -7,14 +7,14 @@ class Scoresheet extends Model
 
     protected $table = 'scoresheets';
 
-    public function entries()
+    public function entry()
     {
-        $this->belongsTo('Contest\Entry');
+        return $this->belongsTo('Contest\Entry');
     }
 
-    public function judges()
+    public function judge()
     {
-        $this->belongsTo('Contest\Judge');
+        return $this->belongsTo('Contest\Judge');
 
     }
 
