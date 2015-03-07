@@ -32,6 +32,9 @@
         <div class="row">
             <div class="content">
                 @yield('sidebar','')
+                <div id="scorebox">
+                    <p id="scoretotal"></p>
+                </div>
             </div>
         </div>
 

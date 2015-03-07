@@ -35,5 +35,17 @@ input.scorer {
   padding: 1em;
   margin: 0.5rem 1rem; }
 
+div.scored {
+  background-color: #A5F2ED; }
+
+#scorebox {
+  float: left;
+  display: none;
+  width: 100%;
+  padding: 1em;
+  position: relative;
+  background-color: #B0BEC5;
+  color: #000; }
+
 
 /*# sourceMappingURL=app.css.map */

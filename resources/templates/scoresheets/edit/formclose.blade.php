@@ -1,5 +1,7 @@
 <fieldset>
     <legend>Save or Save & Complete</legend>
-    {!! Form::submit('Save Edits', array('id'=>'submitButton','name'=>'submitButton','class'=>'button radius','onclick'=>'this.disabled = true; this.form.submit();')) !!}
-    {!! Form::submit('Scoresheet is Complete', array('id'=>'completeButton','name'=>'completeButton','class'=>'button radius right','onclick'=>'this.disabled = true; this.form.submit();')) !!}
+    <!--see scoresheet.js for handling of submits-->
+    {!! Form::hidden('process_method','',array('id'=>'process_method')) !!}
+    {!! Form::submit('Save Edits', array('id'=>'submitButton','name'=>'submitButton','class'=>'button radius')) !!}
+    {!! Form::submit('Scoresheet is Complete', array('id'=>'completeButton','name'=>'completeButton','class'=>'button radius right')) !!}
 </fieldset>

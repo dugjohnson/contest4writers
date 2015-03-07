@@ -1,5 +1,6 @@
 $light-color: #B0BEC5;
 $text-color: #2D2D2D;
+$complete-color:#A5F2ED;
 
 body {
   margin: 0;
@@ -43,4 +44,18 @@ input[type=radio] {
 input.scorer {
   padding: 1em;
   margin: 0.5rem 1rem;
+}
+div.scored {
+  background-color: $complete-color;
+}
+
+#scorebox {
+  float: left;
+  display: none;
+  width: 100%;
+  padding: 1em;
+  position: relative;
+  background-color: $light-color;
+  color: #000;
+
 }

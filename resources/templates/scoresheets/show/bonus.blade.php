@@ -13,8 +13,7 @@
 <fieldset>
     <legend>Final Thoughts</legend>
     <p>Tiebreaker statement that best describes this particular entry.</p>
-
-    <p>{{ $label['tiebreaker'] }} {{ $scoresheet->sheet->tiebreaker }}</p>
+<p> {{ $tieBreakerList[ $scoresheet->sheet->tiebreaker] }}</p>
 
     <p> {{ $scoresheet->sheet->comments->commentFinal }}</p>
 </fieldset>
@@ -22,7 +21,7 @@
 @if ($scoresheet->sheet->judgeName)
 
     <fieldset>
-
+        <legend>Judge Name</legend>
         {{ $scoresheet->sheet->judgeName }}
 
     </fieldset>

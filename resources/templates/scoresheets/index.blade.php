@@ -20,19 +20,28 @@
                 <td>{{$scoresheet->title}}</td>
                 <td>{!! $categories[ $scoresheet->category ] !!}</td>
                 <td>{!! ($scoresheet->published?'Published':'Unpublished') !!}</td>
-                <td>
-                    @if ($scoresheet->published)
+                @if ($scoresheet->published)
+                    <td>
                         ---
-                    @else
+                    </td>
+                    <td>
+                        ---
+                    </td>
+                @else
+                    <td>
                         <a href="/uploads/entries/{{ $scoresheet->entry->filename }}">Download</a>
-                    @endif
-                </td>
-                <td>
-                    <a href="/scoresheets/{{$scoresheet->id}}/upload">Upload</a>
-                </td>
+                    </td>
+                    <td>
+                        <a href="/scoresheets/{{$scoresheet->id}}/upload">Upload</a>
+                    </td>
+                @endif
                 <td>
                     <a href="/scoresheets/{{$scoresheet->id}}">Show</a> /
-                    <a href="/scoresheets/{{$scoresheet->id}}/edit">Edit</a>
+                    @if ($scoresheet->completed)
+                        Locked
+                    @else
+                        <a href="/scoresheets/{{$scoresheet->id}}/edit">Edit</a>
+                    @endif
 
                 </td>
             </tr>
