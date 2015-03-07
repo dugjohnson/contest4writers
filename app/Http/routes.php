@@ -35,6 +35,9 @@ Route::post('entries/{id}/upload', 'EntryController@postUpload');
 
 Route::get('scoresheets/batch', 'ScoresheetController@getBatch');
 Route::post('scoresheets/batch', 'ScoresheetController@postBatch');
+Route::get('scoresheets/{id}/upload', 'ScoresheetController@getUpload');
+Route::post('scoresheets/{id}/upload', 'ScoresheetController@postUpload');
+Route::put('scoresheets/{id}/upload', 'ScoresheetController@postUpload');
 
 Route::get('users/{id}/delete', 'UserController@destroy');
 

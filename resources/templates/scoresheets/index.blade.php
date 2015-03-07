@@ -28,7 +28,7 @@
                     @endif
                 </td>
                 <td>
-                    Upload
+                    <a href="/scoresheets/{{$scoresheet->id}}/upload">Upload</a>
                 </td>
                 <td>
                     <a href="/scoresheets/{{$scoresheet->id}}">Show</a> /

@@ -49,26 +49,41 @@ class ScoresheetController extends Controller
         return view('scoresheets.index',['scoresheets'=>$scoresheets,'categories'=>$this->categories()]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
+    protected function saveFile($request,$filename)
     {
-        //
+        $destination = $_SERVER["DOCUMENT_ROOT"] . '/uploads/comments/';
+        if (file_exists($destination.$filename)){
+            unlink($destination.$filename);
+        }
+        $request->file('filename')->move($destination, $filename);
+        return;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
+    public function postUpload(Requests\UploadFileRequest $request, $id)
     {
-        //
-        return 'store';
-        
+        if (1==$request->isCoordinator) {
+            $this->isCoordinator = true;
+        }
+        $scoresheet = Scoresheet::find($id);
+        if (! $scoresheet->commentsFile) {
+            $scoresheet->commentsFile = 'cmts-'.$scoresheet->id.'-'.$scoresheet->judge_id.'.rtf';
+            $scoresheet->save();
+        }
+        $this->saveFile($request,$scoresheet->commentsFile);
+        if ($this->isCoordinator) {
+//todo:            header('Location: /coordinators/scoresheets');
+            header('Location: /scoresheets');
+        } else {
+            header('Location: /scoresheets');
+        }
+
+        exit;
+    }
+
+    public function getUpload($id)
+    {
+        $scoresheet = Scoresheet::find($id);
+        return view('scoresheets.edit.upload', array('scoresheet' => $scoresheet,'categories'=>$this->categories(),'isCoordinator'=>$this->isCoordinator));
     }
 
     /**
@@ -186,4 +201,6 @@ class ScoresheetController extends Controller
         //create one scoresheet for each
 
     }
+
+
 }
