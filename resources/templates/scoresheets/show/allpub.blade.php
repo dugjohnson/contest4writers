@@ -1,6 +1,9 @@
 @extends('scoresheets.layout')
 
 @section('content')
+    <div>
+        <a href="/scoresheets" class="button small radius">Return to Scoresheets</a>
+    </div>
     <div id="view-content">
         On a scale of 1 to 5, with 1 being the worst score and 5 being the best, how did the author fulfill the
         following criteria?
@@ -11,7 +14,7 @@
 
             <p>{{ $label['score02'] }} {{ $scoresheet->sheet->scores->score02 }} </p>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment02 }} </p>
+            <p>Comments: {{ $scoresheet->sheet->comments->comment02 }} </p>
         </fieldset>
 
         <fieldset>
@@ -20,7 +23,7 @@
 
             <p>{{ $label['score04'] }} {{ $scoresheet->sheet->scores->score04 }} </p>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment04 }}</p>
+            <p>Comments: {{ $scoresheet->sheet->comments->comment04 }}</p>
         </fieldset>
 
         <fieldset>
@@ -29,7 +32,7 @@
 
             <p>{{ $label['score06'] }} {{ $scoresheet->sheet->scores->score06 }} </p>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment06 }}</p>
+            <p>Comments: {{ $scoresheet->sheet->comments->comment06 }}</p>
         </fieldset>
 
         <fieldset>
@@ -38,7 +41,7 @@
 
             <p>{{ $label['score08'] }} {{ $scoresheet->sheet->scores->score08 }} </p>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment08 }}</p>
+            <p>Comments: {{ $scoresheet->sheet->comments->comment08 }}</p>
         </fieldset>
 
         <fieldset>
@@ -51,7 +54,7 @@
 
             <p>{{ $label['score12'] }} {{ $scoresheet->sheet->scores->score12 }} </p>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment12 }}</p>
+            <p>Comments: {{ $scoresheet->sheet->comments->comment12 }}</p>
         </fieldset>
 
         <fieldset>
@@ -66,7 +69,7 @@
 
             <p>{{ $label['score17'] }} {{ $scoresheet->sheet->scores->score17 }} </p>
 
-            <p>Comment {{ $scoresheet->sheet->comments->comment17 }}</p>
+            <p>Comments: {{ $scoresheet->sheet->comments->comment17 }}</p>
         </fieldset>
         @include('scoresheets.show.bonus')
     </div>

@@ -1,6 +1,6 @@
 
 <fieldset>
-    <legend>Optional Bonus Points</legend>
+    <legend>OPTIONAL BONUS POINTS</legend>
     <p>Check all that apply - Worth 1 additional point each</p>
 
     <p>{{ $label['bonus1'] }} {{ $scoresheet->sheet->scores->bonus1 }}</p>
@@ -11,7 +11,7 @@
 </fieldset>
 
 <fieldset>
-    <legend>Final Thoughts</legend>
+    <legend>TIE BREAKER STATEMENT</legend>
     <p>Tiebreaker statement that best describes this particular entry.</p>
 <p> {{ $tieBreakerList[ $scoresheet->sheet->tiebreaker] }}</p>
 

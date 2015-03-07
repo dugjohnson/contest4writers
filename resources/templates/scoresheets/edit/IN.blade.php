@@ -75,7 +75,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>INSPIRATIONAL SPECIFIC</legend>
+            <legend>CHARACTERIZATION</legend>
             <div class="form-group">
                 {!! Form::label('score07',  $label['score07']) !!}
                 1 {!! Form::radio('score07[]','1',$scoresheet->sheet->scores->score07==1,['class'=>'scorer form-control']) !!}
@@ -101,16 +101,6 @@
                 5 {!! Form::radio('score09[]','5',$scoresheet->sheet->scores->score09==5,['class'=>'scorer form-control']) !!}
             </div>
             <div class="form-group">
-                {!! Form::label('comment09', 'Comments:') !!}
-                {!! Form::textarea('comment09',$scoresheet->sheet->comments->comment09, ['class' => 'form-control']) !!}
-            </div>
-
-        </fieldset>
-
-
-        <fieldset>
-            <legend>CHARACTERIZATION</legend>
-            <div class="form-group">
                 {!! Form::label('score10',  $label['score10']) !!}
                 1 {!! Form::radio('score10[]','1',$scoresheet->sheet->scores->score10==1,['class'=>'scorer form-control']) !!}
                 2 {!! Form::radio('score10[]','2',$scoresheet->sheet->scores->score10==2,['class'=>'scorer form-control']) !!}
@@ -118,6 +108,15 @@
                 4 {!! Form::radio('score10[]','4',$scoresheet->sheet->scores->score10==4,['class'=>'scorer form-control']) !!}
                 5 {!! Form::radio('score10[]','5',$scoresheet->sheet->scores->score10==5,['class'=>'scorer form-control']) !!}
             </div>
+            <div class="form-group">
+                {!! Form::label('comment10', 'Comments:') !!}
+                {!! Form::textarea('comment10',$scoresheet->sheet->comments->comment10, ['class' => 'form-control']) !!}
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>INSPIRATIONAL SPECIFIC</legend>
             <div class="form-group">
                 {!! Form::label('score11',  $label['score11']) !!}
                 1 {!! Form::radio('score11[]','1',$scoresheet->sheet->scores->score11==1,['class'=>'scorer form-control']) !!}
@@ -148,6 +147,8 @@
             </div>
 
         </fieldset>
+
+
 
         <fieldset>
             <legend>DIALOGUE/NARRATIVE</legend>
