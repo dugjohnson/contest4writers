@@ -22,3 +22,7 @@
     @endif
 @stop
 
+@section('sidebar')
+    @include('admin.contacts')
+    @stop
+

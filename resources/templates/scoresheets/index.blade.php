@@ -1,4 +1,4 @@
-@extends('layout-nonav')
+@extends('layout')
 
 @section('content')
     <table>
@@ -48,4 +48,9 @@
         @endforeach
         </tbody>
     </table>
+@stop
+
+
+@section('sidebar')
+    @include('admin.contacts')
 @stop
