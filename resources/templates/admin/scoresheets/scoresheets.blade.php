@@ -1,7 +1,7 @@
 @extends('layout-nonav')
 
 @section('content')
-    @include('admin.judge.list')
+    @include('admin.scoresheets.list')
 
     <a href="/coordinators" class="button radius">Return</a>
 @stop

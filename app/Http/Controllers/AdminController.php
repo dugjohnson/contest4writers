@@ -1,9 +1,11 @@
 <?php namespace Contest\Http\Controllers;
 
 use Contest\Entry;
+use Contest\Http\Controllers\Helpers\ScoresheetHelper;
 use Contest\Http\Requests;
 use Contest\Http\Controllers\Helpers\EntryHelper;
 use Contest\Judge;
+use Contest\Scoresheet;
 use Illuminate\Support\Facades\Response;
 
 class AdminController extends Controller
@@ -12,6 +14,7 @@ class AdminController extends Controller
     protected $adminPerson;
     protected $isAdmin;
     use EntryHelper;
+    use ScoresheetHelper;
 
     /**
      * Create a new controller instance.
@@ -59,6 +62,18 @@ class AdminController extends Controller
             return strtoupper(($judge->judgeThisYear?$judge->judgeThisYear:'AA').$judge->user->lastName);
         });
         return view('admin.judge.judges', array('judges' => $judges, 'isCoordinator' => true));
+
+
+    }
+    public function scoresheetsList()
+    {
+
+
+        $scoresheets = Scoresheet::all();
+        $scoresheets = $scoresheets->sortBy(function ($scoresheet) {
+            return strtoupper(($scoresheet->published?'P':'U').$scoresheet->category.$scoresheet->title);
+        });
+        return view('admin.scoresheets.scoresheets', array('scoresheets' => $scoresheets, 'categories'=>$this->categories(),'isCoordinator' => true));
 
 
     }
