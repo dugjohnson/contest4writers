@@ -55,7 +55,9 @@ class AdminController extends Controller
 //            ->orderBy('users.lastName')
 //            ->get();
         $judges = Judge::all();
-        $judges->sortBy('judgeThisYear');
+        $judges = $judges->sortBy(function ($judge) {
+            return strtoupper(($judge->judgeThisYear?$judge->judgeThisYear:'AA').$judge->user->lastName);
+        });
         return view('admin.judge.judges', array('judges' => $judges, 'isCoordinator' => true));
 
 
@@ -73,9 +75,9 @@ class AdminController extends Controller
 
         foreach ($judges as $row) {
             // iterate over each tweet and add it to the csv
-            $output .= "\r".implode(",", array($row->user_id, $row->judgeName(), $row->judgeThisYear, $row->judgePub,
-                $row->maxpubentries, $row->judgeUnpub, $row->maxunpubentries, $row->judgeEitherNotBoth, $row->mainstream,
-                $row->category, $row->historical, $row->singleTitle, $row->paranormal, $row->inspirational)); // append each row
+            $output .= "\r" . implode(",", array($row->user_id, $row->judgeName(), $row->judgeThisYear, $row->judgePub,
+                    $row->maxpubentries, $row->judgeUnpub, $row->maxunpubentries, $row->judgeEitherNotBoth, $row->mainstream,
+                    $row->category, $row->historical, $row->singleTitle, $row->paranormal, $row->inspirational)); // append each row
         }
 
         // headers used to make the file "downloadable", we set them manually
