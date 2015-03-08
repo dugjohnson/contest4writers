@@ -24,6 +24,7 @@ $(document).ready( function(){
 function calculateScore(){
     var TotalScore = 0.00;
     var HowManyScores = 0;
+    var scoreCount = $('#published').val()?17:24;
     $("#scoresummary li").remove();
     HowManyScores = $(".scorer:checked").length;
     $(".scorer:checked").each(function(){
@@ -34,7 +35,7 @@ function calculateScore(){
     $('#showFinalScore').text(TotalScore);
     $('#scoretotal').text('Total Score '+TotalScore.toFixed(0));
     $('#scorebox').toggle(TotalScore>0);
-    $('#completeButton').toggle(! (HowManyScores < 24));
+    $('#completeButton').toggle(! (HowManyScores < scoreCount));
 }
 
 function calcTotal(element){

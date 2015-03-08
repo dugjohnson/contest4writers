@@ -10,13 +10,13 @@
     <p>If you are an editor, agent or publisher of fiction for anything other than your own work, we appreciate your
         interest, but will have to ask you to pass.</p>
     @if($isJudge)
+        @if($judge->hasScoresheets())
+            <a href="/scoresheets" class="button radius">Scoresheets I am judging</a>
+        @endif
         @if($judge->judgeThisYear)
             <a href="/judges/{{$judge->id}}" class="button radius">View my judge preferences</a>
         @endif
         <a href="/judges/{{$judge->id}}/edit" class="button radius">Update my judge preferences</a>
-        @if($judge->hasScoresheets())
-            <a href="/scoresheets" class="button radius">Scoresheets I am judging</a>
-        @endif
     @else
         <a href="/judges/create" class="button radius">I'd like to be a Judge</a>
     @endif
