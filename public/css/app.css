@@ -47,5 +47,12 @@ div.scored {
   background-color: #B0BEC5;
   color: #000; }
 
+.scoregrid {
+  width: 700px;
+  height: 450px; }
+
+.myHeader {
+  height: 30px; }
+
 
 /*# sourceMappingURL=app.css.map */

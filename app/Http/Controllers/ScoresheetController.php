@@ -207,5 +207,4 @@ class ScoresheetController extends Controller
 
     }
 
-
 }

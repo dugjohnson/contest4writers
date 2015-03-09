@@ -65,6 +65,7 @@ class AdminController extends Controller
 
 
     }
+
     public function scoresheetsList()
     {
 
@@ -107,4 +108,19 @@ class AdminController extends Controller
         return Response::make(rtrim($output, "\n"), 200, $headers);
 
     }
+
+    public function jsonDownload(){
+
+        $scoresheets = Scoresheet::get(['id','title','judge_id','category','published']);
+        $scoresheets = $scoresheets->sortBy(function ($scoresheet) {
+            return strtoupper(($scoresheet->published?'P':'U').$scoresheet->category.$scoresheet->title);
+        });
+        $returns = array();
+        foreach ($scoresheets as $key=>$scoresheet){
+            $returns[]=$scoresheet;
+        }
+        return Response::json($returns);
+
+    }
+
 }

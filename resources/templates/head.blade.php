@@ -7,4 +7,5 @@
     {!! HTML::script('js/foundation.min.js') !!}
     {!! HTML::script('js/vendor/modernizr.js') !!}
 
+
 </head>

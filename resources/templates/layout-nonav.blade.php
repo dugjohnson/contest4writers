@@ -1,4 +1,4 @@
-<html>
+<html  ng-app="app">
 @include('head')
 <body>
 
