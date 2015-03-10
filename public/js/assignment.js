@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngTouch', 'ui.grid'])
+var app = angular.module('app', ['ui.grid', 'ui.grid.edit','ui.grid.rowEdit'])
     .controller('MainCtrl',
     function($log, $scope, scoresheetService) {
         $scope.gridOptions = {
@@ -7,10 +7,10 @@ var app = angular.module('app', ['ngTouch', 'ui.grid'])
             enableFiltering: true,
             columnDefs: [
                 { name: 'id', enableSorting: false, enableCellEdit: false, headerCellClass: 'myHeader' },
-                { name: 'title', headerCellClass: 'myHeader' },
-                { name: 'category', headerCellClass: 'myHeader'},
-                { name: 'judge_id', enableCellEdit: true, headerCellClass: 'myHeader' },
-                { name: 'published', headerCellClass: 'myHeader'}
+                { name: 'title', enableCellEdit: false, headerCellClass: 'myHeader' },
+                { name: 'category', enableCellEdit: false, headerCellClass: 'myHeader'},
+                { name: 'judge_id', enableCellEdit: true, enableCellEdit: true, headerCellClass: 'myHeader' },
+                { name: 'published', enableCellEdit: false, headerCellClass: 'myHeader'}
             ]
         };
         $scope.getScoresheetList = function() {
