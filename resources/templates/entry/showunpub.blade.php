@@ -5,6 +5,7 @@
         @include('entry.infounpub')
         <a href="/uploads/entries/{{ $entry->filename }}" class="small button">Click to
             download {{ $entry->filename }}</a><br/>
+        <p>Signature: {{$entry->signed}}</p>
         @if ($isCoordinator)
             @include('entry.infoadmin')
             <a href="/coordinators/entries" class="button radius">Back to Coordinator Entries</a>
