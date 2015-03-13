@@ -6,6 +6,8 @@ use Contest\Http\Requests;
 use Contest\Http\Controllers\Helpers\EntryHelper;
 use Contest\Judge;
 use Contest\Scoresheet;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 
 class AdminController extends Controller
@@ -122,5 +124,17 @@ class AdminController extends Controller
         return Response::json($returns);
 
     }
+    public function jsonUpload(Request $request){
+
+            $data = $request->all();
+            if($request->ajax())
+            {
+                $id = $request->get('id');
+                $judge_id = $request->get('judgeID');
+                $scoresheet = Scoresheet ::find($id);
+                $scoresheet->judge_id = $judge_id;
+                $scoresheet->update();
+            }
+        }
 
 }

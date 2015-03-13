@@ -21,6 +21,7 @@ Route::get('coordinators/entries', 'AdminController@entries');
 Route::get('coordinators/judges', 'AdminController@judgesList');
 Route::get('coordinators/scoresheets', 'AdminController@scoresheetsList');
 Route::get('api/v1/scoresheets','AdminController@jsonDownload');
+Route::post('api/v1/scoresheets','AdminController@jsonUpload');
 
 Route::get('coordinators/judges/{id}', 'JudgeController@coordinatorShow');
 Route::get('coordinators/judges/{id}/edit', 'JudgeController@coordinatorEdit');
