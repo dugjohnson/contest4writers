@@ -85,6 +85,8 @@ class AdminController extends Controller
     {
         $judges = Judge::with('user')
             ->join('users', 'users.id', '=', 'judges.user_id')
+            ->where('judges.judgeThisYear','=','LJ')
+            ->orWhere('judges.judgeThisYear','=','EJ')
             ->orderBy('users.lastName')
             ->get();
 
@@ -93,8 +95,8 @@ class AdminController extends Controller
 
         foreach ($judges as $row) {
             // iterate over each tweet and add it to the csv
-            $output .= "\r" . implode(",", array($row->user_id, $row->judgeName(), $row->judgeThisYear, $row->judgePub,
-                    $row->maxpubentries, $row->judgeUnpub, $row->maxunpubentries, $row->judgeEitherNotBoth, $row->mainstream,
+            $output .= "\r" . implode(",", array($row->user_id, $row->judgeName(), $row->judgeThisYear, ($row->judgePub?'yes':'no'),
+                    $row->maxpubentries, ($row->judgeUnpub?'yes':'no'), $row->maxunpubentries, ($row->judgeEitherNotBoth?'yes':'no'), $row->mainstream,
                     $row->category, $row->historical, $row->singleTitle, $row->paranormal, $row->inspirational)); // append each row
         }
 
