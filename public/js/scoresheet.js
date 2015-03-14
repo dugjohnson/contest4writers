@@ -2,6 +2,7 @@ $(document).ready( function(){
     calculateScore();
     $('.javascript_removable').hide();
     $('.scorer').change(function(event){ calculateScore(); } );
+    $('#tiebreaker').change(function(event){ calculateScore(); } );
 
     $(window).scroll(function () {
         var offset = 50+$(document).scrollTop()+"px";
@@ -35,7 +36,8 @@ function calculateScore(){
     $('#showFinalScore').text(TotalScore);
     $('#scoretotal').text('Total Score '+TotalScore.toFixed(0));
     $('#scorebox').toggle(TotalScore>0);
-    $('#completeButton').toggle(! (HowManyScores < scoreCount));
+    var ScoresheetComplete = ((! (HowManyScores < scoreCount)) && (parseInt($('#tiebreaker').val())>0));
+    $('#completeButton').toggle(ScoresheetComplete);
 }
 
 function calcTotal(element){

@@ -25,7 +25,7 @@
 
     <div class="form-group">
         {!! Form::label('tiebreaker', 'Tiebreaker:') !!}
-        {!! Form::select('tiebreaker', $tieBreakerList ,$scoresheet->sheet->tiebreaker , ['class' => 'form-control']) !!}
+        {!! Form::select('tiebreaker', $tieBreakerList ,$scoresheet->sheet->tiebreaker , ['class' => 'form-control','id'=>'tiebreaker']) !!}
     </div>
 </fieldset>
 
