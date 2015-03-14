@@ -2,15 +2,19 @@
 
 @section('content')
     <div id="view-content">
-        <div class="panel">
-            <p>SCORING (88 points max.)</p>
-
-            <p>On a scale of 1 to 5, with 1 being the worst score and 5 being the best, how did the author fulfill the
-                following criteria?</p>
+        <fieldset>
+            <legend>SCORING (88 points max)</legend>
+            <ul>
+                <li>5 = excellent</li>
+                <li>4 = good</li>
+                <li>3 = average</li>
+                <li>2 = fair</li>
+                <li>1 = poor</li>
+            </ul>
 
             <p>Important: We encourage comments both positive and encouraging. For any question scored 3 or less, the
                 Daphne Committee strongly urges that you include comments and/or an explanation.</p>
-        </div>
+        </fieldset>
         {!! Form::open(array('url' => 'scoresheets/'.$scoresheet->id,'method'=>'put'))  !!}
         @include('scoresheets.edit.formopen')
         <fieldset>
