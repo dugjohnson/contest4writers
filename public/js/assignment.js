@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.grid', 'ui.grid.edit', 'ui.grid.rowEdit'])
+var app = angular.module('app', ['ui.grid', 'ui.grid.edit', 'ui.grid.rowEdit','ui.grid.cellNav'])
     .controller('MainCtrl',
     function ($log, $scope, scoresheetService) {
         $scope.gridOptions = {
