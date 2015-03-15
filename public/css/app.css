@@ -57,5 +57,8 @@ div.scored {
 .ui-grid-viewport {
   height: 100%; }
 
+.ui-grid-row-dirty .ui-grid-cell {
+  background-color: #c7ddef !important; }
+
 
 /*# sourceMappingURL=app.css.map */

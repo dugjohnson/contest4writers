@@ -9,7 +9,7 @@ var app = angular.module('app', ['ngTouch','ui.grid', 'ui.grid.edit', 'ui.grid.r
                 {name: 'id', enableSorting: false, enableCellEdit: false},
                 {name: 'title', enableCellEdit: false},
                 {name: 'category', enableCellEdit: false},
-                {name: 'judge_id', enableCellEdit: true, enableCellEdit: true},
+                {name: 'judge_id', enableCellEdit: true, enableCellEditOnFocus: true},
                 {name: 'published', enableCellEdit: false}
             ]
         };
