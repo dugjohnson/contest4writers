@@ -6,11 +6,11 @@ var app = angular.module('app', ['ngTouch','ui.grid', 'ui.grid.edit', 'ui.grid.r
             enableCellEditOnFocus: true,
             enableFiltering: true,
             columnDefs: [
-                {name: 'id', enableSorting: false, enableCellEdit: false, headerCellClass: 'myHeader'},
-                {name: 'title', enableCellEdit: false, headerCellClass: 'myHeader'},
-                {name: 'category', enableCellEdit: false, headerCellClass: 'myHeader'},
-                {name: 'judge_id', enableCellEdit: true, enableCellEdit: true, headerCellClass: 'myHeader'},
-                {name: 'published', enableCellEdit: false, headerCellClass: 'myHeader'}
+                {name: 'id', enableSorting: false, enableCellEdit: false},
+                {name: 'title', enableCellEdit: false},
+                {name: 'category', enableCellEdit: false},
+                {name: 'judge_id', enableCellEdit: true, enableCellEdit: true},
+                {name: 'published', enableCellEdit: false}
             ]
         };
         $scope.gridOptions.onRegisterApi = function(gridApi){
