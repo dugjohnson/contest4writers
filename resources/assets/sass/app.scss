@@ -64,6 +64,10 @@ div.scored {
   width: 700px;
   height: 450px;
 }
-.myHeader {
-  height: 30px;
+.ui-grid-header-cell-wrapper {
+  height: 30px !important;
+}
+
+.ui-grid-viewport {
+  height: 100%;
 }
