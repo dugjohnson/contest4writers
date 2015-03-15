@@ -2,7 +2,7 @@ var app = angular.module('app', ['ngTouch','ui.grid', 'ui.grid.edit', 'ui.grid.r
     .controller('MainCtrl',
     function ($log, $scope, scoresheetService) {
         $scope.gridOptions = {
-            enableCellEditOnFocus: true,
+            enableCellEditOnFocus: false,
             columnDefs: [
                 {name: 'id', enableSorting: false, enableCellEdit: false, headerCellClass: 'myHeader'},
                 {name: 'title', enableCellEdit: false, headerCellClass: 'myHeader'},
