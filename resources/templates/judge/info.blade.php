@@ -1,3 +1,4 @@
+<p>Judge ID: {{$judge->id}}</p>
 <h5>Judge name: {{$judge->judgeName()}}</h5>
 <p>Judging this year: {{$judgeThisYear[$judge->judgeThisYear]}}</p>
 <p>Published Division: {{$judge->judgePub?'Yes':'No'}}</p>
@@ -29,7 +30,8 @@
 
     <p>Vampires and/or Werewolves: {{$judge->vampires?'Yes':'No'}}</p>
 
-    <p>Religious and/or inspirational content (in category other than Inspirational): {{$judge->religious?'Yes':'No'}}</p>
+    <p>Religious and/or inspirational content (in category other than
+        Inspirational): {{$judge->religious?'Yes':'No'}}</p>
 </fieldset>
 
 <p>Special Instructions/Comments or Notes: {{$judge->comments}}</p>
