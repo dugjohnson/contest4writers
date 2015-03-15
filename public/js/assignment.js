@@ -2,9 +2,7 @@ var app = angular.module('app', ['ui.grid', 'ui.grid.edit', 'ui.grid.rowEdit','u
     .controller('MainCtrl',
     function ($log, $scope, scoresheetService) {
         $scope.gridOptions = {
-            enableSorting: true,
             enableCellEditOnFocus: true,
-            enableFiltering: true,
             columnDefs: [
                 {name: 'id', enableSorting: false, enableCellEdit: false, headerCellClass: 'myHeader'},
                 {name: 'title', enableCellEdit: false, headerCellClass: 'myHeader'},
