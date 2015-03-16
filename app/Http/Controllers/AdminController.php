@@ -91,11 +91,11 @@ class AdminController extends Controller
             ->get();
 
         // the csv file with the first row
-        $output = implode(",", array('Judge ID', 'Judge name', 'This Year', 'Pub', 'Pub Max', 'Unpub', 'Unpub Max', 'ENB', 'MA', 'CA', 'HI', 'ST', 'PA', 'IN'));
+        $output = implode(",", array('Judge ID', 'Profile ID','Judge name', 'This Year', 'Pub', 'Pub Max', 'Unpub', 'Unpub Max', 'ENB', 'MA', 'CA', 'HI', 'ST', 'PA', 'IN'));
 
         foreach ($judges as $row) {
             // iterate over each tweet and add it to the csv
-            $output .= "\r" . implode(",", array($row->user_id, $row->judgeName(), $row->judgeThisYear, ($row->judgePub?'yes':'no'),
+            $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(), $row->judgeThisYear, ($row->judgePub?'yes':'no'),
                     $row->maxpubentries, ($row->judgeUnpub?'yes':'no'), $row->maxunpubentries, ($row->judgeEitherNotBoth?'yes':'no'), $row->mainstream,
                     $row->category, $row->historical, $row->singleTitle, $row->paranormal, $row->inspirational)); // append each row
         }
