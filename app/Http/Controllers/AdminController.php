@@ -81,7 +81,16 @@ class AdminController extends Controller
 
     }
 
-    public function returnCSV()
+    private function convertValue($choice){
+        if ($choice == 4){
+            return 'T';
+        } else if ($choice == 3){
+            return 'L';
+        } else {
+            return '';
+        }
+    }
+    public function returnCSV($CSVType = '')
     {
         $judges = Judge::with('user')
             ->join('users', 'users.id', '=', 'judges.user_id')
@@ -95,16 +104,27 @@ class AdminController extends Controller
 
         foreach ($judges as $row) {
             // iterate over each tweet and add it to the csv
-            $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(), $row->judgeThisYear, ($row->judgePub?'yes':'no'),
-                    $row->maxpubentries, ($row->judgeUnpub?'yes':'no'), $row->maxunpubentries, ($row->judgeEitherNotBoth?'yes':'no'), $row->mainstream,
-                    $row->category, $row->historical, $row->singleTitle, $row->paranormal, $row->inspirational)); // append each row
+            if (strtolower($CSVType) == 'favorite') {
+                $title = 'judgefaves.csv';
+                $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(), $row->judgeThisYear, ($row->judgePub?'yes':'no'),
+                        $row->maxpubentries, ($row->judgeUnpub?'yes':'no'), $row->maxunpubentries, ($row->judgeEitherNotBoth?'yes':'no'), $this->convertValue($row->mainstream),
+                        $this->convertValue($row->category), $this->convertValue($row->historical), $this->convertValue($row->singleTitle),
+                            $this->convertValue($row->paranormal), $this->convertValue($row->inspirational))); // append each row
+
+            }   else {
+                $title = 'judges.csv';
+                $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(), $row->judgeThisYear, ($row->judgePub?'yes':'no'),
+                        $row->maxpubentries, ($row->judgeUnpub?'yes':'no'), $row->maxunpubentries, ($row->judgeEitherNotBoth?'yes':'no'), $row->mainstream,
+                        $row->category, $row->historical, $row->singleTitle, $row->paranormal, $row->inspirational)); // append each row
+
+            }
         }
 
         // headers used to make the file "downloadable", we set them manually
         // since we can't use Laravel's Response::download() function
         $headers = array(
             'Content-Type' => 'text/csv',
-            'Content-Disposition' => 'attachment; filename="judges.csv"',
+            'Content-Disposition' => 'attachment; filename="'.$title.'"',
         );
 
         // our response, this will be equivalent to your download() but

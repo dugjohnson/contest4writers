@@ -15,7 +15,7 @@ Route::get('/', 'WelcomeController@index');
 Route::get('home', 'WelcomeController@index');
 Route::get('coordinators', 'AdminController@index');
 Route::get('administrators', 'AdminController@index');
-Route::get('administrators/download', 'AdminController@returnCSV');
+Route::get('administrators/download/{CSVType?}', 'AdminController@returnCSV');
 //todo: Need to make the below read the action and translate to method
 Route::get('coordinators/entries', 'AdminController@entries');
 Route::get('coordinators/judges', 'AdminController@judgesList');
