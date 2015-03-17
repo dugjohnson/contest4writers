@@ -92,12 +92,21 @@ class AdminController extends Controller
     }
     public function returnCSV($CSVType = '')
     {
+        //use if don't need fields from user except for sorting
         $judges = Judge::with('user')
             ->join('users', 'users.id', '=', 'judges.user_id')
             ->where('judges.judgeThisYear','=','LJ')
             ->orWhere('judges.judgeThisYear','=','EJ')
             ->orderBy('users.lastName')
+            ->select('judges.*')
             ->get();
+
+          //alternative way to pull, will probably give access to user object but slower
+//        $judges = Judge::with('User')
+//            ->where('judgeThisYear','=','LJ')
+//            ->orWhere('judgeThisYear','=','EJ')
+//            ->get()
+//            ->sortBy('User.lastName');
 
         // the csv file with the first row
         $output = implode(",", array('Judge ID', 'Profile ID','Judge name', 'This Year', 'Pub', 'Pub Max', 'Unpub', 'Unpub Max', 'ENB', 'MA', 'CA', 'HI', 'ST', 'PA', 'IN'));
