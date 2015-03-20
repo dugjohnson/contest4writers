@@ -19,7 +19,7 @@ Route::get('administrators/download/{CSVType?}', 'AdminController@returnCSV');
 //todo: Need to make the below read the action and translate to method
 Route::get('coordinators/entries', 'AdminController@entries');
 Route::get('coordinators/judges', 'AdminController@judgesList');
-Route::get('coordinators/scoresheets', 'AdminController@scoresheetsList');
+Route::get('coordinators/scoresheets/{action?}', 'AdminController@scoresheetsList');
 Route::get('api/v1/scoresheets','AdminController@jsonDownload');
 Route::post('api/v1/scoresheets','AdminController@jsonUpload');
 

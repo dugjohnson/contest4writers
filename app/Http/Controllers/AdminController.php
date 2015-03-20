@@ -68,15 +68,22 @@ class AdminController extends Controller
 
     }
 
-    public function scoresheetsList()
+    public function scoresheetsList($action='')
     {
+        $assign = ($action=='assign');
+        if ($assign){
 
+            $scoresheets = Scoresheet::all();
+            $scoresheets = $scoresheets->sortBy(function ($scoresheet) {
+                return strtoupper(($scoresheet->published?'P':'U').$scoresheet->category.$scoresheet->title);
+            });
+            return view('admin.scoresheets.scoresheets', array('scoresheets' => $scoresheets, 'categories'=>$this->categories(),'isCoordinator' => true,'assign'=>$assign));
+        }   else {
+            $scoresheets = Scoresheet::whereRaw($this->getRolesWhereClause($this->adminPerson))->orderBy('category')->orderBy('published')->orderBy('title')->get();
+            $scoresheets->load('judge');
+            return view('admin.scoresheets.scoresheets', array('scoresheets' => $scoresheets, 'categories'=>$this->categories(),'isCoordinator' => true,'assign'=>$assign));
 
-        $scoresheets = Scoresheet::all();
-        $scoresheets = $scoresheets->sortBy(function ($scoresheet) {
-            return strtoupper(($scoresheet->published?'P':'U').$scoresheet->category.$scoresheet->title);
-        });
-        return view('admin.scoresheets.scoresheets', array('scoresheets' => $scoresheets, 'categories'=>$this->categories(),'isCoordinator' => true));
+        }
 
 
     }
