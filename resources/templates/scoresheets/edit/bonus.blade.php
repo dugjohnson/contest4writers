@@ -4,17 +4,17 @@
 
     <div class="form-group">
         <label for="bonus1">{{ $label['bonus1'] }}
-            {!! Form::checkbox('bonus1','1',$scoresheet->sheet->scores->bonus1,['class'=>'scorer form-control']) !!}
+            {!! Form::checkbox('bonus1','1',$scoresheet->sheet->scores->bonus1,['class'=>'scorer bonus form-control']) !!}
         </label>
     </div>
     <div class="form-group">
         <label for="bonus2">{{ $label['bonus2'] }}
-            {!! Form::checkbox('bonus2','1',$scoresheet->sheet->scores->bonus2,['class'=>'scorer form-control']) !!}
+            {!! Form::checkbox('bonus2','1',$scoresheet->sheet->scores->bonus2,['class'=>'scorer bonus form-control']) !!}
         </label>
     </div>
     <div class="form-group">
         <label for="bonus3">{{ $label['bonus3'] }}
-            {!! Form::checkbox('bonus3','1',$scoresheet->sheet->scores->bonus3,['class'=>'scorer form-control']) !!}
+            {!! Form::checkbox('bonus3','1',$scoresheet->sheet->scores->bonus3,['class'=>'scorer bonus form-control']) !!}
         </label>
     </div>
 </fieldset>

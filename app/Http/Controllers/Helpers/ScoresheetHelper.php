@@ -9,6 +9,9 @@
 namespace Contest\Http\Controllers\Helpers;
 
 
+use Contest\User;
+use Illuminate\Support\Facades\Mail;
+
 trait ScoresheetHelper
 {
 
@@ -267,6 +270,27 @@ trait ScoresheetHelper
         }
 
 
+    }
+
+    public function sendJudgeConfirmation($scoresheet)
+    {
+        $templateToUse = 'scoresheets.emails.judged';
+        $user = User::find($scoresheet->judge->user_id);
+        $ccEmails = Array();
+        $ccEmails[] = $this->getAdminEmail('JC');
+        $ccEmails[] = $this->getAdminEmail('OC');
+        $ccEmails[] = $this->getAdminEmail($scoresheet->category, $scoresheet->published);
+        $ccEmails[] = ['email' => 'doug@asknice.com', 'name' => 'Webmaster'];
+        $labelList = $this->getLabelList($scoresheet->category, $scoresheet->published);
+        $tieBreakerList = $this->tieBreakerList($scoresheet->published);
+
+        Mail::send($templateToUse, array('user' => $user, 'scoresheet' => $scoresheet, 'label' => $labelList, 'tieBreakerList' => $tieBreakerList, 'categories' =>$this->categories()), function ($message) use ($scoresheet, $user, $ccEmails) {
+            $message->to($user->email, $user->writingName)->subject('Daphne score sheet judged for ' . $scoresheet->title);
+            foreach ($ccEmails as $email) {
+                $message->cc($email['email'], $email['name']);
+            }
+
+        });
     }
 
 

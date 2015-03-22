@@ -25,9 +25,11 @@ $(document).ready( function(){
 function calculateScore(){
     var TotalScore = 0.00;
     var HowManyScores = 0;
+    var BonusCount = 0;
     var scoreCount = $('#published').val()?17:24;
     $("#scoresummary li").remove();
     HowManyScores = $(".scorer:checked").length;
+    BonusCount = $(".bonus:checked").length;
     $(".scorer:checked").each(function(){
         TotalScore += calcTotal(this);
         $(this).parent().addClass('scored');
@@ -36,7 +38,7 @@ function calculateScore(){
     $('#showFinalScore').text(TotalScore);
     $('#scoretotal').text('Total Score '+TotalScore.toFixed(0));
     $('#scorebox').toggle(TotalScore>0);
-    var ScoresheetComplete = ((! (HowManyScores <= scoreCount)) && (parseInt($('#tiebreaker').val())>0));
+    var ScoresheetComplete = ((! ((HowManyScores - BonusCount) < scoreCount)) && (parseInt($('#tiebreaker').val())>0));
     $('#completeButton').toggle(ScoresheetComplete);
 }
 

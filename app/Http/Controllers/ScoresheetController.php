@@ -152,6 +152,10 @@ class ScoresheetController extends Controller
         }
         $scoresheet->scoresheetData = json_encode($sheetData);
         $scoresheet->save();
+        if ($scoresheet->completed){
+            $scoresheet->sheet = $scoresheet->getScoresheetData()->sheet;
+            $this->sendJudgeConfirmation($scoresheet);
+        }
     }
     /**
      * Update the specified resource in storage.
