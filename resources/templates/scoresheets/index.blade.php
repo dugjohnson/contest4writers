@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    @if($app->environment('local') || (Carbon::now()> Carbon::create(2015,3,23,0,0,0,'America/Denver') && Carbon::now()< Carbon::create(2015,6,1,0,0,0,'America/Denver') ) )
+    @if($app->environment('local') || (Carbon::now()> Carbon::create(2015,3,24,0,0,0,'America/Denver') && Carbon::now()< Carbon::create(2015,6,1,0,0,0,'America/Denver') ) )
         <table>
             <thead>
             <tr>
