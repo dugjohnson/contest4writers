@@ -22,7 +22,11 @@ class EditEntryRequest extends Request {
 	public function rules()
 	{
 		return [
-			//
+            'author' => 'required',
+            'authorEmail'  => 'required|email',
+            'title' => 'required',
+            'readRules' => 'required',
+            'signed' => 'required',			//
 		];
 	}
 

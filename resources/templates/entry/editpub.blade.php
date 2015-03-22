@@ -11,5 +11,6 @@
     <p>If you need to change categories contact a coordinator. Please do not create a new entry.</p>
     @include('entry.formpub')
     @include('entry.financial')
+    @include('entry.readrules')
     @include('entry.formclose')
 @stop
