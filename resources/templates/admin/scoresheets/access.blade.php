@@ -10,6 +10,7 @@
                 <td>Published</td>
                 <td>Status</td>
                 <td>Score</td>
+                <td>Comments</td>
                 <td>Judge ID</td>
                 <td>Judge name</td>
                 <td>Action</td>
@@ -32,6 +33,14 @@
                         @endif
                     @endif
                     <td>{{$scoresheet->finalScore}}</td>
+                    @if($scoresheet->published)
+                        <td>---</td>
+                    @elseif($scoresheet->commentsFile)
+                        <td><a href="/uploads/comments/{{$scoresheet->commentsFile}}">Download</a></td>
+                    @else
+                        <td>No comments file</td>
+                    @endif
+
                     @if(isset($scoresheet->judge))
                         <td>{{$scoresheet->judge_id}}</td>
                         <td>{{$scoresheet->judge->judgeName()}}</td>
