@@ -34,6 +34,7 @@
                         <td>
                             <a href="/coordinators/users/{{ $scoresheet->judge->user_id }}">Profile</a>/<a
                                     href="/coordinators/judges/{{ $scoresheet->judge_id }}">Preferences</a>
+                            <a href="/scoresheets/{{ $scoresheet->judge_id }}/assigned">Assignments</a>
                         </td>
                     @else
                         <td>NA</td>

@@ -25,6 +25,7 @@ Route::post('api/v1/scoresheets','AdminController@jsonUpload');
 
 Route::get('coordinators/judges/{id}', 'JudgeController@coordinatorShow');
 Route::get('coordinators/judges/{id}/edit', 'JudgeController@coordinatorEdit');
+
 Route::get('coordinators/entries/{id}', 'EntryController@coordinatorShow');
 Route::get('coordinators/entries/{id}/edit', 'EntryController@coordinatorEdit');
 Route::get('coordinators/entries/{id}/upload', 'EntryController@coordinatorUpload');
@@ -42,6 +43,7 @@ Route::post('scoresheets/batch', 'ScoresheetController@postBatch');
 Route::get('scoresheets/{id}/upload', 'ScoresheetController@getUpload');
 Route::post('scoresheets/{id}/upload', 'ScoresheetController@postUpload');
 Route::put('scoresheets/{id}/upload', 'ScoresheetController@postUpload');
+Route::get('scoresheets/{judgeID}/assigned', 'ScoresheetController@assignedTo');
 
 Route::get('users/{id}/delete', 'UserController@destroy');
 

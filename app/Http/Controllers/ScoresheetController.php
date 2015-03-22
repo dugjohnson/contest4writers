@@ -4,6 +4,7 @@ use Contest\Entry;
 use Contest\Http\Controllers\Helpers\EntryHelper;
 use Contest\Http\Controllers\Helpers\ScoresheetHelper;
 use Contest\Http\Requests;
+use Contest\Judge;
 use Contest\Scoresheet;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -18,18 +19,19 @@ class ScoresheetController extends Controller
     public $user;
     public $isCoordinator = false;
     public $isAdministrator = false;
-    
+
     use ScoresheetHelper;
     use EntryHelper;
-    
-    public function __construct(){
+
+    public function __construct()
+    {
         $this->middleware('auth');
-        
+
         if (Auth::check()) {
             $this->user = Auth::user();
             $this->isCoordinator = $this->user->isCoordinator();
             $this->isAdministrator = $this->user->isAdministrator();
-            if ($this->user->judge){
+            if ($this->user->judge) {
                 $this->judgeID = $this->user->judge->id;
 
             }
@@ -45,15 +47,27 @@ class ScoresheetController extends Controller
     public function index()
     {
         //
-        $scoresheets = Scoresheet::where('judge_id','=',$this->judgeID)->get();
-        return view('scoresheets.index',['scoresheets'=>$scoresheets,'categories'=>$this->categories()]);
+        $scoresheets = Scoresheet::where('judge_id', '=', $this->judgeID)->get();
+        return view('scoresheets.index', ['scoresheets' => $scoresheets, 'categories' => $this->categories()]);
     }
 
-    protected function saveFile($request,$filename)
+    public function assignedTo($judgeID)
+    {
+        if ($this->isCoordinator) {
+            $scoresheets = Scoresheet::where('judge_id', '=', $judgeID)->get();
+            $judge = Judge::find($judgeID);
+            return view('scoresheets.assigned', ['scoresheets' => $scoresheets, 'judge' => $judge, 'categories' => $this->categories()]);
+        } else {
+            return redirect('/');
+        }
+
+    }
+
+    protected function saveFile($request, $filename)
     {
         $destination = $_SERVER["DOCUMENT_ROOT"] . '/uploads/comments/';
-        if (file_exists($destination.$filename)){
-            unlink($destination.$filename);
+        if (file_exists($destination . $filename)) {
+            unlink($destination . $filename);
         }
         $request->file('filename')->move($destination, $filename);
         return;
@@ -61,15 +75,15 @@ class ScoresheetController extends Controller
 
     public function postUpload(Requests\UploadFileRequest $request, $id)
     {
-        if (1==$request->isCoordinator) {
+        if (1 == $request->isCoordinator) {
             $this->isCoordinator = true;
         }
         $scoresheet = Scoresheet::find($id);
-        if (! $scoresheet->commentsFile) {
-            $scoresheet->commentsFile = 'cmts-'.$scoresheet->id.'-'.$scoresheet->judge_id.'.rtf';
+        if (!$scoresheet->commentsFile) {
+            $scoresheet->commentsFile = 'cmts-' . $scoresheet->id . '-' . $scoresheet->judge_id . '.rtf';
             $scoresheet->save();
         }
-        $this->saveFile($request,$scoresheet->commentsFile);
+        $this->saveFile($request, $scoresheet->commentsFile);
         if ($this->isCoordinator) {
 //todo:            header('Location: /coordinators/scoresheets');
             header('Location: /scoresheets');
@@ -83,7 +97,7 @@ class ScoresheetController extends Controller
     public function getUpload($id)
     {
         $scoresheet = Scoresheet::find($id);
-        return view('scoresheets.edit.upload', array('scoresheet' => $scoresheet,'categories'=>$this->categories(),'isCoordinator'=>$this->isCoordinator));
+        return view('scoresheets.edit.upload', array('scoresheet' => $scoresheet, 'categories' => $this->categories(), 'isCoordinator' => $this->isCoordinator));
     }
 
     /**
@@ -96,10 +110,10 @@ class ScoresheetController extends Controller
     {
         $scoresheet = Scoresheet::find($id);
         $scoresheet->sheet = $scoresheet->getScoresheetData()->sheet;
-        $viewName = ($scoresheet->published?'allpub':$scoresheet->category);
-        $labelList = $this->getLabelList($scoresheet->category,$scoresheet->published);
+        $viewName = ($scoresheet->published ? 'allpub' : $scoresheet->category);
+        $labelList = $this->getLabelList($scoresheet->category, $scoresheet->published);
         $tieBreakerList = $this->tieBreakerList($scoresheet->published);
-        return view('scoresheets.show.'.$viewName, ['scoresheet'=>$scoresheet,'label'=>$labelList,'tieBreakerList'=>$tieBreakerList,'categories'=>$this->categories()]);
+        return view('scoresheets.show.' . $viewName, ['scoresheet' => $scoresheet, 'label' => $labelList, 'tieBreakerList' => $tieBreakerList, 'categories' => $this->categories()]);
     }
 
     /**
@@ -112,51 +126,53 @@ class ScoresheetController extends Controller
     {
         $scoresheet = Scoresheet::find($id);
         $scoresheet->sheet = $scoresheet->getScoresheetData()->sheet;
-        $viewName = ($scoresheet->published?'allpub':$scoresheet->category);
-        $labelList = $this->getLabelList($scoresheet->category,$scoresheet->published);
+        $viewName = ($scoresheet->published ? 'allpub' : $scoresheet->category);
+        $labelList = $this->getLabelList($scoresheet->category, $scoresheet->published);
         $tieBreakerList = $this->tieBreakerList($scoresheet->published);
-        return view('scoresheets.edit.'.$viewName, ['scoresheet'=>$scoresheet,'label'=>$labelList,'tieBreakerList'=>$tieBreakerList,'categories'=>$this->categories()]);
+        return view('scoresheets.edit.' . $viewName, ['scoresheet' => $scoresheet, 'label' => $labelList, 'tieBreakerList' => $tieBreakerList, 'categories' => $this->categories()]);
         //
     }
 
-    private function saveInformation($scoresheet,$information){
-        $sheetData = json_decode($scoresheet->scoresheetData,true);
+    private function saveInformation($scoresheet, $information)
+    {
+        $sheetData = json_decode($scoresheet->scoresheetData, true);
         $checkScore = 0;
-        for ($i=1;$i<26;$i++){
-            $score = 'score'.($i<10?'0'.$i:$i);
-            $comment = 'comment'.($i<10?'0'.$i:$i);
-            if (isset($information[$score])){
+        for ($i = 1; $i < 26; $i++) {
+            $score = 'score' . ($i < 10 ? '0' . $i : $i);
+            $comment = 'comment' . ($i < 10 ? '0' . $i : $i);
+            if (isset($information[$score])) {
                 $sheetData['sheet']['scores'][$score] = $information[$score][0];
                 $checkScore += $information[$score][0];
             }
-            if (isset($information[$comment])){
+            if (isset($information[$comment])) {
                 $sheetData['sheet']['comments'][$comment] = $information[$comment];
             }
-            if ($i<4){
-                $bonus = 'bonus'.$i;
-                $sheetData['sheet']['scores'][$bonus] = (isset($information[$bonus])?1:0);
+            if ($i < 4) {
+                $bonus = 'bonus' . $i;
+                $sheetData['sheet']['scores'][$bonus] = (isset($information[$bonus]) ? 1 : 0);
                 $checkScore += $sheetData['sheet']['scores'][$bonus];
             }
         }
-        if ('complete'==$information['process_method']){
+        if ('complete' == $information['process_method']) {
             $scoresheet->completed = true;
             $sheetData['completed'] = true;
 
         }
-        $sheetData['sheet']['comments']['commentFinal'] =  (isset($information['commentFinal'])?$information['commentFinal']:'');
-        $sheetData['sheet']['tiebreaker'] =  (isset($information['tiebreaker'])?$information['tiebreaker']:0);
-        $sheetData['sheet']['judgeName'] =  (isset($information['judgeName'])?$information['judgeName']:'');
-        if (! ($checkScore == $sheetData['finalScore'])){
+        $sheetData['sheet']['comments']['commentFinal'] = (isset($information['commentFinal']) ? $information['commentFinal'] : '');
+        $sheetData['sheet']['tiebreaker'] = (isset($information['tiebreaker']) ? $information['tiebreaker'] : 0);
+        $sheetData['sheet']['judgeName'] = (isset($information['judgeName']) ? $information['judgeName'] : '');
+        if (!($checkScore == $sheetData['finalScore'])) {
             $sheetData['finalScore'] = $checkScore;
             $scoresheet->finalScore = $checkScore;
         }
         $scoresheet->scoresheetData = json_encode($sheetData);
         $scoresheet->save();
-        if ($scoresheet->completed){
+        if ($scoresheet->completed) {
             $scoresheet->sheet = $scoresheet->getScoresheetData()->sheet;
             $this->sendJudgeConfirmation($scoresheet);
         }
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -167,8 +183,8 @@ class ScoresheetController extends Controller
     {
         $scoresheet = Scoresheet::find($id);
         $information = $_REQUEST;
-        $this->saveInformation($scoresheet,$information);
-        Session::flash('infoMessage','Scoresheet updated');
+        $this->saveInformation($scoresheet, $information);
+        Session::flash('infoMessage', 'Scoresheet updated');
         return $this->show($id);
 
     }
