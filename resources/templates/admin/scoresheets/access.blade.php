@@ -20,8 +20,8 @@
                 <tr>
                     <td><a href="/scoresheets/{{$scoresheet->id}}">{{$scoresheet->id}}</a></td>
                     <td>{{$scoresheet->title}}</td>
-                    <td>{{$scoresheet->category}}</td>
-                    <td>{{$scoresheet->published}}</td>
+                    <td>{!! $categories[ $scoresheet->category ] !!}</td>
+                    <td>{!! ($scoresheet->published?'Published':'Unpublished') !!}</td>
                     @if($scoresheet->finalScore == 0)
                         <td>Not Started</td>
                     @else
