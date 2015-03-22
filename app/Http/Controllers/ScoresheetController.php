@@ -1,6 +1,7 @@
 <?php namespace Contest\Http\Controllers;
 
 use Contest\Entry;
+use Contest\Http\Controllers\Helpers\AdminHelper;
 use Contest\Http\Controllers\Helpers\EntryHelper;
 use Contest\Http\Controllers\Helpers\ScoresheetHelper;
 use Contest\Http\Requests;
@@ -54,7 +55,10 @@ class ScoresheetController extends Controller
     public function assignedTo($judgeID)
     {
         if ($this->isCoordinator) {
-            $scoresheets = Scoresheet::where('judge_id', '=', $judgeID)->get();
+            $queryString =  $this->getRolesWhereClause($this->user);
+            $queryString = '(('.$queryString.') and judge_id = '.$judgeID .')';
+            $scoresheets = Scoresheet::whereRaw($queryString)->get();
+
             $judge = Judge::find($judgeID);
             return view('scoresheets.assigned', ['scoresheets' => $scoresheets, 'judge' => $judge, 'categories' => $this->categories()]);
         } else {
