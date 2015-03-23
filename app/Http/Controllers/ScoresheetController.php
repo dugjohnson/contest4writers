@@ -163,8 +163,9 @@ class ScoresheetController extends Controller
 
         }
         $sheetData['sheet']['comments']['commentFinal'] = (isset($information['commentFinal']) ? $information['commentFinal'] : '');
-        $sheetData['sheet']['tiebreaker'] = (isset($information['tiebreaker']) ? $information['tiebreaker'] : 0);
         $sheetData['sheet']['judgeName'] = (isset($information['judgeName']) ? $information['judgeName'] : '');
+        $sheetData['sheet']['tiebreaker'] = (isset($information['tiebreaker']) ? $information['tiebreaker'] : 0);
+        $scoresheet->tiebreaker = $sheetData['sheet']['tiebreaker'];
         if (!($checkScore == $sheetData['finalScore'])) {
             $sheetData['finalScore'] = $checkScore;
             $scoresheet->finalScore = $checkScore;
