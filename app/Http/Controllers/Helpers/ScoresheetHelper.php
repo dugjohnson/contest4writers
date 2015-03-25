@@ -182,7 +182,7 @@ trait ScoresheetHelper
                     $labelList['score03'] = 'In the opening pages, is there an idea/foreshadow of the mystery/suspense to come?';
                     $labelList['score04'] = 'Is the plot original and well-executed?';
                     $labelList['score05'] = 'Does the plot have the potential to sustain an entire book in mainstream mystery/suspense?';
-                    $labelList['score06'] = 'Is the pacing appropriate to mainstream romantic suspense?';
+                    $labelList['score06'] = 'Is the pacing appropriate to mainstream mystery/suspense?';
                     $labelList['score07'] = 'Are the characters skillfully developed?';
                     $labelList['score08'] = 'Are the characters appropriate to the plot?';
                     $labelList['score09'] = 'Are the characters\' actions and reactions believable?';
