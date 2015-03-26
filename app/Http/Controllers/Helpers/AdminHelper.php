@@ -41,7 +41,7 @@ trait AdminHelper
                 case 'HI':
                 case 'IN':
                 case 'PA':
-                    return ['email' => 'islagreyauthor@gmail.com', 'name' => 'Isla Grey'];
+                    return ['email' => 'daphnecontest@gmail.com', 'name' => 'Brooke Wills'];
             }
         }
 
