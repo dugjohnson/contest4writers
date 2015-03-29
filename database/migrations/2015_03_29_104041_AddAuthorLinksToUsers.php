@@ -15,10 +15,10 @@ class AddAuthorLinksToUsers extends Migration {
 		Schema::table('entries', function(Blueprint $table)
 		{
 			//
-            $table->dropColumn('author2');
-            $table->integer('author_user_id')->nullable();;
-            $table->text('author2_user_id')->nullable();;
-		});
+            $table->integer('author_user_id')->nullable();
+            $table->text('author2_user_id')->nullable();
+
+        });
 	}
 
 	/**
@@ -30,9 +30,9 @@ class AddAuthorLinksToUsers extends Migration {
 	{
 		Schema::table('entries', function(Blueprint $table)
 		{
-            $table->integer('author2')->nullable();;
-            $table->integer('author_user_id');
-            $table->text('author2_user_id');			//
+            $table->text('author2')->nullable();;
+            $table->dropColumn('author_user_id');
+            $table->dropColumn('author2_user_id');			//
 		});
 	}
 
