@@ -30,7 +30,6 @@ class AddAuthorLinksToUsers extends Migration {
 	{
 		Schema::table('entries', function(Blueprint $table)
 		{
-            $table->text('author2')->nullable();;
             $table->dropColumn('author_user_id');
             $table->dropColumn('author2_user_id');			//
 		});
