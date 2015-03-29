@@ -16,7 +16,7 @@ class AddAuthorLinksToUsers extends Migration {
 		{
 			//
             $table->integer('author_user_id')->nullable();
-            $table->text('author2_user_id')->nullable();
+            $table->integer('author2_user_id')->nullable();
 
         });
 	}
