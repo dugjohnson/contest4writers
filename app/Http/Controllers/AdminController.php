@@ -7,6 +7,7 @@ use Contest\Http\Controllers\Helpers\EntryHelper;
 use Contest\Judge;
 use Contest\Scoresheet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 
@@ -174,5 +175,15 @@ class AdminController extends Controller
                 $scoresheet->update();
             }
         }
+
+    public function scoresheetSummary(){
+        $scoreResults = DB::table('scoresheets')
+            ->select(DB::raw('SUM(finalScore) as totalScore,
+		(SUM(tieBreaker)-MIN(tiebreaker)) as totalRanking,
+		(SUM(finalScore)-MIN(finalScore)) as totalScoreMinus,
+		 entry_id as entryNumber'))
+            ->groupBy('entry_id')->get();
+        return view('reports.scoresummary',['scoreResults'=>$scoreResults]);
+    }
 
 }
