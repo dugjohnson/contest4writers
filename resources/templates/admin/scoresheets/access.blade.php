@@ -10,6 +10,7 @@
                 <td>Published</td>
                 <td>Status</td>
                 <td>Score</td>
+                <td>Ranking</td>
                 <td>Commentsad</td>
                 <td>Judge ID</td>
                 <td>Judge name</td>
@@ -33,6 +34,7 @@
                         @endif
                     @endif
                     <td>{{$scoresheet->finalScore}}</td>
+                    <td>{{$scoresheet->tiebreaker}}</td>
                     @if($scoresheet->published)
                         <td>---</td>
                     @elseif($scoresheet->commentsFile)
