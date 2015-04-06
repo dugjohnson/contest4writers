@@ -8,9 +8,9 @@
             <td>Entry #</td>
             <td>Total Score</td>
             <td>Total Score Low</td>
-            <td>Total Ranking</td>
-            <td>Total Ranking Low</td>
-            <td>Total Ranking Minus Low</td>
+            <td>Total Tie Breaker</td>
+            <td>Total Tie Breaker Low</td>
+            <td>Total Tie Breaker Minus Low</td>
             <td>Total Score Minus Low</td>
         </tr>
         </thead>

@@ -10,7 +10,7 @@
                 <td>Published</td>
                 <td>Status</td>
                 <td>Score</td>
-                <td>Ranking</td>
+                <td>Tie Breaker</td>
                 <td>Commentsad</td>
                 <td>Judge ID</td>
                 <td>Judge name</td>
