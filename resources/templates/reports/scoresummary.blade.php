@@ -13,7 +13,13 @@
             <td>Total Tie Breaker Minus Low</td>
             <td>Total Score Minus Low</td>
         </tr>
-        </thead>
+        <tr>
+            <td>Entry #</td>
+            <td>Title</td>
+            <td>Judge</td>
+            <td>Score</td>
+            <td>Tie Breaker Low</td>
+        </tr>        </thead>
         <tbody>
         @foreach($scoreResults as $result)
             <tr>
@@ -25,6 +31,18 @@
                 <td>{!!$result->totalRanking - $result->totalRankingMinus !!}</td>
                 <td>{!!$result->totalScore - $result->totalScoreMinus !!}</td>
             </tr>
+            <?php $theDetails = $scoresheets->where( 'entry_id', $result->entryNumber ); ?>
+            @foreach($theDetails as $detail)
+                <tr>
+                    <td>{{$detail->entry_id}}</td>
+                    <td>{{$detail->title}}</td>
+                    <td>{{$detail->judge_id}}</td>
+                    <td>{{$detail->finalScore}}</td>
+                    <td>{{$detail->tiebreaker}}</td>
+                </tr>
+            @endforeach
+            <tr><td colspan="7"><hr></td> </tr>
+
         @endforeach
         </tbody>
     </table>

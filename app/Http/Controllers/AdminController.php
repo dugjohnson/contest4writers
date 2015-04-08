@@ -181,7 +181,10 @@ class AdminController extends Controller {
 		 entry_id as entryNumber' ) )
 			->where('completed','=',true)
 			->groupBy( 'entry_id' )->get();
-		return view( 'reports.scoresummary', [ 'scoreResults' => $scoreResults ] );
+		$scoresheets = DB::table( 'scoresheets' )->where('completed','=',true)->get();
+		$scoresheets = Scoresheet::all();
+
+		return view( 'reports.scoresummary', [ 'scoreResults' => $scoreResults, 'scoresheets' => $scoresheets ] );
 	}
 
 }
