@@ -18,7 +18,8 @@
             <td>Title</td>
             <td>Judge</td>
             <td>Score</td>
-            <td>Tie Breaker Low</td>
+            <td>Tie Breaker</td>
+            <td>Completed</td>
         </tr>        </thead>
         <tbody>
         @foreach($scoreResults as $result)
@@ -39,6 +40,7 @@
                     <td>{{$detail->judge_id}}</td>
                     <td>{{$detail->finalScore}}</td>
                     <td>{{$detail->tiebreaker}}</td>
+                    <td>{!! $detail->completed?'Completed':'Incomplete' !!}</td>
                 </tr>
             @endforeach
             <tr><td colspan="7"><hr></td> </tr>
