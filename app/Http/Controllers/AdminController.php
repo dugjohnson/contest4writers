@@ -178,10 +178,16 @@ class AdminController extends Controller {
 		MIN(finalScore) as totalScoreMinus,
 		SUM(tieBreaker) as totalRanking,
 		MIN(tiebreaker) as totalRankingMinus,
-		 entry_id as entryNumber' ) )
+		SUM(finalScore)-MIN(finalScore) as totalFinal,
+		category,published,entry_id as entryNumber' ) )
 			->where('completed','=',true)
-			->groupBy( 'entry_id' )->get();
-		$scoresheets = DB::table( 'scoresheets' )->where('completed','=',true)->get();
+			->groupBy( 'published' )
+			->groupBy( 'category' )
+			->groupBy( 'entry_id' )
+			->orderBy('published')
+			->orderBy('category')
+			->orderBy('totalFinal')
+			->get();
 		$scoresheets = Scoresheet::all();
 
 		return view( 'reports.scoresummary', [ 'scoreResults' => $scoreResults, 'scoresheets' => $scoresheets ] );
