@@ -186,7 +186,7 @@ class AdminController extends Controller {
 			->groupBy( 'entry_id' )
 			->orderBy('published')
 			->orderBy('category')
-			->orderBy('totalFinal')
+			->orderBy('totalFinal','DESC')
 			->get();
 		$scoresheets = Scoresheet::all();
 
