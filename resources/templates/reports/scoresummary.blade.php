@@ -11,7 +11,7 @@
             <td>Completed</td>
             <td>Finalist</td>
         </tr>
-        <tr>
+        <tr style="background-color: cornflowerblue;">
             <td></td>
             <td>Total Scores</td>
             <td>Total Tie Breaker Minus Low</td>
@@ -36,7 +36,7 @@
                 </tr>
             @endforeach
             <tr>
-            <tr>
+            <tr style="background-color: cornflowerblue;">
                 <td>Totals</td>
                 <td>{{$result->totalScore}}</td>
                 <td>{!!$result->totalRanking - $result->totalRankingMinus !!}</td>
