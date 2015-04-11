@@ -180,13 +180,14 @@ class AdminController extends Controller {
 		MIN(tiebreaker) as totalRankingMinus,
 		SUM(finalScore)-MIN(finalScore) as totalFinal,
 		category,published,entry_id as entryNumber' ) )
-			->where('completed','=',true)
+			->where( 'completed', '=', true )
+			->whereRaw( $this->getRolesWhereClause( $this->adminPerson ) )
 			->groupBy( 'published' )
 			->groupBy( 'category' )
 			->groupBy( 'entry_id' )
-			->orderBy('published')
-			->orderBy('category')
-			->orderBy('totalFinal','DESC')
+			->orderBy( 'published' )
+			->orderBy( 'category' )
+			->orderBy( 'totalFinal', 'DESC' )
 			->get();
 		$scoresheets = Scoresheet::all();
 
