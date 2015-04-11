@@ -11,7 +11,7 @@
             <td>Completed</td>
             <td>Finalist</td>
         </tr>
-        <tr style="background-color: cornflowerblue;">
+        <tr style="background-color: #F59AEF;">
             <td></td>
             <td>Total Scores</td>
             <td>Total Tie Breaker Minus Low</td>
@@ -21,7 +21,7 @@
         <tbody>
         @foreach($scoreResults as $result)
             <?php $theDetails = $scoresheets->where( 'entry_id', $result->entryNumber ); ?>
-            <tr style="background-color: #EE9F50;">
+            <tr style="background-color: #B8F5BC;">
                 <td>{{$theDetails->first()->entry_id}}</td>
                 <td>{{$theDetails->first()->title}}</td>
                 <td>{{$theDetails->first()->category}}</td>
@@ -36,7 +36,7 @@
                 </tr>
             @endforeach
             <tr>
-            <tr style="background-color: cornflowerblue;">
+            <tr style="background-color: #F59AEF;">
                 <td>Totals</td>
                 <td>{{$result->totalScore}}</td>
                 <td>{!!$result->totalRanking - $result->totalRankingMinus !!}</td>
