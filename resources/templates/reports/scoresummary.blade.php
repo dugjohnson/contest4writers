@@ -27,6 +27,12 @@
                 <td>{{$theDetails->first()->category}}</td>
                 <td>{!! $theDetails->first()->published?'Published':'Unpublished' !!}</td>
             </tr>
+            <tr style="background-color: #FAD9F9;">
+                <td>Totals</td>
+                <td>{{$result->totalScore}}</td>
+                <td>{!!$result->totalRanking - $result->totalRankingMinus !!}</td>
+                <td>{!!$result->totalScore - $result->totalScoreMinus !!}</td>
+            </tr>
             @foreach($theDetails as $detail)
                 <tr>
                     <td>{{$detail->judge_id}}</td>
@@ -35,13 +41,6 @@
                     <td>{!! $detail->completed?'Completed':'Incomplete' !!}</td>
                 </tr>
             @endforeach
-            <tr>
-            <tr style="background-color: #FAD9F9;">
-                <td>Totals</td>
-                <td>{{$result->totalScore}}</td>
-                <td>{!!$result->totalRanking - $result->totalRankingMinus !!}</td>
-                <td>{!!$result->totalScore - $result->totalScoreMinus !!}</td>
-            </tr>
         @endforeach
         </tbody>
     </table>
