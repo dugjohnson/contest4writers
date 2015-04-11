@@ -21,17 +21,11 @@
         <tbody>
         @foreach($scoreResults as $result)
             <?php $theDetails = $scoresheets->where( 'entry_id', $result->entryNumber ); ?>
-            <tr style="background-color: #D9FADA;">
+            <tr style="background-color: #D9FADA;" class="border-top">
                 <td>{{$theDetails->first()->entry_id}}</td>
                 <td>{{$theDetails->first()->title}}</td>
                 <td>{{$theDetails->first()->category}}</td>
                 <td>{!! $theDetails->first()->published?'Published':'Unpublished' !!}</td>
-            </tr>
-            <tr style="background-color: #FAD9F9;">
-                <td>Totals</td>
-                <td>{{$result->totalScore}}</td>
-                <td>{!!$result->totalRanking - $result->totalRankingMinus !!}</td>
-                <td>{!!$result->totalScore - $result->totalScoreMinus !!}</td>
             </tr>
             @foreach($theDetails as $detail)
                 <tr>
@@ -41,6 +35,12 @@
                     <td>{!! $detail->completed?'Completed':'Incomplete' !!}</td>
                 </tr>
             @endforeach
+            <tr style="background-color: #FAD9F9" class="border-bottom">
+                <td>Totals</td>
+                <td>{{$result->totalScore}}</td>
+                <td>{!!$result->totalRanking - $result->totalRankingMinus !!}</td>
+                <td>{!!$result->totalScore - $result->totalScoreMinus !!}</td>
+            </tr>
         @endforeach
         </tbody>
     </table>

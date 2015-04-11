@@ -69,5 +69,11 @@ div.scored {
 .completed {
   background-color: #ffb2b3; }
 
+tr.border-bottom td {
+  border-bottom: 2pt solid black; }
+
+tr.border-top td {
+  border-top: 1pt solid black; }
+
 
 /*# sourceMappingURL=app.css.map */
