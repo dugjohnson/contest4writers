@@ -57,6 +57,12 @@ div.scored {
 .ui-grid-viewport {
   height: 100%; }
 
+div.full-width a {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: initial; }
+
 .ui-grid-row-dirty .ui-grid-cell {
   background-color: #c7ddef !important; }
 

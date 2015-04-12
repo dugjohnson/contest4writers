@@ -7,4 +7,5 @@
         <li><a href="/coordinators/scoresheets/assign" class="button radius">Scoresheet Assign</a>
         </li>
     </ul>
+    <p><a href="/closeout" class="button radius">Closeout Tasks</a></p>
 </div>

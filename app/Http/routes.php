@@ -46,6 +46,8 @@ Route::post('scoresheets/{id}/upload', 'ScoresheetController@postUpload');
 Route::put('scoresheets/{id}/upload', 'ScoresheetController@postUpload');
 Route::get('scoresheets/{judgeID}/assigned', 'ScoresheetController@assignedTo');
 
+Route::get('closeout', 'CloseoutController@index');
+
 Route::get('users/{id}/delete', 'UserController@destroy');
 
 Route::resource('judges', 'JudgeController');
