@@ -38,10 +38,14 @@ class CloseoutController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
+	public function index() {
 		//
-		return view('admin.closeout.index');
+		return view( 'admin.closeout.index' );
+	}
+
+	public function email( $type ) {
+		return view( 'admin.closeout.email', [ 'type' => $type ] );
+
 	}
 
 }
