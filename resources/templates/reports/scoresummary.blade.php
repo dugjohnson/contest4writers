@@ -46,7 +46,7 @@
                 <td>{{$result->totalScore}}</td>
                 <td>{!!$result->totalRanking - $result->totalRankingMinus !!}</td>
                 <td>{!!$result->totalScore - $result->totalScoreMinus !!}</td>
-                <td>{!! $result->finalist?'Finalist':'not' !!}</td>
+                <td>{!! $result->finalist?'Finalist':'' !!}</td>
             </tr>
         @endforeach
         </tbody>
