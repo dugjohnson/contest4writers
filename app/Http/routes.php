@@ -48,6 +48,7 @@ Route::get('scoresheets/{judgeID}/assigned', 'ScoresheetController@assignedTo');
 
 Route::get('closeout', 'CloseoutController@index');
 Route::get('closeout/email/{type}', 'CloseoutController@email');
+Route::get('closeout/email/{type}/go', 'CloseoutController@emailGo');
 
 Route::get('users/{id}/delete', 'UserController@destroy');
 

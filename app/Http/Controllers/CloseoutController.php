@@ -7,15 +7,22 @@ use Contest\Http\Controllers\Controller;
 use Contest\Entry;
 use Contest\Judge;
 use Contest\Scoresheet;
+use Contest\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Response;
-
 
 class CloseoutController extends Controller {
 	protected $adminPerson;
 	protected $isAdmin;
+	protected $closeoutType = [
+		'unpubnonfinal' => 'Unpublished Non-Finalist',
+		'pubnonfinal' => 'Published Non-Finalist',
+		'unpubfinal' => 'Unpublished Finalist',
+		'pubfinal' => 'Published Finalist'
+	];
 	use EntryHelper;
 	use ScoresheetHelper;
 
@@ -43,9 +50,58 @@ class CloseoutController extends Controller {
 		return view( 'admin.closeout.index' );
 	}
 
+	public function emailGo( $type ) {
+		switch ( $type ) {
+			case 'unpubnonfinal':
+				$published = 0;
+				$finalist = 0;
+				break;
+			case 'pubnonfinal':
+				$published = 1;
+				$finalist = 0;
+				break;
+			case 'unpubfinal':
+				$published = 0;
+				$finalist = 1;
+				break;
+			case 'pubfinal':
+				$published = 1;
+				$finalist = 1;
+				break;
+			default:
+				return 'Invalid email type ' . $type;
+
+		}
+		$entries = Entry::where( 'published', '=', $published )
+			->where( 'finalist', '=', $finalist )
+			->get();
+		foreach ( $entries as $entry ) {
+			$this->sendScores( $entry, $type );
+		}
+	}
+
 	public function email( $type ) {
-		return view( 'admin.closeout.email', [ 'type' => $type ] );
+		//this is the warning/cancel view
+		return view( 'admin.closeout.email', [ 'type' => $type, 'description' => $this->closeoutType[ $type ] ] );
 
 	}
 
+	public function sendScores( $entry, $type ) {
+//		$templateToUse = 'admin.closeout.emails.emailbody';
+//		$user = User::find( $entry->user_id );
+//		$ccEmails = Array();
+//		$ccEmails[ ] = $this->getAdminEmail( 'JC' );
+//		$ccEmails[ ] = $this->getAdminEmail( 'OC' );
+//		$ccEmails[ ] = $this->getAdminEmail( $entry->category, $entry->published );
+//		$ccEmails[ ] = [ 'email' => 'doug@asknice.com', 'name' => 'Webmaster' ];
+//
+//		Mail::send( $templateToUse, array( 'user' => $user, 'entry' => $entry, 'type' => $type ), function ( $message ) use ( $entry, $user, $ccEmails, $type ) {
+//			$message->to( $user->email, $user->writingName )->subject( 'The Score Sheets for Your Daphne entry ' . $entry->title );
+//			foreach ( $ccEmails as $email ) {
+//				$message->cc( $email[ 'email' ], $email[ 'name' ] );
+//			}
+//
+//		} );
+
+	}
 }
