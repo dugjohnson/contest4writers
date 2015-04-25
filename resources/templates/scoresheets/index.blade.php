@@ -16,7 +16,7 @@
             </thead>
             <tbody>
             @foreach($scoresheets as $scoresheet)
-                @if($app->environment('local') || ((Carbon::now()< ($scoresheet->published ? Carbon::create(2015,5,26,0,0,0,'America/Denver'):Carbon::create(2015,4,26,0,0,0,'America/Denver')))))
+                @if($app->environment('local') || ((Carbon::now()< ($scoresheet->published ? Carbon::create(2015,5,29,0,0,0,'America/Denver'):Carbon::create(2015,4,29,0,0,0,'America/Denver')))))
                     <tr>
                         <td>{{$scoresheet->entry_id}}</td>
                         <td>{{$scoresheet->title}}</td>
