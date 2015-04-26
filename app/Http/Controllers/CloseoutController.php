@@ -72,12 +72,14 @@ class CloseoutController extends Controller {
 				return 'Invalid email type ' . $type;
 
 		}
-		$entries = Entry::where( 'published', '=', $published )
+		$entries = Entry::with('scoresheets')
+		    ->where( 'published', '=', $published )
 			->where( 'finalist', '=', $finalist )
 			->get();
 		foreach ( $entries as $entry ) {
 			$this->sendScores( $entry, $type );
 		}
+		return 'Done - sent out scoresheets for '.$entries->count().' entries.  <a href="/">Back to home page</a>';
 	}
 
 	public function email( $type ) {
@@ -87,21 +89,33 @@ class CloseoutController extends Controller {
 	}
 
 	public function sendScores( $entry, $type ) {
-//		$templateToUse = 'admin.closeout.emails.emailbody';
-//		$user = User::find( $entry->user_id );
-//		$ccEmails = Array();
-//		$ccEmails[ ] = $this->getAdminEmail( 'JC' );
-//		$ccEmails[ ] = $this->getAdminEmail( 'OC' );
+		$templateToUse = 'admin.closeout.emails.emailbody';
+		$user = User::find( $entry->user_id );
+		$ccEmails = Array();
+		$ccEmails[ ] = $this->getAdminEmail( 'JC' );
+		$ccEmails[ ] = $this->getAdminEmail( 'OC' );
 //		$ccEmails[ ] = $this->getAdminEmail( $entry->category, $entry->published );
-//		$ccEmails[ ] = [ 'email' => 'doug@asknice.com', 'name' => 'Webmaster' ];
-//
-//		Mail::send( $templateToUse, array( 'user' => $user, 'entry' => $entry, 'type' => $type ), function ( $message ) use ( $entry, $user, $ccEmails, $type ) {
+		$ccEmails[ ] = [ 'email' => 'doug@asknice.com', 'name' => 'Webmaster' ];
+		$labelList = $this->getLabelList($entry->category, $entry->published);
+		$tieBreakerList = $this->tieBreakerList($entry->published);
+		foreach($entry->scoresheets as $scoresheet){
+			$scoresheet->sheet = $scoresheet->getScoresheetData()->sheet;
+		}
+
+		Mail::send( $templateToUse, array( 'user' => $user,
+										   'entry' => $entry,
+										   'type' => $type,
+										   'coordinator'=>'Brooke Wills',
+										   'label' => $labelList,
+										   'tieBreakerList' => $tieBreakerList,
+										   'categories' => $this->categories()), function ( $message ) use ( $entry, $user, $ccEmails, $type ) {
 //			$message->to( $user->email, $user->writingName )->subject( 'The Score Sheets for Your Daphne entry ' . $entry->title );
-//			foreach ( $ccEmails as $email ) {
-//				$message->cc( $email[ 'email' ], $email[ 'name' ] );
-//			}
-//
-//		} );
+			$message->to( 'doug@asknice.com' , 'doug='.$user->writingName )->subject( 'The Score Sheets for Your Daphne entry ' . $entry->title );
+			foreach ( $ccEmails as $email ) {
+				$message->cc( $email[ 'email' ], $email[ 'name' ] );
+			}
+
+		} );
 
 	}
 }
