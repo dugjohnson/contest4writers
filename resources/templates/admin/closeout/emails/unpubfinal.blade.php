@@ -12,4 +12,4 @@
 <p>And again, Congratulations on being a 2015 Daphne Finalist!</p>
 
 <p>Sincerely,</p>
-<p>{{$coordinator}}</p>
+<p>{!!$coordinator!!}</p>

@@ -8,4 +8,4 @@
 </p>
 
 <p>Sincerely,</p>
-<p>{{$coordinator}}</p>
+<p>{!!$coordinator!!}</p>

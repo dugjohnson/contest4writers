@@ -9,4 +9,4 @@
 <p>Thank you for entering the Daphne du Maurier Award for Excellence in Mystery/Suspense.  On behalf of the Daphne Committee, I wish you the very best in your writing career.</p>
 
 <p>Sincerely,</p>
-<p>{{$coordinator}}</p>
+<p>{!!$coordinator!!}</p>
