@@ -90,12 +90,18 @@ class CloseoutController extends Controller {
 
 	public function sendScores( $entry, $type ) {
 		$templateToUse = 'admin.closeout.emails.emailbody';
-		$user = User::find( $entry->user_id );
+		$user = User::find( $entry->author_user_id );
 		$ccEmails = Array();
 		$ccEmails[ ] = $this->getAdminEmail( 'JC' );
 		$ccEmails[ ] = $this->getAdminEmail( 'OC' );
 //		$ccEmails[ ] = $this->getAdminEmail( $entry->category, $entry->published );
 		$ccEmails[ ] = [ 'email' => 'doug@asknice.com', 'name' => 'Webmaster' ];
+		if (! empty( $entry->author2_user_id )) {
+			$user2 =  User::find( $entry->author2_user_id );
+		//	$ccEmails[ ] = [ 'email' => $user2->email, 'name' => $user2->writingName ];
+
+		}
+
 		$labelList = $this->getLabelList($entry->category, $entry->published);
 		$tieBreakerList = $this->tieBreakerList($entry->published);
 		foreach($entry->scoresheets as $scoresheet){
@@ -105,7 +111,7 @@ class CloseoutController extends Controller {
 		Mail::send( $templateToUse, array( 'user' => $user,
 										   'entry' => $entry,
 										   'type' => $type,
-										   'coordinator'=>'Brooke Wills',
+										   'coordinator'=>'Brooke Wills<br/>2015 Daphne Overall Coordinator',
 										   'label' => $labelList,
 										   'tieBreakerList' => $tieBreakerList,
 										   'categories' => $this->categories()), function ( $message ) use ( $entry, $user, $ccEmails, $type ) {

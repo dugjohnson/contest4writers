@@ -22,7 +22,7 @@
 
     @include('scoresheets.show.content.'.($scoresheet->published?'allpub':$scoresheet->category))
     @if(0==$scoresheet->published)
-        <a href="http://writingcontest.website/uploads/comments/cmts-{{$scoresheet->entry_id}}-{{$scoresheet->judge_id}}.rtf">Click
+        <a href="http://writingcontest.website/uploads/comments/cmts-{{$scoresheet->id}}-{{$scoresheet->judge_id}}.rtf">Click
             to download comments file</a>
     @endif
     <hr>
