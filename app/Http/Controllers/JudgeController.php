@@ -33,7 +33,7 @@ class JudgeController extends Controller {
 		$this->judgeUserID = \Auth::id();
 		$this->judge = Judge::where( 'user_id', '=', $this->judgeUserID )->first();
 		$loginUser = \Auth::user();
-		if ( $loginUser->isAdministrator() ) {
+		if ( (! empty($loginUser)) && $loginUser->isAdministrator() ) {
 			$this->isAdmin = true;
 			$this->isCoordinator = true;
 		}
