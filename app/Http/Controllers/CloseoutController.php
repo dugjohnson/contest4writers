@@ -94,11 +94,11 @@ class CloseoutController extends Controller {
 		$ccEmails = Array();
 		$ccEmails[ ] = $this->getAdminEmail( 'JC' );
 		$ccEmails[ ] = $this->getAdminEmail( 'OC' );
-//		$ccEmails[ ] = $this->getAdminEmail( $entry->category, $entry->published );
+		$ccEmails[ ] = $this->getAdminEmail( $entry->category, $entry->published );
 		$ccEmails[ ] = [ 'email' => 'doug@asknice.com', 'name' => 'Webmaster' ];
 		if (! empty( $entry->author2_user_id )) {
 			$user2 =  User::find( $entry->author2_user_id );
-		//	$ccEmails[ ] = [ 'email' => $user2->email, 'name' => $user2->writingName ];
+			$ccEmails[ ] = [ 'email' => $user2->email, 'name' => $user2->writingName ];
 
 		}
 
@@ -115,8 +115,7 @@ class CloseoutController extends Controller {
 										   'label' => $labelList,
 										   'tieBreakerList' => $tieBreakerList,
 										   'categories' => $this->categories()), function ( $message ) use ( $entry, $user, $ccEmails, $type ) {
-//			$message->to( $user->email, $user->writingName )->subject( 'The Score Sheets for Your Daphne entry ' . $entry->title );
-			$message->to( 'doug@asknice.com' , 'doug='.$user->writingName )->subject( 'The Score Sheets for Your Daphne entry ' . $entry->title );
+			$message->to( $user->email, $user->writingName )->subject( 'The Score Sheets for Your Daphne entry ' . $entry->title );
 			foreach ( $ccEmails as $email ) {
 				$message->cc( $email[ 'email' ], $email[ 'name' ] );
 			}
