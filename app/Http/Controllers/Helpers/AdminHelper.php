@@ -57,7 +57,7 @@ trait AdminHelper {
 				$whereStatement .= ' OR ';
 
 			}
-			$whereStatement .= " ( '$role->category' = '.$alias.'category and $role->published = '.$alias.'published) ";
+			$whereStatement .= " ( '$role->category' = ".$alias."category and $role->published = ".$alias."published) ";
 		}
 		if ( strlen( $whereStatement ) == 0 ) {
 			$whereStatement = 'true';
