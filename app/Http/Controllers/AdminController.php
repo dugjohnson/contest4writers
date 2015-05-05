@@ -174,7 +174,7 @@ class AdminController extends Controller {
 
 	public function scoresheetSummary() {
 		$scoreResults = DB::table( 'scoresheets' )
-			->leftJoin('entries', 'scoresheets.entry_id', '=', 'entries.id')
+			->leftJoin( 'entries', 'scoresheets.entry_id', '=', 'entries.id' )
 			->select( DB::raw( 'SUM(finalScore) as totalScore,
 		MIN(finalScore) as totalScoreMinus,
 		SUM(tieBreaker) as totalRanking,
@@ -182,7 +182,7 @@ class AdminController extends Controller {
 		SUM(finalScore)-MIN(finalScore) as totalFinal,
 		SUM(tieBreaker)-MIN(tieBreaker) as totalTiebreaker,
 		scoresheets.category,scoresheets.published,scoresheets.entry_id as entryNumber,entries.finalist' ) )
-			->whereRaw( $this->getRolesWhereClause( $this->adminPerson ) )
+			->whereRaw( $this->getRolesWhereClause( $this->adminPerson, 'scoresheets' ) )
 			->groupBy( 'published' )
 			->groupBy( 'category' )
 			->groupBy( 'entry_id' )
