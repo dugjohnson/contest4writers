@@ -2,6 +2,7 @@
 
 @section('content')
     <h4>Score Sheet Summary for {{$judge->id}} {{$judge->judgeName()}}</h4>
+    <p>* is the score from this judge</p>
     <table>
         <thead>
         <tr>
@@ -9,7 +10,7 @@
             <td>Title</td>
             <td>Category</td>
             <td>Published</td>
-            <td>Scores</td>
+            <td colspan="4">Scores </td>
         </tr>
         </thead>
         <tbody>
@@ -22,13 +23,13 @@
                 <tr class="border-top">
                     <td>{{$scoresheet->entry_id}}</td>
                     <td>{{$scoresheet->title}}</td>
-                    <td>{{$scoresheet->category}}</td>
+                    <td>{!! $categories[$scoresheet->category] !!}</td>
                     <td>{!! $scoresheet->published?'Published':'Unpublished' !!}</td>
                     <?php $theEntry = $scoresheet->entry_id; ?>
             @endif
             <td>
                 @if ($judge->id==$scoresheet->judge_id)
-                    <strong>{{$scoresheet->finalScore}}</strong>
+                    <strong>{{$scoresheet->finalScore}} *</strong>
                 @else
                     {{$scoresheet->finalScore}}
                 @endif
