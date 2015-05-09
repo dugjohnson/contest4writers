@@ -1,0 +1,41 @@
+@extends('layout-nonav')
+
+@section('content')
+    <h4>Score Sheet Summary for {{$judge->id}} {{$judge->judgeName()}}</h4>
+    <table>
+        <thead>
+        <tr>
+            <td>Entry #</td>
+            <td>Title</td>
+            <td>Category</td>
+            <td>Published</td>
+            <td>Scores</td>
+        </tr>
+        </thead>
+        <tbody>
+        <?php $theEntry = ''; ?>
+        @foreach($scoresheets as $scoresheet)
+            @if(! ($theEntry == $scoresheet->entry_id))
+                @if (! $theEntry=='')
+                    </tr>
+                @endif
+                <tr class="border-top">
+                    <td>{{$scoresheet->entry_id}}</td>
+                    <td>{{$scoresheet->title}}</td>
+                    <td>{{$scoresheet->category}}</td>
+                    <td>{!! $scoresheet->published?'Published':'Unpublished' !!}</td>
+                    <?php $theEntry = $scoresheet->entry_id; ?>
+            @endif
+            <td>
+                @if ($judge->id==$scoresheet->judge_id)
+                    <strong>{{$scoresheet->finalScore}}</strong>
+                @else
+                    {{$scoresheet->finalScore}}
+                @endif
+
+            </td>
+        @endforeach
+        </tr>
+        </tbody>
+    </table>
+@stop

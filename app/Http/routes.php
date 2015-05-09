@@ -45,6 +45,7 @@ Route::get('scoresheets/{id}/upload', 'ScoresheetController@getUpload');
 Route::post('scoresheets/{id}/upload', 'ScoresheetController@postUpload');
 Route::put('scoresheets/{id}/upload', 'ScoresheetController@postUpload');
 Route::get('scoresheets/{judgeID}/assigned', 'ScoresheetController@assignedTo');
+Route::get('scoresheets/judge/{judgeID}/comparison', 'ScoresheetController@comparison');
 
 Route::get('closeout', 'CloseoutController@index');
 Route::get('closeout/email/{type}', 'CloseoutController@email');
