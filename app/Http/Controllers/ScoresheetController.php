@@ -44,7 +44,7 @@ class ScoresheetController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index($judgeID) {
+	public function index($judgeID=null) {
 		//
 		$scoresheets = Scoresheet::where( 'judge_id', '=', $this->judgeID )->get();
 		return view( 'scoresheets.index', [ 'scoresheets' => $scoresheets, 'categories' => $this->categories() ] );
