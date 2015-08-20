@@ -21,7 +21,8 @@ class CloseoutController extends Controller {
 		'unpubnonfinal' => 'Unpublished Non-Finalist',
 		'pubnonfinal' => 'Published Non-Finalist',
 		'unpubfinal' => 'Unpublished Finalist',
-		'pubfinal' => 'Published Finalist'
+		'pubfinal' => 'Published Finalist',
+		'judges' => 'Judges',
 	];
 	use EntryHelper;
 	use ScoresheetHelper;
@@ -50,8 +51,49 @@ class CloseoutController extends Controller {
 		return view( 'admin.closeout.index' );
 	}
 
+	private function sendJudgeEmail($judgeID){
+		$judge = Judge::find( $judgeID );
+		$queryString = "SELECT finalScore,title,judge_id,category,published,entry_id FROM scoresheets
+							WHERE entry_id in
+							(select distinct entry_id from scoresheets where judge_id = $judgeID)
+							order by entry_id,finalScore";
+
+		$scoresheets = DB::select( $queryString );
+		$templateToUse = 'admin.closeout.emails.judges.emailbody';
+		$user = User::find( $judge->user_id );
+		$ccEmails = Array();
+		$ccEmails[ ] = $this->getAdminEmail( 'JC' );
+		$ccEmails[ ] = $this->getAdminEmail( 'OC' );
+		$ccEmails[ ] = [ 'email' => 'doug@asknice.com', 'name' => 'Webmaster' ];
+
+		Mail::send( $templateToUse, array( 'user' => $user,
+										   'judge'=> $judge,
+										   'scoresheets' =>$scoresheets,
+										   'categories' => $this->categories()), function ( $message ) use ( $judge, $ccEmails, $user ) {
+//			$message->to( $user->email, $user->writingName )->subject( 'Thank you for judging this year' );
+			$message->to( 'doug@asknice.com', $user->writingName )->subject( 'Thank you for judging this year' );
+			foreach ( $ccEmails as $email ) {
+				$message->cc( $email[ 'email' ], $email[ 'name' ] );
+			}
+
+		} );
+
+	}
+
+	private function judgeEmail(){
+		$queryString = "SELECT DISTINCT judge_id FROM scoresheets;";
+		$judges = DB::select( $queryString );
+		foreach($judges as $judge){
+			$this->sendJudgeEmail($judge->judge_id);
+		}
+		return count($judges);
+	}
+
 	public function emailGo( $type ) {
 		switch ( $type ) {
+			case 'judges':
+				$comparisons = $this->judgeEmail();
+				return 'Done - sent out '. $comparisons.' judge emails with comparisons. <a href="/">Back to home page</a>';
 			case 'unpubnonfinal':
 				$published = 0;
 				$finalist = 0;

@@ -9,7 +9,7 @@
             <td>Entry #</td>
             <td>Title</td>
             <td>Category</td>
-            <td>Published</td>
+            <td>Published x</td>
             <td colspan="4">Scores </td>
         </tr>
         </thead>
