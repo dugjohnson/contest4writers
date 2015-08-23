@@ -70,8 +70,8 @@ class CloseoutController extends Controller {
 										   'judge'=> $judge,
 										   'scoresheets' =>$scoresheets,
 										   'categories' => $this->categories()), function ( $message ) use ( $judge, $ccEmails, $user ) {
-//			$message->to( $user->email, $user->writingName )->subject( 'Thank you for judging this year' );
-			$message->to( 'doug@asknice.com', $user->writingName )->subject( 'Thank you for judging this year' );
+			$message->to( $user->email, $user->writingName )->subject( 'Thank you for judging this year' );
+//			$message->to( 'doug@asknice.com', $user->writingName )->subject( 'Thank you for judging this year' );    for a test run
 			foreach ( $ccEmails as $email ) {
 				$message->cc( $email[ 'email' ], $email[ 'name' ] );
 			}

@@ -1,4 +1,4 @@
-<h4>Score Sheet Summary for {{$judge->id}} {{$judge->judgeName()}}</h4>
+<h4>Score Sheet Summary for {{$judge->judgeName()}}</h4>
 <p>* is the score from this judge</p>
 <table>
     <thead>
