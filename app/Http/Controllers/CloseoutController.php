@@ -153,7 +153,7 @@ class CloseoutController extends Controller {
 		Mail::send( $templateToUse, array( 'user' => $user,
 										   'entry' => $entry,
 										   'type' => $type,
-										   'coordinator'=>'Brooke Wills<br/>2015 Daphne Overall Coordinator',
+										   'coordinator'=>'Brooke Wills<br/>2016 Daphne Overall Coordinator',
 										   'label' => $labelList,
 										   'tieBreakerList' => $tieBreakerList,
 										   'categories' => $this->categories()), function ( $message ) use ( $entry, $user, $ccEmails, $type ) {

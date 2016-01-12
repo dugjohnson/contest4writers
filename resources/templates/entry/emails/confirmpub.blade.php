@@ -3,7 +3,7 @@
 <BODY>
 <P  ><B>RWA&reg;Mystery/Suspense Chapter presents</B></P>
 <P  ><B>The Daphne du Maurier Award</B></P>
-<P  ><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE PUBLISHED DIVISION 2015</B></P>
+<P  ><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE PUBLISHED DIVISION 2016</B></P>
 
 <P  >The following information has been submitted. However, your entry is not accepted until payment is received. See information below.</P>
 
@@ -53,7 +53,7 @@
 
 <P  >In order for your entry to be official, you must create a myRWA invoice.  </P>
 
-<P  >Personal checks and money orders must be postmarked no later than March 16, 2015, made payable to Kiss of Death and sent to the chapter treasurer:</P>
+<P  >Personal checks and money orders must be postmarked no later than March 16, 2016, made payable to Kiss of Death and sent to the chapter treasurer:</P>
 <P  >Karen Sue Burns</P>
 <P  >4615 Red Lake Lane</P>
 <P  >Richmond, TX 77406-7009</P>
