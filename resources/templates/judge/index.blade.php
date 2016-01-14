@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <p>Thank you for taking the time to visit the judge database for the Daphne du Maurier Award for Excellence</p>
+    <p>Thank you for taking the time to visit the judge database for the Daphne du Maurier Award for Excellence.</p>
     <p>Whether you’re new to judging or updating your preferences we’re happy you’re here. If you decide to judge, we'll
         be in touch as the contest entry period winds down the 15th of March.</p>
     <p>Deadline for judging Unpublished entries is 15th of April.</p>
