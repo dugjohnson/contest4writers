@@ -14,9 +14,7 @@
 <p>Please find enclosed the titles you judged this year compared with the other judges for the same title.</p>
 <p>We hope you find this information helpful.</p>
 <p>If you have any questions, please don't hesitate to ask.</p>
-<p>Nancy J Nicholson<br>
-First Round Judge Coordinator<br>
-ndjnich@gmail.com</p>
+<!-- todo: need link to judge coordinator -->
 @include('admin.closeout.emails.judges.comparison')
 
 </BODY>

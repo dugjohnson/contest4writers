@@ -20,7 +20,7 @@ If you decided to judge, we'll be in touch as the contest entry period winds dow
 
 <p>If anything changes with these selections, you can revisit the preference list until March 15th.</p>
 
-<p>Any other questions, feel free to contact Nancy J Nicholson, Judge Coordinator at ndjnich@gmail.com.</p>
+<p>Any other questions, feel free to contact us.</p> <!-- todo: need link to judge coordinator -->
 
 <p>Thanks,</p>
 

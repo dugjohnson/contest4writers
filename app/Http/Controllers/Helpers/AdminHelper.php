@@ -16,8 +16,11 @@ trait AdminHelper {
 
 		}
 		if ( is_null( $published ) || $category == 'JC' ) {
+			// todo: need link to judge coordinator
+			return [ 'email' => 'daphnecontest@gmail.com', 'name' => 'Brooke Wills' ];
 			return [ 'email' => 'ndjnich@gmail.com', 'name' => 'Nancy Nicholson' ];
 		}
+		// todo: need links to coordinators, not hard code
 		if ( $published ) {
 			switch ( $category ) {
 				case 'CA':
@@ -33,13 +36,13 @@ trait AdminHelper {
 			switch ( $category ) {
 				case 'ST':
 				case 'CA':
-					return [ 'email' => 'bgerry2@yahoo.com', 'name' => 'Barbara Gerry' ];
+					return [ 'email' => 'daphnestc@gmail.com', 'name' => 'Cathy Perkins' ];
 				case 'MA':
 					return [ 'email' => 'veronicaforand@gmail.com', 'name' => 'Veronica Forand' ];
 				case 'HI':
 				case 'IN':
 				case 'PA':
-					return [ 'email' => 'daphnecontest@gmail.com', 'name' => 'Brooke Wills' ];
+					return [ 'email' => 'marneejo@hotmail.com', 'name' => 'Marnee Blake' ];
 			}
 		}
 
