@@ -179,6 +179,8 @@ class JudgeController extends Controller {
 		$ccEmails = Array();
 		$ccEmails[ ] = $this->getAdminEmail( 'JC' );
 		$ccEmails[ ] = $this->getAdminEmail( 'OC' );
+		//todo: handle multiple JCs without hard coding
+		$ccEmails[ ] = [ 'email' => 'jengraybeal@gmail.com', 'name' => 'Jen Graybeal' ];
 		$ccEmails[ ] = [ 'email' => 'doug@asknice.com', 'name' => 'Webmaster' ];
 
 		Mail::send( $templateToUse, $this->judgeFormData( $judge ), function ( $message ) use ( $user, $ccEmails ) {
