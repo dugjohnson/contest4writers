@@ -17,7 +17,7 @@ trait AdminHelper {
 		}
 		if ( is_null( $published ) || $category == 'JC' ) {
 			// todo: need link to judge coordinator
-			return [ 'email' => 'janiecrouch@verizon.net', 'name' => 'Janie Crouch' ];
+			return [ 'email' => 'daphnecontest@gmail.com', 'name' => 'Brooke Wills' ];
 		}
 		// todo: need links to coordinators, not hard code
 		if ( $published ) {
