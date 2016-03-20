@@ -15,9 +15,9 @@ trait AdminHelper {
 			return [ 'email' => 'daphnecontest@gmail.com', 'name' => 'Brooke Wills' ];
 
 		}
-		if ( is_null( $published ) || $category == 'JC' ) {
-			// todo: need link to judge coordinator
-			return [ 'email' => 'daphnecontest@gmail.com', 'name' => 'Brooke Wills' ];
+		if ( $category == 'JC' ) {
+			// todo: need link to judge coordinator records in roles, so not hard coded
+			return [ 'email' => 'jengraybeal@gmail.com', 'name' => 'Jen Graybeal' ];
 		}
 		// todo: need links to coordinators, not hard code
 		if ( $published ) {
