@@ -1,6 +1,3 @@
-<p>RWA®Mystery/Suspense Chapter presents </p>
-<p>The Daphne du Maurier Award</p>
-<p>FOR EXCELLENCE IN MYSTERY/SUSPENSE 2016</p>
 <p>Dear Daphne Entrant:</p>
 
 <p>The 2016 Daphne Contest first round judging has ended and unfortunately your entry did not final. While this is disappointing, we hope you will keep in mind that contests are highly subjective, the Daphne is highly competitive, and what one judge loves, another doesn't. We hope you will take this opportunity to look at the judge's comments. Occasionally, they will make no sense to you, but other times you may actually have an “Aha moment” to make your manuscript better. In any case, if two or more judges say the same thing, it may be a good idea to pay attention. It is always, of course, your story.</p>
