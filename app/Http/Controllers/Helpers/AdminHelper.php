@@ -29,7 +29,7 @@ trait AdminHelper {
 				case 'MA':
 				case 'PA':
 				case 'ST':
-					return [ 'email' => 'rkhan@wcc.net', 'name' => 'Rashda Khan' ];
+					return [ 'email' => 'daphnecontest@gmail.com', 'name' => 'Brooke Wills' ];
 			}
 		} else {
 			switch ( $category ) {
