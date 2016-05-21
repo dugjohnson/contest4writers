@@ -10,6 +10,7 @@ use Contest\Scoresheet;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
 
 
 class ScoresheetController extends Controller {
@@ -44,7 +45,7 @@ class ScoresheetController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index($judgeID=null) {
+	public function index( $judgeID = null ) {
 		//
 		$scoresheets = Scoresheet::where( 'judge_id', '=', $this->judgeID )->get();
 		return view( 'scoresheets.index', [ 'scoresheets' => $scoresheets, 'categories' => $this->categories() ] );
@@ -59,7 +60,7 @@ class ScoresheetController extends Controller {
 							order by entry_id,finalScore";
 
 			$scoresheets = DB::select( $queryString );
-			return view('reports.judgescorecomparison', ['scoresheets' => $scoresheets, 'judge' => $judge, 'categories' => $this->categories()]);
+			return view( 'reports.judgescorecomparison', [ 'scoresheets' => $scoresheets, 'judge' => $judge, 'categories' => $this->categories() ] );
 		} else {
 			return redirect( '/' );
 		}
@@ -201,15 +202,13 @@ class ScoresheetController extends Controller {
 	}
 
 
-	public function getBatch() {
-		return view( 'scoresheets/batch' );
-
-	}
-
-	private function createScoresheets( $entry ) {
+	private function createScoresheets( $entry, $totalWhenDone = 0 ) {
 		$count = $entry->scoresheets->count();
+		if ( 0 == $totalWhenDone ) {
+			$totalWhenDone = ( $entry->published ? self::COUNT_FOR_PUBLISHED : self::COUNT_FOR_UNPUBLISHED );
+		}
 
-		for ( $i = $count; $i < ( $entry->published ? self::COUNT_FOR_PUBLISHED : self::COUNT_FOR_UNPUBLISHED ); $i++ ) {
+		for ( $i = $count; $i < $totalWhenDone; $i++ ) {
 			$scoresheet = new Scoresheet();
 			$scoresheet->entry_id = $entry->id;
 			$scoresheet->category = $entry->category;
@@ -220,6 +219,22 @@ class ScoresheetController extends Controller {
 
 		}
 
+	}
+
+	public function getExtra() {
+		return view( 'scoresheets/extra' );
+	}
+
+	public function postExtra( Request $request ) {
+		$entry = $request->entry;
+		$totalWhenDone = intval( $request->totalWhenDone );
+		$entry = Entry::find( $entry );
+		$this->createScoresheets( $entry, $totalWhenDone );
+		return $totalWhenDone . ' scoresheets for ' . $entry->id . ' ' . $entry->title . ' should now exist. <a href="/">Return to home page</a>';
+	}
+
+	public function getBatch() {
+		return view( 'scoresheets/batch' );
 	}
 
 	public function postBatch() {
