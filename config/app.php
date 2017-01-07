@@ -228,6 +228,7 @@ return [
         'Inspiring' => Illuminate\Foundation\Inspiring::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Form' => Collective\Html\FormFacade::class,
+        'Carbon' => \Carbon\Carbon::class,
     ],
 
 ];

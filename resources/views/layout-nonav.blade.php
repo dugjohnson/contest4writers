@@ -12,7 +12,7 @@
         </div>
         <div class="right">
             @if(Auth::check())
-                <a href="/auth/logout" class="tiny button radius">Log Out</a>
+                <a href="/logout" class="tiny button radius">Log Out</a>
             @endif
         </div>
     </div>

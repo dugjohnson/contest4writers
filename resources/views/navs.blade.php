@@ -2,13 +2,13 @@
     <div class="large-12 columns">
         <div class="right">
             @if(Auth::check())
-                <a href="/auth/logout" class="tiny button radius">Log Out</a>
+                <a href="/logout" class="tiny button radius">Log Out</a>
                 <a href="/users/{!! Auth::user()->id !!}" class="tiny button radius">Profile</a>
             @else
-                <a href="/auth/login" class="tiny button radius">Log In</a>
+                <a href="/login" class="tiny button radius">Log In</a>
             @endif
 
-            <a href="/auth/register" class="tiny button radius">Register</a>
+            <a href="/register" class="tiny button radius">Register</a>
         </div>
         <div class="nav-bar">
             <ul class="button-group">

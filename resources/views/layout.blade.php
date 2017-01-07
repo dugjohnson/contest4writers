@@ -22,10 +22,10 @@
                 <a href="/users/{!! Auth::user()->id !!}"
                    class="tiny button radius {!! (Auth::user()->hasFilledInProfile()?'':'alert') !!}">Check Your
                     Profile</a>
-                <a href="/auth/logout" class="tiny button radius">Log Out</a>
+                <a href="/logout" class="tiny button radius">Log Out</a>
             @else
-                <a href="/auth/login" class="tiny button radius">Log In</a>
-                <a href="/auth/register" class="tiny button radius">Register</a>
+                <a href="/login" class="tiny button radius">Log In</a>
+                <a href="/register" class="tiny button radius">Register</a>
             @endif
 
         </div>
