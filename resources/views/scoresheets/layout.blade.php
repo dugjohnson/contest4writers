@@ -54,7 +54,7 @@
         </div>
         <div class="row">
             <div class="large-6 columns">
-                <p>©2016 Kiss of Death/RWA Mystery/Romantic Suspense Chapter 144</p>
+                <p>©2017 Kiss of Death/RWA Mystery/Romantic Suspense Chapter 144</p>
             </div>
         </div>
     </div>

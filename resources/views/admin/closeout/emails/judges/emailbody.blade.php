@@ -5,8 +5,8 @@
 
 <P><B>The Daphne du Maurier Award</B></P>
 
-<P><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE 2016</B></P>
-<p>The Daphne committee is wrapping up the 2016 Daphne du Maurier Award for Excellence in Mystery and Suspense.</p>
+<P><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE 2017</B></P>
+<p>The Daphne committee is wrapping up the 2017 Daphne du Maurier Award for Excellence in Mystery and Suspense.</p>
 <p>Without our hard working first round judges this contest would not be a success.</p>
 <p>Thank You!</p>
 <p>You can find the results of our winners here: http://rwamysterysuspense.org/daphne</p>

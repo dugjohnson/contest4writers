@@ -5,7 +5,7 @@
 
 <P><B>The Daphne du Maurier Award</B></P>
 
-<P><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE PUBLISHED DIVISION 2016</B></P>
+<P><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE PUBLISHED DIVISION 2017</B></P>
 <p>Thank you for visiting the RWA Kiss of Death Daphne du Maurier Award for Excellence In Mystery and Suspense Database.
 If you decided to judge, we'll be in touch as the contest entry period winds down the 15th of March.
 </p>

@@ -5,7 +5,7 @@
 
 <P><B>The Daphne du Maurier Award</B></P>
 
-<P><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE UNPUBLISHED DIVISION 2016</B></P>
+<P><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE UNPUBLISHED DIVISION 2017</B></P>
 
 <P>The following information has been submitted. However, your entry is not accepted until payment is received. See information below.</P>
 
@@ -25,7 +25,7 @@
 
 <P>In order for your entry to be official, you must create a myRWA invoice. If you are a KOD member, please sign into myRWA first to get your discount.</P>
 
-<P>Personal checks and money orders must be postmarked no later than March 16, 2016, made payable to Kiss of Death and sent to the chapter treasurer:</P>
+<P>Personal checks and money orders must be postmarked no later than March 16, 2017, made payable to Kiss of Death and sent to the chapter treasurer:</P>
 
 <P>Karen Sue Burns</P>
 

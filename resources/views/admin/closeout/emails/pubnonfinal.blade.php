@@ -1,6 +1,6 @@
 <p>Dear Daphne Published Entrant:</p>
 
-<p>The 2016 Daphne Published Contest has ended and unfortunately your entry did not final.
+<p>The 2017 Daphne Published Contest has ended and unfortunately your entry did not final.
 	This year's published contest, as always, was highly competitive. What one judge loves, another doesn't.
 	Take this opportunity to look over the comments (if any) with an eye to maybe seeing an "Aha moment" you hadn't considered in
 	your writing. Perhaps they will even help in making the next book even better.
@@ -14,4 +14,4 @@
 <p>Best,<br>
 Brooke</p>
 <p>Brooke Wills<br>
-2016 Daphne Contest Chair</p>
+2017 Daphne Contest Chair</p>

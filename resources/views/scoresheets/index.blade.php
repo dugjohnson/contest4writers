@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    @if($app->environment('local') || (Carbon::now()> Carbon::create(2016,3,24,0,0,0,'America/Denver') && Carbon::now()< Carbon::create(2016,6,25,0,0,0,'America/Denver') ) )
+    @if($app->environment('local') || (Carbon::now()> Carbon::create(2017,3,24,0,0,0,'America/Denver') && Carbon::now()< Carbon::create(2017,6,25,0,0,0,'America/Denver') ) )
         <table>
             <thead>
             <tr>
@@ -16,7 +16,7 @@
             </thead>
             <tbody>
             @foreach($scoresheets as $scoresheet)
-                @if($app->environment('local') || ((Carbon::now()< ($scoresheet->published ? Carbon::create(2016,6,25,0,0,0,'America/Denver'):Carbon::create(2016,5,10,0,0,0,'America/Denver')))))
+                @if($app->environment('local') || ((Carbon::now()< ($scoresheet->published ? Carbon::create(2017,6,25,0,0,0,'America/Denver'):Carbon::create(2017,5,10,0,0,0,'America/Denver')))))
                     <tr>
                         <td>{{$scoresheet->entry_id}}</td>
                         <td>{{$scoresheet->title}}</td>

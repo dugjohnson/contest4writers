@@ -5,7 +5,7 @@
 
 <P><B>The Daphne du Maurier Award</B></P>
 
-<P><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE 2016</B></P>
+<P><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE 2017</B></P>
 @include('admin.closeout.emails.'.$type)
 <hr>
 @foreach($entry->scoresheets as $scoresheet)

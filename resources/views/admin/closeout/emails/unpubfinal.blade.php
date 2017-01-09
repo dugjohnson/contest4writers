@@ -1,6 +1,6 @@
-<p>Dear 2016 Daphne Finalist:</p>
+<p>Dear 2017 Daphne Finalist:</p>
 
-<p>The 2016 Daphne Contest has concluded and so we are now able to return your First-Round scores to you via our automated system.
+<p>The 2017 Daphne Contest has concluded and so we are now able to return your First-Round scores to you via our automated system.
 	Your Final Round scores will come in a separate email and should arrive within the next day or so, if not sooner.</p>
 
 <p>We hope you will keep in mind that contests are highly subjective, the Daphne is highly competitive,
@@ -14,9 +14,9 @@
 
 <p>Thank you for entering the Daphne du Maurier Award for Excellence in Mystery/Suspense. On behalf of the Daphne Committee, I wish you the very best in your writing career.</p>
 
-<p>And again, Congratulations on being a 2016 Daphne Finalist!</p>
+<p>And again, Congratulations on being a 2017 Daphne Finalist!</p>
 
 <p>To your writing success--<br/>
 Brooke</p>
 <p>Brooke Wills<br/>
-2016 Daphne Overall Coordinator</p>
+2017 Daphne Overall Coordinator</p>
