@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    @if((Carbon::now()>= Carbon::create(2017,1,15,0,0,0,'America/Denver')) && (Carbon::now()< Carbon::create(2017,3,16,0,0,0,'America/Denver')))
+    @if(($app->environment('local') || Carbon::now()>= Carbon::create(2017,1,15,0,0,0,'America/Denver')) && (Carbon::now()< Carbon::create(2017,3,16,0,0,0,'America/Denver')))
         <ul class="button-group">
             <li><a href="/entries/create/pub" class="button radius">Enter Published Contest</a></li>
             <li><a href="/entries/create/unpub" class="button radius">Enter Unpublished Contest</a></li>
