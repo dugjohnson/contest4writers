@@ -2,8 +2,8 @@
     <h5><strong>Contacts</strong></h5>
     <h5><strong>Unpublished Coordinators</strong></h5>
     <p><strong>Mainstream:</strong> <a href="mailto:veronicaforand@gmail.com?subject=Entry Question">Veronica Forand (veronicaforand@gmail.com)</a></p>
-    <p><strong>Category (Series):</strong>  <a href="mailto:(marneejo@hotmail.com?subject=Entry Question">Marnee Black (marneejo@hotmail.com)</a></p>
-    <p><strong>Single Title:</strong>  <a href="mailto:(marneejo@hotmail.com?subject=Entry Question">Marnee Black (marneejo@hotmail.com)</a></p>
+    <p><strong>Category (Series):</strong>  <a href="mailto:(marnee.blake@gmail.com?subject=Entry Question">Marnee Blake (marnee.blake@gmail.com)</a></p>
+    <p><strong>Single Title:</strong>  <a href="mailto:(marnee.blake@gmail.com?subject=Entry Question">Marnee Blake (marnee.blake@gmail.com)</a></p>
     <p><strong>Historical:</strong>  <a href="mailto:tracybrodybooks@yahoo.com?subject=Entry Question">Tracy Brody (tracybrodybooks@yahoo.com)</a></p>
     <p><strong>Inspirational:</strong>  <a href="mailto:tracybrodybooks@yahoo.com?subject=Entry Question">Tracy Brody (tracybrodybooks@yahoo.com)</a></p>
     <p><strong>Paranormal</strong>:  <a href="mailto:tracybrodybooks@yahoo.com?subject=Entry Question">Tracy Brody (tracybrodybooks@yahoo.com)</a></p>
