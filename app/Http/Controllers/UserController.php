@@ -21,11 +21,13 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-
-        if (Auth::check()) {
-            $this->isCoordinator = Auth::user()->isCoordinator();
-            $this->isAdministrator = Auth::user()->isAdministrator();
-        }
+        $this->middleware(function ($request, $next) {
+            if (Auth::check()) {
+                $this->isCoordinator = Auth::user()->isCoordinator();
+                $this->isAdministrator = Auth::user()->isAdministrator();
+            }
+            return $next($request);
+        });
 
     }
 
@@ -67,17 +69,19 @@ class UserController extends Controller
 //		//
 //	}
 //
-public function destroy($id){
-    if (! $this->isAdministrator){
-        return redirect('home');
+    public function destroy($id)
+    {
+        if (!$this->isAdministrator) {
+            return redirect('home');
+        }
+        $user = User::find($id);
+        if ($user->id) {
+            $user->delete();
+        }
+        return redirect('users');
+
     }
-    $user = User::find($id);
-    if ($user->id){
-        $user->delete();
-    }
-    return redirect('users');
-    
-}
+
     /**
      * Display the specified resource.
      *
