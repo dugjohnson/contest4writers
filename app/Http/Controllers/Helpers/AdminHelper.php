@@ -29,19 +29,19 @@ trait AdminHelper {
 				case 'MA':
 				case 'PA':
 				case 'ST':
-					return [ 'email' => 'daphnecontest@gmail.com', 'name' => 'Brooke Wills' ];
+					return [ 'email' => 'avery@averyflynn.com', 'name' => 'Avery Flynn' ];
 			}
 		} else {
 			switch ( $category ) {
 				case 'ST':
 				case 'CA':
-					return [ 'email' => 'daphnestc@gmail.com', 'name' => 'Cathy Perkins' ];
+					return [ 'email' => 'marnee.blake@gmail.com', 'name' => 'Marnee Blake' ];
 				case 'MA':
 					return [ 'email' => 'veronicaforand@gmail.com', 'name' => 'Veronica Forand' ];
 				case 'HI':
 				case 'IN':
 				case 'PA':
-					return [ 'email' => 'marneejo@hotmail.com', 'name' => 'Marnee Blake' ];
+					return [ 'email' => 'tracybrodybooks@yahoo.com', 'name' => 'Tracy Brody' ];
 			}
 		}
 

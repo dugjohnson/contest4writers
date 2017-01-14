@@ -130,9 +130,7 @@ trait EntryHelper
             foreach($ccEmails as $email){
                 $message->cc($email['email'],$email['name']);
             }
-
         });
-        
     }
 
 }

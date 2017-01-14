@@ -28,8 +28,8 @@
     </TR>
     <TR>
         <TD WIDTH=300 BGCOLOR="#ffffff">
-            <P ><I>Rashda Khan<BR>1708 Catalina Drive<BR>San
-                    Angelo, Texas 76901</I></P>
+            <P ><I>Avery Flynn<BR>1 Candleridge Court<BR>San
+                    Stafford, VA 22554</I></P>
         </TD>
     </TR>
     <TR>

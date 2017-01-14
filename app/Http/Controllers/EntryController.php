@@ -51,14 +51,13 @@ class EntryController extends Controller
     public function months()
     {
         //todo: need variable for contest date
-        $yearPart = 15;
+        $yearPart = 16;
         $calcMonths = [];
         for ($i = 1; $i < 13; $i++) {
             $thisMonth = sprintf('%02u/%02u', $i, $yearPart);
             $calcMonths[$thisMonth] = $thisMonth;
         }
         return $calcMonths;
-        //= ['01/14' => '01/14', '02/14' => '02/14', '03/14' => '03/14', '04/14' => '04/14', '05/14' => '05/14', '06/14' => '06/14', '07/14' => '07/14', '08/14' => '08/14', '09/14' => '09/14', '10/14' => '10/14', '11/14' => '11/14', '12/14' => '12/14'];
 
     }
 
@@ -100,14 +99,14 @@ class EntryController extends Controller
     {
         // redirect
         $entry = new Entry();
-        $entry->published = $request->published;
+        $entry->published = ! $request->published ? 0: 1;
         $entry->user_id = $this->entrantID;
         $entry->author = $request->author;
         $entry->authorEmail = $request->authorEmail;
         $entry->title = $request->title;
         $entry->category = $request->category;
         $entry->dateOfEntry = Carbon::now();
-        $entry->readRules = $request->readRules;
+        $entry->readRules = ! $request->readRules ? 0: 1;
         $entry->signed = $request->signed;
         $entry->invoiceNumber = $request->invoiceNumber;
 
@@ -121,7 +120,7 @@ class EntryController extends Controller
             $entry->publisher = $request->publisher;
             $entry->editor = $request->editor;
             $entry->publicationMonth = $request->publicationMonth;
-            $entry->enteredByPublisher = $request->enteredByPublisher;
+            $entry->enteredByPublisher = ! $request->enteredByPublisher ? 0 : 1;
         }
         $entry->save();
         $this->sendConfirmation($entry);

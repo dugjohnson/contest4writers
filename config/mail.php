@@ -54,11 +54,8 @@ return [
     | used globally for all e-mails that are sent by your application.
     |
     */
-
-    'from' => [
-        'address' => 'hello@example.com',
-        'name' => 'Example',
-    ],
+    'from' => ['address' => 'no_reply@rwamysterysuspense.org', 'name' => 'Daphne Competition'],
+    'subject' => 'Email from the Daphne Competition',
 
     /*
     |--------------------------------------------------------------------------
