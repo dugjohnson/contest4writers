@@ -27,11 +27,11 @@
 
 <P>Personal checks and money orders must be postmarked no later than March 16, 2017, made payable to Kiss of Death and sent to the chapter treasurer:</P>
 
-<P>Karen Sue Burns</P>
+<P>Susan Muller</P>
 
-<P>4615 Red Lake Lane</P>
+<P>16907 Memorial Oaks</P>
 
-<P>Richmond, TX 77406-7009</P>
+<P>Spring, TX 77379</P>
 
 <P>Please include your
     invoice and entry numbers on your payment.</P>
