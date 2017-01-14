@@ -1,4 +1,4 @@
-<div class="content">
+<div class="panel radius">
     <h5><strong>Contacts</strong></h5>
     <h5><strong>Unpublished Coordinators</strong></h5>
     <p><strong>Mainstream:</strong> <a href="mailto:veronicaforand@gmail.com?subject=Entry Question">Veronica Forand (veronicaforand@gmail.com)</a></p>

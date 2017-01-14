@@ -10,13 +10,10 @@
         <h4><strong>The competition entry period is January&nbsp;15 through March&nbsp;15</strong></h4>
     @endif
     @include('entry.entryListing')
-@stop
-
-@section('sidebar')
-    <div panel radius>
-        <P>Things to know before entering the contest:</P>
-        <ul>
-            <li>Make sure your profile is complete. Click Check Your Profile above to review</li>
+    <div class="panel radius">
+        <H3>Things to know before entering the contest:</H3>
+        <ul class="infolist">
+            <li><strong>Make sure your profile is complete. Click Check Your Profile above to review. <br>The author profile must be complete for the entry to be judged.</strong></li>
             <li>Review the rules, categories, etc. about the contest at: <A HREF="http://rwamysterysuspense.org/daphne">http://rwamysterysuspense.org/daphne</A>
             </li>
             <li>Each entry will generate an individual confirmation email. You can view your entry in the area to the
@@ -25,16 +22,19 @@
             <li>Multiple entries can be paid on one myRWA invoice. After you have the invoice number, please edit each
                 entry and add the invoice number in the appropriate field.
             </li>
+            <li>
+                Each entry will generate an individual confirmation email. Those emails will be delayed for a short time.
+                You can confirm that your entry in the area to the left after you've entered it.
+            </li>
         </ul>
-        <a class="button radius" href="http://www.rwa.org/unpublisheddaphne" target="_blank">Click to go to myRWA
-            UNPUBLISHED www.rwa.org/unpublisheddaphne</a>
-        <a class="button radius" href="http://www.rwa.org/publisheddaphne" target="_blank">Click to go to myRWA
-            PUBLISHED www.rwa.org/publisheddaphne</a>
-
-        <p> Each entry will generate an individual confirmation email. Those emails will be delayed for a short time.
-            You can confirm that your entry in the area to the left after you've entered it.</p>
-
     </div>
+@stop
+
+@section('sidebar')
+    <a class="button radius" href="http://www.rwa.org/unpublisheddaphne" target="_blank">Click to go to myRWA
+        UNPUBLISHED www.rwa.org/unpublisheddaphne</a>
+    <a class="button radius" href="http://www.rwa.org/publisheddaphne" target="_blank">Click to go to myRWA
+        PUBLISHED www.rwa.org/publisheddaphne</a>
     @include('admin.contacts')
 @stop
 

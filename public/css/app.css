@@ -87,4 +87,10 @@ ul.error li {
   font-size: 1.5em;
   display: block;
 }
+
+ul.infolist li {
+  background-color: lightblue;
+  display: block;
+  margin: 2px 0px;
+}
 /*# sourceMappingURL=app.css.map */
