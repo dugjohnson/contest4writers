@@ -83,8 +83,9 @@
     <p><strong>Why we do this</strong></p>
     <p>We ask you to fill in this information so that we can contact you easily if we need to.  If you are a finalist, we have to contact you
         before we can announce the finalists. We have actually had trouble nearly every year contacting a potential winner because the information we have is incomplete.</p>
-    <p>If you are a judge, you might need assistance, or we might have information that you will need about the entries you will be judging. Sometimes we get in a tie
-    situation and we might need an additional judge. If we rely on your great judging ability, we might need to get you quickly for a tie breaker!</p>
+    <p>If you are a judge, you might need assistance, or we might have information that you will need about the entries you will be judging.
+        And, of course, if you are judging published we need to ship books to you.
+        Sometimes we get in a tie situation and we might need an additional judge. If we rely on your great judging ability, we might need to get you quickly for a tie breaker!</p>
     <p>We appreciate you working with us to make the Daphne Competition work well for you and all our volunteers</p>
 </div>
 @stop
