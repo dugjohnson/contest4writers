@@ -1,6 +1,6 @@
 <div class="panel radius">
     <p>
-      <label>  {!! Form::checkbox('readRules', null, null, ['id' => 'readRules', 'class'=>'large']) !!}
+      <label>  {!! Form::checkbox('readRules', null, $entry->readRules, ['id' => 'readRules', 'class'=>'large']) !!}
           &nbsp; &nbsp; Check before continuing
       </label>
         I have read the rules and guidelines governing The Daphne du Maurier Award for Excellence in

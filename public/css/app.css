@@ -81,5 +81,10 @@ tr.border-bottom td {
 tr.border-top td {
   border-top: 1pt solid black; }
 
-
+ul.error li {
+  color: red;
+  background-color: lightblue;
+  font-size: 1.5em;
+  display: block;
+}
 /*# sourceMappingURL=app.css.map */
