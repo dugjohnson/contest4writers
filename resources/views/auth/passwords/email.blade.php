@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layout-nonav')
 
 <!-- Main Content -->
 @section('content')
