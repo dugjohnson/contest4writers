@@ -88,7 +88,7 @@ class JudgeController extends Controller
     {
         $judge = new Judge;
         // set defaults
-        $judge->user_id = $this->getJudgeUserID;
+        $judge->user_id = $this->getJudgeUserID();
         $this->fillInFields($request, $judge);
         $judge->save();
         if ($this->isCoordinator) {
@@ -164,11 +164,11 @@ class JudgeController extends Controller
         $judge->singleTitle = $request->singleTitle;
         $judge->paranormal = $request->paranormal;
         $judge->inspirational = $request->inspirational;
-        $judge->erotic = $request->erotic;
-        $judge->glbt = $request->glbt;
-        $judge->bdsm = $request->bdsm;
-        $judge->vampires = $request->vampires;
-        $judge->religious = $request->religious;
+        $judge->erotic = filter_var($request->erotic, FILTER_VALIDATE_BOOLEAN);
+        $judge->glbt = filter_var($request->glbt, FILTER_VALIDATE_BOOLEAN);
+        $judge->bdsm = filter_var($request->bdsm, FILTER_VALIDATE_BOOLEAN);
+        $judge->vampires = filter_var($request->vampires, FILTER_VALIDATE_BOOLEAN);
+        $judge->religious = filter_var($request->religious, FILTER_VALIDATE_BOOLEAN);
         $judge->comments = $request->comments;
         if ($request->has('internalComments')) {
             $judge->internalComments = $request->internalComments;

@@ -99,14 +99,14 @@ class EntryController extends Controller
     {
         // redirect
         $entry = new Entry();
-        $entry->published = ! $request->published ? 0: 1;
+        $entry->published = filter_var($request->published, FILTER_VALIDATE_BOOLEAN);
         $entry->user_id = $this->entrantID;
         $entry->author = $request->author;
         $entry->authorEmail = $request->authorEmail;
         $entry->title = $request->title;
         $entry->category = $request->category;
         $entry->dateOfEntry = Carbon::now();
-        $entry->readRules = ! $request->readRules ? 0: 1;
+        $entry->readRules = filter_var($request->readRules, FILTER_VALIDATE_BOOLEAN);
         $entry->signed = $request->signed;
         $entry->invoiceNumber = $request->invoiceNumber;
 
@@ -120,7 +120,7 @@ class EntryController extends Controller
             $entry->publisher = $request->publisher;
             $entry->editor = $request->editor;
             $entry->publicationMonth = $request->publicationMonth;
-            $entry->enteredByPublisher = ! $request->enteredByPublisher ? 0 : 1;
+            $entry->enteredByPublisher = filter_var($request->enteredByPublisher, FILTER_VALIDATE_BOOLEAN);
         }
         $entry->save();
         $this->sendConfirmation($entry);
@@ -237,11 +237,7 @@ class EntryController extends Controller
             $entry->publisher = $request->publisher;
             $entry->editor = $request->editor;
             $entry->publicationMonth = $request->publicationMonth;
-            if (isset($request->enteredByPublisher)) {
-                $entry->enteredByPublisher = $request->enteredByPublisher;
-            } else {
-                $entry->enteredByPublisher = false;
-            }
+            $entry->enteredByPublisher = filter_var($request->enteredByPublisher, FILTER_VALIDATE_BOOLEAN);
         }
         $entry->authorEmail = $request->authorEmail;
         if (!$request->published) {
