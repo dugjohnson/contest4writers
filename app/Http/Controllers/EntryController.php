@@ -158,9 +158,17 @@ class EntryController extends Controller
     {
         $entry = Entry::find($id);
         if ($entry->published) {
-            return view('entry.showpub', array('categories' => $this->categories(), 'monthlist' => $this->months(), 'entry' => $entry, 'isCoordinator' => $this->isCoordinator));
+            return view('entry.showpub', array('categories' => $this->categories(),
+                                                    'monthlist' => $this->months(),
+                                                    'entry' => $entry,
+                                                    'isCoordinator' => $this->isCoordinator,
+                                                    'canDelete' => $this->canDelete()));
         } else {
-            return view('entry.showunpub', array('categories' => $this->categories(), 'monthlist' => $this->months(), 'entry' => $entry, 'isCoordinator' => $this->isCoordinator));
+            return view('entry.showunpub', array('categories' => $this->categories(),
+                                                    'monthlist' => $this->months(),
+                                                    'entry' => $entry,
+                                                    'isCoordinator' => $this->isCoordinator,
+                                                    'canDelete' => $this->canDelete()));
         }
 
     }
@@ -263,6 +271,19 @@ class EntryController extends Controller
         exit;
     }
 
+    public function destroy($id)
+    {
+        if (!($this->canDelete())) {
+            return redirect('home');
+        }
+        $entry = Entry::find($id);
+        if ($id == $entry->id) {
+            $entry->delete();
+        }
+        return redirect('coordinators/entries');
+
+    }
+
     public function coordinatorShow($id)
     {
         $this->isCoordinator = true;
@@ -279,5 +300,10 @@ class EntryController extends Controller
     {
         $this->isCoordinator = true;
         return $this->getUpload($id);
+    }
+
+    private function canDelete(){
+//Todo Need to check for entry having scoresheets or assigns
+        return (Auth::check() && Auth::user()->hasRole('OC'));
     }
 }

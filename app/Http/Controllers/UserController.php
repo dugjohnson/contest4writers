@@ -55,7 +55,7 @@ class UserController extends Controller
             return redirect('home');
         }
         $user = User::find($id);
-        if ($user->id) {
+        if ($id == $user->id) {
             $user->delete();
         }
         return redirect('users');

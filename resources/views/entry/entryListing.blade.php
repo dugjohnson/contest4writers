@@ -34,7 +34,8 @@
                     <strong>Locked
                         @if($isCoordinator)
                             <a href="/coordinators/entries/{{ $entry->id }}/edit">Edit</a>
-                        @endif</strong>
+                        @endif
+                    </strong>
                 @else
                     <a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}/edit">Edit</a>
                     @if (! $entry->published)
