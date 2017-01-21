@@ -14,3 +14,10 @@
         @endif
     </div>
 @stop
+
+
+@section('sidebar')
+    @if ($canDelete)
+        @include('entry.deleteform')
+    @endif
+@stop
