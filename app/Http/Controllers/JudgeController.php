@@ -110,6 +110,8 @@ class JudgeController extends Controller
         //      dd($data);
         //
         $judge = Judge::find($id);
+        $this->checkAdministrator();
+
         return view('judge.show', $this->judgeFormData($judge) );
 	}
 
@@ -123,6 +125,8 @@ class JudgeController extends Controller
     {
         //
         $judge = Judge::find($id);
+        $this->checkAdministrator();
+
         return view('judge.edit', $this->judgeFormData($judge) );
 	}
 
@@ -136,6 +140,8 @@ class JudgeController extends Controller
     {
         //
         $judge = Judge::find($id);
+        $this->checkAdministrator();
+
         $this->fillInFields($request, $judge);
         $judge->save();
         if ($this->isCoordinator) {
@@ -221,13 +227,18 @@ class JudgeController extends Controller
 
             $this->judgeUserID = Auth::id();
             $this->judge = Judge::where('user_id', '=', $this->judgeUserID)->first();
-            $loginUser = Auth::user();
-            if ((!empty($loginUser)) && $loginUser->isAdministrator()) {
-                $this->isAdmin = true;
-                $this->isCoordinator = true;
-            }
+            $this->checkAdministrator();
         }
         return $this->judgeUserID;
+    }
+
+    private function checkAdministrator()
+    {
+        $loginUser = Auth::user();
+        if ((!empty($loginUser)) && $loginUser->isAdministrator()) {
+            $this->isAdmin = true;
+            $this->isCoordinator = true;
+        }
     }
 
 }
