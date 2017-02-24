@@ -116,20 +116,24 @@ class AdminController extends Controller
 //            ->sortBy('User.lastName');
 
         // the csv file with the first row
-        $output = implode(",", array('Judge ID', 'Profile ID', 'Judge name', 'Email', 'This Year', 'Pub', 'Pub Max', 'Unpub', 'Unpub Max', 'ENB', 'MA', 'CA', 'HI', 'ST', 'PA', 'IN'));
+        $output = implode(",", array('Judge ID', 'Profile ID', 'Judge name', 'Street', 'City', 'State', 'Zip', 'Country', 'Email', 'This Year', 'Pub', 'Pub Max', 'Unpub', 'Unpub Max', 'ENB', 'MA', 'CA', 'HI', 'ST', 'PA', 'IN'));
 
         foreach ($judges as $row) {
             // iterate over each tweet and add it to the csv
             if (strtolower($CSVType) == 'favorite') {
                 $title = 'judgefaves.csv';
-                $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(), $row->user()->first()->email, $row->judgeThisYear, ($row->judgePub ? 'yes' : 'no'),
+                $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(),$row->user()->first()->street,
+                        $row->user()->first()->city, $row->user()->first()->state,$row->user()->first()->zipCode, $row->user()->first()->country,
+                        $row->user()->first()->email, $row->judgeThisYear, ($row->judgePub ? 'yes' : 'no'),
                         $row->maxpubentries, ($row->judgeUnpub ? 'yes' : 'no'), $row->maxunpubentries, ($row->judgeEitherNotBoth ? 'yes' : 'no'), $this->convertValue($row->mainstream),
                         $this->convertValue($row->category), $this->convertValue($row->historical), $this->convertValue($row->singleTitle),
                         $this->convertValue($row->paranormal), $this->convertValue($row->inspirational))); // append each row
 
             } else {
                 $title = 'judges.csv';
-                $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(), $row->user()->first()->email, $row->judgeThisYear, ($row->judgePub ? 'yes' : 'no'),
+                $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(),$row->user()->first()->street,
+                        $row->user()->first()->city, $row->user()->first()->state,$row->user()->first()->zipCode, $row->user()->first()->country,
+                        $row->user()->first()->email, $row->judgeThisYear, ($row->judgePub ? 'yes' : 'no'),
                         $row->maxpubentries, ($row->judgeUnpub ? 'yes' : 'no'), $row->maxunpubentries, ($row->judgeEitherNotBoth ? 'yes' : 'no'), $row->mainstream,
                         $row->category, $row->historical, $row->singleTitle, $row->paranormal, $row->inspirational)); // append each row
 
