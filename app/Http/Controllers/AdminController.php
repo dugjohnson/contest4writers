@@ -97,6 +97,12 @@ class AdminController extends Controller
         }
     }
 
+    private function stripCodes($source){
+        $stripped = str_replace(',',' ',$source);
+        $stripped = str_replace('"','',$stripped);
+        return $stripped;
+    }
+
     public function returnCSV($CSVType = '')
     {
         //use if don't need fields from user except for sorting
@@ -122,7 +128,7 @@ class AdminController extends Controller
             // iterate over each tweet and add it to the csv
             if (strtolower($CSVType) == 'favorite') {
                 $title = 'judgefaves.csv';
-                $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(),$row->user()->first()->street,
+                $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(),$this->stripCodes($row->user()->first()->street),
                         $row->user()->first()->city, $row->user()->first()->state,$row->user()->first()->zipCode, $row->user()->first()->country,
                         $row->user()->first()->email, $row->judgeThisYear, ($row->judgePub ? 'yes' : 'no'),
                         $row->maxpubentries, ($row->judgeUnpub ? 'yes' : 'no'), $row->maxunpubentries, ($row->judgeEitherNotBoth ? 'yes' : 'no'), $this->convertValue($row->mainstream),
@@ -131,7 +137,7 @@ class AdminController extends Controller
 
             } else {
                 $title = 'judges.csv';
-                $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(),$row->user()->first()->street,
+                $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(),$this->stripCodes($row->user()->first()->street),
                         $row->user()->first()->city, $row->user()->first()->state,$row->user()->first()->zipCode, $row->user()->first()->country,
                         $row->user()->first()->email, $row->judgeThisYear, ($row->judgePub ? 'yes' : 'no'),
                         $row->maxpubentries, ($row->judgeUnpub ? 'yes' : 'no'), $row->maxunpubentries, ($row->judgeEitherNotBoth ? 'yes' : 'no'), $row->mainstream,
