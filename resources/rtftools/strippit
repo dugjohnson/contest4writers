@@ -1,3 +1,9 @@
-for i in 17*.rtf; do
-  sed -i.bak -e 's/{\\author .*?}//' -e 's/{\\operator .*?}//' $i
+#Tried using sed, but couldn't make it be non-greedy
+# copy files for back up
+for file in 17*.rtf; do
+  cp "$file" "${file/rtf/rtt}"
 done
+
+#inplace find/replace
+perl -p -i -e 's/{\\author .*?}//g;' 17*.rtf
+perl -p -i -e 's/{\\operator .*?}//g;' 17*.rtf
