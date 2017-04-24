@@ -202,6 +202,7 @@ class AdminController extends Controller
             ->groupBy('published')
             ->groupBy('category')
             ->groupBy('entry_id')
+            ->groupBy('finalist')
             ->orderBy('published')
             ->orderBy('category')
             ->orderBy('totalFinal', 'DESC')
