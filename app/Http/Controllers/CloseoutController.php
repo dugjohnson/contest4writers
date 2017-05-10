@@ -37,12 +37,14 @@ class CloseoutController extends Controller
     {
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
-            $this->adminPerson = \Auth::user();
-            if (!($this->adminPerson && $this->adminPerson->isCoordinator())) {
-                return redirect('/home');
-            }
-            $this->isAdmin = $this->adminPerson->isAdministrator();
-            return $next($request);
+            if (Auth::check()) {
+                $this->adminPerson = \Auth::user();
+                if (!($this->adminPerson && $this->adminPerson->isCoordinator())) {
+                    return redirect('/home');
+                }
+                $this->isAdmin = $this->adminPerson->isAdministrator();
+                return $next($request);
+            };
         });
     }
 
