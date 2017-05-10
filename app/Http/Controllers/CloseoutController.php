@@ -146,24 +146,25 @@ class CloseoutController extends Controller
     public function sendScores($entry, $type)
     {
         $templateToUse = 'admin.closeout.emails.emailbody';
-        $user = User::find($entry->author_user_id);
+        // ToDo: tie this all to the author_user_id field, which needs to be set up correctly in the first place
+        $user = User::find($entry->user_id);
         $ccEmails = Array();
         $ccEmails[] = $this->getAdminEmail('JC');
         $ccEmails[] = $this->getAdminEmail('OC');
         $ccEmails[] = $this->getAdminEmail($entry->category, $entry->published);
         $ccEmails[] = ['email' => 'doug@asknice.com', 'name' => 'Webmaster'];
-        if (!empty($entry->author2_user_id)) {
-            $user2 = User::find($entry->author2_user_id);
-            $ccEmails[] = ['email' => $user2->email, 'name' => $user2->writingName];
-
-        }
+        // ToDo: fix with the above
+//        if (!empty($entry->author2_user_id)) {
+//            $user2 = User::find($entry->author2_user_id);
+//            $ccEmails[] = ['email' => $user2->email, 'name' => $user2->writingName];
+//
+//        }
 
         $labelList = $this->getLabelList($entry->category, $entry->published);
         $tieBreakerList = $this->tieBreakerList($entry->published);
         foreach ($entry->scoresheets as $scoresheet) {
             $scoresheet->sheet = $scoresheet->getScoresheetData()->sheet;
         }
-
         Mail::send($templateToUse, array('user' => $user,
             'entry' => $entry,
             'type' => $type,
