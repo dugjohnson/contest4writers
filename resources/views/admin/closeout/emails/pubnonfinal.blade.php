@@ -3,7 +3,7 @@
 <p>The 2017 Daphne Published Contest has ended and unfortunately your entry did not final.
 	This year's published contest, as always, was highly competitive. What one judge loves, another doesn't.
 	Take this opportunity to look over the comments (if any) with an eye to maybe seeing an "Aha moment" you hadn't considered in
-	your writing. Perhaps they will even help in making the next book even better.
+	your writing. Perhaps they will help in making the next book even better.
 </p>
 <p>If you wish to send a thank you note to your judge, you may send them to me and I will forward.
 </p>
