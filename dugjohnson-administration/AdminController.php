@@ -1,4 +1,6 @@
-<?php namespace Contest\Http\Controllers;
+<?php
+
+namespace Dugjohnson\Administration;
 
 use Contest\Entry;
 use Contest\Http\Controllers\Helpers\ScoresheetHelper;

@@ -22,7 +22,8 @@
             "database"
         ],
         "psr-4": {
-            "Contest\\": "app/"
+            "Contest\\": "app/",
+            "Dugjohnson\\Administration\\": "dugjohnson-administration/"
         }
     },
     "autoload-dev": {

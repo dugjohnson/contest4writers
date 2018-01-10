@@ -13,16 +13,19 @@
 
 Route::get('/', 'WelcomeController@index');
 Route::get('home', 'WelcomeController@index');
+
 Route::get('coordinators', 'AdminController@index');
-Route::get('administrators', 'AdminController@index');
-Route::get('administrators/download/{CSVType?}', 'AdminController@returnCSV');
-//todo: Need to make the below read the action and translate to method
-Route::get('coordinators/entries', 'AdminController@entries');
-Route::get('coordinators/judges', 'AdminController@judgesList');
-Route::get('coordinators/scoresheets/{action?}', 'AdminController@scoresheetsList');
-Route::get('api/v1/scoresheets','AdminController@jsonDownload');
-Route::post('api/v1/scoresheets','AdminController@jsonUpload');
-Route::get('coordinators/reports/scoresummary', 'AdminController@scoresheetSummary');
+
+Route::namespace('Dugjohnson/administration')->group(function () {
+    Route::get('administrators', 'AdminController@index');
+    Route::get('administrators/download/{CSVType?}', 'AdminController@returnCSV');
+    Route::get('coordinators/entries', 'AdminController@entries');
+    Route::get('coordinators/judges', 'AdminController@judgesList');
+    Route::get('coordinators/scoresheets/{action?}', 'AdminController@scoresheetsList');
+    Route::get('api/v1/scoresheets','AdminController@jsonDownload');
+    Route::post('api/v1/scoresheets','AdminController@jsonUpload');
+    Route::get('coordinators/reports/scoresummary', 'AdminController@scoresheetSummary');
+});
 
 Route::get('coordinators/judges/{id}', 'JudgeController@coordinatorShow');
 Route::get('coordinators/judges/{id}/edit', 'JudgeController@coordinatorEdit');

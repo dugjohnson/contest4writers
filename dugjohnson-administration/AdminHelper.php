@@ -6,7 +6,7 @@
  * Time: 11:59 AM
  */
 
-namespace Contest\Http\Controllers\Helpers;
+namespace Dugjohnson\Administration;
 
 trait AdminHelper {
 	public function getAdminEmail( $category, $published = null ) {

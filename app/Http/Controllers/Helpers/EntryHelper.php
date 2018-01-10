@@ -6,6 +6,7 @@ namespace Contest\Http\Controllers\Helpers;
 use Contest\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Dugjohnson\Administration\AdminHelper;
 
 trait EntryHelper
 {
