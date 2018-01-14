@@ -27,11 +27,9 @@
 
 <P>Personal checks and money orders must be postmarked no later than March 16, 2018, made payable to Kiss of Death and sent to the chapter treasurer:</P>
 
-<P>Susan Muller</P>
-
-<P>16907 Memorial Oaks</P>
-
-<P>Spring, TX 77379</P>
+<P>Brooke Wills, KOD Treasurer<br>
+PO Box 403<br>
+Greenbank, WA 98253</P>
 
 <P>Please include your
     invoice and entry numbers on your payment.</P>
