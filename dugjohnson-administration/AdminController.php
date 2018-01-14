@@ -4,6 +4,7 @@ namespace Dugjohnson\Administration;
 
 use Contest\Entry;
 use Contest\Http\Controllers\Helpers\ScoresheetHelper;
+use Contest\Http\Controllers\Controller;
 use Contest\Http\Requests;
 use Contest\Http\Controllers\Helpers\EntryHelper;
 use Contest\Judge;

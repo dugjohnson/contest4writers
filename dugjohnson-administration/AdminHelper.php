@@ -22,20 +22,20 @@ trait AdminHelper {
 		// todo: need links to coordinators, not hard code
 		if ( $published ) {
 			switch ( $category ) {
-				case 'CA':
-				case 'HI':
-				case 'IN':
-					return [ 'email' => 'itraci@hotmail.com', 'name' => 'Traci Andrighetti' ];
 				case 'MA':
+				case 'CA':
+				case 'IN':
+					return [ 'email' => 'eliz.sade@gmail.com', 'name' => 'Elizabeth Sade' ];
+				case 'HI':
 				case 'PA':
 				case 'ST':
-					return [ 'email' => 'avery@averyflynn.com', 'name' => 'Avery Flynn' ];
+					return [ 'email' => 'everin23@gmail.com', 'name' => 'Erin Novotny' ];
 			}
 		} else {
 			switch ( $category ) {
 				case 'ST':
 				case 'CA':
-					return [ 'email' => 'marnee.blake@gmail.com', 'name' => 'Marnee Blake' ];
+					return [ 'email' => 'lesliekod@gmail.com', 'name' => 'Leslie Scott' ];
 				case 'MA':
 					return [ 'email' => 'veronicaforand@gmail.com', 'name' => 'Veronica Forand' ];
 				case 'HI':
