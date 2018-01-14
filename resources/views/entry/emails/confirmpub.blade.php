@@ -23,28 +23,28 @@
     <COL WIDTH=300>
     <TR>
         <TD WIDTH=300 BGCOLOR="#ffffff">
-            <P ><B>Mainstream, Single Title or Paranormal</B></P>
+            <P ><B>Mainstream, Category (Series), Inspirational</B></P>
         </TD>
     </TR>
     <TR>
         <TD WIDTH=300 BGCOLOR="#ffffff">
-            <P ><I>Avery Flynn<BR>1 Candleridge Court<BR>
-                    Stafford, VA 22554</I></P>
+            <P ><I>Liz Burleson<BR>3255 S. Dorsey Ln, Apt #1031<BR>
+                    Tempe, AZ 85282</I></P>
         </TD>
     </TR>
     <TR>
         <TD WIDTH=300 BGCOLOR="#ffffff">
             <P  ><BR>
             </P>
-            <P ><B>Category, Historical or Inspirational</B></P>
+            <P ><B>Single Title, Historical, Paranormal</B></P>
         </TD>
     </TR>
     <TR>
         <TD WIDTH=300 BGCOLOR="#ffffff">
-            <P  ><I>Traci Andrighetti</I></P>
-            <P  ><I>4710 Duval</I></P>
-            <P  ><I>Austin, TX
-                    78751-3129</I></P>
+            <P  ><I>Erin Novotny</I></P>
+            <P  ><I>17 Oak Brook Dr.</I></P>
+            <P  ><I>Huntington, WV
+                    25705</I></P>
             <P ><BR>
             </P>
         </TD>
@@ -54,11 +54,11 @@
 <P  >In order for your entry to be official, you must create a myRWA invoice.  </P>
 
 <P  >Personal checks and money orders must be postmarked no later than March 16, 2018, made payable to Kiss of Death and sent to the chapter treasurer:</P>
-<P>Susan Muller</P>
+<P>Brooke Wills, KOD Treasurer</P>
 
-<P>16907 Memorial Oaks</P>
+<P>PO Box 403</P>
 
-<P>Spring, TX 77379</P>
+<P>Greenbank, WA 98253</P>
 
 <P  >Please include your invoice and entry numbers on your payment.</P>
 </BODY>
