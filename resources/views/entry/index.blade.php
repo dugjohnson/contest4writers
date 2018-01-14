@@ -14,7 +14,7 @@
         <H3>Things to know before entering the contest:</H3>
         <ul class="infolist">
             <li><strong>Make sure your profile is complete. Click Check Your Profile above to review. <br>The author profile must be complete for the entry to be judged.</strong></li>
-            <li>Review the rules, categories, etc. about the contest at: <A HREF="http://rwamysterysuspense.org/daphne">http://rwamysterysuspense.org/daphne</A>
+            <li>Review the rules, categories, etc. about the contest at: <A HREF="http://rwakod.org/daphne">http://rwakod.org/daphne</A>
             </li>
             <li>Each entry will generate an individual confirmation email. You can view your entry in the area to the
                 left after you've entered it.

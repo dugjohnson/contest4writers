@@ -1,11 +1,12 @@
 @extends('layout')
 @section('content')
     <p>Thank you for taking the time to visit the judge database for the Daphne du Maurier Award for Excellence.</p>
-    <p>Whether you’re new to judging or updating your preferences we’re happy you’re here. If you decide to judge, we'll
+    <p>Whether you’re new to judging or updating your preferences we’re happy you’re here. Please sign up or complete your updates now and we'll
         be in touch as the contest entry period winds down the 15th of March.</p>
-    <p>Deadline for judging Unpublished entries is 15th of April.</p>
-    <p>Deadline for judging Published books is 15th of May.</p>
-    <p>Please check your calendars as these deadlines for returning entries are firm.</p>
+    <p>Deadline for judging Unpublished entries is on or about the 15th of April.</p>
+    <p>Deadline for judging Published books is on or about the 15th of May.</p>
+    <p>Please check your calendars as these deadlines for returning entries are firm. We will
+        be able to provide exact deadlines when entries are issued for judging.</p>
     <p>Review your information, please complete or update as necessary. </p>
     <p>If you are an editor, agent or publisher of fiction for anything other than your own work, we appreciate your
         interest, but will have to ask you to pass.</p>
