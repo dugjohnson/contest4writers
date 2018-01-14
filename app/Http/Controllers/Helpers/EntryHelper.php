@@ -17,12 +17,12 @@ trait EntryHelper
      */
     public function categoryCapacity()
     {
-        return ['CA' => ['published' => 40, 'unpublished' => 50],
-            'HI' => ['published' => 40, 'unpublished' => 50],
-            'IN' => ['published' => 40, 'unpublished' => 50],
-            'MA' => ['published' => 40, 'unpublished' => 100],
-            'PA' => ['published' => 40, 'unpublished' => 50],
-            'ST' => ['published' => 40, 'unpublished' => 100],];
+        return ['CA' => ['published' => 50, 'unpublished' => 50],
+            'HI' => ['published' => 50, 'unpublished' => 50],
+            'IN' => ['published' => 50, 'unpublished' => 50],
+            'MA' => ['published' => 50, 'unpublished' => 100],
+            'PA' => ['published' => 50, 'unpublished' => 50],
+            'ST' => ['published' => 50, 'unpublished' => 100],];
 
     }
 
