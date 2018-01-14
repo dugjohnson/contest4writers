@@ -70,7 +70,7 @@
 {!! Form::radio('erotic',true, $judge->erotic==true, ['class' => 'form-control']) !!} Yes {!! Form::radio('erotic',false, $judge->erotic==false, ['class' => 'form-control']) !!} No
 </div>
 <div class="form-group">
-    {!! Form::label('glbt', 'GLBT:') !!}
+    {!! Form::label('glbt', 'GLBTQ+:') !!}
     {!! Form::radio('glbt',true, $judge->glbt==true, ['class' => 'form-control']) !!} Yes {!! Form::radio('glbt',false, $judge->glbt==false, ['class' => 'form-control']) !!} No
 </div>
 <div class="form-group">
