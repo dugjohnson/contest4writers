@@ -23,7 +23,8 @@ class JudgeController extends Controller
 
     public function isJudge()
     {
-        return (count($this->getJudge()));
+    	$testJudge = $this->getJudge();
+         return (isset($testJudge) && 0 < $testJudge->id);
     }
 
     /**

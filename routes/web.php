@@ -16,7 +16,7 @@ Route::get('home', 'WelcomeController@index');
 
 Route::get('coordinators', 'AdminController@index');
 
-Route::namespace('Dugjohnson/administration')->group(function () {
+Route::group(['namespace'=>'Dugjohnson\Administration'],function () {
     Route::get('administrators', 'AdminController@index');
     Route::get('administrators/download/{CSVType?}', 'AdminController@returnCSV');
     Route::get('coordinators/entries', 'AdminController@entries');
