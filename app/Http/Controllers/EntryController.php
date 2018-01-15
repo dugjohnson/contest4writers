@@ -50,8 +50,8 @@ class EntryController extends Controller
 
     public function months()
     {
-        //todo: need variable for contest date
-        $yearPart = 16;
+        //todo: need variable for contest date $monthlist this is here to make it easy to find
+        $yearPart = 17;
         $calcMonths = [];
         for ($i = 1; $i < 13; $i++) {
             $thisMonth = sprintf('%02u/%02u', $i, $yearPart);

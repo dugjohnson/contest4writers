@@ -23,7 +23,6 @@ trait EntryHelper
             'MA' => ['published' => 50, 'unpublished' => 100],
             'PA' => ['published' => 50, 'unpublished' => 50],
             'ST' => ['published' => 50, 'unpublished' => 100],];
-
     }
 
     /**
