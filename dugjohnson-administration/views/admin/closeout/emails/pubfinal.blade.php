@@ -11,4 +11,4 @@
 <p>To your continued success--<br/>
 	Brooke</p>
 <p>Brooke Wills<br/>
-	2018 Daphne Overall Coordinator</p>
+	2018 Daphne Contest Chair</p>
