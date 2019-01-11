@@ -23,7 +23,7 @@
                 entry and add the invoice number in the appropriate field.
             </li>
             <li>
-                Each entry will generate an individual confirmation email. Those emails will be delayed for a short time.
+                Each entry will generate an individual confirmation email. Those emails could be delayed for a short time.
                 You can confirm that your entry in the area to the left after you've entered it.
             </li>
         </ul>

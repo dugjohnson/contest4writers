@@ -8,8 +8,6 @@
     <p>Please check your calendars as these deadlines for returning entries are firm. We will
         be able to provide exact deadlines when entries are issued for judging.</p>
     <p>Review your information, please complete or update as necessary. </p>
-    <p>If you are an editor, agent or publisher of fiction for anything other than your own work, we appreciate your
-        interest, but will have to ask you to pass.</p>
     @if($isJudge)
         @if($judge->hasScoresheets())
             <a href="/scoresheets" class="button radius">Scoresheets I am judging</a>
