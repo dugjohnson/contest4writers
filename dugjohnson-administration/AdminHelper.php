@@ -41,7 +41,7 @@ trait AdminHelper {
 				case 'HI':
 				case 'IN':
 				case 'PA':
-					return [ 'email' => 'tracybrodybooks@yahoo.com', 'name' => 'Tracy Brody' ];
+					return [ 'email' => 'jackirenee@gmail.com.com', 'name' => 'Jacki Renée' ];
 			}
 		}
 
