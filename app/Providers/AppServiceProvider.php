@@ -3,6 +3,8 @@
 namespace Contest\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Config;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,6 +16,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        View::share('contest_year',Config::get('contest.contest_year'));
+
     }
 
     /**

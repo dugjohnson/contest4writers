@@ -4,8 +4,8 @@
 <P><B>RWA&reg;Mystery/Suspense Chapter presents</B></P>
 
 <P><B>The Daphne du Maurier Award</B></P>
-<P><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE 2018</B></P>
-<p>The Daphne committee is wrapping up the 2018 Daphne du Maurier Award for Excellence in Mystery and Suspense.</p>
+<P><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE {{ $contest_year }}</B></P>
+<p>The Daphne committee is wrapping up the {{ $contest_year }} Daphne du Maurier Award for Excellence in Mystery and Suspense.</p>
 <p>Without our hard working first round judges this contest would not be a success.</p>
 <p>Thank You!</p>
 <p>You can find the results of our winners here: http://rwakod.org/daphne</p>

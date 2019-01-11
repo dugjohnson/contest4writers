@@ -3,7 +3,7 @@
 <BODY>
 <P  ><B>RWA&reg;Mystery/Suspense Chapter presents</B></P>
 <P  ><B>The Daphne du Maurier Award</B></P>
-<P  ><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE PUBLISHED DIVISION 2018</B></P>
+<P  ><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE PUBLISHED DIVISION {{ $contest_year }}</B></P>
 
 <P  >The following information has been submitted. However, your entry is not accepted until payment is received. See information below.</P>
 
@@ -53,7 +53,7 @@
 
 <P  >In order for your entry to be official, you must create a myRWA invoice.  </P>
 
-<P  >Personal checks and money orders must be postmarked no later than March 16, 2018, made payable to Kiss of Death and sent to the chapter treasurer:</P>
+<P  >Personal checks and money orders must be postmarked no later than March 16, {{ $contest_year }}, made payable to Kiss of Death and sent to the chapter treasurer:</P>
 <P>Brooke Wills, KOD Treasurer</P>
 
 <P>PO Box 403</P>

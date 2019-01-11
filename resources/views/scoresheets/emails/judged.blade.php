@@ -5,7 +5,7 @@
 
 <P><B>The Daphne du Maurier Award</B></P>
 
-<P><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE 2018</B></P>
+<P><B>FOR EXCELLENCE IN MYSTERY/SUSPENSE {{ $contest_year }}</B></P>
 <fieldset>
     <legend>General Information</legend>
     <p><em>Judge ID: </em>{{$scoresheet->judge_id }}<em> Entry ID:</em> {{ $scoresheet->entry_id }}</p>

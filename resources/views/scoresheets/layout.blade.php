@@ -54,7 +54,7 @@
         </div>
         <div class="row">
             <div class="large-6 columns">
-                <p>©2018 Kiss of Death/RWA Mystery/Romantic Suspense Chapter 144</p>
+                <p>©{{ $contest_year }} Kiss of Death/RWA Mystery/Romantic Suspense Chapter 144</p>
             </div>
         </div>
     </div>

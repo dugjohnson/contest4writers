@@ -1,6 +1,6 @@
-<p>Dear 2018 Daphne Finalist:</p>
+<p>Dear {{ $contest_year }} Daphne Finalist:</p>
 
-<p>The 2018 Daphne Contest has concluded and so we are now able to return your First-Round scores to you via our automated system.
+<p>The {{ $contest_year }} Daphne Contest has concluded and so we are now able to return your First-Round scores to you via our automated system.
 	Your Final Round scores will come in a separate email and should arrive within the next day or so, if not sooner.</p>
 
 <p>We hope you will keep in mind that contests are highly subjective, the Daphne is highly competitive,
@@ -14,9 +14,9 @@
 
 <p>Thank you for entering the Daphne du Maurier Award for Excellence in Mystery/Suspense. On behalf of the Daphne Committee, I wish you the very best in your writing career.</p>
 
-<p>And again, Congratulations on being a 2018 Daphne Finalist!</p>
+<p>And again, Congratulations on being a {{ $contest_year }} Daphne Finalist!</p>
 
 <p>To your writing success--<br/>
 Brooke</p>
 <p>Brooke Wills<br/>
-2018 Daphne Contest Chair</p>
+{{ $contest_year }} Daphne Contest Chair</p>

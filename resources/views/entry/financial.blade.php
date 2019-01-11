@@ -8,7 +8,7 @@
         Personal check on US bank, or Money Order in US funds.
         In order for your entry to be official, you must create a myRWA invoice.</p>
 
-    <p>Personal checks and money orders must be postmarked no later than March 16, 2018, made payable to Kiss of
+    <p>Personal checks and money orders must be postmarked no later than March 16, {{ $contest_year }}, made payable to Kiss of
         Death and sent to the chapter treasurer per the instructions on the myRWA invoice. Please include your
         invoice and entry numbers on your payment.</p>
 

@@ -1,6 +1,6 @@
 <p>Dear Daphne Entrant:</p>
 
-<p>The 2018 Daphne Contest first round judging has ended and unfortunately your entry did not final.</p>
+<p>The {{ $contest_year }} Daphne Contest first round judging has ended and unfortunately your entry did not final.</p>
 <p>While this is disappointing, we hope you will keep in mind that contests are highly subjective,
     the Daphne is highly competitive, and what one judge loves, another doesn't.
     We hope you will take this opportunity to look at the judge's comments.
@@ -17,4 +17,4 @@
 
 <p>Brooke</p>
 <p>Brooke Wills<br>
-	2018 Daphne Contest Chair</p>
+	{{ $contest_year }} Daphne Contest Chair</p>
