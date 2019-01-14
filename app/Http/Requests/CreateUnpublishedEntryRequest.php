@@ -22,7 +22,7 @@ class CreateUnpublishedEntryRequest extends Request {
 		return [
 			'author' => 'required',
 			'authorEmail'  => 'required|email',
-			'author2Email'  => 'email',
+			'author2Email'  => 'nullable|email',
 			'title' => 'required',
 			'category' => 'required',
 			'readRules' => 'required',
