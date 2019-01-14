@@ -4,6 +4,7 @@ use Contest\Entry;
 use Contest\Http\Controllers\Helpers\EntryHelper;
 use Contest\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Routing;
 use Carbon\Carbon;
@@ -51,7 +52,8 @@ class EntryController extends Controller
     public function months()
     {
         //todo: need variable for contest date $monthlist this is here to make it easy to find
-        $yearPart = 17;
+        $year = Config::get('contest.contest_year');
+        $yearPart = substr($year-1, -2);
         $calcMonths = [];
         for ($i = 1; $i < 13; $i++) {
             $thisMonth = sprintf('%02u/%02u', $i, $yearPart);
