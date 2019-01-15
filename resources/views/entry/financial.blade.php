@@ -7,6 +7,8 @@
     </div>
     @endif
     <p>You will be able to pay your entry fee after completing this entry form.</p>
+    <p><strong><h3>The connection to PayPal is currently being worked on. Your entry will be saved now and you
+                will be able to pay soon.  We will send you an email when the PayPal connection is ready</h3></strong></p>
     <p>Payments will be processed using PayPal, Credit Card (through PayPal),
         Personal check on US bank, or Money Order in US funds.
         In order for your entry to be official your payment must be received</p>
