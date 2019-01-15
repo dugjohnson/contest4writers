@@ -20,18 +20,12 @@
 
 <P>Entries without completed entry form and payment will not be judged.</P>
 
-<P>Payments will be maintained through myRWA invoicing and may be submitted using PayPal, Credit Card, Personal check on US bank, or Money Order in US funds.
-</P>
-
-<P>In order for your entry to be official, you must create a myRWA invoice. If you are a KOD member, please sign into myRWA first to get your discount.</P>
-
-<P>Personal checks and money orders must be postmarked no later than March 16, {{ $contest_year }}, made payable to Kiss of Death and sent to the chapter treasurer:</P>
+@include('entry.financial')
 
 <P>Brooke Wills, KOD Treasurer<br>
 PO Box 403<br>
 Greenbank, WA 98253</P>
 
-<P>Please include your
-    invoice and entry numbers on your payment.</P>
+<P>Please include your entry numbers on your payment.</P>
 </BODY>
 </Html>

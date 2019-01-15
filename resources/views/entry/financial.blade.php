@@ -1,16 +1,19 @@
 <div class="panel callout radius">
     <!-- Invoice Number Form Input -->
+    @if($entry->invoiceNumber)
     <div class="form-group">
-        {!! Form::label('invoiceNumber', 'Invoice Number (6 digits from myRWA):') !!}
+        {!! Form::label('invoiceNumber', 'Transaction number from PayPal:') !!}
         {!! Form::text('invoiceNumber',$entry->invoiceNumber, ['class' => 'form-control','maxlength'=>'6']) !!}
     </div>
-    <p>Payments will be maintained through myRWA invoicing and may be submitted using PayPal, Credit Card,
+    @endif
+    <p>You will be able to pay your entry fee after completing this entry form.</p>
+    <p>Payments will be processed using PayPal, Credit Card (through PayPal),
         Personal check on US bank, or Money Order in US funds.
-        In order for your entry to be official, you must create a myRWA invoice.</p>
+        In order for your entry to be official your payment must be received</p>
 
-    <p>Personal checks and money orders must be postmarked no later than March 16, {{ $contest_year }}, made payable to Kiss of
-        Death and sent to the chapter treasurer per the instructions on the myRWA invoice. Please include your
-        invoice and entry numbers on your payment.</p>
+    <p>Personal checks and money orders must be postmarked no later than the next business day after close of contest--see rules.
+        made payable to Kiss of Death and sent to the chapter treasurer per the instructions in your confirmation email. Please include your
+        entry number on your payment.</p>
 
     <p> Entries without completed entry form and payment will not be judged.</p>
     @if($entry->published)
