@@ -60,6 +60,27 @@ $router->group(['namespace' => 'Contest\Http\Controllers'], function () use ($ro
 
     $router->get('users/{id}/delete', 'UserController@destroy');
 
+    $router->get('/paypal/payment/{entry}/precheck', [
+        'as' => 'paypal.payment.precheck',
+        'uses' => 'PayPalController@precheck'
+    ]);
+    $router->get('/paypal/payment/{entry}/completed', [
+        'as' => 'paypal.payment.completed',
+        'uses' => 'PayPalController@completed'
+    ]);
+    $router->get('/paypal/payment/{entry}/cancelled', [
+        'as' => 'paypal.payment.cancelled',
+        'uses' => 'PayPalController@cancelled',
+    ]);
+    $router->get('/paypal/payment/{entry}/{kodmember?}', [
+        'as' => 'paypal.payment.kodcheck',
+        'uses' => 'PayPalController@kodcheck'
+    ]);
+//    $router->post('/paypal/payment/{entry}', [
+//        'as' => 'paypal.payment',
+//        'uses' => 'PayPalController@checkout',
+//    ]);
+
     $router->resource('judges', 'JudgeController');
     $router->resource('entries', 'EntryController');
     $router->resource('users', 'UserController');

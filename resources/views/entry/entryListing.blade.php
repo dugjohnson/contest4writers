@@ -10,6 +10,7 @@
             <td>Finalist</td>
         @endif
         <td>Action</td>
+        <td>Payment</td>
     </tr>
     </thead>
     <tbody>
@@ -43,6 +44,15 @@
                         <a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}/upload">Upload/Replace
                             Entry</a>
                     @endif
+                @endif
+            </td>
+            <td>
+                @if($entry->invoiceNumber)
+                <strong>Paid</strong>
+                @else
+                <a href="{{ route('paypal.payment.precheck',['entry_id'=>$entry->id]) }}">
+                <button>Pay Now</button>
+                </a>
                 @endif
             </td>
         </tr>
