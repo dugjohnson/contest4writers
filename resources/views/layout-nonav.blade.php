@@ -18,6 +18,9 @@
     </div>
 </div>
 <div class="row">
+    @include('errors')
+</div>
+<div class="row">
     <div class="large-12 columns" role="content">
         <div class="large-12 columns container">
             <div class="row">

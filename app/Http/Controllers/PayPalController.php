@@ -6,7 +6,6 @@ namespace Contest\Http\Controllers;
 use Contest\Http\Controllers\Helpers\PayPalHelper;
 use Illuminate\Http\Request;
 use Contest\Entry;
-use Illuminate\Support\Facades\Log;
 
 /**
  * Class PayPalController
@@ -22,8 +21,6 @@ class PayPalController extends Controller
     public function precheck($entry)
     {
         $findEntry = Entry::findOrFail($entry);
-        Log::debug('In Precheck');
-
         if ($findEntry->published)
         {
            $this->checkout($entry);
@@ -62,7 +59,6 @@ class PayPalController extends Controller
             'cancelUrl' => $paypal->getCancelUrl($findEntry),
             'returnUrl' => $paypal->getReturnUrl($findEntry),
         ]);
-        Log::debug('In checkout. returnURL = '. $paypal->getReturnUrl($findEntry));
 
         if ($response->isRedirect()) {
             $response->redirect();
@@ -92,13 +88,10 @@ class PayPalController extends Controller
             'returnUrl' => $paypal->getReturnUrl($findEntry),
 //            'notifyUrl' => $paypal->getNotifyUrl($findEntry),
         ]);
-        Log::debug('In completed. returnURL = '. $paypal->getReturnUrl($findEntry));
 
         if ($response->isSuccessful()) {
-            Log::debug('In completed...successful');
             $findEntry->invoiceNumber = $response->getTransactionReference();
             $findEntry->save();
-            Log::debug('In completed...transactionID = '.$findEntry->invoiceNumber );
 
             return redirect('entries')->with([
                 'message' => 'You recent payment is sucessful with reference code ' . $response->getTransactionReference(),
