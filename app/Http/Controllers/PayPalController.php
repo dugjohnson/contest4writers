@@ -21,6 +21,7 @@ class PayPalController extends Controller
     public function precheck($entry)
     {
         $findEntry = Entry::findOrFail($entry);
+        session()->forget('KODMember');
 
         if ($findEntry->published) {
             return $this->checkout($entry);
@@ -34,9 +35,7 @@ class PayPalController extends Controller
     public function kodcheck($entry, $kodmember = false, Request $request)
     {
         if ($kodmember) {
-            $this->entryFee = self::KOD_UNPUB_FEE;
-        } else {
-            $this->entryFee = self::ALL_OTHER_FEE;
+            session()->put('KODMember','1');
         }
         return $this->checkout($entry);
     }
@@ -51,6 +50,12 @@ class PayPalController extends Controller
         $findEntry = Entry::findOrFail($entry);
 
         $paypal = new PayPalHelper;
+
+        if ( session()->has('KODMember') && '1' == session('KODMember')) {
+            $this->entryFee = self::KOD_UNPUB_FEE;
+        } else {
+            $this->entryFee = self::ALL_OTHER_FEE;
+        }
 
         $response = $paypal->purchase([
             'amount' => $paypal->formatAmount($this->entryFee),
@@ -80,6 +85,12 @@ class PayPalController extends Controller
         $findEntry = Entry::findOrFail($entry);
 
         $paypal = new PayPalHelper;
+
+        if ( session()->has('KODMember') && '1' == session('KODMember')) {
+            $this->entryFee = self::KOD_UNPUB_FEE;
+        } else {
+            $this->entryFee = self::ALL_OTHER_FEE;
+        }
 
         $response = $paypal->complete([
             'amount' => $paypal->formatAmount($this->entryFee),
