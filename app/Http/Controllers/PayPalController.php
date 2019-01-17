@@ -21,9 +21,9 @@ class PayPalController extends Controller
     public function precheck($entry)
     {
         $findEntry = Entry::findOrFail($entry);
-        if ($findEntry->published)
-        {
-           $this->checkout($entry);
+
+        if ($findEntry->published) {
+            return $this->checkout($entry);
         } else {
             return view('entry.amikod', compact('entry'));
         }
@@ -33,7 +33,7 @@ class PayPalController extends Controller
 
     public function kodcheck($entry, $kodmember = false, Request $request)
     {
-        if ($kodmember){
+        if ($kodmember) {
             $this->entryFee = self::KOD_UNPUB_FEE;
         } else {
             $this->entryFee = self::ALL_OTHER_FEE;
@@ -55,6 +55,7 @@ class PayPalController extends Controller
         $response = $paypal->purchase([
             'amount' => $paypal->formatAmount($this->entryFee),
             'transactionId' => $entry,
+            'description' => $findEntry->title,
             'currency' => 'USD',
             'cancelUrl' => $paypal->getCancelUrl($findEntry),
             'returnUrl' => $paypal->getReturnUrl($findEntry),
@@ -64,7 +65,7 @@ class PayPalController extends Controller
             $response->redirect();
         }
 
-        return redirect()->back()->with([
+        return redirect('entries')->with([
             'message' => $response->getMessage(),
         ]);
     }
