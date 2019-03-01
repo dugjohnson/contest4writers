@@ -8,6 +8,7 @@
 
             @else
                 Transaction number from PayPal: {{$entry->invoiceNumber}}
+                {{ Form::hidden('invoiceNumber', $entry->invoiceNumber) }}
             @endif
         </div>
     @endif
