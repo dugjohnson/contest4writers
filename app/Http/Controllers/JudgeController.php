@@ -187,8 +187,8 @@ class JudgeController extends Controller
         $templateToUse = 'judge.emails.confirm';
         $user = User::find($judge->user_id);
         $ccEmails = Array();
-        $ccEmails[] = $this->getAdminEmail('JC');
-        $ccEmails[] = $this->getAdminEmail('OC');
+        $this->addAdminEmail($ccEmails,'JC');
+        $this->addAdminEmail($ccEmails,'OC');
         $ccEmails[] = ['email' => 'doug@asknice.com', 'name' => 'Webmaster'];
 
         Mail::send($templateToUse, $this->judgeFormData($judge), function ($message) use ($user, $ccEmails)

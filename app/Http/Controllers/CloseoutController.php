@@ -72,8 +72,8 @@ class CloseoutController extends Controller
         $templateToUse = 'admin.closeout.emails.judges.emailbody';
         $user = User::find($judge->user_id);
         $ccEmails = Array();
-        $ccEmails[] = $this->getAdminEmail('JC');
-        $ccEmails[] = $this->getAdminEmail('OC');
+        $this->addAdminEmail($ccEmails,'JC');
+        $this->addAdminEmail($ccEmails,'OC');
         $ccEmails[] = ['email' => 'doug@asknice.com', 'name' => 'Webmaster'];
 
         Mail::send($templateToUse, array('user' => $user,
@@ -149,9 +149,9 @@ class CloseoutController extends Controller
         // ToDo: tie this all to the author_user_id field, which needs to be set up correctly in the first place
         $user = User::find($entry->user_id);
         $ccEmails = Array();
-        $ccEmails[] = $this->getAdminEmail('JC');
-        $ccEmails[] = $this->getAdminEmail('OC');
-        $ccEmails[] = $this->getAdminEmail($entry->category, $entry->published);
+        $this->addAdminEmail($ccEmails,'JC');
+        $this->addAdminEmail($ccEmails,'OC');
+        $this->addAdminEmail($ccEmails, $entry->category, $entry->published);
         $ccEmails[] = ['email' => 'doug@asknice.com', 'name' => 'Webmaster'];
         // ToDo: fix with the above
 //        if (!empty($entry->author2_user_id)) {

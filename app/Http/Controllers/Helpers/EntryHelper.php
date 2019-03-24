@@ -120,9 +120,9 @@ trait EntryHelper
         $templateToUse = ($entry->published?'entry.emails.confirmpub':'entry.emails.confirmunpub');
         $user = User::find($entry->user_id);
         $ccEmails = Array();
-        $ccEmails[] = $this->getAdminEmail('JC');
-        $ccEmails[] = $this->getAdminEmail('OC');
-        $ccEmails[] = $this->getAdminEmail($entry->category,$entry->published);
+        $this->addAdminEmail($ccEmails,'JC');
+        $this->addAdminEmail($ccEmails,'OC');
+        $this->addAdminEmail($ccEmails,$entry->category,$entry->published);
         $ccEmails[] = ['email'=>'doug@asknice.com','name'=>'Webmaster'];
 
         Mail::send($templateToUse,array('user'=>$user,'entry'=>$entry),function($message) use ($entry,$user,$ccEmails) {

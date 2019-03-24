@@ -277,9 +277,9 @@ trait ScoresheetHelper
         $templateToUse = 'scoresheets.emails.judged';
         $user = User::find($scoresheet->judge->user_id);
         $ccEmails = Array();
-        $ccEmails[] = $this->getAdminEmail('JC');
-        $ccEmails[] = $this->getAdminEmail('OC');
-        $ccEmails[] = $this->getAdminEmail($scoresheet->category, $scoresheet->published);
+        $this->addAdminEmail($ccEmails,'JC');
+        $this->addAdminEmail($ccEmails,'OC');
+        $this->addAdminEmail($ccEmails, $scoresheet->category, $scoresheet->published);
         $ccEmails[] = ['email' => 'doug@asknice.com', 'name' => 'Webmaster'];
         $labelList = $this->getLabelList($scoresheet->category, $scoresheet->published);
         $tieBreakerList = $this->tieBreakerList($scoresheet->published);
