@@ -53,7 +53,7 @@ class EntryController extends Controller
     {
         //todo: need variable for contest date $monthlist this is here to make it easy to find
         $year = Config::get('contest.contest_year');
-        $yearPart = substr($year-1, -2);
+        $yearPart = substr($year - 1, -2);
         $calcMonths = [];
         for ($i = 1; $i < 13; $i++) {
             $thisMonth = sprintf('%02u/%02u', $i, $yearPart);
@@ -158,19 +158,22 @@ class EntryController extends Controller
      */
     public function show($id)
     {
+        $vers = rand(10000, 99999);
         $entry = Entry::find($id);
         if ($entry->published) {
             return view('entry.showpub', array('categories' => $this->categories(),
-                                                    'monthlist' => $this->months(),
-                                                    'entry' => $entry,
-                                                    'isCoordinator' => $this->isCoordinator,
-                                                    'canDelete' => $this->canDelete()));
+                'monthlist' => $this->months(),
+                'entry' => $entry,
+                'vers' => $vers,
+                'isCoordinator' => $this->isCoordinator,
+                'canDelete' => $this->canDelete()));
         } else {
             return view('entry.showunpub', array('categories' => $this->categories(),
-                                                    'monthlist' => $this->months(),
-                                                    'entry' => $entry,
-                                                    'isCoordinator' => $this->isCoordinator,
-                                                    'canDelete' => $this->canDelete()));
+                'monthlist' => $this->months(),
+                'entry' => $entry,
+                'vers' => $vers,
+                'isCoordinator' => $this->isCoordinator,
+                'canDelete' => $this->canDelete()));
         }
 
     }
@@ -304,7 +307,8 @@ class EntryController extends Controller
         return $this->getUpload($id);
     }
 
-    private function canDelete(){
+    private function canDelete()
+    {
 //Todo Need to check for entry having scoresheets or assigns
         return (Auth::check() && Auth::user()->hasRole('OC'));
     }

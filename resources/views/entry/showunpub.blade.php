@@ -3,7 +3,7 @@
 @section('content')
     <div class="readonly">
         @include('entry.infounpub')
-        <a href="/uploads/entries/{{ $entry->filename }}" class="small button">Click to
+        <a href="/uploads/entries/{{ $entry->filename }}?ver={{$vers}}" class="small button">Click to
             download {{ $entry->filename }}</a><br/>
         <p>Signature: {{$entry->signed}}</p>
         @if ($isCoordinator)
