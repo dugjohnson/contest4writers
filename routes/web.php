@@ -49,6 +49,7 @@ $router->group(['namespace' => 'Contest\Http\Controllers'], function () use ($ro
     $router->get('scoresheets/extra', 'ScoresheetController@getExtra');
     $router->post('scoresheets/extra', 'ScoresheetController@postExtra');
     $router->get('scoresheets/{id}/upload', 'ScoresheetController@getUpload');
+    $router->get('scoresheets/{id}/reopen', 'ScoresheetController@reopen');
     $router->post('scoresheets/{id}/upload', 'ScoresheetController@postUpload');
     $router->put('scoresheets/{id}/upload', 'ScoresheetController@postUpload');
     $router->get('scoresheets/{judgeID}/assigned', 'ScoresheetController@assignedTo');

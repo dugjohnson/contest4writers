@@ -56,6 +56,16 @@ class ScoresheetController extends Controller
         return view('scoresheets.index', ['scoresheets' => $scoresheets, 'categories' => $this->categories()]);
     }
 
+    public function reopen($id)
+    {
+        if ($this->isAdministrator) {
+            $scoresheet = Scoresheet::find($id);
+            $scoresheet->completed = false;
+            $scoresheet->save();
+        }
+        return redirect('/coordinators/scoresheets');
+    }
+
     public function comparison($judgeID)
     {
         if ($this->isCoordinator) {
@@ -128,7 +138,7 @@ class ScoresheetController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
      * @return Response
      */
     public function show($id)
@@ -144,7 +154,7 @@ class ScoresheetController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
      * @return Response
      */
     public function edit($id)
@@ -202,7 +212,7 @@ class ScoresheetController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  int $id
+     * @param int $id
      * @return Response
      */
     public function update($id)

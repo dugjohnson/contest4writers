@@ -76,11 +76,11 @@ class AdminController extends Controller
             $scoresheets = $scoresheets->sortBy(function ($scoresheet) {
                 return strtoupper(($scoresheet->published ? 'P' : 'U') . $scoresheet->category . $scoresheet->title);
             });
-            return view('admin.scoresheets.scoresheets', array('scoresheets' => $scoresheets, 'categories' => $this->categories(), 'isCoordinator' => true, 'assign' => $assign));
+            return view('admin.scoresheets.scoresheets', array('scoresheets' => $scoresheets, 'categories' => $this->categories(), 'isCoordinator' => true, 'isAdmin' => $this->isAdmin, 'assign' => $assign));
         } else {
             $scoresheets = Scoresheet::whereRaw($this->getRolesWhereClause($this->getAdminPerson()))->orderBy('category')->orderBy('published')->orderBy('title')->get();
             $scoresheets->load('judge');
-            return view('admin.scoresheets.scoresheets', array('scoresheets' => $scoresheets, 'categories' => $this->categories(), 'isCoordinator' => true, 'assign' => $assign));
+            return view('admin.scoresheets.scoresheets', array('scoresheets' => $scoresheets, 'categories' => $this->categories(), 'isCoordinator' => true, 'isAdmin' => $this->isAdmin, 'assign' => $assign));
 
         }
 
