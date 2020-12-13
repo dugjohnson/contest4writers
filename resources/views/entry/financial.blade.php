@@ -1,0 +1,32 @@
+<div class="panel callout radius">
+    <!-- Invoice Number Form Input -->
+    @if($entry->id)
+        <div class="form-group">
+            @if( Auth::user()->isAdministrator() )
+                {!! Form::label('invoiceNumber', 'Transaction number from PayPal:') !!}
+                {!! Form::text('invoiceNumber',$entry->invoiceNumber, ['class' => 'form-control','maxlength'=>'20']) !!}
+
+            @else
+                Transaction number from PayPal: {{$entry->invoiceNumber}}
+                {{ Form::hidden('invoiceNumber', $entry->invoiceNumber) }}
+            @endif
+        </div>
+    @endif
+    <p>You will be able to pay your entry fee after completing this entry form.</p>
+    <p>Payments will be processed using PayPal, Credit Card (through PayPal),
+        Personal check on US bank, or Money Order in US funds.
+        In order for your entry to be official your payment must be received</p>
+
+    <p>Personal checks and money orders must be postmarked no later than the next business day after close of
+        contest--see rules.
+        made payable to Kiss of Death and sent to the chapter treasurer per the instructions in your confirmation
+        email. Please include your
+        entry number on your payment.</p>
+
+    <p> Entries without completed entry form and payment will not be judged.</p>
+    @if($entry->published)
+        <p>Entry Fee: $30</p>
+    @else
+        <p>Entry Fee: $15 for KOD members; $30 non-KOD members.</p>
+    @endif
+</div>

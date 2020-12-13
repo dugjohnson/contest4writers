@@ -1,0 +1,2 @@
+@include('scoresheets.openunpub')
+<p>Important: Please comment liberally on both score sheet and manuscript. This is a contest for unpublished writers, and entrants both need and rely on your comments to help them in their writing process. Contests are one of the most important ways to obtain feedback. For any question scored 3 or less, the Daphne Committee strongly urges that you include comments and/or an explanation.</p>
