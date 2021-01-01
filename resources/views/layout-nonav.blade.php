@@ -36,9 +36,6 @@
     <div class="large-12 columns">
         <hr/>
         <div class="row">
-            <div class="large-12 columns container quote">{{ Inspiring::quote() }}</div>
-        </div>
-        <div class="row">
             <div class="large-6 columns">
                 <p>©{{ $contest_year }} Kiss of Death/RWA Mystery/Romantic Suspense Chapter 144</p>
             </div>

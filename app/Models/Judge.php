@@ -1,4 +1,6 @@
-<?php namespace Contest;
+<?php
+
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,7 +22,7 @@ class Judge extends Model
 
     public function user()
     {
-        return $this->belongsTo('Contest\User');
+        return $this->belongsTo(User::class);
     }
 
     public function judgeName()
@@ -41,7 +43,7 @@ class Judge extends Model
     }
 
     public function scoresheets(){
-        return $this->hasMany('Contest\Scoresheet');
+        return $this->hasMany(Scoresheet::class);
 
     }
 }

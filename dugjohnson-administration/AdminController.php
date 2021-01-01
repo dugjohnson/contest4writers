@@ -2,13 +2,13 @@
 
 namespace Dugjohnson\Administration;
 
-use Contest\Entry;
-use Contest\Http\Controllers\Helpers\ScoresheetHelper;
-use Contest\Http\Controllers\Controller;
-use Contest\Http\Requests;
-use Contest\Http\Controllers\Helpers\EntryHelper;
-use Contest\Judge;
-use Contest\Scoresheet;
+use App\Models\Entry;
+use App\Http\Controllers\Helpers\ScoresheetHelper;
+use App\Http\Controllers\Controller;
+use App\Http\Requests;
+use App\Http\Controllers\Helpers\EntryHelper;
+use App\Models\Judge;
+use App\Models\Scoresheet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;

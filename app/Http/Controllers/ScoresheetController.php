@@ -1,12 +1,11 @@
-<?php namespace Contest\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
-use Contest\Entry;
-use Contest\Http\Controllers\Helpers\AdminHelper;
-use Contest\Http\Controllers\Helpers\EntryHelper;
-use Contest\Http\Controllers\Helpers\ScoresheetHelper;
-use Contest\Http\Requests;
-use Contest\Judge;
-use Contest\Scoresheet;
+use App\Models\Entry;
+use App\Http\Controllers\Helpers\EntryHelper;
+use App\Http\Controllers\Helpers\ScoresheetHelper;
+use App\Http\Requests;
+use App\Models\Judge;
+use App\Models\Scoresheet;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;

@@ -1,4 +1,4 @@
-<?php namespace Contest\Http\Requests;
+<?php namespace App\Http\Requests;
 
 class CreateUnpublishedEntryRequest extends Request {
 

@@ -1,10 +1,10 @@
-<?php namespace Contest\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
-use Contest\Http\Controllers\Helpers\EntryHelper;
-use Contest\Http\Controllers\Helpers\JudgeHelper;
-use Contest\Http\Requests;
-use Contest\Judge;
-use Contest\User;
+use App\Http\Controllers\Helpers\EntryHelper;
+use App\Http\Controllers\Helpers\JudgeHelper;
+use App\Http\Requests;
+use App\Models\Judge;
+use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 

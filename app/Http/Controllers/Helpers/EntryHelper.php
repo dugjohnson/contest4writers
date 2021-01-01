@@ -1,9 +1,9 @@
 <?php
 
-namespace Contest\Http\Controllers\Helpers;
+namespace App\Http\Controllers\Helpers;
 
 
-use Contest\User;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Dugjohnson\Administration\AdminHelper;
@@ -115,7 +115,7 @@ trait EntryHelper
         }
 
     }
-    
+
     public function sendConfirmation($entry){
         $templateToUse = ($entry->published?'entry.emails.confirmpub':'entry.emails.confirmunpub');
         $user = User::find($entry->user_id);

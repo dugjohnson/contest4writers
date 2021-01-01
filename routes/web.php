@@ -1,5 +1,6 @@
 <?php
 
+use Dugjohnson\Administration\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,82 +13,86 @@
 */
 
 
-$router->group(['namespace' => 'Dugjohnson\Administration'], function () use ($router) {
-    $router->get('coordinators', 'AdminController@index');
-    $router->get('administrators', 'AdminController@index');
-    $router->get('administrators/download/{CSVType?}', 'AdminController@returnCSV');
-    $router->get('coordinators/entries', 'AdminController@entries');
-    $router->get('coordinators/judges', 'AdminController@judgesList');
-    $router->get('coordinators/scoresheets/{action?}', 'AdminController@scoresheetsList');
-    $router->get('api/v1/scoresheets', 'AdminController@jsonDownload');
-    $router->post('api/v1/scoresheets', 'AdminController@jsonUpload');
-    $router->get('coordinators/reports/scoresummary', 'AdminController@scoresheetSummary');
+Route::group(['namespace' => 'Dugjohnson\Administration'], function () {
+    Route::get('coordinators', 'AdminController@index');
+    Route::get('administrators', 'AdminController@index');
+    Route::get('administrators/download/{CSVType?}', 'AdminController@returnCSV');
+    Route::get('coordinators/entries', 'AdminController@entries');
+    Route::get('coordinators/judges', 'AdminController@judgesList');
+    Route::get('coordinators/scoresheets/{action?}', 'AdminController@scoresheetsList');
+    Route::get('api/v1/scoresheets', 'AdminController@jsonDownload');
+    Route::post('api/v1/scoresheets', 'AdminController@jsonUpload');
+    Route::get('coordinators/reports/scoresummary', 'AdminController@scoresheetSummary');
 });
 
 
-$router->group(['namespace' => 'Contest\Http\Controllers'], function () use ($router) {
+Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
-    $router->get('/', 'WelcomeController@index');
-    $router->get('home', 'WelcomeController@index');
-    $router->get('coordinators/judges/{id}', 'JudgeController@coordinatorShow');
-    $router->get('coordinators/judges/{id}/edit', 'JudgeController@coordinatorEdit');
+    Route::get('/', 'WelcomeController@index');
+    Route::get('home', 'WelcomeController@index');
+    Route::get('coordinators/judges/{id}', 'JudgeController@coordinatorShow');
+    Route::get('coordinators/judges/{id}/edit', 'JudgeController@coordinatorEdit');
 
-    $router->get('coordinators/entries/{id}', 'EntryController@coordinatorShow');
-    $router->get('coordinators/entries/{id}/edit', 'EntryController@coordinatorEdit');
-    $router->get('coordinators/entries/{id}/upload', 'EntryController@coordinatorUpload');
-    $router->get('coordinators/users/{id}', 'UserController@coordinatorShow');
+    Route::get('coordinators/entries/{id}', 'EntryController@coordinatorShow');
+    Route::get('coordinators/entries/{id}/edit', 'EntryController@coordinatorEdit');
+    Route::get('coordinators/entries/{id}/upload', 'EntryController@coordinatorUpload');
+    Route::get('coordinators/users/{id}', 'UserController@coordinatorShow');
 
-    $router->get('entries/create/pub', 'EntryController@createPub');
-    $router->get('entries/create/unpub', 'EntryController@createUnpub');
-    $router->post('entries/create/pub', 'EntryController@storePub');
-    $router->post('entries/create/unpub', 'EntryController@storeUnpub');
-    $router->get('entries/{id}/upload', 'EntryController@getUpload');
-    $router->post('entries/{id}/upload', 'EntryController@postUpload');
+    Route::get('entries/create/pub', 'EntryController@createPub');
+    Route::get('entries/create/unpub', 'EntryController@createUnpub');
+    Route::post('entries/create/pub', 'EntryController@storePub');
+    Route::post('entries/create/unpub', 'EntryController@storeUnpub');
+    Route::get('entries/{id}/upload', 'EntryController@getUpload');
+    Route::post('entries/{id}/upload', 'EntryController@postUpload');
 
-    $router->get('scoresheets/batch', 'ScoresheetController@getBatch');
-    $router->post('scoresheets/batch', 'ScoresheetController@postBatch');
-    $router->get('scoresheets/extra', 'ScoresheetController@getExtra');
-    $router->post('scoresheets/extra', 'ScoresheetController@postExtra');
-    $router->get('scoresheets/{id}/upload', 'ScoresheetController@getUpload');
-    $router->get('scoresheets/{id}/reopen', 'ScoresheetController@reopen');
-    $router->post('scoresheets/{id}/upload', 'ScoresheetController@postUpload');
-    $router->put('scoresheets/{id}/upload', 'ScoresheetController@postUpload');
-    $router->get('scoresheets/{judgeID}/assigned', 'ScoresheetController@assignedTo');
-    $router->get('scoresheets/judge/{judgeID}/comparison', 'ScoresheetController@comparison');
+    Route::get('scoresheets/batch', 'ScoresheetController@getBatch');
+    Route::post('scoresheets/batch', 'ScoresheetController@postBatch');
+    Route::get('scoresheets/extra', 'ScoresheetController@getExtra');
+    Route::post('scoresheets/extra', 'ScoresheetController@postExtra');
+    Route::get('scoresheets/{id}/upload', 'ScoresheetController@getUpload');
+    Route::get('scoresheets/{id}/reopen', 'ScoresheetController@reopen');
+    Route::post('scoresheets/{id}/upload', 'ScoresheetController@postUpload');
+    Route::put('scoresheets/{id}/upload', 'ScoresheetController@postUpload');
+    Route::get('scoresheets/{judgeID}/assigned', 'ScoresheetController@assignedTo');
+    Route::get('scoresheets/judge/{judgeID}/comparison', 'ScoresheetController@comparison');
 
-    $router->get('closeout', 'CloseoutController@index');
-    $router->get('closeout/email/{type}', 'CloseoutController@email');
-    $router->get('closeout/email/{type}/go', 'CloseoutController@emailGo');
+    Route::get('closeout', 'CloseoutController@index');
+    Route::get('closeout/email/{type}', 'CloseoutController@email');
+    Route::get('closeout/email/{type}/go', 'CloseoutController@emailGo');
 
-    $router->get('users/{id}/delete', 'UserController@destroy');
+    Route::get('users/{id}/delete', 'UserController@destroy');
 
-    $router->get('/paypal/payment/{entry}/precheck', [
+    Route::get('/paypal/payment/{entry}/precheck', [
         'as' => 'paypal.payment.precheck',
         'uses' => 'PayPalController@precheck'
     ]);
-    $router->get('/paypal/payment/{entry}/completed', [
+    Route::get('/paypal/payment/{entry}/completed', [
         'as' => 'paypal.payment.completed',
         'uses' => 'PayPalController@completed'
     ]);
-    $router->get('/paypal/payment/{entry}/cancelled', [
+    Route::get('/paypal/payment/{entry}/cancelled', [
         'as' => 'paypal.payment.cancelled',
         'uses' => 'PayPalController@cancelled',
     ]);
-    $router->get('/paypal/payment/{entry}/{kodmember?}', [
+    Route::get('/paypal/payment/{entry}/{kodmember?}', [
         'as' => 'paypal.payment.kodcheck',
         'uses' => 'PayPalController@kodcheck'
     ]);
-//    $router->post('/paypal/payment/{entry}', [
+//    Route::post('/paypal/payment/{entry}', [
 //        'as' => 'paypal.payment',
 //        'uses' => 'PayPalController@checkout',
 //    ]);
 
-    $router->resource('judges', 'JudgeController');
-    $router->resource('entries', 'EntryController');
-    $router->resource('users', 'UserController');
-    $router->resource('reports', 'ReportsController');
-    $router->resource('scoresheets', 'ScoresheetController');
+    Route::resource('judges', 'JudgeController');
+    Route::resource('entries', 'EntryController');
+    Route::resource('users', 'UserController');
+    Route::resource('reports', 'ReportsController');
+    Route::resource('scoresheets', 'ScoresheetController');
     Auth::routes();
-    $router->get('logout', 'Auth\LoginController@logout');
+    Route::get('logout', 'Auth\LoginController@logout');
 });
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

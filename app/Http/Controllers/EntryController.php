@@ -1,8 +1,8 @@
-<?php namespace Contest\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
-use Contest\Entry;
-use Contest\Http\Controllers\Helpers\EntryHelper;
-use Contest\Http\Requests;
+use App\Models\Entry;
+use App\Http\Controllers\Helpers\EntryHelper;
+use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Response;
@@ -42,7 +42,7 @@ class EntryController extends Controller
      */
     public function index()
     {
-        $entries = \Contest\Entry::where('user_id', '=', $this->entrantID)->get();
+        $entries = Entry::where('user_id', '=', $this->entrantID)->get();
         return view('entry.index', array('entries' => $entries, 'isCoordinator' => $this->isCoordinator));
 
         return redirect('entries/' . $this->entrantID);
@@ -73,7 +73,7 @@ class EntryController extends Controller
         $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories(self::LEAVE_OUT_CAPPED, self::PUBLISHED));
         $monthSelector = array_merge(array('' => 'Pick a Month'), $this->months());
         $entry = new Entry();
-        $entrant = \Contest\User::find($this->entrantID);
+        $entrant = User::find($this->entrantID);
         $entry->author = $entrant->writingName;
         $entry->authorEmail = $entrant->email;
         $entry->published = true;
@@ -90,7 +90,7 @@ class EntryController extends Controller
         //
         $categorySelector = array_merge(array('' => 'Pick a Category'), $this->categories(self::LEAVE_OUT_CAPPED, self::UNPUBLISHED));
         $entry = new Entry();
-        $entrant = \Contest\User::find($this->entrantID);
+        $entrant = User::find($this->entrantID);
         $entry->author = $entrant->writingName;
         $entry->authorEmail = $entrant->email;
         $entry->published = false;

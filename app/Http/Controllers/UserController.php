@@ -1,7 +1,7 @@
-<?php namespace Contest\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
-use Contest\Http\Requests\UserRequest;
-use Contest\User;
+use App\Http\Requests\UserRequest;
+use App\User;
 use Illuminate\Contracts\Validation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;

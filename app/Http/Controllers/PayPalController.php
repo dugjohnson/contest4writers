@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Contest\Http\Controllers;
+namespace App\Http\Controllers;
 
-use Contest\Http\Controllers\Helpers\PayPalHelper;
+use App\Http\Controllers\Helpers\PayPalHelper;
 use Illuminate\Http\Request;
-use Contest\Entry;
+use App\Models\Entry;
 
 /**
  * Class PayPalController

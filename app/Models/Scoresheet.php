@@ -1,4 +1,6 @@
-<?php namespace Contest;
+<?php
+
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,12 +11,12 @@ class Scoresheet extends Model
 
     public function entry()
     {
-        return $this->belongsTo('Contest\Entry');
+        return $this->belongsTo(Entry::class);
     }
 
     public function judge()
     {
-        return $this->belongsTo('Contest\Judge');
+        return $this->belongsTo(Judge::class);
 
     }
 
@@ -37,7 +39,7 @@ class Scoresheet extends Model
             $empties['comment'.($i<10?'0'.$i:$i)] = '';
         }
         $empties['commentFinal'] = '';
-        
+
         return $empties;
     }
 
@@ -70,7 +72,7 @@ class Scoresheet extends Model
 
         }
     }
-    
+
     //todo: needs to use underlying model functions, probably
 
     public function setScoresheetData()

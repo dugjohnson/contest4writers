@@ -6,7 +6,7 @@
  * Time: 7:48 AM
  */
 
-namespace Contest\Http\Controllers\Helpers;
+namespace App\Http\Controllers\Helpers;
 
 
 trait JudgeHelper {

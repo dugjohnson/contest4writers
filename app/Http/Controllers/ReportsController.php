@@ -1,7 +1,7 @@
-<?php namespace Contest\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
-use Contest\Http\Controllers\Helpers\EntryHelper;
-use Contest\Http\Requests;
+use App\Http\Controllers\Helpers\EntryHelper;
+use App\Http\Requests;
 
 class ReportsController extends Controller
 {

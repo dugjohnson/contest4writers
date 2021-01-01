@@ -1,6 +1,6 @@
 <?php
 
-namespace Contest\Http\Controllers\Helpers;
+namespace App\Http\Controllers\Helpers;
 
 use http\Env\Response;
 use Omnipay\Omnipay;

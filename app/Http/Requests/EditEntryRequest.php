@@ -1,6 +1,6 @@
-<?php namespace Contest\Http\Requests;
+<?php namespace App\Http\Requests;
 
-use Contest\Http\Requests\Request;
+use App\Http\Requests\Request;
 
 class EditEntryRequest extends Request {
 

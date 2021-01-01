@@ -6,10 +6,10 @@
  * Time: 7:52 AM
  */
 
-namespace Contest\Http\Controllers\Helpers;
+namespace App\Http\Controllers\Helpers;
 
 
-use Contest\User;
+use App\User;
 use Illuminate\Support\Facades\Mail;
 
 trait ScoresheetHelper
