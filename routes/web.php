@@ -1,17 +1,18 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 use Dugjohnson\Administration\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
 |
 */
-
 
 Route::group(['namespace' => 'Dugjohnson\Administration'], function () {
     Route::get('coordinators', 'AdminController@index');
@@ -25,12 +26,10 @@ Route::group(['namespace' => 'Dugjohnson\Administration'], function () {
     Route::get('coordinators/reports/scoresummary', 'AdminController@scoresheetSummary');
 });
 
-
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
-
+    Route::get('/dashboard', 'WelcomeController@index')->middleware(['auth'])->name('dashboard');
     Route::get('/', 'WelcomeController@index');
     Route::get('home', 'WelcomeController@index');
-    Route::get('dashboard', 'WelcomeController@index');
     Route::get('coordinators/judges/{id}', 'JudgeController@coordinatorShow');
     Route::get('coordinators/judges/{id}/edit', 'JudgeController@coordinatorEdit');
 
@@ -93,3 +92,4 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('logout', 'Auth\LoginController@logout');
 });
 
+require __DIR__.'/auth.php';
