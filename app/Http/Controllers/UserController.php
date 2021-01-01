@@ -1,8 +1,9 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
-use App\User;
+use App\Models\User;
 use Illuminate\Contracts\Validation;
+//use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -12,6 +13,7 @@ class UserController extends Controller
 
     public $isCoordinator = false;
     public $isAdministrator = false;
+
 
     /**
      * Create a new controller instance.
@@ -97,7 +99,7 @@ class UserController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function update($id, UserRequest $request)
+    public function update(UserRequest $request, $id)
     {
         // store
         $user = User::find($id);

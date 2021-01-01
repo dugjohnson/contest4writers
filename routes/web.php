@@ -83,16 +83,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 //        'uses' => 'PayPalController@checkout',
 //    ]);
 
-    Route::resource('judges', 'JudgeController');
-    Route::resource('entries', 'EntryController');
-    Route::resource('users', 'UserController');
-    Route::resource('reports', 'ReportsController');
-    Route::resource('scoresheets', 'ScoresheetController');
+    Route::resource('judges', JudgeController::class);
+    Route::resource('entries', EntryController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('reports', ReportsController::class);
+    Route::resource('scoresheets', ScoresheetController::class);
     Auth::routes();
     Route::get('logout', 'Auth\LoginController@logout');
 });
 
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

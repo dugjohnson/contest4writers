@@ -1,6 +1,9 @@
 <?php namespace App\Http\Requests;
 
-class CreatePublishedEntryRequest extends Request {
+use Illuminate\Foundation\Http\FormRequest;
+
+
+class CreatePublishedEntryRequest extends FormRequest {
 
 	/**
 	 * Determine if the user is authorized to make this request.
