@@ -30,6 +30,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     Route::get('/', 'WelcomeController@index');
     Route::get('home', 'WelcomeController@index');
+    Route::get('dashboard', 'WelcomeController@index');
     Route::get('coordinators/judges/{id}', 'JudgeController@coordinatorShow');
     Route::get('coordinators/judges/{id}/edit', 'JudgeController@coordinatorEdit');
 
