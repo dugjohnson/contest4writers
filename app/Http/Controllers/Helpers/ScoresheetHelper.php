@@ -64,7 +64,7 @@ trait ScoresheetHelper
 
         } else {
             switch ($category) {
-                case 'CA':
+                case 'SH':
                     $labelList['score01'] = 'Does the hook pull you into the story?';
                     $labelList['score02'] = 'Does the author reveal the right amount of information, not too much or too little?';
                     $labelList['score03'] = 'Is there an idea/foreshadow of the mystery/suspense to come in the opening pages?';
@@ -148,7 +148,7 @@ trait ScoresheetHelper
                     $labelList['score25'] = '';
 
                     break;
-                case 'ST':
+                case 'LO':
                     $labelList['score01'] = 'Does the hook pull you into the story?';
                     $labelList['score02'] = 'Does the author reveal the right amount of information, not too much or too little?';
                     $labelList['score03'] = 'Is there an idea/foreshadow of the mystery/suspense to come in the opening pages?';

@@ -26,18 +26,18 @@ trait AdminHelper
         if ($published) {
             switch ($category) {
                 case 'MA':
-                case 'CA':
+                case 'SH':
                 case 'IN':
                     $emailSection[] = ['email' => 'eliz.sade@gmail.com', 'name' => 'Elizabeth Sade'];
                 case 'HI':
                 case 'PA':
-                case 'ST':
+                case 'LO':
                     $emailSection[] = ['email' => 'everin23@gmail.com', 'name' => 'Erin Novotny'];
             }
         } else {
             switch ($category) {
-                case 'ST':
-                case 'CA':
+                case 'LO':
+                case 'SH':
                     $emailSection[] = ['email' => 'lesliekod@gmail.com', 'name' => 'Leslie Scott'];
                 case 'MA':
                     $emailSection[] = ['email' => 'veronicaforand@gmail.com', 'name' => 'Veronica Forand'];

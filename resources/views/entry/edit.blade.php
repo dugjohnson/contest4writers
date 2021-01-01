@@ -19,7 +19,7 @@
     <!-- Category Form Input -->
     <div class="form-group">
     {!! Form::label('category', 'Category:') !!}
-    {!! Form::select('category', ['-' => 'Pick a Category', 'CA' => 'Category', 'HI' => 'Historical', 'IN' => 'Inspirational', 'MA' => 'Mainstream', 'PA' => 'Paranormal', 'ST' => 'Single Title',] , null , ['class' => 'form-control']) !!}
+    {!! Form::select('category', ['-' => 'Pick a Category', 'SH' => 'Short', 'HI' => 'Historical', 'IN' => 'Inspirational', 'MA' => 'Mainstream', 'PA' => 'Paranormal', 'LO' => 'Long',] , null , ['class' => 'form-control']) !!}
 
     </div>
     <!-- Signed Form Input -->
@@ -41,7 +41,7 @@
     <div class="form-group">
     {!! Form::label('editor', 'Editor:') !!}
     {!! Form::text('editor',null, ['class' => 'form-control']) !!}
-    </div>  
+    </div>
     <!-- Publication Month Form Input -->
     <div class="form-group">
     {!! Form::label('publicationMonth', 'Publication Month:') !!}

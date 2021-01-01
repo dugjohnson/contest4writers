@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Models\Entry;
+use App\Models\User;
 use App\Http\Controllers\Helpers\EntryHelper;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;

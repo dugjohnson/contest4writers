@@ -125,7 +125,7 @@ class AdminController extends Controller
 //            ->sortBy('User.lastName');
 
         // the csv file with the first row
-        $output = implode(",", array('Judge ID', 'Profile ID', 'Judge name', 'Street', 'City', 'State', 'Zip', 'Country', 'Email', 'This Year', 'Pub', 'Pub Max', 'Unpub', 'Unpub Max', 'ENB', 'MA', 'CA', 'HI', 'ST', 'PA', 'IN'));
+        $output = implode(",", array('Judge ID', 'Profile ID', 'Judge name', 'Street', 'City', 'State', 'Zip', 'Country', 'Email', 'This Year', 'Pub', 'Pub Max', 'Unpub', 'Unpub Max', 'ENB', 'MA', 'SH', 'HI', 'LO', 'PA', 'IN'));
 
         foreach ($judges as $row) {
             // iterate over each tweet and add it to the csv
