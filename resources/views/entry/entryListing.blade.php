@@ -50,7 +50,7 @@
                 @if($entry->invoiceNumber)
                 <strong>Paid</strong>
                 @else
-                <a href="{{ route('paypal.payment.precheck',['entry_id'=>$entry->id]) }}">
+                <a href="{{ route('paypal.payment.precheck',['entry'=>$entry->id]) }}">
                 <button>Pay Now</button>
                 </a>
                 @endif
