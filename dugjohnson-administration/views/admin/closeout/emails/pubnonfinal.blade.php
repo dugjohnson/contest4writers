@@ -8,7 +8,7 @@
 <p>If you wish to send a thank you note to your judge, you may send them to me and I will forward.
 </p>
 <p>Thank you for entering the Daphne du Maurier Award for Excellence in Mystery/Suspense.
-	On behalf of the Daphne Committee, I wish you the very best in your writing career.
+	On behalf of the Daphne du Maurier Contest Committee, I wish you the very best in your writing career.
 </p>
 
 <p>Best,<br>

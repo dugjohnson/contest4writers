@@ -24,6 +24,6 @@ If you decided to judge, we'll be in touch as the contest entry period winds dow
 
 <p>Thanks,</p>
 
-<p>The Daphne Committee</p>
+<p>The Daphne du Maurier Contest Committee</p>
 </BODY>
 </HTML>

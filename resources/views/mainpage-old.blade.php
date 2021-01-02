@@ -8,7 +8,7 @@
             Daphne needs. </p>
 
         <P>For information and questions about the contests, categories, rules, etc., please click here: <A
-                    HREF="http://rwamysterysuspense.org/daphne">http://rwamysterysuspense.org/daphne</A></p>
+                    HREF="https://www.rwakissofdeath.org/daphne-du-maurier-award-for-excellence-in-mystery-suspense/">https://www.rwakissofdeath.org/daphne-du-maurier-award-for-excellence-in-mystery-suspense/</A></p>
 
         <p><strong>ATTENTION:  Published Authors ONLY</strong></p>
         <p>Mainstream, Category and Single Title categories have now capped. Those categories are closed to further submissions.
@@ -46,6 +46,6 @@
 
         <P>Thank you for being with us! </p>
 
-        <P>The Daphne Committee </p>
+        <P>The Daphne du Maurier Contest Committee</p>
     </div>
 @stop
