@@ -15,7 +15,7 @@ trait JudgeHelper {
 	public $judgeThisYear = [ '' => 'Please indicate your participation this year',
 							  'LJ' => 'I would love to judge this year',
 							  'NY' => 'Ask me next year',
-							  'EJ' => 'Use me in an emergency',
+							  'EJ' => 'Only use me in an emergency',
 							  'RM' => 'Please remove me from judging list',
 							  'NU'=> 'Not Updated' ];
 

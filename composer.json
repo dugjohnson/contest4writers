@@ -18,6 +18,7 @@
         "laravelcollective/html": "^6.2"
     },
     "require-dev": {
+        "doctrine/dbal": "^3.0",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^1.0",
