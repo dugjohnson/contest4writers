@@ -62,7 +62,7 @@
 </div>
 <div class="form-group">
     {!! Form::label('childdeath', 'Child death/near death on the page:') !!}
-    {!! Form::radio('childdeath',true, $judge->childdeath==true, ['class' => 'form-control']) !!} Yes {!! Form::radio('vampires',false, $judge->childdeath==false, ['class' => 'form-control']) !!} No
+    {!! Form::radio('childdeath',true, $judge->childdeath==true, ['class' => 'form-control']) !!} Yes {!! Form::radio('childdeath',false, $judge->childdeath==false, ['class' => 'form-control']) !!} No
 </div>
 
 <p>Special Instructions/Comments or Notes:</p>
