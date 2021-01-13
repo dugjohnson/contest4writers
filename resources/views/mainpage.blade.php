@@ -15,7 +15,7 @@
             contest needs. </p>
 
         <P>For information about the contests, categories, rules, etc., please go to: <A
-                    HREF="https://www.rwakissofdeath.org/daphne-du-maurier-award-for-excellence-in-mystery-suspense/">https://www.rwakissofdeath.org/daphne-du-maurier-award-for-excellence-in-mystery-suspense/</A></p>
+                    HREF="https://www.rwakissofdeath.org/rwakissofdeath-org-contest/">https://www.rwakissofdeath.org/rwakissofdeath-org-contest/</A></p>
 
         <P>- <B>To judge</B>: Click on Judges to view and update your judge preferences. When judging begins, you will also find the entries
             to judge here. More specific instruction will be emailed to you after March 15. </p>

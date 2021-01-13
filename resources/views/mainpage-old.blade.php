@@ -8,7 +8,7 @@
             Daphne needs. </p>
 
         <P>For information and questions about the contests, categories, rules, etc., please click here: <A
-                    HREF="https://www.rwakissofdeath.org/daphne-du-maurier-award-for-excellence-in-mystery-suspense/">https://www.rwakissofdeath.org/daphne-du-maurier-award-for-excellence-in-mystery-suspense/</A></p>
+                    HREF="https://www.rwakissofdeath.org/rwakissofdeath-org-contest/">https://www.rwakissofdeath.org/rwakissofdeath-org-contest/</A></p>
 
         <p><strong>ATTENTION:  Published Authors ONLY</strong></p>
         <p>Mainstream, Category and Single Title categories have now capped. Those categories are closed to further submissions.
