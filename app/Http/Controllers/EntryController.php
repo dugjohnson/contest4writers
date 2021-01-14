@@ -54,8 +54,14 @@ class EntryController extends Controller
     {
         //todo: need variable for contest date $monthlist this is here to make it easy to find
         $year = Config::get('contest.contest_year');
-        $yearPart = substr($year - 1, -2);
+        $yearPart = substr($year - 2, -2);
         $calcMonths = [];
+        for ($i = 1; $i < 13; $i++) {
+            $thisMonth = sprintf('%02u/%02u', $i, $yearPart);
+            $calcMonths[$thisMonth] = $thisMonth;
+        }
+        // only time this is needed...need both years
+        $yearPart = substr($year - 1, -2);
         for ($i = 1; $i < 13; $i++) {
             $thisMonth = sprintf('%02u/%02u', $i, $yearPart);
             $calcMonths[$thisMonth] = $thisMonth;
@@ -120,6 +126,10 @@ class EntryController extends Controller
                 $entry->filename = $this->saveFile($request);
             }
         } else {
+            if ($request->hasFile('filename')) {
+                $filename = date('ymdHis') . mt_rand(1000, 9999) . '.pdf';
+                $entry->filename = $this->saveFile($request, $filename);
+            }
             $entry->publisher = $request->publisher;
             $entry->editor = $request->editor;
             $entry->publicationMonth = $request->publicationMonth;

@@ -4,7 +4,7 @@
     @include('errors')
     {!! Form::open(array('files'=>'true')) !!}
     {!! Form::hidden('published',false) !!}
-    
+
     @include('entry.formunpub')
     <!-- Category Form Input -->
     <div class="form-group">
@@ -13,6 +13,6 @@
     </div>
     @include('entry.financial')
     @include('entry.readrules')
-    @include('entry.fileupload')
+    @include('entry.fileuploadunpub')
     @include('entry.formclose')
 @stop

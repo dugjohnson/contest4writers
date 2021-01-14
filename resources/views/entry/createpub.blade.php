@@ -2,7 +2,7 @@
 
 @section('content')
     @include('errors')
-    {!! Form::open()  !!}
+    {!! Form::open(array('files'=>'true')) !!}
     {!! Form::hidden('published',true) !!}
     @include('entry.formpub')
     <!-- Category Form Input -->
@@ -12,6 +12,7 @@
     </div>
     @include('entry.financial')
     @include('entry.readrules')
+    @include('entry.fileuploadpub')
     @include('entry.formclose')
 
 @stop
