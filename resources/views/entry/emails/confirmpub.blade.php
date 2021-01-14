@@ -17,41 +17,6 @@
 
 <P  >Entries without completed entry form and payment will not be judged.</P>
 
-<P  >Print this page and include with 4 copies of the published novel. Mail to one of the two
-    addresses below, depending on your category.</P>
-
-<P  ><TABLE DIR="LTR" ALIGN=LEFT WIDTH=302 HSPACE=12 BORDER=0 CELLPADDING=1 CELLSPACING=0>
-    <COL WIDTH=300>
-    <TR>
-        <TD WIDTH=300 BGCOLOR="#ffffff">
-            <P ><B>Mainstream, Category (Series), Inspirational</B></P>
-        </TD>
-    </TR>
-    <TR>
-        <TD WIDTH=300 BGCOLOR="#ffffff">
-            <P ><I>Liz Burleson<BR>3255 S. Dorsey Ln, Apt #1031<BR>
-                    Tempe, AZ 85282</I></P>
-        </TD>
-    </TR>
-    <TR>
-        <TD WIDTH=300 BGCOLOR="#ffffff">
-            <P  ><BR>
-            </P>
-            <P ><B>Single Title, Historical, Paranormal</B></P>
-        </TD>
-    </TR>
-    <TR>
-        <TD WIDTH=300 BGCOLOR="#ffffff">
-            <P  ><I>Erin Novotny</I></P>
-            <P  ><I>17 Oak Brook Dr.</I></P>
-            <P  ><I>Huntington, WV
-                    25705</I></P>
-            <P ><BR>
-            </P>
-        </TD>
-    </TR>
-</TABLE>
-
 @include('entry.financial')
 
 <P>Brooke Wills, KOD Treasurer</P>
@@ -60,6 +25,6 @@
 
 <P>Greenbank, WA 98253</P>
 
-<P  >Please include your invoice and entry numbers on your payment.</P>
+<P>Please include your invoice and entry numbers on your payment.</P>
 </BODY>
 </HTML>

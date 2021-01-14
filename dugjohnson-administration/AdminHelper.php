@@ -14,13 +14,13 @@ trait AdminHelper
     {
 
         if ($category == 'OC') {
-            $emailSection[] = ['email' => 'daphnecontest@gmail.com', 'name' => 'Brooke Wills'];
+            $emailSection[] = ['email' => 'kodcontest@gmail.com', 'name' => 'Daphne Committee'];
 
         }
         if ($category == 'JC') {
             // todo: need link to judge coordinator records in roles, so not hard coded
             $emailSection[] = ['email' => 'jengraybeal@gmail.com', 'name' => 'Jen Graybeal'];
-            $emailSection[] = ['email' => 'kodmollykw@gmail.com', 'name' => 'Molly Williams'];
+            $emailSection[] = ['email' => ' mollykwill@gmail.com', 'name' => 'Molly Williams'];
         }
         // todo: need links to coordinators, not hard code
         if ($published) {
@@ -32,13 +32,13 @@ trait AdminHelper
                 case 'HI':
                 case 'PA':
                 case 'LO':
-                    $emailSection[] = ['email' => 'everin23@gmail.com', 'name' => 'Erin Novotny'];
+                    $emailSection[] = ['email' => 'erin.novotny@comcast.net', 'name' => 'Erin Novotny'];
             }
         } else {
             switch ($category) {
                 case 'LO':
                 case 'SH':
-                    $emailSection[] = ['email' => 'lesliekod@gmail.com', 'name' => 'Leslie Scott'];
+                    $emailSection[] = ['email' => 'candico@att.net', 'name' => 'Leslie Scott'];
                 case 'MA':
                     $emailSection[] = ['email' => 'veronicaforand@gmail.com', 'name' => 'Veronica Forand'];
                 case 'HI':
