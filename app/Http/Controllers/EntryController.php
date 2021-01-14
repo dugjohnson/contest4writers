@@ -84,6 +84,10 @@ class EntryController extends Controller
         $entry->author = $entrant->writingName;
         $entry->authorEmail = $entrant->email;
         $entry->published = true;
+        $entry->erotic = true;
+        $entry->glbt = true;
+        $entry->bdsm = true;
+        $entry->childdeath = true;
         return view('entry.createpub', array('categories' => $categorySelector, 'monthlist' => $monthSelector, 'entry' => $entry, 'isCoordinator' => $this->isCoordinator));
     }
 
@@ -101,6 +105,11 @@ class EntryController extends Controller
         $entry->author = $entrant->writingName;
         $entry->authorEmail = $entrant->email;
         $entry->published = false;
+        $entry->erotic = true;
+        $entry->glbt = true;
+        $entry->bdsm = true;
+        $entry->childdeath = true;
+
         return view('entry.createunpub', array('categories' => $categorySelector, 'entry' => $entry, 'isCoordinator' => $this->isCoordinator));
     }
 

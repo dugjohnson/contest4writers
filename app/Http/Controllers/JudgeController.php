@@ -75,6 +75,7 @@ class JudgeController extends Controller
         $judge->bdsm = 1;
         $judge->vampires = 1;
         $judge->religious = 1;
+        $judge->childdeath = 1;
 
         return view('judge.create', $this->judgeFormData($judge) );
 //        return view('judge.create');
@@ -176,6 +177,7 @@ class JudgeController extends Controller
         $judge->bdsm = filter_var($request->bdsm, FILTER_VALIDATE_BOOLEAN);
         $judge->vampires = filter_var($request->vampires, FILTER_VALIDATE_BOOLEAN);
         $judge->religious = filter_var($request->religious, FILTER_VALIDATE_BOOLEAN);
+        $judge->childdeath = filter_var($request->childdeath, FILTER_VALIDATE_BOOLEAN);
         $judge->comments = $request->comments;
         if ($request->has('internalComments')) {
             $judge->internalComments = $request->internalComments;
