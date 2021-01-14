@@ -19,11 +19,10 @@
 
 @include('entry.financial')
 
-<P>Brooke Wills, KOD Treasurer</P>
-
-<P>PO Box 403</P>
-
-<P>Greenbank, WA 98253</P>
+<P>Isla Grey, Treasurer<br>
+    c/o Jackie Renee<br>
+    PO Box 470403<br>
+    Los Angeles, CA 90303</P>
 
 <P>Please include your invoice and entry numbers on your payment.</P>
 </BODY>

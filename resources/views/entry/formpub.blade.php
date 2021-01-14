@@ -34,3 +34,4 @@
     {!! Form::label('publicationMonth', 'Publication or Release Month (see rules):') !!}
     {!! Form::select('publicationMonth', $monthlist, $entry->publicationMonth, ['class' => 'form-control']) !!}
 </div>
+@include('entry.elements')

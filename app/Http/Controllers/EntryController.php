@@ -134,6 +134,11 @@ class EntryController extends Controller
             $entry->editor = $request->editor;
             $entry->publicationMonth = $request->publicationMonth;
             $entry->enteredByPublisher = filter_var($request->enteredByPublisher, FILTER_VALIDATE_BOOLEAN);
+            $entry->erotic = filter_var($request->erotic, FILTER_VALIDATE_BOOLEAN);
+            $entry->glbt = filter_var($request->glbt, FILTER_VALIDATE_BOOLEAN);
+            $entry->bdsm = filter_var($request->bdsm, FILTER_VALIDATE_BOOLEAN);
+            $entry->childdeath = filter_var($request->childdeath, FILTER_VALIDATE_BOOLEAN);
+
         }
         $entry->save();
         $this->sendConfirmation($entry);
@@ -275,7 +280,11 @@ class EntryController extends Controller
         if (isset($request->category)) {
             $entry->category = $request->category;
         }
-
+        $entry->erotic = filter_var($request->erotic, FILTER_VALIDATE_BOOLEAN);
+        $entry->glbt = filter_var($request->glbt, FILTER_VALIDATE_BOOLEAN);
+        $entry->bdsm = filter_var($request->bdsm, FILTER_VALIDATE_BOOLEAN);
+        $entry->childdeath = filter_var($request->childdeath, FILTER_VALIDATE_BOOLEAN);
+        
         $entry->save();
         if ($this->isCoordinator) {
             header('Location: /coordinators/entries');

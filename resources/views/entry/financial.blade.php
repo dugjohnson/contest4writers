@@ -25,8 +25,8 @@
 
     <p> Entries without completed entry form and payment will not be judged.</p>
     @if($entry->published)
-        <p>Entry Fee: $30</p>
+        <p>Entry Fee: $15 for members of KOD; $30 for non-members.</p>
     @else
-        <p>Entry Fee: $15 for KOD members; $30 non-KOD members.</p>
+        <p>Entry Fee: $15 for members of KOD; $30 for non-members.</p>
     @endif
 </div>

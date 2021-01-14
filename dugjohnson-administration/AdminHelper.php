@@ -44,7 +44,7 @@ trait AdminHelper
                 case 'HI':
                 case 'IN':
                 case 'PA':
-                    $emailSection[] = ['email' => 'contact.jackirenee@gmail.com', 'name' => 'Jacki Renée'];
+                    $emailSection[] = ['email' => 'lyndareesauthor@gmail.com', 'name' => 'Lynda Rees'];
             }
         }
 

@@ -26,3 +26,4 @@
         {!! Form::text('author2Email',$entry->author2Email, ['class' => 'form-control']) !!}
     </div>
 </div>
+@include('entry.elements')
