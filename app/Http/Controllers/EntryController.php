@@ -284,7 +284,7 @@ class EntryController extends Controller
         $entry->glbt = filter_var($request->glbt, FILTER_VALIDATE_BOOLEAN);
         $entry->bdsm = filter_var($request->bdsm, FILTER_VALIDATE_BOOLEAN);
         $entry->childdeath = filter_var($request->childdeath, FILTER_VALIDATE_BOOLEAN);
-        
+
         $entry->save();
         if ($this->isCoordinator) {
             header('Location: /coordinators/entries');
