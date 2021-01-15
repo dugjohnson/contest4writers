@@ -46,15 +46,6 @@
                     @endif
                 @endif
             </td>
-            <td>
-                @if($entry->invoiceNumber)
-                <strong>Paid</strong>
-                @else
-                <a href="{{ route('paypal.payment.precheck',['entry'=>$entry->id]) }}">
-                <button>Pay Now</button>
-                </a>
-                @endif
-            </td>
         </tr>
     @endforeach
     </tbody>
