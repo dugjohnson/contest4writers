@@ -21,6 +21,8 @@ class PayPalHelper
         $gateway->setUsername(config('contest.paypal.username'));
         $gateway->setPassword(config('contest.paypal.password'));
         $gateway->setSignature(config('contest.paypal.signature'));
+//        $gateway->setClientId(config('contest.paypal.clientid'));
+//        $gateway->setSecret(config('contest.paypal.secret'));
         $gateway->setTestMode(config('contest.paypal.sandbox'));
 
         return $gateway;

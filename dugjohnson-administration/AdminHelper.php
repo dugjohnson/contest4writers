@@ -28,7 +28,7 @@ trait AdminHelper
                 case 'MA':
                 case 'SH':
                 case 'IN':
-                    $emailSection[] = ['email' => 'eliz.sade@gmail.com', 'name' => 'Elizabeth Sade'];
+                    $emailSection[] = ['email' => 'raimeygallant@gmail.com', 'name' => 'Raimey Gallant'];
                 case 'HI':
                 case 'PA':
                 case 'LO':
@@ -40,7 +40,7 @@ trait AdminHelper
                 case 'SH':
                     $emailSection[] = ['email' => 'candico@att.net', 'name' => 'Leslie Scott'];
                 case 'MA':
-                    $emailSection[] = ['email' => 'veronicaforand@gmail.com', 'name' => 'Veronica Forand'];
+                    $emailSection[] = ['email' => 'contact.jackirenee@gmail.com', 'name' => 'Jackie Renee'];
                 case 'HI':
                 case 'IN':
                 case 'PA':
