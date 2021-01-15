@@ -39,20 +39,18 @@
                     </strong>
                 @else
                     <a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}/edit">Edit</a>
-                    @if (! $entry->published)
-                        <br>
-                        <a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}/upload">Upload/Replace
-                            Entry</a>
-                    @endif
+                    <br>
+                    <a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}/upload">Upload/Replace
+                        Entry</a>
                 @endif
             </td>
             <td>
                 @if($entry->invoiceNumber)
-                <strong>Paid</strong>
+                    <strong>Paid</strong>
                 @else
-                <a href="{{ route('paypal.payment.precheck',['entry'=>$entry->id]) }}">
-                <button>Pay Now</button>
-                </a>
+                    <a href="{{ route('paypal.payment.precheck',['entry'=>$entry->id]) }}">
+                        <button>Pay Now</button>
+                    </a>
                 @endif
             </td>
         </tr>
