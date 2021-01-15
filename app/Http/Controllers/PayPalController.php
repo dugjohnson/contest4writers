@@ -23,7 +23,8 @@ class PayPalController extends Controller
         $findEntry = Entry::findOrFail($entry);
         session()->forget('KODMember');
 
-        if ($findEntry->published) {
+        //pricing change for KOD member published
+        if (false && $findEntry->published) {
             return $this->checkout($entry);
         } else {
             return view('entry.amikod', compact('entry'));
