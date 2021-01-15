@@ -17,9 +17,6 @@
         Personal check on US bank, or Money Order in US funds.
         In order for your entry to be official your payment must be received</p>
 
-    <p><strong>We are currently re=activating our PayPal account interface to receive payments. We will let you know as soon as you can pay with PayPal.
-        Your entry is marked for when it was received, so you will not be penalized by our delay of payment ability.</strong></p>
-
     <p>Personal checks and money orders must be postmarked no later than the next business day after close of
         contest--see rules.
         made payable to Kiss of Death and sent to the chapter treasurer per the instructions in your confirmation
