@@ -20,7 +20,6 @@ trait AdminHelper
         if ($category == 'JC') {
             // todo: need link to judge coordinator records in roles, so not hard coded
             $emailSection[] = ['email' => 'jengraybeal@gmail.com', 'name' => 'Jen Graybeal'];
-            $emailSection[] = ['email' => 'mollykwill@gmail.com', 'name' => 'Molly Williams'];
         }
         // todo: need links to coordinators, not hard code
         if ($published) {
