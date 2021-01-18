@@ -3,6 +3,8 @@
 @section('content')
     <div class="readonly">
         @include('entry.infounpub')
+        @include('entry.infoelements')
+
         <a href="/uploads/entries/{{ $entry->filename }}?ver={{$vers}}" class="small button">Click to
             download {{ $entry->filename }}</a><br/>
         <p>Signature: {{$entry->signed}}</p>

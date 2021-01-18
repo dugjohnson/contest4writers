@@ -14,6 +14,8 @@
 <P>If any of this information is incorrect please visit <A HREF="http://writingcontest.website/">http://writingcontest.website</A></P>
 
 @include('entry.infounpub')
+@include('entry.infoelements')
+
 {!! Html::link(URL::to('uploads/entries/'.$entry->filename),'Click to download entry file '.$entry->filename) !!}
 <p></p>
 
