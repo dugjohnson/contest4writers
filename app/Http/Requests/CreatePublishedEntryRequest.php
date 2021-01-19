@@ -31,7 +31,8 @@ class CreatePublishedEntryRequest extends FormRequest {
 			'publisher' => 'required',
 			'editor' => 'required',
 			'signed' => 'required',
-			'publicationMonth' => 'required'
+			'publicationMonth' => 'required',
+            'filename' => 'required'
 		];
 	}
 
