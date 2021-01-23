@@ -237,7 +237,15 @@ class EntryController extends Controller
         if (1 == $request->isCoordinator) {
             $this->isCoordinator = true;
         }
-        $filename = Entry::find($id)->filename;
+        $entry = Entry::find($id);
+        $filename = $entry->filename;
+        if (empty($filename)) {
+
+          $filename = date('ymdHis') . mt_rand(1000, 9999) . ($entry->published?'.pdf':'.rtf');
+          $entry->filename = $filename;
+          $entry->save();
+
+        }
         $this->saveFile($request, $filename);
         if ($this->isCoordinator) {
             header('Location: /coordinators/entries');
