@@ -25,9 +25,6 @@ class JudgeRequest extends FormRequest
     {
         return [
             'user_id' => 'required',
-            'judgePub' => 'required',
-            'judgeUnpub' => 'required',
-            'judgeEitherNotBoth' => 'required',
             'mainstream' => 'required',
             'category' => 'required',
             'historical' => 'required',
@@ -36,7 +33,6 @@ class JudgeRequest extends FormRequest
             'inspirational' => 'required',
             'maxpubentries' => 'required',
             'maxunpubentries' => 'required',
-            'judgeThisYear' => 'required',
         ];
     }
 
