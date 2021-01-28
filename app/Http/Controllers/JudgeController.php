@@ -160,9 +160,13 @@ class JudgeController extends Controller
      */
     public function fillInFields(Requests\JudgeRequest $request, $judge)
     {
-        $judge->judgePub = $request->judgePub;
-        $judge->judgeUnpub = $request->judgeUnpub;
-        $judge->judgeEitherNotBoth = $request->judgeEitherNotBoth;
+        // Fields no longer in use as of 2021...but not nullable so fill in as true
+//        $judge->judgePub = $request->judgePub;
+//        $judge->judgeUnpub = $request->judgeUnpub;
+//        $judge->judgeEitherNotBoth = $request->judgeEitherNotBoth;
+        $judge->judgePub = true;
+        $judge->judgeUnpub = true;
+        $judge->judgeEitherNotBoth = true;
         $judge->judgeThisYear = $request->judgeThisYear;
         $judge->maxpubentries = $request->maxpubentries;
         $judge->maxunpubentries = $request->maxunpubentries;
