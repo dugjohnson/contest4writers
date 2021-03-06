@@ -2,7 +2,7 @@
 
 @section('content')
     @include('judge.info')
-    @if($isAdmin)
+    @if($isAdministrator)
         @include('judge.infoAdmin')
     @endif
     @if ($isCoordinator)

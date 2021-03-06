@@ -11,7 +11,7 @@ use Illuminate\Routing;
 use Carbon\Carbon;
 
 
-class EntryController extends Controller
+class EntryController extends KODController
 {
 
     public $entrantID;
@@ -29,7 +29,7 @@ class EntryController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        parent::__construct();
         $this->middleware(function ($request, $next) {
             $this->entrantID = \Auth::id();
             return $next($request);

@@ -8,30 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 
-class UserController extends Controller
+class UserController extends KODController
 {
-
-    public $isCoordinator = false;
-    public $isAdministrator = false;
-
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware(function ($request, $next) {
-            if (Auth::check()) {
-                $this->isCoordinator = Auth::user()->isCoordinator();
-                $this->isAdministrator = Auth::user()->isAdministrator();
-            }
-            return $next($request);
-        });
-
-    }
 
     /**
      * Display a listing of the resource.

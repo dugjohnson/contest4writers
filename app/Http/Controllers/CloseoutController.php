@@ -15,10 +15,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Response;
 
-class CloseoutController extends Controller
+class CloseoutController extends KODController
 {
-    protected $adminPerson;
-    protected $isAdmin;
     protected $closeoutType = [
         'unpubnonfinal' => 'Unpublished Non-Finalist',
         'pubnonfinal' => 'Published Non-Finalist',
@@ -28,26 +26,6 @@ class CloseoutController extends Controller
     ];
     use EntryHelper;
     use ScoresheetHelper;
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware(function ($request, $next) {
-            if (Auth::check()) {
-                $this->adminPerson = \Auth::user();
-                if (!($this->adminPerson && $this->adminPerson->isCoordinator())) {
-                    return redirect('/home');
-                }
-                $this->isAdmin = $this->adminPerson->isAdministrator();
-                return $next($request);
-            };
-        });
-    }
 
     /**
      * Display a listing of the resource.

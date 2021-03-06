@@ -12,31 +12,22 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 
-class ScoresheetController extends Controller
+class ScoresheetController extends KODController
 {
 
     const COUNT_FOR_PUBLISHED = 3;
     const COUNT_FOR_UNPUBLISHED = 4;
     public $judgeID = 0;
-    public $user;
-    public $isCoordinator = false;
-    public $isAdministrator = false;
 
     use ScoresheetHelper;
     use EntryHelper;
 
     public function __construct()
     {
-        $this->middleware('auth');
+        parent::__construct();
         $this->middleware(function ($request, $next) {
             if (Auth::check()) {
-                $this->user = Auth::user();
-                $this->isCoordinator = $this->user->isCoordinator();
-                $this->isAdministrator = $this->user->isAdministrator();
-                if ($this->user->judge) {
-                    $this->judgeID = $this->user->judge->id;
-
-                }
+                $this->judgeID = Auth::user()->judge->id;
             }
             return $next($request);
         });
@@ -85,7 +76,7 @@ class ScoresheetController extends Controller
     public function assignedTo($judgeID)
     {
         if ($this->isCoordinator) {
-            $queryString = $this->getRolesWhereClause($this->user);
+            $queryString = $this->getRolesWhereClause(Auth::user());
             $queryString = '((' . $queryString . ') and judge_id = ' . $judgeID . ')';
             $scoresheets = Scoresheet::whereRaw($queryString)->get();
 
