@@ -7,4 +7,5 @@
         <li>2 = (shows promise, but needs improvement)</li>
         <li>1 = poor (needs major work)</li>
     </ul>
+    <p>Important: Please comment liberally on both the score sheet and the manuscript. This is a contest for unpublished writers, and entrants are counting on your comments to help them in their writing process. Contests are one of the most important ways to obtain feedback. For any question scored 3 or less, comments and/or an explanation are required.</p>
 </fieldset>

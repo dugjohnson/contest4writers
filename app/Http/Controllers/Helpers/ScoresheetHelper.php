@@ -69,8 +69,8 @@ trait ScoresheetHelper
                     $labelList['score02'] = 'Does the author reveal the right amount of information, not too much or too little?';
                     $labelList['score03'] = 'Is there an idea/foreshadow of the mystery/suspense to come in the opening pages?';
                     $labelList['score04'] = 'Is the plot original and well-executed?';
-                    $labelList['score05'] = 'Does the plot have the potential to sustain an entire book in category (series) romance?';
-                    $labelList['score06'] = 'Is the pacing appropriate to category (series) romantic suspense?';
+                    $labelList['score05'] = 'Does the plot have the potential to sustain an entire book in short romance?';
+                    $labelList['score06'] = 'Is the pacing appropriate to short romantic suspense?';
                     $labelList['score07'] = 'Are the characters skillfully developed?';
                     $labelList['score08'] = 'Are the characters appropriate to the plot?';
                     $labelList['score09'] = 'Do you get a sense of the hero/heroine\'s physical characteristics?';
@@ -78,7 +78,7 @@ trait ScoresheetHelper
                     $labelList['score11'] = 'Is there sexual chemistry between the hero and heroine?';
                     $labelList['score12'] = 'Do the main characters come together in a timely fashion?';
                     $labelList['score13'] = 'Do the main characters come together in a way that is appropriate to the story?';
-                    $labelList['score14'] = 'Is the conflict between the main characters appropriate to category (series) romance?';
+                    $labelList['score14'] = 'Is the conflict between the main characters appropriate to short romance?';
                     $labelList['score15'] = 'Is there a good balance between dialogue and narrative?';
                     $labelList['score16'] = 'Does the dialogue progress the story and help build the suspense?';
                     $labelList['score17'] = 'Does the narrative progress the story and help build the suspense?';
@@ -107,7 +107,7 @@ trait ScoresheetHelper
                     $labelList['score12'] = 'Are there any glaring anachronisms that would jolt the reader out of the story?';
                     $labelList['score13'] = 'Does the aspect of mystery/suspense blend with the romantic historical theme?';
                     $labelList['score14'] = 'Do the historical elements draw you into the overall setting?';
-                    $labelList['score15'] = 'Does the dialogue ring true for the period?';
+                    $labelList['score15'] = 'Does the dialogue ring true for the period (normal and conversational, not too stiff and unnatural)?';
                     $labelList['score16'] = 'Is there a good balance between dialogue and narrative?';
                     $labelList['score17'] = 'Does the dialogue progress the story and help build the suspense?';
                     $labelList['score18'] = 'Does the setting give a sense of time and place and set the mood of the story?';
@@ -153,8 +153,8 @@ trait ScoresheetHelper
                     $labelList['score02'] = 'Does the author reveal the right amount of information, not too much or too little?';
                     $labelList['score03'] = 'Is there an idea/foreshadow of the mystery/suspense to come in the opening pages?';
                     $labelList['score04'] = 'Is the plot original and well-executed?';
-                    $labelList['score05'] = 'Does the plot have the potential to sustain an entire book in single title mystery/suspense?';
-                    $labelList['score06'] = 'Is the pacing appropriate to single title romantic suspense?';
+                    $labelList['score05'] = 'Does the plot have the potential to sustain an entire book in long mystery/suspense?';
+                    $labelList['score06'] = 'Is the pacing appropriate to long romantic suspense?';
                     $labelList['score07'] = 'Are the characters skillfully developed?';
                     $labelList['score08'] = 'Are the characters appropriate to the plot?';
                     $labelList['score09'] = 'Are the characters\' actions and reactions believable?';
