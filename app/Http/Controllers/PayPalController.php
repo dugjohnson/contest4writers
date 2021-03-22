@@ -11,7 +11,7 @@ use App\Models\Entry;
  * Class PayPalController
  * @package App\Http\Controllers
  */
-class PayPalController extends Controller
+class PayPalController extends KODController
 {
     const KOD_UNPUB_FEE = 15.00;
     const ALL_OTHER_FEE = 30.00;

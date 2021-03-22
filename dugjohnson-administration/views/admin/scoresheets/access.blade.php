@@ -49,7 +49,7 @@
                         <td>
                             <a href="/coordinators/users/{{ $scoresheet->judge->user_id }}">Profile</a>/<a href="/coordinators/judges/{{ $scoresheet->judge_id }}">Preferences</a>
                             <a href="/scoresheets/{{ $scoresheet->judge_id }}/assigned">Assignments</a>
-                            @if($isAdmin && $scoresheet->completed)
+                            @if($isAdministrator && $scoresheet->completed)
                                 <a href="/scoresheets/{{ $scoresheet->id }}/reopen">Reopen</a>
                             @endif
                         </td>

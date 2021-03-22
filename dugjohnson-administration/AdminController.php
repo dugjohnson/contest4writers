@@ -19,7 +19,7 @@ class AdminController extends Controller
 {
 
     protected $adminPerson;
-    protected $isAdmin;
+    protected $isAdministrator;
     use EntryHelper;
     use ScoresheetHelper;
 
@@ -36,7 +36,7 @@ class AdminController extends Controller
     public function index()
     {
         $categoryCounts = $this->getCategoryCountsByCoordinator($this->getAdminPerson());
-        return view('admin.index', ['isAdmin' => $this->isAdmin, 'categoryCounts' => $categoryCounts]);
+        return view('admin.index', ['isAdministrator' => $this->isAdministrator, 'categoryCounts' => $categoryCounts]);
     }
 
     public function entries()
@@ -76,11 +76,11 @@ class AdminController extends Controller
             $scoresheets = $scoresheets->sortBy(function ($scoresheet) {
                 return strtoupper(($scoresheet->published ? 'P' : 'U') . $scoresheet->category . $scoresheet->title);
             });
-            return view('admin.scoresheets.scoresheets', array('scoresheets' => $scoresheets, 'categories' => $this->categories(), 'isCoordinator' => true, 'isAdmin' => $this->isAdmin, 'assign' => $assign));
+            return view('admin.scoresheets.scoresheets', array('scoresheets' => $scoresheets, 'categories' => $this->categories(), 'isCoordinator' => true, 'isAdministrator' => $this->isAdministrator, 'assign' => $assign));
         } else {
             $scoresheets = Scoresheet::whereRaw($this->getRolesWhereClause($this->getAdminPerson()))->orderBy('category')->orderBy('published')->orderBy('title')->get();
             $scoresheets->load('judge');
-            return view('admin.scoresheets.scoresheets', array('scoresheets' => $scoresheets, 'categories' => $this->categories(), 'isCoordinator' => true, 'isAdmin' => $this->isAdmin, 'assign' => $assign));
+            return view('admin.scoresheets.scoresheets', array('scoresheets' => $scoresheets, 'categories' => $this->categories(), 'isCoordinator' => true, 'isAdministrator' => $this->isAdministrator, 'assign' => $assign));
 
         }
 
@@ -100,9 +100,10 @@ class AdminController extends Controller
         }
     }
 
-    private function stripCodes($source){
-        $stripped = str_replace(',',' ',$source);
-        $stripped = str_replace('"','',$stripped);
+    private function stripCodes($source)
+    {
+        $stripped = str_replace(',', ' ', $source);
+        $stripped = str_replace('"', '', $stripped);
         return $stripped;
     }
 
@@ -125,26 +126,29 @@ class AdminController extends Controller
 //            ->sortBy('User.lastName');
 
         // the csv file with the first row
-        $output = implode(",", array('Judge ID', 'Profile ID', 'Judge name', 'Street', 'City', 'State', 'Zip', 'Country', 'Email', 'This Year', 'Pub', 'Pub Max', 'Unpub', 'Unpub Max', 'ENB', 'MA', 'SH', 'HI', 'LO', 'PA', 'IN'));
+        $output = implode(",", array('Judge ID', 'Profile ID', 'Judge name', 'Street', 'City',
+            'State', 'Zip', 'Country', 'Email', 'This Year', 'Pub Max', 'Unpub Max', 'MA', 'SH', 'HI', 'LO', 'PA', 'IN','Sex','LGBTQ+','Violence','Child Death'));
 
         foreach ($judges as $row) {
             // iterate over each tweet and add it to the csv
             if (strtolower($CSVType) == 'favorite') {
                 $title = 'judgefaves.csv';
-                $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(),$this->stripCodes($row->user()->first()->street),
-                        $row->user()->first()->city, $row->user()->first()->state,$row->user()->first()->zipCode, $row->user()->first()->country,
-                        $row->user()->first()->email, $row->judgeThisYear, ($row->judgePub ? 'yes' : 'no'),
-                        $row->maxpubentries, ($row->judgeUnpub ? 'yes' : 'no'), $row->maxunpubentries, ($row->judgeEitherNotBoth ? 'yes' : 'no'), $this->convertValue($row->mainstream),
+                $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(), $this->stripCodes($row->user()->first()->street),
+                        $row->user()->first()->city, $row->user()->first()->state, $row->user()->first()->zipCode, $row->user()->first()->country,
+                        $row->user()->first()->email, $row->judgeThisYear,
+                        $row->maxpubentries, $row->maxunpubentries, $this->convertValue($row->mainstream),
                         $this->convertValue($row->category), $this->convertValue($row->historical), $this->convertValue($row->singleTitle),
-                        $this->convertValue($row->paranormal), $this->convertValue($row->inspirational))); // append each row
+                        $this->convertValue($row->paranormal), $this->convertValue($row->inspirational),
+                        ($row->erotic ? 'yes' : 'no'),($row->glbt ? 'yes' : 'no'),($row->bdsm ? 'yes' : 'no'),($row->childdeath ? 'yes' : 'no'))); // append each row
 
             } else {
                 $title = 'judges.csv';
-                $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(),$this->stripCodes($row->user()->first()->street),
-                        $row->user()->first()->city, $row->user()->first()->state,$row->user()->first()->zipCode, $row->user()->first()->country,
-                        $row->user()->first()->email, $row->judgeThisYear, ($row->judgePub ? 'yes' : 'no'),
-                        $row->maxpubentries, ($row->judgeUnpub ? 'yes' : 'no'), $row->maxunpubentries, ($row->judgeEitherNotBoth ? 'yes' : 'no'), $row->mainstream,
-                        $row->category, $row->historical, $row->singleTitle, $row->paranormal, $row->inspirational)); // append each row
+                $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(), $this->stripCodes($row->user()->first()->street),
+                        $row->user()->first()->city, $row->user()->first()->state, $row->user()->first()->zipCode, $row->user()->first()->country,
+                        $row->user()->first()->email, $row->judgeThisYear,
+                        $row->maxpubentries, $row->maxunpubentries, $row->mainstream,
+                        $row->category, $row->historical, $row->singleTitle, $row->paranormal, $row->inspirational,
+                        ($row->erotic ? 'yes' : 'no'),($row->glbt ? 'yes' : 'no'),($row->bdsm ? 'yes' : 'no'),($row->childdeath ? 'yes' : 'no'))); // append each row
 
             }
         }
@@ -223,7 +227,7 @@ class AdminController extends Controller
             if (!($this->getAdminPerson() && $this->getAdminPerson()->isCoordinator())) {
                 return redirect('/home');
             }
-            $this->isAdmin = $this->getAdminPerson()->isAdministrator();
+            $this->isAdministrator = $this->getAdminPerson()->isAdministrator();
         }
         return $this->adminPerson;
     }

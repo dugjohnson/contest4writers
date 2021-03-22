@@ -1,25 +1,12 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Helpers\EntryHelper;
+use Illuminate\Support\Facades\Auth;
+
 use App\Http\Requests;
 
-class ReportsController extends Controller
+class ReportsController extends KODController
 {
-
-    public $readerID;
-    public $readerRole;
-    public $legalIDs = [106, 1];
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware(function ($request, $next) {
-            $this->readerID = \Auth::id();
-            return $next($request);
-        });
-
-    }
-
     use EntryHelper;
 
     /**
@@ -30,7 +17,7 @@ class ReportsController extends Controller
     public function index()
     {
         //
-        if (!in_array($this->readerID, $this->legalIDs)) {
+        if (! $this->isAdministrator) {
             return redirect('home');
         }
         $categoryCounts = $this->getCategoryCounts();

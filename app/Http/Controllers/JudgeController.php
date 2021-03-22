@@ -8,13 +8,11 @@ use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 
-class JudgeController extends Controller
+class JudgeController extends KODController
 {
 
     const PUBLISHED = true;
     const UNPUBLISHED = false;
-    protected $isCoordinator = false;
-    protected $isAdmin = false;
     public $judgeUserID;
     public $judge;
 
@@ -28,23 +26,13 @@ class JudgeController extends Controller
     }
 
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
      * Display a listing of the resource.
      *
      * @return Response
      */
     public function index()
     {
-        return view('judge.index', array('isJudge' => $this->isJudge(), 'judge' => $this->getJudge(), 'isCoordinator' => $this->isCoordinator, 'isAdmin' => $this->isAdmin));
+        return view('judge.index', array('isJudge' => $this->isJudge(), 'judge' => $this->getJudge(), 'isCoordinator' => $this->isCoordinator, 'isAdministrator' => $this->isAdministrator));
         //
     }
 
@@ -112,7 +100,6 @@ class JudgeController extends Controller
         //      dd($data);
         //
         $judge = Judge::find($id);
-        $this->checkAdministrator();
 
         return view('judge.show', $this->judgeFormData($judge) );
 	}
@@ -127,7 +114,6 @@ class JudgeController extends Controller
     {
         //
         $judge = Judge::find($id);
-        $this->checkAdministrator();
 
         return view('judge.edit', $this->judgeFormData($judge) );
 	}
@@ -142,7 +128,6 @@ class JudgeController extends Controller
     {
         //
         $judge = Judge::find($id);
-        $this->checkAdministrator();
 
         $this->fillInFields($request, $judge);
         $judge->save();
@@ -234,18 +219,7 @@ class JudgeController extends Controller
 
             $this->judgeUserID = Auth::id();
             $this->judge = Judge::where('user_id', '=', $this->judgeUserID)->first();
-            $this->checkAdministrator();
         }
         return $this->judgeUserID;
     }
-
-    private function checkAdministrator()
-    {
-        $loginUser = Auth::user();
-        if ((!empty($loginUser)) && $loginUser->isAdministrator()) {
-            $this->isAdmin = true;
-            $this->isCoordinator = true;
-        }
-    }
-
 }
