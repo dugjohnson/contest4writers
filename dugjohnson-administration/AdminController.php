@@ -124,7 +124,7 @@ class AdminController extends Controller
 
         foreach ($entries as $row) {
                 $title = 'entries.csv';
-                $output .= "\r" . implode(",", array($row->id, $row->title, $row->author,
+                $output .= "\r" . implode(",", array($row->id, $this->stripCodes($row->title), $this->stripCodes($row->author),
                         $row->category,($row->published ? 'Pub' : 'Unpub'),
                         ($row->erotic ? 'yes' : 'no'),($row->glbt ? 'yes' : 'no'),($row->bdsm ? 'yes' : 'no'),($row->childdeath ? 'yes' : 'no'))); // append each row
 
