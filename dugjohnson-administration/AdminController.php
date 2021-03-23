@@ -109,6 +109,41 @@ class AdminController extends Controller
 
     public function returnCSV($CSVType = '')
     {
+        if (strtolower($CSVType) == 'entries') {
+           return $this->entryCSV();
+        }
+
+        return $this->judgeCSV($CSVType);
+
+    }
+    protected function entryCSV() {
+        $entries = Entry::all();
+
+        // the csv file with the first row
+        $output = implode(",", array('Entry ID', 'Title', 'Author','Category','Pub/Unpub', 'Sex','LGBTQ+','Violence','Child Death'));
+
+        foreach ($entries as $row) {
+                $title = 'entries.csv';
+                $output .= "\r" . implode(",", array($row->id, $row->title, $row->author,
+                        $row->category,($row->published ? 'Pub' : 'Unpub'),
+                        ($row->erotic ? 'yes' : 'no'),($row->glbt ? 'yes' : 'no'),($row->bdsm ? 'yes' : 'no'),($row->childdeath ? 'yes' : 'no'))); // append each row
+
+            }
+
+        // headers used to make the file "downloadable", we set them manually
+        // since we can't use Laravel's Response::download() function
+        $headers = array(
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="' . $title . '"',
+        );
+
+        // our response, this will be equivalent to your download() but
+        // without using a local file
+        return Response::make(rtrim($output, "\n"), 200, $headers);
+
+    }
+
+    protected function judgeCSV($CSVType = '') {
         //use if don't need fields from user except for sorting
         $judges = Judge::with('user')
             ->join('users', 'users.id', '=', 'judges.user_id')
