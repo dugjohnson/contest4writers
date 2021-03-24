@@ -147,25 +147,17 @@ class AdminController extends Controller
         //use if don't need fields from user except for sorting
         $judges = Judge::with('user')
             ->join('users', 'users.id', '=', 'judges.user_id')
-//			->where( 'judges.judgeThisYear', '=', 'LJ' )
-//			->orWhere( 'judges.judgeThisYear', '=', 'EJ' )
             ->orderBy('users.lastName')
             ->select('judges.*')
             ->get();
 
-        //alternative way to pull, will probably give access to user object but slower
-//        $judges = Judge::with('User')
-//            ->where('judgeThisYear','=','LJ')
-//            ->orWhere('judgeThisYear','=','EJ')
-//            ->get()
-//            ->sortBy('User.lastName');
-
         // the csv file with the first row
         $output = implode(",", array('Judge ID', 'Profile ID', 'Judge name', 'Street', 'City',
-            'State', 'Zip', 'Country', 'Email', 'This Year', 'Pub Max', 'Unpub Max', 'MA', 'SH', 'HI', 'LO', 'PA', 'IN','Sex','LGBTQ+','Violence','Child Death'));
+            'State', 'Zip', 'Country', 'Email', 'This Year', 'Pub Max', 'Unpub Max', 'MA', 'SH', 'HI', 'LO', 'PA', 'IN','Entered','Sex','LGBTQ+','Violence','Child Death'));
 
         foreach ($judges as $row) {
             // iterate over each tweet and add it to the csv
+            $contestEntryCategories = $this->getContestEntryCategories($row->user()->first()->email);
             if (strtolower($CSVType) == 'favorite') {
                 $title = 'judgefaves.csv';
                 $output .= "\r" . implode(",", array($row->id, $row->user_id, $row->judgeName(), $this->stripCodes($row->user()->first()->street),
@@ -173,7 +165,7 @@ class AdminController extends Controller
                         $row->user()->first()->email, $row->judgeThisYear,
                         $row->maxpubentries, $row->maxunpubentries, $this->convertValue($row->mainstream),
                         $this->convertValue($row->category), $this->convertValue($row->historical), $this->convertValue($row->singleTitle),
-                        $this->convertValue($row->paranormal), $this->convertValue($row->inspirational),
+                        $this->convertValue($row->paranormal), $this->convertValue($row->inspirational),$contestEntryCategories,
                         ($row->erotic ? 'yes' : 'no'),($row->glbt ? 'yes' : 'no'),($row->bdsm ? 'yes' : 'no'),($row->childdeath ? 'yes' : 'no'))); // append each row
 
             } else {
@@ -182,7 +174,7 @@ class AdminController extends Controller
                         $row->user()->first()->city, $row->user()->first()->state, $row->user()->first()->zipCode, $row->user()->first()->country,
                         $row->user()->first()->email, $row->judgeThisYear,
                         $row->maxpubentries, $row->maxunpubentries, $row->mainstream,
-                        $row->category, $row->historical, $row->singleTitle, $row->paranormal, $row->inspirational,
+                        $row->category, $row->historical, $row->singleTitle, $row->paranormal, $row->inspirational,$contestEntryCategories,
                         ($row->erotic ? 'yes' : 'no'),($row->glbt ? 'yes' : 'no'),($row->bdsm ? 'yes' : 'no'),($row->childdeath ? 'yes' : 'no'))); // append each row
 
             }
@@ -199,6 +191,22 @@ class AdminController extends Controller
         // without using a local file
         return Response::make(rtrim($output, "\n"), 200, $headers);
 
+    }
+
+    private function getContestEntryCategories($email){
+        $categories = [];
+        $entryCategories = Entry::where('authorEmail','=',$email)->get();
+
+        foreach ($entryCategories as $entryCategory) {
+           if (! in_array($entryCategory->category, $categories)) {
+               $categories[] = $entryCategory->category;
+           }
+           if (0 < count($categories)) {
+               return implode('-',$categories);
+           }
+           return '';
+
+        }
     }
 
     public function jsonDownload()
