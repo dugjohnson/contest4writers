@@ -3,6 +3,6 @@
 @section('content')
     <div id="view-content">
         @include('scoresheets.show.openunpub')
-        @include('scoresheets.show.content.ST')
+        @include('scoresheets.show.content.LO')
     </div>
 @stop
