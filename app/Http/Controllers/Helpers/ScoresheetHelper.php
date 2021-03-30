@@ -9,7 +9,7 @@
 namespace App\Http\Controllers\Helpers;
 
 
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 
 trait ScoresheetHelper
@@ -275,6 +275,7 @@ trait ScoresheetHelper
     public function sendJudgeConfirmation($scoresheet)
     {
         $templateToUse = 'scoresheets.emails.judged';
+
         $user = User::find($scoresheet->judge->user_id);
         $ccEmails = Array();
         $this->addAdminEmail($ccEmails,'JC');
