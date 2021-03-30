@@ -24,7 +24,7 @@
                         <td>{!! ($scoresheet->published?'Published':'Unpublished') !!}</td>
                         @if ($scoresheet->published)
                             <td>
-                                ---
+                                <a href="/uploads/entries/{{ $scoresheet->entry->filename }}">Download</a>
                             </td>
                             <td>
                                 ---
