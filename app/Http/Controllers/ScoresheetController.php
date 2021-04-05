@@ -29,6 +29,9 @@ class ScoresheetController extends KODController
     public function index($judgeID = 0)
     {
         //
+        if ($judgeID < 1) {
+            $judgeID = Auth::user()->judge->id;
+        }
         $scoresheets = Scoresheet::where('judge_id', '=', $judgeID)->get();
         return view('scoresheets.index', ['scoresheets' => $scoresheets, 'categories' => $this->categories()]);
     }
