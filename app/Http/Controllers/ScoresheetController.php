@@ -26,10 +26,10 @@ class ScoresheetController extends KODController
      *
      * @return Response
      */
-    public function index($judgeID = null)
+    public function index($judgeID = 0)
     {
         //
-        $scoresheets = Scoresheet::where('judge_id', '=', $this->judgeID)->get();
+        $scoresheets = Scoresheet::where('judge_id', '=', $judgeID)->get();
         return view('scoresheets.index', ['scoresheets' => $scoresheets, 'categories' => $this->categories()]);
     }
 
