@@ -17,22 +17,9 @@ class ScoresheetController extends KODController
 
     const COUNT_FOR_PUBLISHED = 3;
     const COUNT_FOR_UNPUBLISHED = 4;
-    public $judgeID = 0;
 
     use ScoresheetHelper;
     use EntryHelper;
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->middleware(function ($request, $next) {
-            if (Auth::check()) {
-                $this->judgeID = Auth::user()->judge->id;
-            }
-            return $next($request);
-        });
-
-    }
 
     /**
      * Display a listing of the resource.
