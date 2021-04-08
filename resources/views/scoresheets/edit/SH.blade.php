@@ -125,7 +125,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>CATEGORY (SERIES) ROMANCE SPECIFIC</legend>
+            <legend>SHORT ROMANCE SPECIFIC</legend>
             <div class="form-group">
                 {!! Form::label('score12',  $label['score12']) !!}
                 1 {!! Form::radio('score12[]','1',$scoresheet->sheet->scores->score12==1,['class'=>'scorer form-control']) !!}

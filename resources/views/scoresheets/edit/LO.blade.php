@@ -109,7 +109,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>SINGLE TITLE SPECIFIC</legend>
+            <legend>LONG ROMANTIC MYSTERY/SUSPENSE SPECIFIC</legend>
             <div class="form-group">
                 {!! Form::label('score10',  $label['score10']) !!}
                 1 {!! Form::radio('score10[]','1',$scoresheet->sheet->scores->score10==1,['class'=>'scorer form-control']) !!}

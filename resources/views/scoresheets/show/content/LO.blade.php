@@ -35,7 +35,7 @@
 </fieldset>
 
 <fieldset>
-    <legend>SINGLE TITLE SPECIFIC</legend>
+    <legend>LONG ROMANTIC MYSTERY/SUSPENSE SPECIFIC</legend>
     <p>{{ $label['score10'] }} {{ $scoresheet->sheet->scores->score10 }} </p>
 
     <p>{{ $label['score11'] }} {{ $scoresheet->sheet->scores->score11 }} </p>
