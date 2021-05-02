@@ -7,6 +7,10 @@
 
         <a href="/uploads/entries/{{ $entry->filename }}?ver={{$vers}}" class="small button">Click to
             download {{ $entry->filename }}</a><br/>
+
+        @if($entry->final_filename)
+            <a href="/uploads/entries/{{ $entry->final_filename }}?ver={{$vers}}" class="small button">Click to
+                download final {{ $entry->final_filename }}</a><br/>        @endif
         <p>Signature: {{$entry->signed}}</p>
         @if ($isCoordinator)
             @include('entry.infoadmin')

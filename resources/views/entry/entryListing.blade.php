@@ -31,12 +31,14 @@
                 <td>{!! ($entry->finalist?'Yes':'') !!}</td>
             @endif
             <td><a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}">Show</a> /
+                @if($entry->finalist && ! $entry->published)
+                    <a href="/entries/final/{{ $entry->id }}/upload">Upload final</a> /
+                @endif
                 @if($entry->received)
-                    <strong>Locked
-                        @if($isCoordinator)
-                            <a href="/coordinators/entries/{{ $entry->id }}/edit">Edit</a>
-                        @endif
-                    </strong>
+                    @if($isCoordinator)
+                        <a href="/coordinators/entries/{{ $entry->id }}/edit">Edit /</a>
+                    @endif
+                    <strong>Locked</strong>
                 @else
                     <a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}/edit">Edit</a>
                     <br>

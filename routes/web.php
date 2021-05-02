@@ -44,6 +44,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::post('entries/create/unpub', 'EntryController@storeUnpub');
     Route::get('entries/{id}/upload', 'EntryController@getUpload');
     Route::post('entries/{id}/upload', 'EntryController@postUpload');
+    Route::get('entries/final/{id}/upload', 'FinalController@getUpload');
+    Route::post('entries/final/{id}/upload', 'FinalController@postUpload');
 
     Route::get('scoresheets/batch', 'ScoresheetController@getBatch');
     Route::post('scoresheets/batch', 'ScoresheetController@postBatch');

@@ -19,7 +19,6 @@
 {!! Html::link(URL::to('uploads/entries/'.$entry->filename),'Click to download entry file '.$entry->filename) !!}
 <p></p>
 
-
 <P>Entries without completed entry form and payment will not be judged.</P>
 
 @include('entry.financial')
