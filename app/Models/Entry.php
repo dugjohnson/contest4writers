@@ -18,4 +18,8 @@ class Entry extends Model {
 
     }
 
+    public function final_scoresheets(){
+        return $this->hasMany(FinalScoresheet::class);
+    }
+
 }

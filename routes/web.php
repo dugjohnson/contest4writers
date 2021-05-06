@@ -58,6 +58,13 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('scoresheets/{judgeID}/assigned', 'ScoresheetController@assignedTo');
     Route::get('scoresheets/judge/{judgeID}/comparison', 'ScoresheetController@comparison');
 
+    Route::get('scoresheets/final/{lookup_code}/edit', 'FinalController@index');
+    Route::put('scoresheets/final/{lookup_code}/edit', 'FinalController@update');
+    Route::get('scoresheets/final/{lookup_code}/show', 'FinalController@show');
+
+    Route::get('scoresheets/final/makesheets', 'FinalController@makesheets');
+
+
     Route::get('closeout', 'CloseoutController@index');
     Route::get('closeout/email/{type}', 'CloseoutController@email');
     Route::get('closeout/email/{type}/go', 'CloseoutController@emailGo');
