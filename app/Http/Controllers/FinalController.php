@@ -123,7 +123,7 @@ class FinalController extends Controller
                 $final_score->published = false;
                 $final_score->category = $final->category;
                 $final_score->title = $final->title;
-                if ('LO' == $final->category) {
+                if ('MA' == $final->category) {
                     $final->final_judge_id = $i + 1;
                 } else {
                     $final->final_judge_id = $i + 6;
