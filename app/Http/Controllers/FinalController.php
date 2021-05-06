@@ -124,9 +124,9 @@ class FinalController extends Controller
                 $final_score->category = $final->category;
                 $final_score->title = $final->title;
                 if ('MA' == $final->category) {
-                    $final->final_judge_id = $i + 1;
+                    $final_score->final_judge_id = $i + 1;
                 } else {
-                    $final->final_judge_id = $i + 6;
+                    $final_score->final_judge_id = $i + 6;
                 }
                 $final_score->save();
             }
