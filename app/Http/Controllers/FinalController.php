@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Entry;
+use App\Models\FinalJudge;
 use App\Models\FinalScoresheet;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Helpers\EntryHelper;
+use Illuminate\Support\Facades\Mail;
 
 
 class FinalController extends Controller
@@ -100,12 +102,34 @@ class FinalController extends Controller
         $finalsheet->assessment = $request->input('assessment');
         $finalsheet->score = $request->input('score');
         $finalsheet->rank = $request->input('rank');
-        $finalsheet->synopsis = empty($request->input('synopsis'))?false:true;
-        $finalsheet->full_manuscript = empty($request->input('full_manuscript'))?false:true;
-        $finalsheet->other = empty($request->input('other'))?false:true;
+        $finalsheet->synopsis = empty($request->input('synopsis')) ? false : true;
+        $finalsheet->full_manuscript = empty($request->input('full_manuscript')) ? false : true;
+        $finalsheet->other = empty($request->input('other')) ? false : true;
         $finalsheet->signature = $request->input('signature');
         $finalsheet->save();
-        return redirect('/scoresheets/final/'.$lookup_code.'/show');
+        return redirect('/scoresheets/final/' . $lookup_code . '/show');
+    }
+
+    public function sendemails()
+    {
+        $judges = FinalJudge::all();
+        foreach ($judges as $judge) {
+
+            $scoresheets = FinalScoresheet::where('final_judge_id', '=', $judge->id)->get();
+
+            $templateToUse = ('scoresheets.finalist.judgefinal');
+            $ccEmails = array();
+            $this->addAdminEmail($ccEmails, 'JC');
+            $this->addAdminEmail($ccEmails, 'OC');
+            $ccEmails[] = ['email' => 'doug@asknice.com', 'name' => 'Webmaster'];
+
+            Mail::send($templateToUse, array('scoresheets' => $scoresheets, 'judge' => $judge), function ($message) use ($judge, $ccEmails) {
+                $message->to($judge->email, $judge->first_name . ' ' . $judge->last_name)->subject('Finalist entries for you to judge');
+                foreach ($ccEmails as $email) {
+                    $message->cc($email['email'], $email['name']);
+                }
+            });
+        }
     }
 
     // creates 5 score sheets for each finalist
