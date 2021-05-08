@@ -62,8 +62,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::put('scoresheets/final/{lookup_code}/edit', 'FinalController@update');
     Route::get('scoresheets/final/{lookup_code}/show', 'FinalController@show');
 
-    Route::get('scoresheets/final/makesheets', 'FinalController@makesheets');
-    Route::get('scoresheets/final/sendemails', 'FinalController@sendemails');
+//    Route::get('scoresheets/final/makesheets', 'FinalController@makesheets');
+//    Route::get('scoresheets/final/sendemails', 'FinalController@sendemails');
 
     Route::get('closeout', 'CloseoutController@index');
     Route::get('closeout/email/{type}', 'CloseoutController@email');
