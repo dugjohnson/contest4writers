@@ -59,6 +59,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('scoresheets/judge/{judgeID}/comparison', 'ScoresheetController@comparison');
 
     Route::get('scoresheets/final/{lookup_code}/edit', 'FinalController@index');
+    Route::get('scoresheets/finalist/{lookup_code}/edit', 'FinalController@index');
     Route::put('scoresheets/final/{lookup_code}/edit', 'FinalController@update');
     Route::get('scoresheets/final/{lookup_code}/show', 'FinalController@show');
 

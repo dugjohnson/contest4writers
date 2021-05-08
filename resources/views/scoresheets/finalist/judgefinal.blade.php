@@ -13,7 +13,7 @@
  @foreach( $scoresheets as $sheet)
      <p>Title: {{$sheet->title}}</p>
      <p>Link to download the entry: <a href="https://writingcontest.website/uploads/entries/{{$sheet->entry->final_filename}}">writingcontest.website/uploads/entries/{{$sheet->entry->final_filename}}</a></p>
-     <p>Link to edit the score sheet: <a href="https://writingcontest.website/scoresheets/finalist/{{$sheet->lookup_code}}/edit">writingcontest.website/scoresheets/finalist/{{$sheet->lookup_code}}/edit</a></p>
+     <p>Link to edit the score sheet: <a href="https://writingcontest.website/scoresheets/final/{{$sheet->lookup_code}}/edit">writingcontest.website/scoresheets/finalist/{{$sheet->lookup_code}}/edit</a></p>
      <hr>
  @endforeach
 
