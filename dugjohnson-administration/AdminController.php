@@ -7,6 +7,7 @@ use App\Http\Controllers\Helpers\ScoresheetHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Controllers\Helpers\EntryHelper;
+use App\Models\FinalScoresheet;
 use App\Models\Judge;
 use App\Models\Scoresheet;
 use Illuminate\Http\Request;
@@ -109,26 +110,34 @@ class AdminController extends Controller
 
     public function returnCSV($CSVType = '')
     {
+        if (strtolower($CSVType) == 'finalround') {
+            return $this->finalCSV();
+        }
+
         if (strtolower($CSVType) == 'entries') {
-           return $this->entryCSV();
+            return $this->entryCSV();
         }
 
         return $this->judgeCSV($CSVType);
 
     }
-    protected function entryCSV() {
-        $entries = Entry::all();
+
+    protected function finalCSV()
+    {
+        $entries = FinalScoresheet::all();
 
         // the csv file with the first row
-        $output = implode(",", array('Entry ID', 'Title', 'Author','Category','Pub/Unpub', 'Sex','LGBTQ+','Violence','Child Death'));
+        $output = implode(",", array('Judge Name','Entry ID', 'Title', 'Author', 'Category', 'finalScore', 'Rank', 'Synopsis', 'Full Manuscript', 'Other','Lookup Code'));
 
         foreach ($entries as $row) {
-                $title = 'entries.csv';
-                $output .= "\r" . implode(",", array($row->id, $this->stripCodes($row->title), $this->stripCodes($row->author),
-                        $row->category,($row->published ? 'Pub' : 'Unpub'),
-                        ($row->erotic ? 'yes' : 'no'),($row->glbt ? 'yes' : 'no'),($row->bdsm ? 'yes' : 'no'),($row->childdeath ? 'yes' : 'no'))); // append each row
+            $title = 'unpubbed_finalist_scores.csv';
+            $output .= "\r" . implode(",", array($row->judge->first_name.' '.$row->judge->last_name,
+                    $row->entry_id, $this->stripCodes($row->title), $this->stripCodes($row->entry->author),
+                    $row->category, $row->final_score,$row->rank,
+                    ($row->synopsis ? 'yes' : 'no'), ($row->full_manuscript ? 'yes' : 'no'), ($row->other ? 'yes' : 'no'),
+                    $row->lookup_code )); // append each row
 
-            }
+        }
 
         // headers used to make the file "downloadable", we set them manually
         // since we can't use Laravel's Response::download() function
@@ -143,7 +152,36 @@ class AdminController extends Controller
 
     }
 
-    protected function judgeCSV($CSVType = '') {
+    protected function entryCSV()
+    {
+        $entries = Entry::all();
+
+        // the csv file with the first row
+        $output = implode(",", array('Entry ID', 'Title', 'Author', 'Category', 'Pub/Unpub', 'Sex', 'LGBTQ+', 'Violence', 'Child Death'));
+
+        foreach ($entries as $row) {
+            $title = 'entries.csv';
+            $output .= "\r" . implode(",", array($row->id, $this->stripCodes($row->title), $this->stripCodes($row->author),
+                    $row->category, ($row->published ? 'Pub' : 'Unpub'),
+                    ($row->erotic ? 'yes' : 'no'), ($row->glbt ? 'yes' : 'no'), ($row->bdsm ? 'yes' : 'no'), ($row->childdeath ? 'yes' : 'no'))); // append each row
+
+        }
+
+        // headers used to make the file "downloadable", we set them manually
+        // since we can't use Laravel's Response::download() function
+        $headers = array(
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="' . $title . '"',
+        );
+
+        // our response, this will be equivalent to your download() but
+        // without using a local file
+        return Response::make(rtrim($output, "\n"), 200, $headers);
+
+    }
+
+    protected function judgeCSV($CSVType = '')
+    {
         //use if don't need fields from user except for sorting
         $judges = Judge::with('user')
             ->join('users', 'users.id', '=', 'judges.user_id')
@@ -153,7 +191,7 @@ class AdminController extends Controller
 
         // the csv file with the first row
         $output = implode(",", array('Judge ID', 'Profile ID', 'Judge name', 'Street', 'City',
-            'State', 'Zip', 'Country', 'Email', 'This Year', 'Pub Max', 'Unpub Max', 'MA', 'SH', 'HI', 'LO', 'PA', 'IN','Entered','Sex','LGBTQ+','Violence','Child Death'));
+            'State', 'Zip', 'Country', 'Email', 'This Year', 'Pub Max', 'Unpub Max', 'MA', 'SH', 'HI', 'LO', 'PA', 'IN', 'Entered', 'Sex', 'LGBTQ+', 'Violence', 'Child Death'));
 
         foreach ($judges as $row) {
             // iterate over each tweet and add it to the csv
@@ -165,8 +203,8 @@ class AdminController extends Controller
                         $row->user()->first()->email, $row->judgeThisYear,
                         $row->maxpubentries, $row->maxunpubentries, $this->convertValue($row->mainstream),
                         $this->convertValue($row->category), $this->convertValue($row->historical), $this->convertValue($row->singleTitle),
-                        $this->convertValue($row->paranormal), $this->convertValue($row->inspirational),$contestEntryCategories,
-                        ($row->erotic ? 'yes' : 'no'),($row->glbt ? 'yes' : 'no'),($row->bdsm ? 'yes' : 'no'),($row->childdeath ? 'yes' : 'no'))); // append each row
+                        $this->convertValue($row->paranormal), $this->convertValue($row->inspirational), $contestEntryCategories,
+                        ($row->erotic ? 'yes' : 'no'), ($row->glbt ? 'yes' : 'no'), ($row->bdsm ? 'yes' : 'no'), ($row->childdeath ? 'yes' : 'no'))); // append each row
 
             } else {
                 $title = 'judges.csv';
@@ -174,8 +212,8 @@ class AdminController extends Controller
                         $row->user()->first()->city, $row->user()->first()->state, $row->user()->first()->zipCode, $row->user()->first()->country,
                         $row->user()->first()->email, $row->judgeThisYear,
                         $row->maxpubentries, $row->maxunpubentries, $row->mainstream,
-                        $row->category, $row->historical, $row->singleTitle, $row->paranormal, $row->inspirational,$contestEntryCategories,
-                        ($row->erotic ? 'yes' : 'no'),($row->glbt ? 'yes' : 'no'),($row->bdsm ? 'yes' : 'no'),($row->childdeath ? 'yes' : 'no'))); // append each row
+                        $row->category, $row->historical, $row->singleTitle, $row->paranormal, $row->inspirational, $contestEntryCategories,
+                        ($row->erotic ? 'yes' : 'no'), ($row->glbt ? 'yes' : 'no'), ($row->bdsm ? 'yes' : 'no'), ($row->childdeath ? 'yes' : 'no'))); // append each row
 
             }
         }
@@ -193,18 +231,19 @@ class AdminController extends Controller
 
     }
 
-    private function getContestEntryCategories($email){
+    private function getContestEntryCategories($email)
+    {
         $categories = [];
-        $entryCategories = Entry::where('authorEmail','=',$email)->get();
+        $entryCategories = Entry::where('authorEmail', '=', $email)->get();
 
         foreach ($entryCategories as $entryCategory) {
-           if (! in_array($entryCategory->category, $categories)) {
-               $categories[] = $entryCategory->category;
-           }
-           if (0 < count($categories)) {
-               return implode('-',$categories);
-           }
-           return '';
+            if (!in_array($entryCategory->category, $categories)) {
+                $categories[] = $entryCategory->category;
+            }
+            if (0 < count($categories)) {
+                return implode('-', $categories);
+            }
+            return '';
 
         }
     }

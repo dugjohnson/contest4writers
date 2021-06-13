@@ -1,17 +1,17 @@
-<p>Dear Daphne Published Entrant:</p>
+<p>Dear Daphne du Maurier Award for Excellence in Mystery/Suspense Entrant:</p>
 
-<p>The {{ $contest_year }} Daphne Published Contest has ended and unfortunately your entry did not final.
-	This year's published contest, as always, was highly competitive. What one judge loves, another doesn't.
-	Take this opportunity to look over the comments (if any) with an eye to maybe seeing an "Aha moment" you hadn't considered in
-	your writing. Perhaps they will help in making the next book even better.
-</p>
-<p>If you wish to send a thank you note to your judge, you may send them to me and I will forward.
-</p>
-<p>Thank you for entering the Daphne du Maurier Award for Excellence in Mystery/Suspense.
-	On behalf of the Daphne du Maurier Contest Committee, I wish you the very best in your writing career.
-</p>
+<p>The {{ $contest_year }} Daphne Contest Published Division judging has ended and the finalists have been announced. Unfortunately, you did not final.</p>
 
-<p>Best,<br>
-Brooke</p>
-<p>Brooke Wills<br>
-{{ $contest_year }} Daphne Contest Chair</p>
+<p>While this is disappointing, we hope you will keep in mind that contests are highly subjective, the Daphne du Maurier Award for Excellence in Mystery/Suspense contest is highly competitive, and what one judge loves, another doesn't.</p>
+
+<p>We hope you will take this opportunity to look at the judges’ comments. Occasionally, they will make no sense to you, but other times you may actually have an “Aha moment” to make your manuscript better. In any case, if two or more judges say the same thing, it may be a good idea to consider some editing. It is always, of course, your story.</p>
+
+<p>In the rare case your judge did not make comments, please be advised that the Contest Co-Chairs and Coordinators keep track of these judges. We cannot control everything in this contest, but we want to be first and foremost known as the contest that gives feedback.</p>
+
+<p>If you wish to send a thank-you note to your judges, you may send them to us and we will forward it.</p>
+
+<p>Thank you for entering the {{ $contest_year }} Daphne du Maurier Award for Excellence in Mystery/Suspense contest. We hope you will join us on Saturday, June 26, 2021, at 4:00pm Pacific Time for the {{ $contest_year }} Daphne du Maurier Award for Excellence Virtual Ceremony where the winners will be announced. More information will be provided soon.</p>
+
+<p>We wish you the very best in your writing career.</p>
+
+<p>{{ $contest_year }} Contest Committee</p>
