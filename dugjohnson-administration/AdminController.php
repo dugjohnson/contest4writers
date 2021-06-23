@@ -157,11 +157,11 @@ class AdminController extends Controller
         $entries = Entry::all();
 
         // the csv file with the first row
-        $output = implode(",", array('Entry ID', 'Title', 'Author', 'Category', 'Pub/Unpub', 'Sex', 'LGBTQ+', 'Violence', 'Child Death'));
+        $output = implode(",", array('Entry ID', 'Title', 'Author', 'Email','Category', 'Pub/Unpub', 'Sex', 'LGBTQ+', 'Violence', 'Child Death'));
 
         foreach ($entries as $row) {
             $title = 'entries.csv';
-            $output .= "\r" . implode(",", array($row->id, $this->stripCodes($row->title), $this->stripCodes($row->author),
+            $output .= "\r" . implode(",", array($row->id, $this->stripCodes($row->title), $this->stripCodes($row->author), $row->authorEmail,
                     $row->category, ($row->published ? 'Pub' : 'Unpub'),
                     ($row->erotic ? 'yes' : 'no'), ($row->glbt ? 'yes' : 'no'), ($row->bdsm ? 'yes' : 'no'), ($row->childdeath ? 'yes' : 'no'))); // append each row
 
