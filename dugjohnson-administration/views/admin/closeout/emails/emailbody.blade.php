@@ -8,17 +8,6 @@
 <hr>
 @if('unpubfinalscore' == $type)
     @foreach($entry->final_scoresheets as $finalsheet)
-        <fieldset>
-            <legend>General Information</legend>
-            <p><em>Judge ID: </em>{{$finalsheet->final_judge_id }}<em> Entry ID:</em> {{ $finalsheet->entry_id }}</p>
-
-            <p>{{$finalsheet->title }}</p>
-
-            <p>{!! $categories[$finalsheet->category] !!} {!! ($finalsheet->published?'Published':'Unpublished')!!}</p>
-
-            <p><strong>Score: {{  $finalsheet->finalScore }}</strong></p>
-        </fieldset>
-
         @include('scoresheets.finalist.showfinal')
         <hr>
     @endforeach
