@@ -21,6 +21,7 @@ class CloseoutController extends KODController
         'unpubnonfinal' => 'Unpublished Non-Finalist',
         'pubnonfinal' => 'Published Non-Finalist',
         'unpubfinal' => 'Unpublished Finalist',
+        'unpubfinalscore' => 'Unpublished Finalist Final Scores',
         'pubfinal' => 'Published Finalist',
         'judges' => 'Judges',
     ];
@@ -96,6 +97,10 @@ class CloseoutController extends KODController
                 $published = 0;
                 $finalist = 1;
                 break;
+            case 'unpubfinalscore':
+                $published = 0;
+                $finalist = 1;
+                break;
             case 'pubfinal':
                 $published = 1;
                 $finalist = 1;
@@ -143,10 +148,11 @@ class CloseoutController extends KODController
         foreach ($entry->scoresheets as $scoresheet) {
             $scoresheet->sheet = $scoresheet->getScoresheetData()->sheet;
         }
+
         Mail::send($templateToUse, array('user' => $user,
             'entry' => $entry,
             'type' => $type,
-            'coordinator' => 'Brooke Wills<br/>2017 Daphne Overall Coordinator',
+            'coordinator' => 'Jackie Renee<br/>2021 Daphne Overall Coordinator',
             'label' => $labelList,
             'tieBreakerList' => $tieBreakerList,
             'categories' => $this->categories()), function ($message) use ($entry, $user, $ccEmails, $type) {

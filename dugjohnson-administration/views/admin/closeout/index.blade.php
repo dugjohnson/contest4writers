@@ -11,6 +11,8 @@
         <hr>
         <div><a href="/closeout/email/unpubfinal" class="button radius">Send email to unpublished finalist</a></div>
         <div><a href="/closeout/email/pubfinal" class="button radius">Send email to published finalist</a></div>
+        <div><a href="/closeout/email/unpubfinalscore" class="button radius">Send email to unpublished finalist with finalist scores</a></div>
+
     </div>
     <p><a href="/administrators" class="button small radius">Return to Administrator page</a></p>
 
