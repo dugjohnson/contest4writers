@@ -19,7 +19,7 @@
     <!-- Category Form Input -->
     <div class="form-group">
     {!! Form::label('category', 'Category:') !!}
-    {!! Form::select('category', ['-' => 'Pick a Category', 'SH' => 'Short', 'HI' => 'Historical', 'IN' => 'Inspirational', 'MA' => 'Mainstream', 'PA' => 'Paranormal', 'LO' => 'Long',] , null , ['class' => 'form-control']) !!}
+    {!! Form::select('category', ['-' => 'Pick a Category', 'SH' => 'Short', 'HI' => 'Historical', 'IN' => 'Spiritual', 'MA' => 'Mainstream', 'PA' => 'Paranormal', 'LO' => 'Long',] , null , ['class' => 'form-control']) !!}
 
     </div>
     <!-- Signed Form Input -->

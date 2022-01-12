@@ -37,7 +37,7 @@
 </fieldset>
 
 <fieldset>
-    <legend>INSPIRATIONAL SPECIFIC</legend>
+    <legend>SPIRITUAL SPECIFIC</legend>
     <p>{{ $label['score11'] }} {{ $scoresheet->sheet->scores->score11 }} </p>
 
     <p>{{ $label['score12'] }} {{ $scoresheet->sheet->scores->score12 }} </p>

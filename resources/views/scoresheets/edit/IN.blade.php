@@ -116,7 +116,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>INSPIRATIONAL SPECIFIC</legend>
+            <legend>SPIRITUAL SPECIFIC</legend>
             <div class="form-group">
                 {!! Form::label('score11',  $label['score11']) !!}
                 1 {!! Form::radio('score11[]','1',$scoresheet->sheet->scores->score11==1,['class'=>'scorer form-control']) !!}

@@ -42,7 +42,7 @@
     {!! Form::select('paranormal', $preferenceLevels ,$judge->paranormal , ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('inspirational', 'Inspirational:') !!}
+    {!! Form::label('inspirational', 'Spiritual:') !!}
     {!! Form::select('inspirational', $preferenceLevels ,$judge->inspirational , ['class' => 'form-control']) !!}
 </div>
 

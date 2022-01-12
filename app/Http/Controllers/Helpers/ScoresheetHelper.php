@@ -209,13 +209,13 @@ trait ScoresheetHelper
                     $labelList['score02'] = 'Does the author reveal the right amount of information, not too much or too little?';
                     $labelList['score03'] = 'Is there an idea/foreshadow of the mystery/suspense to come in the opening pages?';
                     $labelList['score04'] = 'Is the plot original and well-executed?';
-                    $labelList['score05'] = 'Does the plot have the potential to sustain an entire book in inspirational romance?';
-                    $labelList['score06'] = 'Is the pacing appropriate to inspirational romantic suspense?';
+                    $labelList['score05'] = 'Does the plot have the potential to sustain an entire book in spiritual romance?';
+                    $labelList['score06'] = 'Is the pacing appropriate to spiritual romantic suspense?';
                     $labelList['score07'] = 'Are the characters skillfully developed?';
                     $labelList['score08'] = 'Are the characters appropriate to the plot?';
                     $labelList['score09'] = 'Do you get a sense of the hero/heroine\'s values, belief system or lack thereof?';
                     $labelList['score10'] = 'Is there chemistry between the hero and heroine?';
-                    $labelList['score11'] = 'Is the inspirational element evident?';
+                    $labelList['score11'] = 'Is the spiritual element evident?';
                     $labelList['score12'] = 'Is the premise on which the story is created solid enough to build the story to its ultimate climax?';
                     $labelList['score13'] = 'Is the story presented in a manner that is uplifting, yet not condescending or preachy?';
                     $labelList['score14'] = 'Is there a good balance between dialogue and narrative?';
