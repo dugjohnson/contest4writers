@@ -152,7 +152,7 @@ class CloseoutController extends KODController
         Mail::send($templateToUse, array('user' => $user,
             'entry' => $entry,
             'type' => $type,
-            'coordinator' => 'Jackie Renee<br/>2021 Daphne Overall Coordinator',
+            'coordinator' => 'Jennifer Graybeal<br/>2021 Daphne Overall Coordinator',
             'label' => $labelList,
             'tieBreakerList' => $tieBreakerList,
             'categories' => $this->categories()), function ($message) use ($entry, $user, $ccEmails, $type) {

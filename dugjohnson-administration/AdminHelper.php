@@ -33,7 +33,7 @@ trait AdminHelper
                 case 'SH':
                     $emailSection[] = ['email' => 'candico@att.net', 'name' => 'Leslie Scott'];
                 case 'MA':
-                    $emailSection[] = ['email' => 'contact.jackirenee@gmail.com', 'name' => 'Jackie Renee'];
+                    $emailSection[] = ['email' => 'jengraybeal@gmail.com', 'name' => 'Jennifer Graybeal'];
                 case 'HI':
                 case 'IN':
                 case 'PA':

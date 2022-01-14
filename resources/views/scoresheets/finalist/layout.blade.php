@@ -34,7 +34,7 @@
                                 itself of between 50 to 100. Second, please rank all the entries (first through fifth). We very
                                 much appreciate your help.
                                 Thank you for judging the Daphne! If you have any questions or problems, please contact
-                                <strong>Jennifer Graybeal or Jacki Renée at koddaphnecontest@gmail.com.</strong></p></div>
+                                <strong>Jennifer Graybeal at koddaphnecontest@gmail.com.</strong></p></div>
                     </fieldset>
                     @yield('content')
                 </div>

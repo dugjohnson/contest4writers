@@ -24,7 +24,7 @@
 @include('entry.financial')
 
 <P>Isla Grey, Treasurer<br>
-c/o Jackie Renee<br>
+c/o Jennifer Graybeal<br>
 PO Box 470403<br>
 Los Angeles, CA 90303</P>
 
