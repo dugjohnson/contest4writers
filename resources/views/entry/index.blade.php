@@ -8,7 +8,9 @@
             <li><a href="/entries/create/unpub" class="button radius">Enter Unpublished Contest</a></li>
         </ul>
     @else
-        <h4><strong>The competition entry period is January&nbsp;15 through March&nbsp;15</strong></h4>
+       <!-- <h4><strong>The competition entry period is January&nbsp;15 through March&nbsp;15</strong></h4> -->
+       <h4><strong>The competition entry period will be announced soon. </strong></h4>
+       <p><a href="https://www.rwakissofdeath.org/rwakissofdeath-org-contest/">Check the Kiss of Death website for updates</a></p>
     @endif
     @include('entry.entryListing')
     <div class="panel radius">
