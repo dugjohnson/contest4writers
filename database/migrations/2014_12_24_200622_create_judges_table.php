@@ -33,7 +33,7 @@ class CreateJudgesTable extends Migration {
 			$table->text('internalComments')->nullable();
 			$table->tinyInteger('yearsJudged')->default(0);
 			$table->text('categoriesjudged')->nullable();
-			$table->text('judgeThisYear')->nullable();
+			$table->text('judgeThisYear');
 			$table->timestamps();
 		});
 	}

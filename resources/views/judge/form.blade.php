@@ -1,9 +1,32 @@
 {!! Form::hidden('user_id',$judge->user_id) !!}
 <h5>Judge name: {{$judge->judgeName()}}</h5>
-<div class="form-group">
+<!-- <div class="form-group">
     {!! Form::label('judgeThisYear', 'Judging this year:') !!}
     {!! Form::select('judgeThisYear', $judgeThisYear,$judge->judgeThisYear , ['class' => 'form-control']) !!}
 </div>
+-->
+@if(empty($judge->judgeThisYear))
+<div class="form-group" style="background-color: lightgray; border: solid red 2px; padding: 10px;">
+    @else
+        <div class="form-group">
+@endif
+        <div class="form-group">
+        <h2>{!! Form::label('judgeThisYear', 'Judging this year:') !!}</h2>
+        {!! Form::radio('judgeThisYear','LJ', $judge->judgeThisYear=='LJ', ['class' => 'form-control']) !!} I would love to judge this year<br/>
+        {!! Form::radio('judgeThisYear','NY', $judge->judgeThisYear=='NY', ['class' => 'form-control']) !!} Ask me next year<br/>
+        {!! Form::radio('judgeThisYear','EJ', $judge->judgeThisYear=='EJ', ['class' => 'form-control']) !!} Only use me in an emergency<br/>
+        {!! Form::radio('judgeThisYear','RM', $judge->judgeThisYear=='RM', ['class' => 'form-control']) !!} Please remove me from judging list<br/>
+    </div>
+    <div></div>
+</div>
+
+        <div class="form-group">
+            <p>Sometimes, at the end of judging, the committee needs emergency judges to quickly read and judge an entry. This can happen if an assigned
+            judge can't complete their assignment, or if there is a very close score that needs a tie breaker. If you are willing to fill that task if
+            it became necessary, the committee would appreciate it</p>
+            {!! Form::label('emergencyJudge', 'I am willing to be an emergency judge:') !!}
+            {!! Form::radio('emergencyJudge',false, $judge->emergencyJudge==true, ['class' => 'form-control']) !!} Yes {!! Form::radio('emergencyJudge',false, $judge->emergencyJudge==false, ['class' => 'form-control']) !!} No
+        </div>
 <!-- Maxpubentries Form Input -->
 <div class="form-group">
     {!! Form::label('maxpubentries', 'Maximum number of published entries I will judge:') !!}

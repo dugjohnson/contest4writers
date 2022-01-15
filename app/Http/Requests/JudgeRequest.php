@@ -33,6 +33,7 @@ class JudgeRequest extends FormRequest
             'inspirational' => 'required',
             'maxpubentries' => 'required',
             'maxunpubentries' => 'required',
+            'judgeThisYear' => 'required',
         ];
     }
 
