@@ -19,16 +19,21 @@
     </div>
     <div></div>
         </div>
-        @if(empty($judge->judgeThisYear))
+        @if(empty($judge->emergencyJudgeUnpub) || empty($judge->emergencyJudgePub))
             <div class="form-group" style="background-color: lightgray; border: solid red 2px; padding: 10px;">
                 @else
                     <div class="form-group">
                         @endif
-            <p>Sometimes, at the end of judging, the committee needs emergency judges to quickly read and judge an entry. This can happen if an assigned
-            judge can't complete their assignment, or if there is a very close score that needs a tie breaker. If you are willing to fill that task if
-            it became necessary, the committee would appreciate it</p>
-            {!! Form::label('emergencyJudge', 'I am willing to be an emergency judge:') !!}
-            {!! Form::radio('emergencyJudge','T', $judge->emergencyJudge==true, ['class' => 'form-control']) !!} Yes {!! Form::radio('emergencyJudge','F', $judge->emergencyJudge==false, ['class' => 'form-control']) !!} No
+                        <p><strong>Emergency Judges</strong> are needed in the last few days of the judging period.
+                Judges will need to be able to quickly read an entry and fill in the scoresheet.
+                Typically judges have 48 hours to complete emergency assignments.</p>
+           <p> {!! Form::label('emergencyJudgeUnpub', 'I am willing to be an emergency judge for Unpublished:') !!}
+            {!! Form::radio('emergencyJudgeUnpub','T', $judge->emergencyJudgeUnpub==true, ['class' => 'form-control']) !!} Yes
+                        {!! Form::radio('emergencyJudgeUnpub','F', $judge->emergencyJudgeUnpub==false, ['class' => 'form-control']) !!} No</p>
+
+            <p>            {!! Form::label('emergencyJudgePub', 'I am willing to be an emergency judge for Published:') !!}
+                        {!! Form::radio('emergencyJudgePub','T', $judge->emergencyJudgePub==true, ['class' => 'form-control']) !!} Yes
+                        {!! Form::radio('emergencyJudgePub','F', $judge->emergencyJudgePub==false, ['class' => 'form-control']) !!} No</p>
         </div>
 <!-- Maxpubentries Form Input -->
 <div class="form-group">

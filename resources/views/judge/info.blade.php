@@ -17,7 +17,8 @@
     <p>Paranormal : {{$preferenceLevels[$judge->paranormal]}}</p>
 
     <p>Spiritual : {{$preferenceLevels[$judge->inspirational]}}</p>
-    <p>I'm willing to be an emergency judge :  {{$judge->emergencyJudge?'Yes':'No'}}</p>
+    <p>I'm willing to be an emergency judge for Unpublished :  {{$judge->emergencyJudgeUnpub?'Yes':'No'}}</p>
+    <p>I'm willing to be an emergency judge for Published :  {{$judge->emergencyJudgePub?'Yes':'No'}}</p>
 
 </fieldset>
 
