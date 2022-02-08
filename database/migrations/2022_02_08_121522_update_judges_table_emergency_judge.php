@@ -17,6 +17,11 @@ class UpdateJudgesTableEmergencyJudge extends Migration
             $table->boolean('emergencyJudgeUnpub')->default(false);
             $table->boolean('emergencyJudgePub')->default(false);
          });
+        if (Schema::hasColumn('judges', 'emergencyJudge')){
+            Schema::table('judges', function (Blueprint $table) {
+                $table->dropColumn('emergencyJudge');
+            });
+        }
     }
 
     /**
