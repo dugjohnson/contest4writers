@@ -153,6 +153,11 @@ class JudgeController extends KODController
         $judge->judgeUnpub = true;
         $judge->judgeEitherNotBoth = true;
         $judge->judgeThisYear = $request->judgeThisYear;
+        if ('T' == $request->emergencyJudge){
+            $judge->emergencyJudge = true;
+        } else {
+            $judge->emergencyJudge = false;
+        }
         $judge->maxpubentries = $request->maxpubentries;
         $judge->maxunpubentries = $request->maxunpubentries;
         $judge->mainstream = $request->mainstream;

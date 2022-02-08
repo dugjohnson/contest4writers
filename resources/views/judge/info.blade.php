@@ -16,7 +16,11 @@
 
     <p>Paranormal : {{$preferenceLevels[$judge->paranormal]}}</p>
 
-    <p>Spiritual : {{$preferenceLevels[$judge->inspirational]}}</p></fieldset>
+    <p>Spiritual : {{$preferenceLevels[$judge->inspirational]}}</p>
+    <p>I'm willing to be an emergency judge :  {{$judge->emergencyJudge?'Yes':'No'}}</p>
+
+</fieldset>
+
 <fieldset> 
     <legend>I’d be happy to judge a story with these elements</legend>
     <p>Sex/sensuality on the page: {{$judge->erotic?'Yes':'No'}}</p>
