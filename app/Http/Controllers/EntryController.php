@@ -222,7 +222,7 @@ class EntryController extends KODController
     protected function saveFile($request, $filename = '')
     {
         if (!$filename) {
-            $filename = date('ymdHis') . mt_rand(1000, 9999) . '.rtf';
+            $filename = date('ymdHis') . mt_rand(1000, 9999) . '.pdf';
         }
         $destination = $_SERVER["DOCUMENT_ROOT"] . '/uploads/entries/';
         if (file_exists($destination . $filename)) {
@@ -241,7 +241,7 @@ class EntryController extends KODController
         $filename = $entry->filename;
         if (empty($filename)) {
 
-          $filename = date('ymdHis') . mt_rand(1000, 9999) . ($entry->published?'.pdf':'.rtf');
+          $filename = date('ymdHis') . mt_rand(1000, 9999) . '.pdf';
           $entry->filename = $filename;
           $entry->save();
 
