@@ -34,5 +34,5 @@
 
 </fieldset>
 
-<p>Special Instructions/Comments or Notes: {{$judge->comments}}</p>
+<!-- <p>Special Instructions/Comments or Notes: {{$judge->comments}}</p> -->
 

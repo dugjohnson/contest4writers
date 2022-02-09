@@ -13,8 +13,8 @@
         <div class="form-group">
         <h2>{!! Form::label('judgeThisYear', 'Judging this year:') !!}</h2>
         {!! Form::radio('judgeThisYear','LJ', $judge->judgeThisYear=='LJ', ['class' => 'form-control']) !!} I would love to judge this year<br/>
-        {!! Form::radio('judgeThisYear','NY', $judge->judgeThisYear=='NY', ['class' => 'form-control']) !!} Ask me next year<br/>
-        {!! Form::radio('judgeThisYear','EJ', $judge->judgeThisYear=='EJ', ['class' => 'form-control']) !!} Only use me in an emergency<br/>
+        {!! Form::radio('judgeThisYear','NY', $judge->judgeThisYear=='NY', ['class' => 'form-control']) !!} I am not able to judge this year<br/>
+       <!-- {!! Form::radio('judgeThisYear','EJ', $judge->judgeThisYear=='EJ', ['class' => 'form-control']) !!} Only use me in an emergency<br/> -->
         {!! Form::radio('judgeThisYear','RM', $judge->judgeThisYear=='RM', ['class' => 'form-control']) !!} Please remove me from judging list<br/>
     </div>
     <div></div>
@@ -29,11 +29,11 @@
                 Typically judges have 48 hours to complete emergency assignments.</p>
            <p> {!! Form::label('emergencyJudgeUnpub', 'I am willing to be an emergency judge for Unpublished:') !!}
             {!! Form::radio('emergencyJudgeUnpub','T', $judge->emergencyJudgeUnpub==true, ['class' => 'form-control']) !!} Yes
-                        {!! Form::radio('emergencyJudgeUnpub','F', $judge->emergencyJudgeUnpub==false, ['class' => 'form-control']) !!} No</p>
+                        {!! Form::radio('emergencyJudgeUnpub','F', $judge->emergencyJudgeUnpub===false, ['class' => 'form-control']) !!} No</p>
 
             <p>            {!! Form::label('emergencyJudgePub', 'I am willing to be an emergency judge for Published:') !!}
-                        {!! Form::radio('emergencyJudgePub','T', $judge->emergencyJudgePub==true, ['class' => 'form-control']) !!} Yes
-                        {!! Form::radio('emergencyJudgePub','F', $judge->emergencyJudgePub==false, ['class' => 'form-control']) !!} No</p>
+                        {!! Form::radio('emergencyJudgePub','T', $judge->emergencyJudgePub===true, ['class' => 'form-control']) !!} Yes
+                        {!! Form::radio('emergencyJudgePub','F', $judge->emergencyJudgePub===false, ['class' => 'form-control']) !!} No</p>
         </div>
 <!-- Maxpubentries Form Input -->
 <div class="form-group">
@@ -95,10 +95,9 @@
     {!! Form::label('childdeath', 'Child death/near death on the page:') !!}
     {!! Form::radio('childdeath',true, $judge->childdeath==true, ['class' => 'form-control']) !!} Yes {!! Form::radio('childdeath',false, $judge->childdeath==false, ['class' => 'form-control']) !!} No
 </div>
-
-<p>Special Instructions/Comments or Notes:</p>
+<!-- <p>Special Instructions/Comments or Notes:</p>-->
 <!-- Comments Form Input -->
-<div class="form-group">
-{!! Form::label('comments', 'Comments or Notes:') !!}
-{!! Form::textarea('comments',$judge->comments, ['class' => 'form-control']) !!}
+ <div class="form-group">
+<!-- {!! Form::label('comments', 'Comments or Notes:') !!} -->
+                    <!-- {!! Form::textarea('comments',$judge->comments, ['class' => 'form-control']) !!} -->
 </div>
