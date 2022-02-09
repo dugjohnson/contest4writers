@@ -56,11 +56,6 @@ class EntryController extends KODController
         $year = Config::get('contest.contest_year');
         $yearPart = substr($year - 2, -2);
         $calcMonths = [];
-        for ($i = 1; $i < 13; $i++) {
-            $thisMonth = sprintf('%02u/%02u', $i, $yearPart);
-            $calcMonths[$thisMonth] = $thisMonth;
-        }
-        // only time this is needed...need both years
         $yearPart = substr($year - 1, -2);
         for ($i = 1; $i < 13; $i++) {
             $thisMonth = sprintf('%02u/%02u', $i, $yearPart);
