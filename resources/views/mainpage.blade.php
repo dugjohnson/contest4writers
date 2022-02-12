@@ -15,7 +15,7 @@
             contest needs. </p>
 
         <P>For information about the contests, categories, rules, etc., please go to: <A
-                    HREF="https://www.rwakissofdeath.org/rwakissofdeath-org-contest/">https://www.rwakissofdeath.org/rwakissofdeath-org-contest/</A></p>
+                    HREF="https://www.rwakissofdeath.org/kodcontest/">https://www.rwakissofdeath.org/kodcontest/</A></p>
 
         <P>- <B>To judge</B>: Click on Judges to view and update your judge preferences. When judging begins, you will also find the entries
             to judge here. More specific instruction will be emailed to you after March 15. </p>

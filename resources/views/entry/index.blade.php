@@ -9,14 +9,14 @@
         </ul>
     @else
        <h4><strong>The competition entry period is February&nbsp;15 00:00 through March&nbsp;15 24:00</strong></h4>
-       <p><a href="https://www.rwakissofdeath.org/rwakissofdeath-org-contest/">Click here to go to the Kiss of Death website for updates</a></p>
+       <p><a href="https://www.rwakissofdeath.org/kodcontest/">Click here to go to the Kiss of Death website for updates</a></p>
     @endif
     @include('entry.entryListing')
     <div class="panel radius">
         <H3>Things to know before entering the contest:</H3>
         <ul class="infolist">
             <li><strong>Make sure your profile is complete. Click Check Your Profile above to review. <br>The author profile must be complete for the entry to be judged.</strong></li>
-            <li>Review the rules, categories, etc. about the contest at: <A HREF="https://www.rwakissofdeath.org/rwakissofdeath-org-contest/">https://www.rwakissofdeath.org/rwakissofdeath-org-contest/</A>
+            <li>Review the rules, categories, etc. about the contest at: <A HREF="https://www.rwakissofdeath.org/kodcontest/">https://www.rwakissofdeath.org/kodcontest/</A>
             </li>
             <li>Each entry will generate an individual confirmation email. You can view your entry in the area to the
                 left after you've entered it.
