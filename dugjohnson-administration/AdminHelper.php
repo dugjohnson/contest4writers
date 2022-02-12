@@ -13,7 +13,7 @@ trait AdminHelper
         }
         if ($category == 'JC') {
             // todo: need link to judge coordinator records in roles, so not hard coded
-            $emailSection[] = ['email' => 'jengraybeal@gmail.com', 'name' => 'Jen Graybeal'];
+            $emailSection[] = ['email' => 'kcr2696439@aol.com', 'name' => 'Kathy Crouch'];
         }
         // todo: need links to coordinators, not hard code
         if ($published) {
