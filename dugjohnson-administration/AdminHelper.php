@@ -40,8 +40,8 @@ trait AdminHelper
                     $emailSection[] = ['email' => 'lyndareesauthor@gmail.com', 'name' => 'Lynda Rees'];
             }
         }
-
     }
+
 
     public function getRolesWhereClause($adminPerson, $tableName = '')
     {
