@@ -20,10 +20,10 @@
 
 @include('entry.financial')
 
-<P>Isla Grey, Treasurer<br>
-    c/o Jennifer Graybeal<br>
-    PO Box 470403<br>
-    Los Angeles, CA 90303</P>
+<P>C. Tegethoff<br>
+    Kiss of Death<br>
+    P.O. Box 62735<br>
+    Houston Texas 77205</P>
 
 <P>Please include your invoice and entry numbers on your payment.</P>
 </BODY>

@@ -21,23 +21,21 @@ trait AdminHelper
                 case 'MA':
                 case 'SH':
                 case 'IN':
-                    $emailSection[] = ['email' => 'raimeygallant@gmail.com', 'name' => 'Raimey Gallant'];
                 case 'HI':
                 case 'PA':
                 case 'LO':
-                    $emailSection[] = ['email' => 'erin.novotny@comcast.net', 'name' => 'Erin Novotny'];
+                    $emailSection[] = ['email' => 'kimberly.pride@gmail.com', 'name' => 'Kim Pride'];
+
             }
         } else {
             switch ($category) {
                 case 'LO':
                 case 'SH':
-                    $emailSection[] = ['email' => 'candico@att.net', 'name' => 'Leslie Scott'];
                 case 'MA':
-                    $emailSection[] = ['email' => 'jengraybeal@gmail.com', 'name' => 'Jennifer Graybeal'];
                 case 'HI':
                 case 'IN':
                 case 'PA':
-                    $emailSection[] = ['email' => 'lyndareesauthor@gmail.com', 'name' => 'Lynda Rees'];
+                    $emailSection[] = ['email' => 'erin.novotny@comcast.net', 'name' => 'Erin Novotny'];
             }
         }
     }
