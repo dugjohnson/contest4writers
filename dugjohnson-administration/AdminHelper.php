@@ -25,6 +25,7 @@ trait AdminHelper
                 case 'PA':
                 case 'LO':
                     $emailSection[] = ['email' => 'kimberly.pride@gmail.com', 'name' => 'Kim Pride'];
+                    $emailSection[] = ['email' => 'erin.novotny@comcast.net', 'name' => 'Erin Novotny'];
 
             }
         } else {
