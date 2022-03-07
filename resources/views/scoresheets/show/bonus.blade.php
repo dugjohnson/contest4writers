@@ -1,19 +1,8 @@
-
-<fieldset>
-    <legend>OPTIONAL BONUS POINTS</legend>
-    <p>Check all that apply - Worth 1 additional point each</p>
-
-    <p>{{ $label['bonus1'] }} {{ $scoresheet->sheet->scores->bonus1 }}</p>
-
-    <p>{{ $label['bonus2'] }} {{ $scoresheet->sheet->scores->bonus2 }}</p>
-
-    <p>{{ $label['bonus3'] }} {{ $scoresheet->sheet->scores->bonus3 }}</p>
-</fieldset>
-
 <fieldset>
     <legend>TIE BREAKER STATEMENT</legend>
-    <p>Tiebreaker statement that best describes this particular entry.</p>
-<p> {{ $tieBreakerList[ $scoresheet->sheet->tiebreaker] }}</p>
+    <p>Please mark ONE statement that best describes this particular entry. This question will only be used as a
+        tie-breaker. </p>
+    <p> {{ $tieBreakerList[ $scoresheet->sheet->tiebreaker] }}</p>
 
     <p> {{ $scoresheet->sheet->comments->commentFinal }}</p>
 </fieldset>

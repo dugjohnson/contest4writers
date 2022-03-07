@@ -28,39 +28,37 @@ trait ScoresheetHelper
         $labelList['bonus1'] = 'Was the entry a compelling read?';
         $labelList['bonus2'] = 'Would you like to read the entire book?';
         $labelList['bonus3'] = 'Would you recommend this book to a friend if it were published?';
+        $labelList['score01'] = 'Opening hook: is it a real attention grabber?';
+        $labelList['score02'] = 'Opening pages: does the author reveal the right amount of information, not too much or too little, to compel you to read on?';
+        $labelList['score03'] = 'Is the story original and well-executed?';
+        $labelList['score04'] = 'Is the pacing appropriate to the category?';
+        $labelList['score05'] = 'Does the conflict arise naturally from the situation (is not forced)?';
+        $labelList['score06'] = 'Does the author effectively create a suspenseful atmosphere throughout? ';
+        $labelList['score07'] = 'Are the characters skillfully developed?';
+        $labelList['score08'] = 'Are the characters\' back stories shared in an effective and meaningful way?';
+        $labelList['score09'] = 'Do the internal and external conflicts the characters face drive the story forward to a satisfying conclusion?';
+        $labelList['score10'] = 'Does the setting give a sense of time and place and set the mood of the story? ';
+        $labelList['score11'] = 'Is the setting interwoven into the plot and does it enhance the story rather than pull the reader from it? ';
+        $labelList['score12'] = 'Are the details significant to the story? Do they move the plot along? ';
+        $labelList['score13'] = 'Is the writing vivid and evocative? Does it have a certain spark that keeps you reading?';
+        $labelList['score14'] = 'Are sentence structure and length varied? ';
+        $labelList['score15'] = 'Is the entry free of typos and errors in spelling, grammar, and punctuation?';
+        $labelList['score16'] = 'Is there a good balance between dialogue and narrative?';
+        $labelList['score17'] = 'Does the dialogue ring true (normal and conversational, not too stiff and unnatural)?';
+        $labelList['score21'] = '';
+        $labelList['score22'] = '';
+        $labelList['score23'] = '';
+        $labelList['score24'] = '';
+        $labelList['score25'] = '';
 
         if ($published) {
             $labelList['bonus1'] = 'Is the entry a compelling read?';
             $labelList['bonus2'] = 'Would you buy this book?';
             $labelList['bonus3'] = 'Would you recommend this book to a friend?';
-
-            $labelList['score01'] = 'Opening hook: is it a real attention grabber?';
-            $labelList['score02'] = 'Opening pages: does the author reveal the right amount of information, not too much or too little, to compel you to read on?';
-            $labelList['score03'] = 'Is the story original and well-executed?';
-            $labelList['score04'] = 'Is the pacing appropriate to this category?';
-            $labelList['score05'] = 'Are the characters appropriate to the storyline?';
-            $labelList['score06'] = 'Are the characters skillfully developed?';
-            $labelList['score07'] = 'Is the author\'s voice/style unique or fresh?';
-            $labelList['score08'] = 'Is POV always clear?';
-            $labelList['score09'] = 'Is there a good balance between dialogue and narrative?';
-            $labelList['score10'] = 'Does the dialogue progress the story and help build the suspense?';
-            $labelList['score11'] = 'Does the narrative progress the story and help build the suspense?';
-            $labelList['score12'] = 'Does the dialogue ring true (normal and conversational, not too stiff and unnatural)?';
-            $labelList['score13'] = 'Does the conflict arise naturally from the situation (is not forced)? ';
-            $labelList['score14'] = 'Does the setting enhance the story (it\'s not intrusive)?';
-            $labelList['score15'] = 'Are there enough twists and turns to keep the reader guessing? ';
-            $labelList['score16'] = 'Is the ending believable?';
-            $labelList['score17'] = 'Does the ending tie up all the loose ends?';
-            $labelList['score18'] = '';
-            $labelList['score19'] = '';
-            $labelList['score20'] = '';
-            $labelList['score21'] = '';
-            $labelList['score22'] = '';
-            $labelList['score23'] = '';
-            $labelList['score24'] = '';
-            $labelList['score25'] = '';
+            $labelList['score18'] = 'Are there enough twists and turns to keep the reader guessing?';
+            $labelList['score19'] = 'Is the ending believable?';
+            $labelList['score20'] = 'Does the ending tie up all the loose ends?';
             $labelList['tiebreaker'] = 'Select one statement that best describes this particular entry compared to the others you have read in the category';
-
 
         } else {
             switch ($category) {
@@ -241,35 +239,14 @@ trait ScoresheetHelper
 
     public function tieBreakerList($published)
     {
-        if ($published) {
-            return array(
-                '0' => '-- Select a tie breaker --',
-                '10' => 'An excellent book; one of the best I\'ve read lately',
-                '9' => 'This book is superb; masterfully written ',
-                '8' => 'A wonderful read',
-                '7' => 'An entertaining read ',
-                '6' => 'Well done ',
-                '5' => 'Somewhat enjoyable ',
-                '4' => 'Some good moments ',
-                '3' => 'A struggle to complete the reading ',
-                '2' => 'Not compelling ',
-                '1' => 'Entered in the wrong category '
-            );
-
-        } else {
-            return array(
-                '0' => '-- Select a tie breaker --',
-                '6' => 'This manuscript is superb - masterfully done ',
-                '5' => 'A wonderful read',
-                '4' => 'An entertaining read ',
-                '3' => 'Well done ',
-                '2' => 'Somewhat enjoyable ',
-                '1' => 'Some good moments ',
-            );
-
-        }
-
-
+        return array(
+            '0' => '-- Select a tie breaker --',
+            '5' => 'An excellent book; one of the best I\'ve read lately',
+            '4' => 'A wonderful read',
+            '3' => 'Well done ',
+            '2' => 'Some good moments ',
+            '1' => 'A struggle to complete the reading ',
+        );
     }
 
     public function sendJudgeConfirmation($scoresheet)
@@ -277,15 +254,15 @@ trait ScoresheetHelper
         $templateToUse = 'scoresheets.emails.judged';
 
         $user = User::find($scoresheet->judge->user_id);
-        $ccEmails = Array();
-        $this->addAdminEmail($ccEmails,'JC');
-        $this->addAdminEmail($ccEmails,'OC');
+        $ccEmails = array();
+        $this->addAdminEmail($ccEmails, 'JC');
+        $this->addAdminEmail($ccEmails, 'OC');
         $this->addAdminEmail($ccEmails, $scoresheet->category, $scoresheet->published);
         $ccEmails[] = ['email' => 'doug@asknice.com', 'name' => 'Webmaster'];
         $labelList = $this->getLabelList($scoresheet->category, $scoresheet->published);
         $tieBreakerList = $this->tieBreakerList($scoresheet->published);
 
-        Mail::send($templateToUse, array('user' => $user, 'scoresheet' => $scoresheet, 'label' => $labelList, 'tieBreakerList' => $tieBreakerList, 'categories' =>$this->categories()), function ($message) use ($scoresheet, $user, $ccEmails) {
+        Mail::send($templateToUse, array('user' => $user, 'scoresheet' => $scoresheet, 'label' => $labelList, 'tieBreakerList' => $tieBreakerList, 'categories' => $this->categories()), function ($message) use ($scoresheet, $user, $ccEmails) {
             $message->to($user->email, $user->writingName)->subject('Daphne score sheet judged for ' . $scoresheet->title);
             foreach ($ccEmails as $email) {
                 $message->cc($email['email'], $email['name']);

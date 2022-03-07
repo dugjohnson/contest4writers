@@ -5,7 +5,7 @@ $(document).ready( function(){
     $('#tiebreaker').change(function(event){ calculateScore(); } );
 
     $(window).scroll(function () {
-        var offset = 50+$(document).scrollTop()+"px";
+        let offset = 50+$(document).scrollTop()+"px";
         $('#scorebox').animate({top:offset},{duration:500,queue:false});
     });
 
@@ -23,13 +23,11 @@ $(document).ready( function(){
 
 
 function calculateScore(){
-    var TotalScore = 0.00;
-    var HowManyScores = 0;
-    var BonusCount = 0;
-    var scoreCount = $('#published').val()?17:24;
+    let TotalScore = 0.00;
+    let HowManyScores = 0;
+    let scoreCount = 20;
     $("#scoresummary li").remove();
     HowManyScores = $(".scorer:checked").length;
-    BonusCount = $(".bonus:checked").length;
     $(".scorer:checked").each(function(){
         TotalScore += calcTotal(this);
         $(this).parent().addClass('scored');
@@ -38,13 +36,13 @@ function calculateScore(){
     $('#showFinalScore').text(TotalScore);
     $('#scoretotal').text('Total Score '+TotalScore.toFixed(0));
     $('#scorebox').toggle(TotalScore>0);
-    var ScoresheetComplete = ((! ((HowManyScores - BonusCount) < scoreCount)) && (parseInt($('#tiebreaker').val())>0));
+    let ScoresheetComplete = ((! (HowManyScores < scoreCount)) && (parseInt($('#tiebreaker').val())>0));
     $('#completeButton').toggle(ScoresheetComplete);
 }
 
 function calcTotal(element){
-    var calcscore = 0;
-    var isRadio = (element.type=='radio');
+    let calcscore = 0;
+    let isRadio = (element.type=='radio');
     if(isRadio ){
         calcscore += parseInt($(element).attr('value'));
         $('#scoresummary').append('<li>'+$(element).attr('shortdesc')+' '+$(element).attr('value')+'</li>');

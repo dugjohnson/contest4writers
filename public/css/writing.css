@@ -1,0 +1,7 @@
+#scorebox {
+    position: absolute;
+}
+
+input[type="radio"].scorer {
+    margin-right: 15px;
+}
