@@ -5,8 +5,15 @@
         <a href="/scoresheets" class="button small radius">Return to Scoresheets</a>
     </div>
     <div id="view-content">
-        On a scale of 1 to 5, with 1 being the worst score and 5 being the best, how did the author fulfill the
-        following criteria?
-        @include('scoresheets.show.content.allpub')
+        @include('scoresheets.show.allscoresheets')
+        <fieldset>
+            <legend>ENDING</legend>
+            <p>{{ $label['score18'] }} {{ $scoresheet->sheet->scores->score18 }} </p>
+            <p>{{ $label['score19'] }} {{ $scoresheet->sheet->scores->score19 }} </p>
+            <p>{{ $label['score20'] }} {{ $scoresheet->sheet->scores->score20 }} </p>
+            <p>Comments: {{ $scoresheet->sheet->comments->comment20 }}</p>
+        </fieldset>
+
+        @include('scoresheets.show.bonus')
     </div>
 @stop

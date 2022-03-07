@@ -1,11 +1,18 @@
 <fieldset>
-    <legend>SCORING (123 points max)</legend>
+    <legend>SCORING (100 points max)</legend>
     <ul>
-        <li>5 = excellent (publishable)</li>
-        <li>4 = good (close to being publishable, but still needs minor work)</li>
-        <li>3 = average (but not special)</li>
-        <li>2 = (shows promise, but needs improvement)</li>
-        <li>1 = poor (needs major work)</li>
+        <li>5 = excellent</li>
+        <li>4 = good</li>
+        <li>3 = average</li>
+        <li>2 = fair</li>
+        <li>1 = poor</li>
     </ul>
-    <p>Important: Please comment liberally on both the score sheet and the manuscript. This is a contest for unpublished writers, and entrants are counting on your comments to help them in their writing process. Contests are one of the most important ways to obtain feedback. For any question scored 3 or less, comments and/or an explanation are required.</p>
+    <p>Important: Please comment extensively. This is a contest for unpublished authors and entrants need your comments
+        to improve their writing process. Contests are an excellent place to get feedback from other authors. All
+        comments must be professional and encouraging. For any question scored 3 or less, judges are particularly
+        encouraged to include an explanation.</p>
+    <p>Any concerns to share with the contest committee? Please let us know if this book is entered in the wrong
+        category, contains language or situations that are culturally or racially offensive, or is otherwise
+        problematic.</p>
+    <p>Comments (not required to a have a response) </p>
 </fieldset>
