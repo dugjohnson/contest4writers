@@ -10,7 +10,7 @@
         {!! Form::label('filename', 'Upload File:') !!}
         {!! Form::file('filename', ['class' => 'form-control','accept'=>'.pdf']) !!}
     </div>
-    {!! Form::submit('Upload Comments', array('id'=>'submitButton','name'=>'submitButton','class'=>'button radius','onclick'=>'this.disabled = true; this.form.submit();')) !!}
+{!! Form::submit('Upload Comments', array('id'=>'submitButton','name'=>'submitButton','class'=>'button radius','onclick'=>'this.disabled = true; this.form.submit();')) !!} 
     {!! Form::close() !!}
 
 @stop

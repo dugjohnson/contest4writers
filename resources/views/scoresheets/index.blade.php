@@ -10,7 +10,7 @@
                 <td>Category</td>
                 <td>Published</td>
                 <td>Download Entry</td>
-                <td>Upload Comments</td>
+              <!--  <td>Upload Comments</td> -->
                 <td>Action</td>
             </tr>
             </thead>
@@ -33,9 +33,10 @@
                             <td>
                                 <a href="/uploads/entries/{{ $scoresheet->entry->filename }}">Download</a>
                             </td>
-                            <td>
+<!--                            <td>
                                 <a href="/scoresheets/{{$scoresheet->id}}/upload">Upload</a>
                             </td>
+                            -->
                         @endif
                         <td>
                             <a href="/scoresheets/{{$scoresheet->id}}">Show</a> /
