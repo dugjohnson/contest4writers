@@ -237,8 +237,9 @@ class AdminController extends Controller
         $entryCategories = Entry::where('authorEmail', '=', $email)->get();
 
         foreach ($entryCategories as $entryCategory) {
-            if (!in_array($entryCategory->category, $categories)) {
-                $categories[] = $entryCategory->category.'_'. $entryCategory->published?'P':'U';
+            $addCategory = $entryCategory->category.'_'. $entryCategory->published?'P':'U';
+            if (!in_array($addCategory, $categories)) {
+                $categories[] = $addCategory;
             }
             if (0 < count($categories)) {
                 return implode('-', $categories);
