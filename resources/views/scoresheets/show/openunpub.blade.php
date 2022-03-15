@@ -9,7 +9,8 @@
         <p>Any concerns to share with the contest committee? Please let us know if this book is entered in the wrong
             category, contains language or situations that are culturally or racially offensive, or is otherwise
             problematic.</p>
-        <p>Comments (not required to a have a response) </p>
+        <p>Comments (not required to a have a response): {{ $scoresheet->sheet->comments->comment01 }} </p>
+
 </fieldset>
 <div>
     <a href="/scoresheets" class="button small radius">Return to Scoresheets</a>

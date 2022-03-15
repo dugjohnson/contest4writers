@@ -21,10 +21,6 @@
             </ul>
             <p>Important: All comments must be professional and encouraging. For any question scored 3 or less, judges
                 are particularly encouraged to include an explanation.</p>
-            <p>Any concerns to share with the contest committee? Please let us know if this book is entered in the wrong
-                category, contains language or situations that are culturally or racially offensive, or is otherwise
-                problematic.</p>
-            <p>Comments (not required to a have a response)</p>
         </fieldset>
         {!! Form::open(array('url' => 'scoresheets/'.$scoresheet->id,'method'=>'put'))  !!}
         @include('scoresheets.edit.formopen')
