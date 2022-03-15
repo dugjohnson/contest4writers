@@ -18,7 +18,7 @@
                     id="showFinalScore"> {{  $scoresheet->finalScore }} </span></strong></p>
 </fieldset>
 
-@include('scoresheets.show.content.'.($scoresheet->published?'allpub':$scoresheet->category))
+@include('scoresheets.show.'.($scoresheet->published?'allpub':$scoresheet->category))
 
 <P>If you see anything amiss, please contact the coordinator for this category or judge coordinator</P>  <!-- todo: need link to judge coordinator -->
 </BODY>

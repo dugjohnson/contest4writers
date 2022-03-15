@@ -238,7 +238,7 @@ class AdminController extends Controller
 
         foreach ($entryCategories as $entryCategory) {
             if (!in_array($entryCategory->category, $categories)) {
-                $categories[] = $entryCategory->category;
+                $categories[] = $entryCategory->category.'_'. $entryCategory->published?'P':'U';
             }
             if (0 < count($categories)) {
                 return implode('-', $categories);
