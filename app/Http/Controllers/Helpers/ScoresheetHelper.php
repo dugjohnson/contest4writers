@@ -79,7 +79,7 @@ trait ScoresheetHelper
                     $labelList['UnpubExtra'] = 'PARANORMAL';
                     $labelList['score18'] = 'Are the main characters introduced to the reader with an appropriate amount of foreshadowing of the relationship that will develop?';
                     $labelList['score19'] = 'Are the speculative attributes of the characters (magic, origin, abilities, etc.) presented in a way that makes them feel real and believable?';
-                    $labelList['score20'] = 'Are the speculative elements of the world the characters inhabit feel real and believable?';
+                    $labelList['score20'] = 'Do the speculative elements of the world the characters inhabit feel real and believable?';
                     break;
                 case 'LO':
                     $labelList['UnpubExtra'] = 'LONG';
