@@ -127,15 +127,15 @@ class AdminController extends Controller
         $entries = FinalScoresheet::all();
 
         // the csv file with the first row
-        $output = implode(",", array('Judge Name','Entry ID', 'Title', 'Author', 'Category', 'finalScore', 'Rank', 'Synopsis', 'Full Manuscript', 'Other','Lookup Code'));
+        $output = implode(",", array('Judge Name', 'Entry ID', 'Title', 'Author', 'Category', 'finalScore', 'Rank', 'Synopsis', 'Full Manuscript', 'Other', 'Lookup Code'));
 
         foreach ($entries as $row) {
             $title = 'unpubbed_finalist_scores.csv';
-            $output .= "\r" . implode(",", array($row->judge->first_name.' '.$row->judge->last_name,
+            $output .= "\r" . implode(",", array($row->judge->first_name . ' ' . $row->judge->last_name,
                     $row->entry_id, $this->stripCodes($row->title), $this->stripCodes($row->entry->author),
-                    $row->category, $row->final_score,$row->rank,
+                    $row->category, $row->final_score, $row->rank,
                     ($row->synopsis ? 'yes' : 'no'), ($row->full_manuscript ? 'yes' : 'no'), ($row->other ? 'yes' : 'no'),
-                    $row->lookup_code )); // append each row
+                    $row->lookup_code)); // append each row
 
         }
 
@@ -157,7 +157,7 @@ class AdminController extends Controller
         $entries = Entry::all();
 
         // the csv file with the first row
-        $output = implode(",", array('Entry ID', 'Title', 'Author', 'Email','Category', 'Pub/Unpub', 'Sex', 'LGBTQ+', 'Violence', 'Child Death'));
+        $output = implode(",", array('Entry ID', 'Title', 'Author', 'Email', 'Category', 'Pub/Unpub', 'Sex', 'LGBTQ+', 'Violence', 'Child Death'));
 
         foreach ($entries as $row) {
             $title = 'entries.csv';
@@ -237,16 +237,15 @@ class AdminController extends Controller
         $entryCategories = Entry::where('authorEmail', '=', $email)->get();
 
         foreach ($entryCategories as $entryCategory) {
-            $addCategory = $entryCategory->category.'('.($entryCategory->published?'P':'U').')';
+            $addCategory = $entryCategory->category . '(' . ($entryCategory->published ? 'P' : 'U') . ')';
             if (!in_array($addCategory, $categories)) {
                 $categories[] = $addCategory;
             }
-            if (0 < count($categories)) {
-                return implode('-', $categories);
-            }
-            return '';
-
         }
+        if (0 < count($categories)) {
+            return implode('-', $categories);
+        }
+        return '';
     }
 
     public function jsonDownload()
