@@ -10,7 +10,7 @@
             <li>2 = fair</li>
             <li>1 = poor</li>
         </ul>
-        @if(! (isset($email) || $email))
+        @if(! ($email ?? true))
             <p>Any concerns to share with the contest committee? Please let us know if this book is entered in the wrong
                 category, contains language or situations that are culturally or racially offensive, or is otherwise
                 problematic.</p>
