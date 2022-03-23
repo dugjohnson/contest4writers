@@ -10,7 +10,7 @@
                 <td>Category</td>
                 <td>Published</td>
                 <td>Download Entry</td>
-              <!--  <td>Upload Comments</td> -->
+                <!--  <td>Upload Comments</td> -->
                 <td>Action</td>
             </tr>
             </thead>
@@ -22,22 +22,9 @@
                         <td>{{$scoresheet->title}}</td>
                         <td>{!! $categories[ $scoresheet->category ] !!}</td>
                         <td>{!! ($scoresheet->published?'Published':'Unpublished') !!}</td>
-                        @if ($scoresheet->published)
-                            <td>
-                                <a href="/uploads/entries/{{ $scoresheet->entry->filename }}">Download</a>
-                            </td>
-                            <td>
-                                ---
-                            </td>
-                        @else
-                            <td>
-                                <a href="/uploads/entries/{{ $scoresheet->entry->filename }}">Download</a>
-                            </td>
-<!--                            <td>
-                                <a href="/scoresheets/{{$scoresheet->id}}/upload">Upload</a>
-                            </td>
-                            -->
-                        @endif
+                        <td>
+                            <a href="/uploads/entries/{{ $scoresheet->entry->filename }}">Download</a>
+                        </td>
                         <td>
                             <a href="/scoresheets/{{$scoresheet->id}}">Show</a> /
                             @if ($scoresheet->completed)

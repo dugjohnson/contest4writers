@@ -36,14 +36,6 @@
                     @endif
                 @endif
                 <td>{{$scoresheet->finalScore}}</td>
-                @if($scoresheet->published)
-                    <td>---</td>
-                @elseif($scoresheet->commentsFile)
-                    <td><a href="/uploads/comments/{{$scoresheet->commentsFile}}">Download</a></td>
-                @else
-                    <td>No comments file</td>
-                @endif
-
                 <td>
                     <a href="/scoresheets/{{$scoresheet->id}}">Show</a>
                 </td>
