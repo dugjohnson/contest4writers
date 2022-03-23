@@ -1,7 +1,7 @@
 @extends('scoresheets.layout')
 
 @section('content')
-    <div>
+    <fieldset>
         <legend>SCORING (100 points max)</legend>
         <ul>
             <li>5 = excellent</li>
@@ -15,8 +15,11 @@
                 category, contains language or situations that are culturally or racially offensive, or is otherwise
                 problematic.</p>
             <p>Comments (not required to a have a response): {{ $scoresheet->sheet->comments->comment01 }} </p>
-            <a href="/scoresheets" class="button small radius">Return to Scoresheets</a>
         @endif
+    </fieldset>
+    <div>
+        <a href="/scoresheets" class="button small radius">Return to Scoresheets</a>
+
     </div>
     <div id="view-content">
         @include('scoresheets.show.allscoresheets')
