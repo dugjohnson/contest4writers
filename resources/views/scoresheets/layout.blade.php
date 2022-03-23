@@ -3,10 +3,12 @@
 <body>
 
 <div class="row">
-    <div class="small-12 columns">
-    <p>RWA® Mystery/Suspense Chapter presents: The Daphne du Maurier Award for Excellence in
-             Mystery/Suspense</p>
-    </div>
+    <a href="/">
+        <div class="small-12 columns">
+            <p>RWA® Mystery/Suspense Chapter presents: The Daphne du Maurier Award for Excellence in
+                Mystery/Suspense</p>
+        </div>
+    </a>
 </div>
 <div class="row">
     <div class="large-9 columns" role="content">
@@ -18,10 +20,12 @@
                 <div class="content">
                     <fieldset>
                         <legend>General Information</legend>
-                        <p><em>Judge ID: </em>{{$scoresheet->judge_id }}<em> Entry ID:</em> {{ $scoresheet->entry_id }}</p>
+                        <p><em>Judge ID: </em>{{$scoresheet->judge_id }}<em> Entry ID:</em> {{ $scoresheet->entry_id }}
+                        </p>
                         <p>{{$scoresheet->title }}</p>
                         <p>{!! $categories[$scoresheet->category] !!} {!! ($scoresheet->published?'Published':'Unpublished')!!}</p>
-                        <p><strong><em>{!! $scoresheet->completed?'Final Score:':'Score so far:' !!}</em><span id="showFinalScore"> {{  $scoresheet->finalScore }} </span></strong></p>
+                        <p><strong><em>{!! $scoresheet->completed?'Final Score:':'Score so far:' !!}</em><span
+                                    id="showFinalScore"> {{  $scoresheet->finalScore }} </span></strong></p>
                     </fieldset>
                     @yield('content')
                 </div>
