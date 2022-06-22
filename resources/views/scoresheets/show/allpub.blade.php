@@ -17,10 +17,11 @@
             <p>Comments (not required to a have a response): {{ $scoresheet->sheet->comments->comment01 }} </p>
         @endif
     </fieldset>
-    <div>
-        <a href="/scoresheets" class="button small radius">Return to Scoresheets</a>
-
-    </div>
+    @if(! ($email ?? false))
+        <div>
+            <a href="/scoresheets" class="button small radius">Return to Scoresheets</a>
+        </div>
+    @endif
     <div id="view-content">
         @include('scoresheets.show.allscoresheets')
         <fieldset>

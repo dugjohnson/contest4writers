@@ -155,6 +155,7 @@ class CloseoutController extends KODController
             'coordinator' => 'Jennifer Graybeal<br/>2021 Daphne Overall Coordinator',
             'label' => $labelList,
             'tieBreakerList' => $tieBreakerList,
+            'email'=>true,
             'categories' => $this->categories()), function ($message) use ($entry, $user, $ccEmails, $type) {
             $message->to($user->email, $user->writingName)->subject('The Score Sheets for Your Daphne entry ' . $entry->title);
 //			$message->to( 'doug@asknice.com', $user->writingName )->subject( 'The Score Sheets for Your Daphne entry ' . $entry->title );

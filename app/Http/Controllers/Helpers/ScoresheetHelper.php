@@ -132,7 +132,9 @@ trait ScoresheetHelper
         $labelList = $this->getLabelList($scoresheet->category, $scoresheet->published);
         $tieBreakerList = $this->tieBreakerList($scoresheet->published);
 
-        Mail::send($templateToUse, array('user' => $user, 'scoresheet' => $scoresheet, 'label' => $labelList, 'tieBreakerList' => $tieBreakerList, 'categories' => $this->categories(),'email'=>true), function ($message) use ($scoresheet, $user, $ccEmails) {
+        Mail::send($templateToUse, array('user' => $user, 'scoresheet' => $scoresheet, 'label' => $labelList,
+            'tieBreakerList' => $tieBreakerList, 'categories' => $this->categories(), 'email' => true),
+            function ($message) use ($scoresheet, $user, $ccEmails) {
             $message->to($user->email, $user->writingName)->subject('Daphne score sheet judged for ' . $scoresheet->title);
             foreach ($ccEmails as $email) {
                 $message->cc($email['email'], $email['name']);
