@@ -14,17 +14,18 @@
 @else
 
     @foreach($entry->scoresheets as $scoresheet)
-        <fieldset>
-            <legend>General Information</legend>
-            <p><em>Judge ID: </em>{{$scoresheet->judge_id }}<em> Entry ID:</em> {{ $scoresheet->entry_id }}</p>
+        @if(false)
+            <fieldset>
+                <legend>General Information</legend>
+                <p><em>Judge ID: </em>{{$scoresheet->judge_id }}<em> Entry ID:</em> {{ $scoresheet->entry_id }}</p>
 
-            <p>{{$scoresheet->title }}</p>
+                <p>{{$scoresheet->title }}</p>
 
-            <p>{!! $categories[$scoresheet->category] !!} {!! ($scoresheet->published?'Published':'Unpublished')!!}</p>
+                <p>{!! $categories[$scoresheet->category] !!} {!! ($scoresheet->published?'Published':'Unpublished')!!}</p>
 
-            <p><strong>Score: {{  $scoresheet->finalScore }}</strong></p>
-        </fieldset>
-
+                <p><strong>Score: {{  $scoresheet->finalScore }}</strong></p>
+            </fieldset>
+        @endif
         @include('scoresheets.show.'.($scoresheet->published?'allpub':$scoresheet->category))
         @if(false and (0==$scoresheet->published))
             <a href="http://writingcontest.website/uploads/comments/cmts-{{$scoresheet->id}}-{{$scoresheet->judge_id}}.rtf">Click
