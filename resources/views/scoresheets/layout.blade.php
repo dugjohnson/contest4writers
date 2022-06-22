@@ -1,15 +1,16 @@
 <html>
 @include('head')
 <body>
-
-<div class="row">
-    <a href="/">
-        <div class="small-12 columns">
-            <p>RWA® Mystery/Suspense Chapter presents: The Daphne du Maurier Award for Excellence in
-                Mystery/Suspense</p>
-        </div>
-    </a>
-</div>
+@if(! ($email ?? false))
+    <div class="row">
+        <a href="/">
+            <div class="small-12 columns">
+                <p>RWA® Mystery/Suspense Chapter presents: The Daphne du Maurier Award for Excellence in
+                    Mystery/Suspense</p>
+            </div>
+        </a>
+    </div>
+@endif
 <div class="row">
     <div class="large-9 columns" role="content">
         <div class="large-12 columns container">

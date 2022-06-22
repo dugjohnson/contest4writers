@@ -15,7 +15,9 @@
     @endif
 
 </fieldset>
-<div>
-    <a href="/scoresheets" class="button small radius">Return to Scoresheets</a>
+@if(! ($email ?? false))
+    <div>
+        <a href="/scoresheets" class="button small radius">Return to Scoresheets</a>
 
-</div>
+    </div>
+@endif
