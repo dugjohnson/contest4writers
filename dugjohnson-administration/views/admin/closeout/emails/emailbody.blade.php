@@ -25,8 +25,8 @@
             <p><strong>Score: {{  $scoresheet->finalScore }}</strong></p>
         </fieldset>
 
-        @include('scoresheets.show.content.'.($scoresheet->published?'allpub':$scoresheet->category))
-        @if(0==$scoresheet->published)
+        @include('scoresheets.show.'.($scoresheet->published?'allpub':$scoresheet->category))
+        @if(false and (0==$scoresheet->published))
             <a href="http://writingcontest.website/uploads/comments/cmts-{{$scoresheet->id}}-{{$scoresheet->judge_id}}.rtf">Click
                 to download comments file</a>
         @endif
