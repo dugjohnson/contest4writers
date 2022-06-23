@@ -15,7 +15,7 @@
 
     @foreach($entry->scoresheets as $scoresheet)
         @php
-          $scoresheet->sheet = $scoresheet->getScoresheetData->sheet;
+          $scoresheet->sheet = $scoresheet->getScoresheetData()->sheet;
         @endphp
         @if(false)
             <fieldset>
