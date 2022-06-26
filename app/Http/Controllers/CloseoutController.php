@@ -50,9 +50,9 @@ class CloseoutController extends KODController
         $scoresheets = DB::select($queryString);
         $templateToUse = 'admin.closeout.emails.judges.emailbody';
         $user = User::find($judge->user_id);
-        $ccEmails = Array();
-        $this->addAdminEmail($ccEmails,'JC');
-        $this->addAdminEmail($ccEmails,'OC');
+        $ccEmails = array();
+        $this->addAdminEmail($ccEmails, 'JC');
+        $this->addAdminEmail($ccEmails, 'OC');
         $ccEmails[] = ['email' => 'doug@asknice.com', 'name' => 'Webmaster'];
 
         Mail::send($templateToUse, array('user' => $user,
@@ -131,9 +131,9 @@ class CloseoutController extends KODController
         $templateToUse = 'admin.closeout.emails.emailbody';
         // ToDo: tie this all to the author_user_id field, which needs to be set up correctly in the first place
         $user = User::find($entry->user_id);
-        $ccEmails = Array();
-        $this->addAdminEmail($ccEmails,'JC');
-        $this->addAdminEmail($ccEmails,'OC');
+        $ccEmails = array();
+        $this->addAdminEmail($ccEmails, 'JC');
+        $this->addAdminEmail($ccEmails, 'OC');
         $this->addAdminEmail($ccEmails, $entry->category, $entry->published);
         $ccEmails[] = ['email' => 'doug@asknice.com', 'name' => 'Webmaster'];
         // ToDo: fix with the above
@@ -147,23 +147,22 @@ class CloseoutController extends KODController
         $tieBreakerList = $this->tieBreakerList($entry->published);
         foreach ($entry->scoresheets as $scoresheet) {
             $scoresheet->sheet = $scoresheet->getScoresheetData()->sheet;
-        }
 
-        Mail::send($templateToUse, array('user' => $user,
-            'entry' => $entry,
-            'type' => $type,
-            'coordinator' => 'Jennifer Graybeal<br/>2021 Daphne Overall Coordinator',
-            'label' => $labelList,
-            'tieBreakerList' => $tieBreakerList,
-            'email'=>true,
-            'categories' => $this->categories()), function ($message) use ($entry, $user, $ccEmails, $type) {
-            $message->to($user->email, $user->writingName)->subject('The Score Sheets for Your Daphne entry ' . $entry->title);
+            Mail::send($templateToUse, array('user' => $user,
+                'entry' => $entry,
+                'type' => $type,
+                'coordinator' => 'Jennifer Graybeal<br/>2021 Daphne Overall Coordinator',
+                'label' => $labelList,
+                'tieBreakerList' => $tieBreakerList,
+                'email' => true,
+                'categories' => $this->categories()), function ($message) use ($entry, $user, $ccEmails, $type) {
+                $message->to($user->email, $user->writingName)->subject('The Score Sheets for Your Daphne entry ' . $entry->title);
 //			$message->to( 'doug@asknice.com', $user->writingName )->subject( 'The Score Sheets for Your Daphne entry ' . $entry->title );
-            foreach ($ccEmails as $email) {
-                $message->cc($email['email'], $email['name']);
-            }
+                foreach ($ccEmails as $email) {
+                    $message->cc($email['email'], $email['name']);
+                }
 
-        });
-
+            });
+        }
     }
 }
