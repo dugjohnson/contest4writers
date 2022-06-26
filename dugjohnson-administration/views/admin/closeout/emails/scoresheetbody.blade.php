@@ -10,4 +10,4 @@
                     id="showFinalScore"> {{  $scoresheet->finalScore }} </span></strong></p>
 </fieldset>
 
-@include('scoresheets.show.content.'.($scoresheet->published?'allpub':$scoresheet->category))
+@include('scoresheets.show.'.($scoresheet->published?'allpub':$scoresheet->category))

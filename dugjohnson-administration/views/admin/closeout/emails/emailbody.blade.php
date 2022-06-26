@@ -14,9 +14,6 @@
 @else
 
     @foreach($entry->scoresheets as $scoresheet)
-        @php
-          $scoresheet->sheet = $scoresheet->getScoresheetData()->sheet;
-        @endphp
         @if(false)
             <fieldset>
                 <legend>General Information</legend>

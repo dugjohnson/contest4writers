@@ -145,9 +145,9 @@ class CloseoutController extends KODController
 
         $labelList = $this->getLabelList($entry->category, $entry->published);
         $tieBreakerList = $this->tieBreakerList($entry->published);
-//        foreach ($entry->scoresheets as $scoresheet) {
-//            $scoresheet->sheet = $scoresheet->getScoresheetData()->sheet;
-//        }
+        foreach ($entry->scoresheets as $scoresheet) {
+            $scoresheet->sheet = $scoresheet->getScoresheetData()->sheet;
+        }
 
         Mail::send($templateToUse, array('user' => $user,
             'entry' => $entry,
