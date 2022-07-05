@@ -1,12 +1,4 @@
 <p>Dear Daphne du Maurier Award for Excellence in Mystery/Suspense Entrant:</p>
-<p>From the website developer: You are getting an email for each score sheet because something that has worked
-    in the past is now not working (as you've all seen) and we wanted to get you your score sheets while I work through
-    why I have been unable to get the combined sheets in one email to work. I'm so sorry. It's a technical issue. You
-    shouldn't be made to wait and multiple emails is my work around.</p>
-<p>My sincere apologies, everyone. Once the scoresheets were released on Tuesday, June 21, we discovered there were a
-    number of formatting issues. I am so sorry for the confusion and want to thank the folks that brought the errors to
-    my attention. The issues have now been fixed so we are resending all of the scoresheets out again. If you have any
-    questions, please let me know. </p>
 <p>The {{ $contest_year }} Daphne Contest Published Division judging has ended and the finalists have been announced.
     Unfortunately, you did not final.</p>
 
