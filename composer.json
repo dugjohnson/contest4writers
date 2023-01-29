@@ -10,21 +10,22 @@
     "require": {
         "php": "^8.0",
         "doctrine/dbal": "^3.0",
-        "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
-        "laravel/framework": "^8.12",
+        "laravel/framework": "^9.0",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.1",
         "laravelcollective/html": "^6.2",
-        "league/omnipay": "^3",
-        "omnipay/paypal": "^3.0"
+        "league/omnipay": "^3.0",
+        "omnipay/paypal": "^3.0",
+        "symfony/http-client": "^6.2",
+        "symfony/mailgun-mailer": "^6.2"
     },
     "require-dev": {
-        "facade/ignition": "^2.5",
+        "spatie/laravel-ignition": "^1.0",
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^1.0",
         "mockery/mockery": "^1.4.2",
-        "nunomaduro/collision": "^5.0",
+        "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.3.3"
     },
     "config": {
@@ -43,12 +44,12 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
             "Dugjohnson\\Administration\\": "dugjohnson-administration/"
-
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"}
+            "Tests\\": "tests/"
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
