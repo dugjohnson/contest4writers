@@ -32,6 +32,9 @@ trait EntryHelper
     public function categories($leaveOutCapped = false,$published=null)
     {
         $categories = ['SH' => 'Short', 'HI' => 'Historical', 'NV' => 'Novella', 'MA' => 'Mainstream', 'PA' => 'Paranormal', 'LO' => 'Long',];
+        if (false === $published){
+            unset($categories['NV']);
+        }
         if ($leaveOutCapped) {
             $this->categoriesByCaps($categories,$published);
             if (empty($categories)) {
@@ -40,6 +43,7 @@ trait EntryHelper
             }
 
         }
+
         return $categories;
     }
 
