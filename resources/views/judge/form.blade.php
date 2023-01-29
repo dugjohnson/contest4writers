@@ -57,24 +57,24 @@
     {!! Form::select('mainstream', $preferenceLevels ,$judge->mainstream , ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('category', 'Short (40k-65k words):') !!}
-    {!! Form::select('category', $preferenceLevels ,$judge->category , ['class' => 'form-control']) !!}
+    {!! Form::label('shortTitle', 'Short (40k-65k words):') !!}
+    {!! Form::select('shortTitle', $preferenceLevels ,$judge->shortTitle , ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('historical', 'Historical:') !!}
     {!! Form::select('historical', $preferenceLevels ,$judge->historical , ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('singleTitle', 'Long (65k+ words):') !!}
-    {!! Form::select('singleTitle', $preferenceLevels ,$judge->singleTitle , ['class' => 'form-control']) !!}
+    {!! Form::label('longTitle', 'Long (65k+ words):') !!}
+    {!! Form::select('longTitle', $preferenceLevels ,$judge->longTitle , ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('paranormal', 'Paranormal :') !!}
+    {!! Form::label('paranormal', 'Paranormal:') !!}
     {!! Form::select('paranormal', $preferenceLevels ,$judge->paranormal , ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('inspirational', 'Spiritual:') !!}
-    {!! Form::select('inspirational', $preferenceLevels ,$judge->inspirational , ['class' => 'form-control']) !!}
+    {!! Form::label('novella', 'Novella (less than 40K words):') !!}
+    {!! Form::select('novella', $preferenceLevels ,$judge->novella , ['class' => 'form-control']) !!}
 </div>
 
 <p>I’d be happy to judge a story with these elements</p>

@@ -20,7 +20,7 @@ trait AdminHelper
             switch ($category) {
                 case 'MA':
                 case 'SH':
-                case 'IN':
+                case 'NV':
                 case 'HI':
                 case 'PA':
                 case 'LO':
@@ -34,7 +34,6 @@ trait AdminHelper
                 case 'SH':
                 case 'MA':
                 case 'HI':
-                case 'IN':
                 case 'PA':
                     $emailSection[] = ['email' => 'erin.novotny@comcast.net', 'name' => 'Erin Novotny'];
             }

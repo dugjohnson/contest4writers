@@ -93,11 +93,11 @@ trait ScoresheetHelper
                     $labelList['score19'] = 'Is there sufficient concern for the protagonist(s) as they investigate and attempt to find a resolution?';
                     $labelList['score20'] = 'Are there sufficient twists and turns, red herrings and real clues to keep the reader guessing?';
                     break;
-                case 'IN':
-                    $labelList['UnpubExtra'] = 'SPIRITUAL';
-                    $labelList['score18'] = 'Are the main characters introduced to the reader with an appropriate amount of foreshadowing of the relationship that will develop?';
-                    $labelList['score19'] = 'Do you get a sense of the main characters’ values and belief system, or their lack thereof?';
-                    $labelList['score20'] = 'Is the spiritual element integral to the story, in other words, if it was removed would the story fall apart?  ';
+//                case 'NV':
+//                    $labelList['UnpubExtra'] = 'NOVELLA';
+//                    $labelList['score18'] = 'Are the main characters introduced to the reader with an appropriate amount of foreshadowing of the relationship that will develop?';
+//                    $labelList['score19'] = 'Do you get a sense of the main characters’ values and belief system, or their lack thereof?';
+//                    $labelList['score20'] = 'Is the spiritual element integral to the story, in other words, if it was removed would the story fall apart?  ';
 
                     break;
             }

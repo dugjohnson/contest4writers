@@ -191,7 +191,7 @@ class AdminController extends Controller
 
         // the csv file with the first row
         $output = implode(",", array('Judge ID', 'Profile ID', 'Judge name', 'Street', 'City',
-            'State', 'Zip', 'Country', 'Email', 'This Year', 'Pub Max', 'Unpub Max', 'MA', 'SH', 'HI', 'LO', 'PA', 'IN', 'Entered', 'Sex', 'LGBTQ+', 'Violence', 'Child Death'));
+            'State', 'Zip', 'Country', 'Email', 'This Year', 'Pub Max', 'Unpub Max', 'MA', 'SH', 'HI', 'LO', 'PA', 'NV', 'Entered', 'Sex', 'LGBTQ+', 'Violence', 'Child Death'));
 
         foreach ($judges as $row) {
             // iterate over each tweet and add it to the csv
@@ -202,8 +202,8 @@ class AdminController extends Controller
                         $row->user()->first()->city, $row->user()->first()->state, $row->user()->first()->zipCode, $row->user()->first()->country,
                         $row->user()->first()->email, $row->judgeThisYear,
                         $row->maxpubentries, $row->maxunpubentries, $this->convertValue($row->mainstream),
-                        $this->convertValue($row->category), $this->convertValue($row->historical), $this->convertValue($row->singleTitle),
-                        $this->convertValue($row->paranormal), $this->convertValue($row->inspirational), $contestEntryCategories,
+                        $this->convertValue($row->shortTitle), $this->convertValue($row->historical), $this->convertValue($row->longTitle),
+                        $this->convertValue($row->paranormal), $this->convertValue($row->novella), $contestEntryCategories,
                         ($row->erotic ? 'yes' : 'no'), ($row->glbt ? 'yes' : 'no'), ($row->bdsm ? 'yes' : 'no'), ($row->childdeath ? 'yes' : 'no'))); // append each row
 
             } else {
@@ -212,7 +212,7 @@ class AdminController extends Controller
                         $row->user()->first()->city, $row->user()->first()->state, $row->user()->first()->zipCode, $row->user()->first()->country,
                         $row->user()->first()->email, $row->judgeThisYear,
                         $row->maxpubentries, $row->maxunpubentries, $row->mainstream,
-                        $row->category, $row->historical, $row->singleTitle, $row->paranormal, $row->inspirational, $contestEntryCategories,
+                        $row->shortTitle, $row->historical, $row->longTitle, $row->paranormal, $row->novella, $contestEntryCategories,
                         ($row->erotic ? 'yes' : 'no'), ($row->glbt ? 'yes' : 'no'), ($row->bdsm ? 'yes' : 'no'), ($row->childdeath ? 'yes' : 'no'))); // append each row
 
             }

@@ -8,15 +8,15 @@
     <legend>Categories</legend>
     <p>Mainstream: {{$preferenceLevels[$judge->mainstream]}}</p>
 
-    <p>Short : {{$preferenceLevels[$judge->category]}}</p>
+    <p>Short : {{$preferenceLevels[$judge->shortTitle]}}</p>
 
     <p>Historical : {{$preferenceLevels[$judge->historical]}}</p>
 
-    <p>Long : {{$preferenceLevels[$judge->singleTitle]}}</p>
+    <p>Long : {{$preferenceLevels[$judge->longTitle]}}</p>
 
     <p>Paranormal : {{$preferenceLevels[$judge->paranormal]}}</p>
 
-    <p>Spiritual : {{$preferenceLevels[$judge->inspirational]}}</p>
+    <p>Novella : {{$preferenceLevels[$judge->novella]}}</p>
     <p>I'm willing to be an emergency judge for Unpublished :  {{$judge->emergencyJudgeUnpub?'Yes':'No'}}</p>
     <p>I'm willing to be an emergency judge for Published :  {{$judge->emergencyJudgePub?'Yes':'No'}}</p>
 
