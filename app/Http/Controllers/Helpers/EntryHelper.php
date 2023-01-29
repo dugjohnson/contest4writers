@@ -19,7 +19,7 @@ trait EntryHelper
     {
         return ['SH' => ['published' => 50, 'unpublished' => 75],
             'HI' => ['published' => 50, 'unpublished' => 50],
-            'IN' => ['published' => 50, 'unpublished' => 50],
+            'NV' => ['published' => 50, 'unpublished' => 0],
             'MA' => ['published' => 50, 'unpublished' => 100],
             'PA' => ['published' => 50, 'unpublished' => 50],
             'LO' => ['published' => 50, 'unpublished' => 75],];
@@ -31,7 +31,7 @@ trait EntryHelper
      */
     public function categories($leaveOutCapped = false,$published=null)
     {
-        $categories = ['SH' => 'Short', 'HI' => 'Historical', 'IN' => 'Spiritual', 'MA' => 'Mainstream', 'PA' => 'Paranormal', 'LO' => 'Long',];
+        $categories = ['SH' => 'Short', 'HI' => 'Historical', 'NV' => 'Novella', 'MA' => 'Mainstream', 'PA' => 'Paranormal', 'LO' => 'Long',];
         if ($leaveOutCapped) {
             $this->categoriesByCaps($categories,$published);
             if (empty($categories)) {
