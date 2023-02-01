@@ -1,1 +1,1 @@
-<img src="/images/logo.gif">
+<img src="/images/skull_only_small.png">
