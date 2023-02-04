@@ -33,7 +33,7 @@ class PayPalController extends KODController
 
     }
 
-    public function kodcheck($entry, $kodmember = false, Request $request)
+    public function kodcheck($entry, $kodmember = false)
     {
         if ($kodmember) {
             session()->put('KODMember','1');

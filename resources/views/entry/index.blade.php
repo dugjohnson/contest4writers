@@ -7,11 +7,11 @@
             <li><a href="/entries/create/pub" class="button radius">Enter Published Contest</a></li>
             <li><a href="/entries/create/unpub" class="button radius">Enter Unpublished Contest</a></li>
         </ul>
+        @include('entry.entryListing')
     @else
        <h4><strong>The competition entry period is February&nbsp;15 00:00 through March&nbsp;15 24:00</strong></h4>
        <p><a href="https://www.rwakissofdeath.org/kodcontest/">Click here to go to the Kiss of Death website for updates</a></p>
     @endif
-    @include('entry.entryListing')
     <div class="panel radius">
         <H3>Things to know before entering the contest:</H3>
         <ul class="infolist">

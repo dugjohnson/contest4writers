@@ -46,7 +46,7 @@ class EntryController extends KODController
         $entries = Entry::where('user_id', '=', $this->entrantID)->get();
         return view('entry.index', array('entries' => $entries, 'isCoordinator' => $this->isCoordinator));
 
-        return redirect('entries/' . $this->entrantID);
+        //return redirect('entries/' . $this->entrantID);
 
     }
 
