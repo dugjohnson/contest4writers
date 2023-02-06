@@ -22,6 +22,6 @@
 @stop
 
 @section('sidebar')
-    @include('admin.contacts')
+    <x-writing.contacts />
     @stop
 

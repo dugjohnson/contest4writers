@@ -4,11 +4,12 @@
     <meta name="_token" content="{{ csrf_token() }}" />
     {!! Html::style('css/foundation.min.css') !!}
     {!! Html::style('css/app.css') !!}
-    {!! Html::style('css/writing.css') !!}
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     {!! Html::script('js/foundation.min.js') !!}
     {!! Html::script('js/vendor/modernizr.js') !!}
+    {!! Html::script('js/app.js') !!}
+
 
 
 </head>
