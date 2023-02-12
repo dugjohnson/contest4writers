@@ -16,8 +16,7 @@
 @include('entry.infounpub')
 @include('entry.infoelements')
 
-{!! Html::link(URL::to('uploads/entries/'.$entry->filename),'Click to download entry file '.$entry->filename) !!}
-<p></p>
+<a href="/uploads/entries/{{$entry->filename}}" >Click to download entry file {{$entry->filename}}</a>
 
 <P>Entries without completed entry form and payment will not be judged.</P>
 

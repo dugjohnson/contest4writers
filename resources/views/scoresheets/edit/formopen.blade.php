@@ -1,4 +1,4 @@
-{!! Html::script('js/scoresheet.js') !!}
+<script src="/js/scoresheet.js"></script>
 
 {!! Form::hidden('entry_id',$scoresheet->entry_id) !!}
 {!! Form::hidden('category',$scoresheet->category) !!}
