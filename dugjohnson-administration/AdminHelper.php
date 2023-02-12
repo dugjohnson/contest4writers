@@ -9,11 +9,12 @@ trait AdminHelper
 
         if ($category == 'OC') {
             $emailSection[] = ['email' => 'kodcontest@gmail.com', 'name' => 'Daphne Committee'];
+            $emailSection[] = ['email' => 'erin.novotny@comcast.net', 'name' => 'Erin Novotny'];
 
         }
         if ($category == 'JC') {
             // todo: need link to judge coordinator records in roles, so not hard coded
-            $emailSection[] = ['email' => 'kcr2696439@aol.com', 'name' => 'Kathy Crouch'];
+            $emailSection[] = ['email' => 'regmize@gmail.com', 'name' => 'Regina Mize'];
         }
         // todo: need links to coordinators, not hard code
         if ($published) {
@@ -25,7 +26,6 @@ trait AdminHelper
                 case 'PA':
                 case 'LO':
                     $emailSection[] = ['email' => 'kimberly.pride@gmail.com', 'name' => 'Kim Pride'];
-                    $emailSection[] = ['email' => 'erin.novotny@comcast.net', 'name' => 'Erin Novotny'];
 
             }
         } else {
@@ -35,7 +35,7 @@ trait AdminHelper
                 case 'MA':
                 case 'HI':
                 case 'PA':
-                    $emailSection[] = ['email' => 'erin.novotny@comcast.net', 'name' => 'Erin Novotny'];
+                    $emailSection[] = ['email' => 'LyndaReesAuthor@gmail.com', 'name' => 'Lynda Rees'];
             }
         }
     }

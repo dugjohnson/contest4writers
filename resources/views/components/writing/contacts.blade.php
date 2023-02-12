@@ -16,7 +16,7 @@
         <x-slot:role>Unpublished Division Coordinator</x-slot:role>
         <x-slot:email>LyndaReesAuthor@gmail.com</x-slot:email>
         <x-slot:subject>Unpublished Division Questions</x-slot:subject>
-        Linda Rees
+        Lynda Rees
     </x-writing.contact>
     <x-writing.contact>
         <x-slot:role>Published Division Coordinator</x-slot:role>
