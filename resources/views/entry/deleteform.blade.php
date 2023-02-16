@@ -1,7 +1,7 @@
 {!! Form::open(['url' => 'entries/'.$entry->id, 'method' => 'delete', 'id'=>'deleteform']) !!}
 <input id="deleteOK" type="checkbox">  OK to delete<br>
 <p>You cannot undo this action!</p>
-<button id="deleteButton" type="button">Delete this entry</button>
+<button id="deleteButton" class="!bg-red-600" type="button">Delete this entry</button>
 {!! Form::close() !!}
 
 <script type="application/javascript">
