@@ -20,7 +20,10 @@ trait JudgeHelper {
 							  'NU'=> 'Not Updated' ];
 
 	public function judgeFormData( $judge ) {
-		return array( 'judge' => $judge, 'preferenceLevels' => $this->preferenceLevels, 'judgeThisYear' => $this->judgeThisYear, 'isCoordinator' => $this->isCoordinator, 'isAdministrator' => $this->isAdministrator );
+		return array( 'judge' => $judge,
+            'preferenceLevels' => $this->preferenceLevels,
+            'judgeThisYear' => $this->judgeThisYear, 'isCoordinator' => $this->isCoordinator,
+            'isAdministrator' => $this->isAdministrator );
 
 	}
 

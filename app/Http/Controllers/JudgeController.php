@@ -101,7 +101,7 @@ class JudgeController extends KODController
         //
         $judge = Judge::find($id);
 
-        return view('judge.show', $this->judgeFormData($judge) );
+        return view('judge.show', array_merge($this->judgeFormData($judge),['canDelete' => $this->canDelete()] ) );
 	}
 
     /**
@@ -202,6 +202,18 @@ class JudgeController extends KODController
     } );
 
 	}
+    public function destroy($id)
+    {
+        if (!($this->canDelete())) {
+            return redirect('home');
+        }
+        $judge = Judge::find($id);
+        if ($id == $judge->id) {
+            $judge->delete();
+        }
+        return redirect('coordinators/judges');
+
+    }
 
     public function coordinatorShow($id)
     {
@@ -231,5 +243,10 @@ class JudgeController extends KODController
             $this->judge = Judge::where('user_id', '=', $this->judgeUserID)->first();
         }
         return $this->judgeUserID;
+    }
+    private function canDelete()
+    {
+//Todo Need to check for entry having scoresheets or assigns
+        return (Auth::check() && Auth::user()->hasRole('OC'));
     }
 }
