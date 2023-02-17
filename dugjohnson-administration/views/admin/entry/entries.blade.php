@@ -1,9 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
-        <p class="font-semibold text-gray-800 ">
-            Work with Entries
-        </p>
+        <div>
+            <span class="font-semibold text-gray-800 ">
+                Work with Entries
+            </span>
+            <a class="mybutton float-right" href="/coordinators">Return</a>
+        </div>
     </x-slot>
     @livewire('entry-listing')
-    <a href="/coordinators" >Return</a>
 </x-app-layout>

@@ -34,9 +34,11 @@
     </div>
 
     <!-- Page Heading -->
-    <header class="max-w-lg bg-white shadow">
-        <div class="mx-auto py-2 px-4 sm:px-6 lg:px-8">
-            {{ $header }}
+    <header>
+        <div class="max-w-lg divide-y my-4 divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
+            <div class="px-4 py-5 sm:p-6">
+                {{ $header }}
+            </div>
         </div>
     </header>
     <div class="container">

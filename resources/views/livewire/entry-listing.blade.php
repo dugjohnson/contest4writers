@@ -1,7 +1,7 @@
 <div>
     <div class="max-w-lg divide-y my-4 divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
         <div class="px-4 py-5 sm:p-6">
-            <x-search-input/>
+            <x-search-input helptext="Search by Title or Name"/>
         </div>
     </div>
     <div class="mt-2 flex flex-col">
