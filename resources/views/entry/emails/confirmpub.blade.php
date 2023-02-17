@@ -9,12 +9,12 @@
 
 @include('user.contact')
 
-<P  >If any of this information is incorrect please visit <A  HREF="http://writingcontest.website/"><FONT COLOR="#0000ff"><U>http://writingcontest.website/</U></FONT></A></P>
+<P  >If any of this information is incorrect please visit <a  HREF="http://writingcontest.website/">http://writingcontest.website/</a></P>
 <P  >Sign in and click Edit Profile</P>
 
 @include('entry.infopub')
 @include('entry.infoelements')
-<a href="/uploads/entries/{{$entry->filename}}" >Click to download entry file {{$entry->filename}}</a>
+<a href="{{ url('/uploads/entries/'.$entry->filename}}" >Click to download entry file {{$entry->filename}}</a>
 
 
 <P  >Entries without completed entry form and payment will not be judged.</P>
