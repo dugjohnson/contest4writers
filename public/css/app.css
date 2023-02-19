@@ -810,10 +810,6 @@ select {
 .min-h-screen {
   min-height: 100vh;
 }
-.min-h-max {
-  min-height: -moz-max-content;
-  min-height: max-content;
-}
 .w-5 {
   width: 1.25rem;
 }

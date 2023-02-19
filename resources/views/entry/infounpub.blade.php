@@ -1,3 +1,4 @@
+<p>Entry Number: <strong>{{$entry->id}}</strong></p>
 <p>Author Writing Name: {{$entry->author}}</p>
 <p>Author Email: {{$entry->authorEmail}}</p>
 <p>Title: {{$entry->title}}</p>
