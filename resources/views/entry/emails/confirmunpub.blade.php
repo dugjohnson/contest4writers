@@ -16,7 +16,7 @@
 @include('entry.infounpub')
 @include('entry.infoelements')
 
-<a href="{{ url('/uploads/entries/'.$entry->filename}}" >Click to download entry file {{$entry->filename}}</a>
+<a href="{{ url('/uploads/entries/'.$entry->filename) }}" >Click to download entry file {{$entry->filename}}</a>
 
 <P>Entries without completed entry form and payment will not be judged.</P>
 
