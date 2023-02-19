@@ -6,10 +6,12 @@
                     <div class="divide-y my-4 divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
                         <div class="px-4 py-5 sm:p-6">
                             <x-search-input helptext="Search by Title or Name">
-                                <x-input.checkbox wire:model="published"/>
-                                Published
-                                <x-input.checkbox wire:model="unpublished"/>
-                                Unpublished
+                                <div>
+                                    <x-input.checkbox wire:model="published"/>
+                                    Published
+                                    <x-input.checkbox wire:model="unpublished"/>
+                                    Unpublished
+                                </div>
                             </x-search-input>
                         </div>
                     </div>
