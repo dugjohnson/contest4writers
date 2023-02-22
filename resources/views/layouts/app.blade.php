@@ -18,14 +18,20 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body class="font-sans antialiased">
-<div class="bg-gray-100 container mx-auto p-4">
-    <div class="max-w-lg divide-y my-4 divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
+<div class="bg-gray-100 container mx-auto p-4 max-w-fit">
+    <div class="flex flex-col divide-y my-4 divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
         <div class="px-4 py-5 sm:p-6">
             <a href="/">
                 <p>RWA® Mystery/Suspense Chapter presents: The Daphne du Maurier Award for Excellence in
                     Mystery/Suspense</p>
             </a>
         </div>
+        <!-- Page Heading -->
+        <header>
+            <div class="px-4 py-5 sm:p-6">
+                {{ $header }}
+            </div>
+        </header>
         <div class="px-4 py-4 sm:px-6">
             @if(Auth::check())
                 <a href="/logout" class="mybutton  float-right">Log Out</a>
@@ -33,14 +39,6 @@
         </div>
     </div>
 
-    <!-- Page Heading -->
-    <header>
-        <div class="max-w-lg divide-y my-4 divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
-            <div class="px-4 py-5 sm:p-6">
-                {{ $header }}
-            </div>
-        </div>
-    </header>
     <div class="container">
         <!-- Page Content -->
         <main>
