@@ -20,84 +20,40 @@
                         <tr>
                             <th scope="col"
                                 class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 whitespace-nowrap">
-                                Entry #
+                                Judge #
                             </th>
                             <th scope="col"
                                 class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 whitespace-nowrap">
-                                Title
+                                User #
                             </th>
                             <th scope="col"
                                 class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 whitespace-nowrap">
-                                Author
+                                Name
                             </th>
                             <th scope="col"
                                 class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 whitespace-nowrap">
-                                Category
+                                This Year
                             </th>
-                            <th scope="col"
-                                class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 whitespace-nowrap">
-                                Published
-                            </th>
-                            @if ($isCoordinator)
-                                <th scope="col"
-                                    class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 whitespace-nowrap">
-                                    Finalist
-                                </th>
-                            @endif
                             <th scope="col"
                                 class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 whitespace-nowrap">
                                 Action
                             </th>
-                            <th scope="col"
-                                class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 whitespace-nowrap">
-                                Payment
-                            </th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($entries as $entry)
+                        @foreach($judges as $judge)
                             <tr>
-                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{ $entry->id }}</td>
-                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $entry->title }}</td>
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{ $judge->id }}</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $judge->user_id }}</td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                    @if($isCoordinator)
-                                        <a href="/coordinators/users/{{ $entry->user_id }}">{{ $entry->author }}</a>
-                                    @else
-                                        {{ $entry->author }}
-                                    @endif
-                                </td>
-                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $entry->category }}</td>
-                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{!! ($entry->published?'Yes':'No') !!}</td>
-                                @if ($isCoordinator)
-                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{!! ($entry->finalist?'Yes':'') !!}</td>
-                                @endif
-                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                    <a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}">Show</a>
-                                    /
-                                    @if($entry->finalist && ! $entry->published)
-                                        <a href="/entries/final/{{ $entry->id }}/upload">Upload final</a> /
-                                    @endif
-                                    @if($entry->received)
-                                        @if($isCoordinator)
-                                            <a href="/coordinators/entries/{{ $entry->id }}/edit">Edit /</a>
-                                        @endif
-                                        <strong>Locked</strong>
-                                    @else
-                                        <a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}/edit">Edit</a>
-                                        <br>
-                                        <a href="{!! $isCoordinator ? '/coordinators': '' !!}/entries/{{ $entry->id }}/upload">Upload/Replace
-                                            Entry</a>
-                                    @endif
+                                    <a href="/coordinators/users/{{ $judge->user_id }}">{{ $judge->judgeName() }}</a>
                                 </td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                    @if($entry->invoiceNumber)
-                                        <strong>Paid</strong>
-                                    @else
-                                        <a href="{{ route('paypal.payment.precheck',['entry'=>$entry->id]) }}">
-                                            <button>Pay Now</button>
-                                        </a>
-                                    @endif
-                                </td>
+                                    {!! $judge->judgeThisYear?$judge->judgeThisYear:'<em><strong>Not updated</strong></em>' !!}</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                    <a href="/coordinators/judges/{{ $judge->id }}">Show</a>
+                                    / <a href="/coordinators/judges/{{ $judge->id }}/edit">Edit</a>
+                                    / <a href="/scoresheets/judge/{{ $judge->id }}/comparison">Compare Scores</a></td>
                             </tr>
                         @endforeach
                         </tbody>
