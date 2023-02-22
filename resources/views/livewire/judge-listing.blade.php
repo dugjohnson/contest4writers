@@ -84,12 +84,12 @@
                                     <a href="/coordinators/judges/{{ $judge->id }}">Show</a>
                                     / <a href="/coordinators/judges/{{ $judge->id }}/edit">Edit</a>
                                     / <a href="/scoresheets/judge/{{ $judge->id }}/comparison">Compare Scores</a></td>
-                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $judge->mainstream }}</td>
-                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $judge->longTitle }}</td>
-                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $judge->shortTitle }}</td>
-                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $judge->novella }}</td>
-                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $judge->historical }}</td>
-                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $judge->paranormal }}</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{{ $judge->mainstream }}</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{{ $judge->longTitle }}</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{{ $judge->shortTitle }}</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{{ $judge->novella }}</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{{ $judge->historical }}</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{{ $judge->paranormal }}</td>
 
                             </tr>
                         @endforeach
