@@ -7,5 +7,6 @@
             <a class="mybutton float-right" href="/coordinators">Return</a>
         </div>
     </x-slot>
-    @livewire('judge-listing')
+    <livewire:judge-table/>
+
 </x-app-layout>

@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Judge extends Model
 {
+    use HasFactory;
+
 
     /**
      * The database table used by the model.
@@ -28,12 +31,17 @@ class Judge extends Model
     public function judgeName()
     {
         $user = $this->user;
-        $judgeName = ($user->firstName . ' ' . $user->lastName);
-        return ($judgeName ? $judgeName : 'No Profile');
+        if ($user) {
+            $judgeName = ($user->firstName . ' ' . $user->lastName);
+        } else {
+            $judgeName = 'No Profile';
+        }
+        return $judgeName;
 
     }
 
-    public function hasScoresheets(){
+    public function hasScoresheets()
+    {
         //todo: fix this so it works right
         if ($this->scoresheets()->count() > 0) {
             return true;
@@ -42,7 +50,8 @@ class Judge extends Model
         }
     }
 
-    public function scoresheets(){
+    public function scoresheets()
+    {
         return $this->hasMany(Scoresheet::class);
 
     }
