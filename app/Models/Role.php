@@ -7,10 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model {
     protected $table = 'roles';
-
-    public function user() {
     use HasFactory;
 
+    public function user() {
         return $this->belongsTo(User::class,'user_id');
     }
 
