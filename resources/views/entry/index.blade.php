@@ -9,7 +9,7 @@
         </ul>
         @include('entry.entryListing')
     @else
-        <h4><strong>The competition entry period is <br/> February&nbsp;15 00:00 extended through March&nbsp;22 24:00 (America/Denver time)</strong></h4>
+        <h4><strong>The competition entry period is <br/> February&nbsp;15 00:00 through March&nbsp;22 24:00 (America/Denver time)</strong></h4>
        <p><a href="https://www.rwakissofdeath.org/kodcontest/">Click here to go to the Kiss of Death website for updates</a></p>
     @endif
     <div class="panel radius">
@@ -22,6 +22,7 @@
             </li>
             <li>Alternatively, you can view your entry by clicking the show button next to your entry</li>
         </ul>
+        <h4><strong>The competition entry period is extended through March&nbsp;22 24:00 (America/Denver time)</strong></h4>
     </div>
 @stop
 
