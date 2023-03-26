@@ -14,7 +14,7 @@ trait AdminHelper
         }
         if ($category == 'JC') {
             // todo: need link to judge coordinator records in roles, so not hard coded
-            $emailSection[] = ['email' => 'regmize@gmail.com', 'name' => 'Regina Mize'];
+            $emailSection[] = ['email' => 'KODContestJudges@gmail.com', 'name' => 'Regina Mize'];
         }
         // todo: need links to coordinators, not hard code
         if ($published) {

@@ -8,7 +8,7 @@
     </x-writing.contact>
     <x-writing.contact>
         <x-slot:role>Judge Coordinator</x-slot:role>
-        <x-slot:email>RegMize@gmail.com</x-slot:email>
+        <x-slot:email>KODContestJudges@gmail.com</x-slot:email>
         <x-slot:subject>Judging Questions</x-slot:subject>
         Regina Mize
     </x-writing.contact>
