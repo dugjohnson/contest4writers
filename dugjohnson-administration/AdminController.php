@@ -118,6 +118,11 @@ class AdminController extends Controller
             return $this->entryCSV();
         }
 
+        if (strtolower($CSVType) == 'scoreassigned') {
+            return $this->scoreassignedCSV();
+        }
+
+
         return $this->judgeCSV($CSVType);
 
     }
@@ -164,6 +169,37 @@ class AdminController extends Controller
             $output .= "\r" . implode(",", array($row->id, $this->stripCodes($row->title), $this->stripCodes($row->author), $row->authorEmail,
                     $row->category, ($row->published ? 'Pub' : 'Unpub'),
                     ($row->erotic ? 'yes' : 'no'), ($row->glbt ? 'yes' : 'no'), ($row->bdsm ? 'yes' : 'no'), ($row->childdeath ? 'yes' : 'no'))); // append each row
+
+        }
+
+        // headers used to make the file "downloadable", we set them manually
+        // since we can't use Laravel's Response::download() function
+        $headers = array(
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="' . $title . '"',
+        );
+
+        // our response, this will be equivalent to your download() but
+        // without using a local file
+        return Response::make(rtrim($output, "\n"), 200, $headers);
+
+    }
+
+    protected function scoreassignedCSV()
+    {
+        $scoreassigned = Scoresheet::with(['entry','judge.user'])->get();
+
+        // the csv file with the first row
+        $output = implode(",", array('Entry ID', 'Title', 'Author', 'Category', 'Pub/Unpub', 'Scoresheet', 'Judge ID', 'Judge name', 'Judge email'));
+        $title = 'scoreassigned.csv';
+
+        foreach ($scoreassigned as $row) {
+            $output .= "\r" . implode(",", array($row->entry_id, $this->stripCodes($row->entry->title),
+                    $this->stripCodes($row->entry->author),
+                    $row->category, ($row->published ? 'Pub' : 'Unpub'),
+                    $row->id, $row->judge_id,$row->judge->user->firstName.' '.$row->judge->user->lastName,
+                    $row->judge->user->email
+                   )); // append each row
 
         }
 
