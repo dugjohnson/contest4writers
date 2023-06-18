@@ -9,7 +9,7 @@
 <p>Without our hard working first round judges this contest would not be a success.</p>
 <p>Thank You!</p>
 <p>You can find the results of our winners here: https://www.rwakissofdeath.org/kodcontest/</p>
-<p>We hope to see you all back again for 2019.</p>
+<p>We hope to see you all back again for {{ $contest_year + 1 }}.</p>
 <p>Please find enclosed the titles you judged this year compared with the other judges for the same title.</p>
 <p>We hope you find this information helpful.</p>
 <p>If you have any questions, please don't hesitate to ask.</p>
