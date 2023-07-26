@@ -17,6 +17,6 @@
 <p>And again, Congratulations on being a {{ $contest_year }} Daphne Finalist!</p>
 
 <p>To your writing success--<br/>
-Jennifer</p>
-<p>Jennifer Graybeal<br/>
+Erin</p>
+<p>Erin Novotny<br/>
 {{ $contest_year }} Daphne Contest Chair</p>

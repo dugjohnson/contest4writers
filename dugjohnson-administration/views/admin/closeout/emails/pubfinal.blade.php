@@ -9,6 +9,6 @@
 	On behalf of The Daphne du Maurier Contest Committee, I wish you the very best in your writing career.</p>
 
 <p>To your continued success--<br/>
-    Jennifer</p>
-<p>Jennifer Graybeal<br/>
+    Erin</p>
+<p>Erin Novotny<br/>
 	{{ $contest_year }} Daphne Contest Chair</p>
