@@ -22,7 +22,6 @@
             </li>
             <li>Alternatively, you can view your entry by clicking the show button next to your entry</li>
         </ul>
-        <h4><strong>The competition entry period is extended<br/>through March&nbsp;22 24:00 (America/Denver time)</strong></h4>
     </div>
 @stop
 
