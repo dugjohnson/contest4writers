@@ -93,9 +93,13 @@
                                     @if($entry->invoiceNumber)
                                         <strong>Paid</strong>
                                     @else
-                                        <a href="{{ route('paypal.payment.precheck',['entry'=>$entry->id]) }}">
-                                            <button>Pay Now</button>
-                                        </a>
+                                        @if( true )
+                                            <strong>PayPal payment is not currently available. We will email you when you can pay</strong>
+                                        @else
+                                            <a href="{{ route('paypal.payment.precheck',['entry'=>$entry->id]) }}">
+                                                <button>Pay Now</button>
+                                            </a>
+                                        @endif
                                     @endif
                                 </td>
                             </tr>
