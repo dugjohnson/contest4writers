@@ -22,6 +22,7 @@
             </li>
             <li>Alternatively, you can view your entry by clicking the show button next to your entry</li>
         </ul>
+        <h4><strong>We are currently updating the site. If you encounter a problem, PLEASE email doug@asknice.com (our developer) with the problem.</strong></h4>
     </div>
 @stop
 
