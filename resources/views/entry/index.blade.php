@@ -1,15 +1,15 @@
 @extends('layout')
 
 @section('content')
-    @if( (app()->isLocal()) || (Carbon\Carbon::now()>= Carbon\Carbon::create($contest_year,2,15,0,0,0,'America/Denver'))
-            && (Carbon\Carbon::now()< Carbon\Carbon::create($contest_year,3,23,0,0,0,'America/Denver')))
+    @if( (app()->isLocal()) || (Carbon\Carbon::now()>= Carbon\Carbon::create($contest_year,1,1,0,0,0,'America/Denver'))
+            && (Carbon\Carbon::now()< Carbon\Carbon::create($contest_year,3,16,0,0,0,'America/Denver')))
         <ul class="button-group">
             <li><a href="/entries/create/pub" class="button radius">Enter Published Contest</a></li>
             <li><a href="/entries/create/unpub" class="button radius">Enter Unpublished Contest</a></li>
         </ul>
         @include('entry.entryListing')
     @else
-        <h4><strong>The competition entry period is <br/> February&nbsp;15 00:00 through March&nbsp;22 24:00 (America/Denver time)</strong></h4>
+        <h4><strong>The competition entry period is <br/> January 1st 00:00 through March&nbsp;15 24:00 (America/Denver time)</strong></h4>
        <p><a href="https://www.rwakissofdeath.org/kodcontest/">Click here to go to the Kiss of Death website for updates</a></p>
     @endif
     <div class="panel radius">

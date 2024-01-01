@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'contest_year' => 2023,
+    'contest_year' => 2024,
     'paypal' => [
         'username' => env('PAYPAL_USERNAME'),
         'password' => env('PAYPAL_PASSWORD'),
