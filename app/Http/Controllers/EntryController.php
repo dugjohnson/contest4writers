@@ -145,7 +145,8 @@ class EntryController extends KODController
 
         }
         $entry->save();
-        $this->sendConfirmation($entry);
+        //todo put this back in place when email is fixed
+//        $this->sendConfirmation($entry);
         header('Location: /entries');
         exit;
     }

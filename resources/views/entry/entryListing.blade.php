@@ -26,7 +26,7 @@
                 @endif
             </td>
             <td>{{ $entry->category }}</td>
-            <td>{!! ($entry->published?'Yes':'No') !!}</td>
+            <td>{!! ($entry->published?'Yes':'No') !!}</td>N
             @if ($isCoordinator)
                 <td>{!! ($entry->finalist?'Yes':'') !!}</td>
             @endif
