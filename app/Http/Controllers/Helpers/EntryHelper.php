@@ -138,7 +138,8 @@ trait EntryHelper
         $this->addAdminEmail($ccEmails, 'OC');
         $this->addAdminEmail($ccEmails, $entry->category, $entry->published);
         $ccEmails[] = ['email' => 'doug@asknice.com', 'name' => 'Webmaster'];
-
+        // todo when email is fixed, let the call go through
+        exit();
         Mail::send($templateToUse, array('user' => $user, 'entry' => $entry), function ($message) use ($entry, $user, $ccEmails) {
             $message->to($user->email, $user->writingName)->subject('Daphne Update for ' . $entry->title);
             foreach ($ccEmails as $email) {
