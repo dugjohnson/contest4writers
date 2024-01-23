@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use Dugjohnson\Administration\AdminController;
+use App\Http\Controllers\PayPalController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -71,6 +72,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('closeout/email/{type}/go', 'CloseoutController@emailGo');
 
     Route::get('users/{id}/delete', 'UserController@destroy');
+
+    Route::get('process-transaction', [PayPalController::class, 'processTransaction'])->name('processTransaction');
+    Route::get('success-transaction', [PayPalController::class, 'successTransaction'])->name('successTransaction');
+    Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
 
     Route::get('/paypal/payment/{entry}/precheck', [
         'as' => 'paypal.payment.precheck',

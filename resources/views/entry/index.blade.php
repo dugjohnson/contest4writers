@@ -7,6 +7,16 @@
             <li><a href="/entries/create/pub" class="button radius">Enter Published Contest</a></li>
             <li><a href="/entries/create/unpub" class="button radius">Enter Unpublished Contest</a></li>
         </ul>
+        @if (session('success'))
+            <div class="alert alert-success">
+                <p>{{ session('success') }}</p>
+            </div>
+        @endif
+        @if (session('error'))
+            <div class="alert alert-error">
+                <p>{{ session('error') }}</p>
+            </div>
+        @endif
         @include('entry.entryListing')
     @else
         <h4><strong>The competition entry period is <br/> January 1st 00:00 through March&nbsp;15 24:00 (America/Denver time)</strong></h4>
@@ -22,7 +32,6 @@
             </li>
             <li>Alternatively, you can view your entry by clicking the show button next to your entry</li>
         </ul>
-        <h4><strong>We are currently updating the site. If you encounter a problem, PLEASE email doug@asknice.com (our developer) with the problem.</strong></h4>
     </div>
 @stop
 

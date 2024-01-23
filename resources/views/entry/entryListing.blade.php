@@ -26,7 +26,7 @@
                 @endif
             </td>
             <td>{{ $entry->category }}</td>
-            <td>{!! ($entry->published?'Yes':'No') !!}</td>N
+            <td>{!! ($entry->published?'Yes':'No') !!}</td>
             @if ($isCoordinator)
                 <td>{!! ($entry->finalist?'Yes':'') !!}</td>
             @endif
@@ -50,7 +50,7 @@
                 @if($entry->invoiceNumber)
                     <strong>Paid</strong>
                 @else
-                    @if( true )
+                    @if( false )
                         <strong>PayPal payment is not currently available.<br>We will email you when you can pay</strong>
                     @else
                         <a href="{{ route('paypal.payment.precheck',['entry'=>$entry->id]) }}">
