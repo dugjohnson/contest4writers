@@ -93,7 +93,7 @@
                                     @if($entry->invoiceNumber)
                                         <strong>Paid</strong>
                                     @else
-                                        @if( true )
+                                        @if( false )
                                             <strong>PayPal payment is not currently available.<br>We will email you when you can pay</strong>
                                         @else
                                             <a href="{{ route('paypal.payment.precheck',['entry'=>$entry->id]) }}">
