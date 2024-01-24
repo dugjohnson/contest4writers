@@ -58,6 +58,7 @@ class JudgeController extends KODController
         $judge->longTitle = 3;
         $judge->paranormal = 3;
         $judge->novella = 3;
+        $judge->cozy = 3;
         $judge->erotic = 1;
         $judge->glbt = 1;
         $judge->bdsm = 1;
@@ -170,6 +171,7 @@ class JudgeController extends KODController
         $judge->historical = $request->historical;
         $judge->longTitle = $request->longTitle;
         $judge->paranormal = $request->paranormal;
+        $judge->cozy = $request->cozy;
         $judge->novella = $request->novella;
         $judge->erotic = filter_var($request->erotic, FILTER_VALIDATE_BOOLEAN);
         $judge->glbt = filter_var($request->glbt, FILTER_VALIDATE_BOOLEAN);

@@ -31,6 +31,7 @@ class JudgeRequest extends FormRequest
             'longTitle' => 'required',
             'paranormal' => 'required',
             'novella' => 'required',
+            'cozy' => 'required',
             'maxpubentries' => 'required',
             'maxunpubentries' => 'required',
             'judgeThisYear' => 'required',

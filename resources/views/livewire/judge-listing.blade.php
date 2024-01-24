@@ -90,7 +90,7 @@
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{{ $judge->novella }}</td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{{ $judge->historical }}</td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{{ $judge->paranormal }}</td>
-
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{{ $judge->cozy }}</td>
                             </tr>
                         @endforeach
                         </tbody>

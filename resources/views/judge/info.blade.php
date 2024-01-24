@@ -17,6 +17,8 @@
     <p>Paranormal : {{$preferenceLevels[$judge->paranormal]}}</p>
 
     <p>Novella : {{$preferenceLevels[$judge->novella]}}</p>
+    <p>Cozy : {{$preferenceLevels[$judge->cozy]}}</p>
+
     <p>I'm willing to be an emergency judge for Unpublished :  {{$judge->emergencyJudgeUnpub?'Yes':'No'}}</p>
     <p>I'm willing to be an emergency judge for Published :  {{$judge->emergencyJudgePub?'Yes':'No'}}</p>
 
