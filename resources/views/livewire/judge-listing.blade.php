@@ -18,7 +18,8 @@
                     <div class="divide-y my-4 divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
                         <div class="px-4 py-5 sm:p-6">
                             <p>Judging preferences</p>
-                            <p>4 = Top choice, 3 = Love to judge, 2 = Would judge if asked, 1 = Would judge in an emergency, 0 = Will not judge</p>
+                            <p>4 = Top choice, 3 = Love to judge, 2 = Would judge if asked, 1 = Would judge in an
+                                emergency, 0 = Will not judge</p>
                         </div>
                     </div>
                     <table class="divide-y divide-gray-300">
@@ -67,6 +68,10 @@
                             <th scope="col"
                                 class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 whitespace-nowrap">
                                 Paranormal
+                            </th>
+                            <th scope="col"
+                                class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 whitespace-nowrap">
+                                Cozy
                             </th>
                         </tr>
                         </thead>
