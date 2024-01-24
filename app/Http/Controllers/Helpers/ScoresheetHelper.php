@@ -95,9 +95,9 @@ trait ScoresheetHelper
                     break;
                 case 'CO':
                     $labelList['UnpubExtra'] = 'COZY';
-                    $labelList['score18'] = 'Are the main characters introduced to the reader with an appropriate amount of foreshadowing of the relationship that will develop?';
-                    $labelList['score19'] = 'Is this entry successful at maintaining a delicate balance between focusing on the mystery/suspense elements of the story and the relationship between the main characters?';
-                    $labelList['score20'] = 'Does the author use tropes effectively while putting a fresh spin on them?';
+                    $labelList['score18'] = 'Is there an atmosphere of suspense and/or curiosity about the central puzzle/conflict that creates a desire to read further?';
+                    $labelList['score19'] = 'Is there sufficient concern for the protagonist(s) as they investigate and attempt to find a resolution?';
+                    $labelList['score20'] = 'Are there sufficient twists and turns, red herrings and real clues to keep the reader guessing?';
                     break;
             }
 
