@@ -16,8 +16,6 @@
     <p>Payments will be processed using PayPal, Credit Card (through PayPal),
         Personal check on US bank, or Money Order in US funds.
         In order for your entry to be official your payment must be received</p>
-    <h4><strong>Please wait to send your payment, as we are currently changing PayPal accounts. We will send you an
-        email when the changes are done and you can submit your payment</strong></h4>
 
     <p>Personal checks and money orders must be postmarked no later than the next business day after close of
         contest--see rules.
