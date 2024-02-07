@@ -11,10 +11,10 @@
             <li>1 = poor</li>
         </ul>
         @if(! ($email ?? false))
-            <p>Any concerns to share with the contest committee? Please let us know if this book is entered in the wrong
+            <p  class="text-red-500">Are there any concerns regarding category or content for this entry? Any concerns to share with the contest committee? Please let us know if this book is entered in the wrong
                 category, contains language or situations that are culturally or racially offensive, or is otherwise
                 problematic.</p>
-            <p>Comments (not required to a have a response): {{ $scoresheet->sheet->comments->comment01 }} </p>
+            <p><span class="text-red-500">Comments (leave blank if no issues)</span>: {{ $scoresheet->sheet->comments->comment01 }} </p>
         @endif
     </fieldset>
     @if(! ($email ?? false))

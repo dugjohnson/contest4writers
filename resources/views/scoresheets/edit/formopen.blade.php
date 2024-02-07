@@ -5,7 +5,7 @@
 {!! Form::hidden('finalScore',$scoresheet->finalScore) !!}
 {!! Form::hidden('published',$scoresheet->published,array('id'=>'published')) !!}
 {!! Form::hidden('id',$scoresheet->id) !!}
-<p>Any concerns to share with the contest committee? Please let us know if this book is entered in the wrong
+<p   class="text-red-500">Are there any concerns regarding category or content for this entry? Any concerns to share with the contest committee? Please let us know if this book is entered in the wrong
     category, contains language or situations that are culturally or racially offensive, or is otherwise
     problematic.</p>
 <div class="form-group">
