@@ -9,8 +9,8 @@
     </ul>
     <p>Important: Please comment extensively. This is a contest for unpublished authors and entrants need your comments
         to improve their writing process. Contests are an excellent place to get feedback from other authors. All
-        comments must be professional and encouraging. For any question scored 3 or less, judges are particularly
-        encouraged to include an explanation.</p>
+        comments must be professional and encouraging. For any element that is assigned a score of 3 or less,
+        comments explaining the score are required. However, we strongly encourage you to leave a comment for every question.</p>
     <p>Any concerns to share with the contest committee? Please let us know if this book is entered in the wrong
         category, contains language or situations that are culturally or racially offensive, or is otherwise
         problematic.</p>
