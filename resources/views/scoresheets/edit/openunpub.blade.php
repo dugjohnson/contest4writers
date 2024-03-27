@@ -17,6 +17,6 @@
     </ul>
     <p>Important: Please comment extensively. This is a contest for unpublished authors and entrants need your comments
         to improve their writing process. Contests are an excellent place to get feedback from other authors. All
-        comments must be professional and encouraging.For any element that is assigned a score of 3 or less,
+        comments must be professional and encouraging. For any element that is assigned a score of 3 or less,
         comments explaining the score are required. However, we strongly encourage you to leave a comment for every question.   </p>
 </fieldset>
