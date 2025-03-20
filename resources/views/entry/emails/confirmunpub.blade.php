@@ -11,7 +11,7 @@
 
 @include('user.contact')
 
-<P>If any of this information is incorrect please visit <A HREF="http://writingcontest.website/">http://writingcontest.website</A></P>
+<P>If any of this information is incorrect please visit <A HREF="https://kodcontest.com/">https://kodcontest.com/</A></P>
 
 @include('entry.infounpub')
 @include('entry.infoelements')
