@@ -11,7 +11,7 @@
                 <td>Status</td>
                 <td>Score</td>
                 <td>Tie Breaker</td>
-                <td>Commentsad</td>
+                <td>Concerns</td>
                 <td>Judge ID</td>
                 <td>Judge name</td>
                 <td>Action</td>
@@ -35,13 +35,18 @@
                     @endif
                     <td>{{$scoresheet->finalScore}}</td>
                     <td>{{$scoresheet->tiebreaker}}</td>
-                    @if($scoresheet->published)
-                        <td>---</td>
-                    @elseif($scoresheet->commentsFile)
-                        <td><a href="/uploads/comments/{{$scoresheet->commentsFile}}">Download</a></td>
+                    @if($scoresheet->comment01)
+                        <td style="color:red;">Concern filed</td>
                     @else
-                        <td>No comments file</td>
+                        <td>No concern comment</td>
                     @endif
+{{--                    @if($scoresheet->published)--}}
+{{--                        <td>---</td>--}}
+{{--                    @elseif($scoresheet->commentsFile)--}}
+{{--                        <td><a href="/uploads/comments/{{$scoresheet->commentsFile}}">Download</a></td>--}}
+{{--                    @else--}}
+{{--                        <td>No comments file</td>--}}
+{{--                    @endif--}}
 
                     @if(isset($scoresheet->judge))
                         <td>{{$scoresheet->judge_id}}</td>
