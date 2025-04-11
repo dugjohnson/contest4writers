@@ -35,7 +35,7 @@
                     @endif
                     <td>{{$scoresheet->finalScore}}</td>
                     <td>{{$scoresheet->tiebreaker}}</td>
-                    @if($scoresheet->sheet->comments->comment01)
+                    @if($scoresheet->scoresheetData->sheet->comments->comment01)
                         <td style="color:red;">Concern filed</td>
                     @else
                         <td>No concern comment</td>
