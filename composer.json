@@ -8,17 +8,14 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.0",
+        "php": "^8.2",
         "doctrine/dbal": "^3.0",
-        "fruitcake/laravel-cors": "^2.0",
-        "laravel/framework": "^9.0",
+        "laravel/framework": "^12.0",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.1",
-        "laravelcollective/html": "^6.2",
-        "league/omnipay": "^3.0",
-        "livewire/livewire": "^2.11",
-        "omnipay/paypal": "^3.0",
-        "power-components/livewire-powergrid": "^3.7",
+        "laravel/ui": "^4.0",
+        "livewire/flux": "^2.2",
+        "livewire/flux-pro": "^2.2",
+        "power-components/livewire-powergrid": "^6.0",
         "srmklive/paypal": "~3.0",
         "symfony/http-client": "^6.2",
         "symfony/mailgun-mailer": "^6.2"
@@ -26,16 +23,16 @@
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
         "laravel-shift/factory-generator": "dev-master",
-        "laravel/breeze": "^1.0",
+        "laravel/breeze": "^2.0",
         "laravel/sail": "^1.20",
         "mockery/mockery": "^1.4.2",
-        "nunomaduro/collision": "^6.1",
-        "pestphp/pest-plugin-faker": "^1.0",
-        "pestphp/pest-plugin-laravel": "^1.4",
-        "pestphp/pest-plugin-livewire": "^1.0",
-        "pestphp/pest-plugin-mock": "^1.0",
-        "phpunit/phpunit": "^9.3.3",
-        "spatie/laravel-ignition": "^1.0",
+        "nunomaduro/collision": "^8.1",
+        "pestphp/pest": "^3.0",
+        "pestphp/pest-plugin-faker": "^3.0",
+        "pestphp/pest-plugin-laravel": "^3.0",
+        "pestphp/pest-plugin-livewire": "^3.0",
+        "phpunit/phpunit": "^11.0",
+        "spatie/laravel-ignition": "^2.0",
         "spatie/laravel-ray": "^1.32"
     },
     "config": {
@@ -78,5 +75,11 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
+    },
+    "repositories": {
+        "flux-pro": {
+            "type": "composer",
+            "url": "https://composer.fluxui.dev"
+        }
     }
 }
