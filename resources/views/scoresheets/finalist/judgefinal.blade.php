@@ -12,8 +12,8 @@
 <p>The entries we'd like you to judge</p>
  @foreach( $scoresheets as $sheet)
      <p>Title: {{$sheet->title}}</p>
-     <p>Link to download the entry: <a href="https://writingcontest.website/uploads/entries/{{$sheet->entry->final_filename}}">writingcontest.website/uploads/entries/{{$sheet->entry->final_filename}}</a></p>
-     <p>Link to edit the score sheet: <a href="https://writingcontest.website/scoresheets/final/{{$sheet->lookup_code}}/edit">writingcontest.website/scoresheets/finalist/{{$sheet->lookup_code}}/edit</a></p>
+     <p>Link to download the entry: <a href="https://kodcontest.com/uploads/entries/{{$sheet->entry->final_filename}}">kodcontest.com/uploads/entries/{{$sheet->entry->final_filename}}</a></p>
+     <p>Link to edit the score sheet: <a href="https://kodcontest.com/scoresheets/final/{{$sheet->lookup_code}}/edit">kodcontest.com/scoresheets/finalist/{{$sheet->lookup_code}}/edit</a></p>
      <hr>
  @endforeach
 

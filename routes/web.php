@@ -103,7 +103,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::resource('users', UserController::class);
     Route::resource('reports', ReportsController::class);
     Route::resource('scoresheets', ScoresheetController::class);
-    Auth::routes();
+//    Auth::routes();
     Route::get('logout', 'Auth\LoginController@logout');
 });
 

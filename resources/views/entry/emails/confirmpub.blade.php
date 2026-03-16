@@ -9,7 +9,7 @@
 
 @include('user.contact')
 
-<P  >If any of this information is incorrect please visit <a  HREF="http://writingcontest.website/">http://writingcontest.website/</a></P>
+<P  >If any of this information is incorrect please visit <a  HREF="https://kodcontest.com/">https://kodcontest.com/</a></P>
 <P  >Sign in and click Edit Profile</P>
 
 @include('entry.infopub')

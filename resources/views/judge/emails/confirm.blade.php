@@ -11,8 +11,8 @@ If you decided to judge, we'll be in touch as the contest entry period winds dow
 </p>
 
 <h3>Please mark your calendars for these deadlines.</h3>
-<h5>Deadline for judging Unpublished entries is 19th of April.</h5>
-<h5>Deadline for judging Published books is 26th of May.</h5>
+<h5>Deadline for judging Unpublished entries is 15th of April.</h5>
+<h5>Deadline for judging Published books is 15th of May.</h5>
 
 @include('judge.info')
 
