@@ -5,6 +5,8 @@
 
 
     <link href="/css/app.css" rel="stylesheet" type="text/css">
+    @livewireStyles
+    @fluxAppearance
     <link href="/css/foundation.min.css" rel="stylesheet" type="text/css">
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

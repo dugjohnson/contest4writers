@@ -8,74 +8,77 @@
             @endforeach
         </ul>
     @endif
-    {!! Form::open(['route' => ['users.update',$user->id], 'method' => 'PATCH']) !!}
-    <!-- First Name Form Input -->
-    <div class="form-group">
-        {!! Form::label('firstName', 'First Name:') !!}
-        {!! Form::text('firstName',$user->firstName, ['class' => 'form-control']) !!}
-    </div>
-    <!-- Last Name Form Input -->
-    <div class="form-group">
-        {!! Form::label('lastName', 'Last Name:') !!}
-        {!! Form::text('lastName',$user->lastName, ['class' => 'form-control']) !!}
-    </div>
-    <!-- WritingName Form Input -->
-    <div class="form-group">
-        {!! Form::label('writingName', 'WritingName:') !!}
-        {!! Form::text('writingName',$user->writingName, ['class' => 'form-control']) !!}
-    </div>
-    <!-- Email Primary Form Input -->
-    <div class="form-group">
-        {!! Form::label('email', 'Email (Primary):') !!}
-        {!! Form::text('email',$user->email, ['class' => 'form-control']) !!}
-    </div>
-    <!-- Email2 Form Input -->
-    <div class="form-group">
-        {!! Form::label('email2', 'Email (Secondary):') !!}
-        {!! Form::text('email2',$user->email2, ['class' => 'form-control']) !!}
-    </div>
-    <!-- Daytime Phone Form Input -->
-    <div class="form-group">
-        {!! Form::label('phone1', 'Daytime Phone:') !!}
-        {!! Form::text('phone1',$user->phone1, ['class' => 'form-control']) !!}
-    </div>
-    <!-- Evening Phone Form Input -->
-    <div class="form-group">
-        {!! Form::label('phone2', 'Evening Phone:') !!}
-        {!! Form::text('phone2',$user->phone2, ['class' => 'form-control']) !!}
-    </div>
-    <!-- Alternate Phone Form Input -->
-    <div class="form-group">
-        {!! Form::label('phone3', 'Alternate Phone:') !!}
-        {!! Form::text('phone3',$user->phone3, ['class' => 'form-control']) !!}
-    </div>
-    <!-- Street Form Input -->
-    <div class="form-group">
-        {!! Form::label('street', 'Street:') !!}
-        {!! Form::text('street',$user->street, ['class' => 'form-control']) !!}
-    </div>
-    <!-- City Form Input -->
-    <div class="form-group">
-        {!! Form::label('city', 'City:') !!}
-        {!! Form::text('city',$user->city, ['class' => 'form-control']) !!}
-    </div>
-    <!-- State Form Input -->
-    <div class="form-group">
-        {!! Form::label('state', 'State (2 letter code):') !!}
-        {!! Form::text('state',$user->state, ['class' => 'form-control','maxlength'=>2]) !!}
-    </div>
-    <!-- Zip Form Input -->
-    <div class="form-group">
-        {!! Form::label('zipCode', 'Zip:') !!}
-        {!! Form::text('zipCode',$user->zipCode, ['class' => 'form-control']) !!}
-    </div>
-    <!-- Country Form Input -->
-    <div class="form-group">
-        {!! Form::label('country', 'Country:') !!}
-        {!! Form::text('country',$user->country, ['class' => 'form-control']) !!}
-    </div>
-    {!! Form::submit('Submit!',['class'=>'button radius']) !!}
-    {!! Form::close() !!}
+    <form action="{{ route('users.update', $user->id) }}" method="POST">
+        @csrf
+        @method('PATCH')
+
+        <flux:field>
+            <flux:label>First Name</flux:label>
+            <flux:input type="text" name="firstName" value="{{ $user->firstName }}" />
+        </flux:field>
+
+        <flux:field>
+            <flux:label>Last Name</flux:label>
+            <flux:input type="text" name="lastName" value="{{ $user->lastName }}" />
+        </flux:field>
+
+        <flux:field>
+            <flux:label>Writing Name</flux:label>
+            <flux:input type="text" name="writingName" value="{{ $user->writingName }}" />
+        </flux:field>
+
+        <flux:field>
+            <flux:label>Email (Primary)</flux:label>
+            <flux:input type="email" name="email" value="{{ $user->email }}" />
+        </flux:field>
+
+        <flux:field>
+            <flux:label>Email (Secondary)</flux:label>
+            <flux:input type="email" name="email2" value="{{ $user->email2 }}" />
+        </flux:field>
+
+        <flux:field>
+            <flux:label>Daytime Phone</flux:label>
+            <flux:input type="text" name="phone1" value="{{ $user->phone1 }}" />
+        </flux:field>
+
+        <flux:field>
+            <flux:label>Evening Phone</flux:label>
+            <flux:input type="text" name="phone2" value="{{ $user->phone2 }}" />
+        </flux:field>
+
+        <flux:field>
+            <flux:label>Alternate Phone</flux:label>
+            <flux:input type="text" name="phone3" value="{{ $user->phone3 }}" />
+        </flux:field>
+
+        <flux:field>
+            <flux:label>Street</flux:label>
+            <flux:input type="text" name="street" value="{{ $user->street }}" />
+        </flux:field>
+
+        <flux:field>
+            <flux:label>City</flux:label>
+            <flux:input type="text" name="city" value="{{ $user->city }}" />
+        </flux:field>
+
+        <flux:field>
+            <flux:label>State (2 letter code)</flux:label>
+            <flux:input type="text" name="state" value="{{ $user->state }}" maxlength="2" />
+        </flux:field>
+
+        <flux:field>
+            <flux:label>Zip</flux:label>
+            <flux:input type="text" name="zipCode" value="{{ $user->zipCode }}" />
+        </flux:field>
+
+        <flux:field>
+            <flux:label>Country</flux:label>
+            <flux:input type="text" name="country" value="{{ $user->country }}" />
+        </flux:field>
+
+        <flux:button class="button-radius" type="submit" variant="primary">Submit!</flux:button>
+    </form>
 @stop
 
 @section('sidebar')

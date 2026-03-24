@@ -94,6 +94,7 @@
 <script>
     $(document).foundation();
 </script>
-
+@livewireScripts
+@fluxScripts
 </body>
 </html>

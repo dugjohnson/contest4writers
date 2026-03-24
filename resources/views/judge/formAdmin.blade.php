@@ -1,6 +1,4 @@
-<p>Internal Comments or Notes: </p>
-<!-- Comments Form Input -->
-<div class="form-group">
-{!! Form::label('internalComments', 'Comments or Notes:') !!}
-{!! Form::textarea('internalComments',$judge->internalComments, ['class' => 'form-control']) !!}
-</div>
+<flux:field>
+    <flux:label>Internal Comments or Notes:</flux:label>
+    <flux:textarea name="internalComments" rows="4">{{ $judge->internalComments }}</flux:textarea>
+</flux:field>

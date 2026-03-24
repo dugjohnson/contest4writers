@@ -3,7 +3,9 @@
 @section('content')
 
     @include('errors')
-    {!! Form::open(array('url' => 'judges/'.$judge->id,'method'=>'put'))  !!}
+    <form action="{{ url('judges/' . $judge->id) }}" method="POST">
+        @csrf
+        @method('PUT')
     @include('judge.form')
     @if($isAdministrator)
         @include('judge.formAdmin')

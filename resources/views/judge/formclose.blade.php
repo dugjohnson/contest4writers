@@ -1,2 +1,2 @@
-{!! Form::submit('Submit!', array('class'=>'button radius','onclick'=>'this.disabled = true; this.form.submit();')) !!}
-{!! Form::close() !!}
+<flux:button class="button-radius" type="submit" variant="primary" onclick="this.disabled = true; this.form.submit();">Submit!</flux:button>
+</form>
