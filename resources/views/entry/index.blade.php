@@ -2,7 +2,7 @@
 
 @section('content')
     @if( (app()->isLocal()) || (Carbon\Carbon::now()>= Carbon\Carbon::create($contest_year,1,1,0,0,0,'America/Denver'))
-            && (Carbon\Carbon::now()< Carbon\Carbon::create($contest_year,3,16,0,0,0,'America/Denver')))
+            && (Carbon\Carbon::now()< Carbon\Carbon::create($contest_year,4,1,0,0,0,'America/Denver')))
         <ul class="button-group">
             <li><a href="/entries/create/pub" class="button radius">Enter Published Contest</a></li>
             <li><a href="/entries/create/unpub" class="button radius">Enter Unpublished Contest</a></li>
