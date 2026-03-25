@@ -4,11 +4,19 @@
 <div class="{{ empty($judge->judgeThisYear) ? 'form-group bg-gray-200 border-2 border-red-500 p-3' : 'form-group' }}">
     <div class="form-group">
         <h4>Judging this year:</h4>
-        <flux:radio.group name="judgeThisYear" label="Pick one" :value="$judge->judgeThisYear">
-            <flux:radio value="LJ" label="I would love to judge this year" />
-            <flux:radio value="NY" label="I am not able to judge this year" />
-            <flux:radio value="RM" label="Please remove me from judging list" />
-        </flux:radio.group>
+        <label>Pick one</label>
+        <div>
+            <input type="radio" name="judgeThisYear" value="LJ" @checked($judge->judgeThisYear == 'LJ') id="judgeThisYear_LJ">
+            <label for="judgeThisYear_LJ">I would love to judge this year</label>
+        </div>
+        <div>
+            <input type="radio" name="judgeThisYear" value="NY" @checked($judge->judgeThisYear == 'NY') id="judgeThisYear_NY">
+            <label for="judgeThisYear_NY">I am not able to judge this year</label>
+        </div>
+        <div>
+            <input type="radio" name="judgeThisYear" value="RM" @checked($judge->judgeThisYear == 'RM') id="judgeThisYear_RM">
+            <label for="judgeThisYear_RM">Please remove me from judging list</label>
+        </div>
     </div>
 </div>
 
@@ -18,19 +26,29 @@
         Typically judges have 48 hours to complete emergency assignments.</p>
 
 
-    <flux:field>
-        <flux:radio.group name="emergencyJudgeUnpub" label="I am willing to be an emergency judge for Unpublished:" :value="$judge->emergencyJudgeUnpub">
-            <flux:radio value="T" label="Yes" />
-            <flux:radio value="F" label="No" />
-        </flux:radio.group>
-    </flux:field>
+    <div class="form-group">
+        <label>I am willing to be an emergency judge for Unpublished:</label>
+        <div>
+            <input type="radio" name="emergencyJudgeUnpub" value="T" @checked($judge->emergencyJudgeUnpub) id="emergencyJudgeUnpub_T">
+            <label for="emergencyJudgeUnpub_T">Yes</label>
+        </div>
+        <div>
+            <input type="radio" name="emergencyJudgeUnpub" value="F" @checked(!$judge->emergencyJudgeUnpub) id="emergencyJudgeUnpub_F">
+            <label for="emergencyJudgeUnpub_F">No</label>
+        </div>
+    </div>
 
-    <flux:field>
-        <flux:radio.group name="emergencyJudgePub" label="I am willing to be an emergency judge for Published:" :value="$judge->emergencyJudgePub">
-            <flux:radio value="T" label="Yes" />
-            <flux:radio value="F" label="No" />
-        </flux:radio.group>
-    </flux:field>
+    <div class="form-group">
+        <label>I am willing to be an emergency judge for Published:</label>
+        <div>
+            <input type="radio" name="emergencyJudgePub" value="T" @checked($judge->emergencyJudgePub) id="emergencyJudgePub_T">
+            <label for="emergencyJudgePub_T">Yes</label>
+        </div>
+        <div>
+            <input type="radio" name="emergencyJudgePub" value="F" @checked(!$judge->emergencyJudgePub) id="emergencyJudgePub_F">
+            <label for="emergencyJudgePub_F">No</label>
+        </div>
+    </div>
 </div>
 
 <flux:field>
@@ -122,33 +140,53 @@
 
 <p>I'd be happy to judge a story with these elements</p>
 
-<flux:field>
-    <flux:radio.group name="erotic" label="Sex/sensuality on the page:" :value="$judge->erotic ? '1' : '0'">
-        <flux:radio value="1" label="Yes" />
-        <flux:radio value="0" label="No" />
-    </flux:radio.group>
-</flux:field>
+<div class="form-group">
+    <label>Sex/sensuality on the page:</label>
+    <div>
+        <input type="radio" name="erotic" value="1" @checked($judge->erotic) id="erotic_1">
+        <label for="erotic_1">Yes</label>
+    </div>
+    <div>
+        <input type="radio" name="erotic" value="0" @checked(!$judge->erotic) id="erotic_0">
+        <label for="erotic_0">No</label>
+    </div>
+</div>
 
-<flux:field>
-    <flux:radio.group name="glbt" label="LGBTQ+:" :value="$judge->glbt ? '1' : '0'">
-        <flux:radio value="1" label="Yes" />
-        <flux:radio value="0" label="No" />
-    </flux:radio.group>
-</flux:field>
+<div class="form-group">
+    <label>LGBTQ+:</label>
+    <div>
+        <input type="radio" name="glbt" value="1" @checked($judge->glbt) id="glbt_1">
+        <label for="glbt_1">Yes</label>
+    </div>
+    <div>
+        <input type="radio" name="glbt" value="0" @checked(!$judge->glbt) id="glbt_0">
+        <label for="glbt_0">No</label>
+    </div>
+</div>
 
-<flux:field>
-    <flux:radio.group name="bdsm" label="Violence (including physical and sexual assault) on the page:" :value="$judge->bdsm ? '1' : '0'">
-        <flux:radio value="1" label="Yes" />
-        <flux:radio value="0" label="No" />
-    </flux:radio.group>
-</flux:field>
+<div class="form-group">
+    <label>Violence (including physical and sexual assault) on the page:</label>
+    <div>
+        <input type="radio" name="bdsm" value="1" @checked($judge->bdsm) id="bdsm_1">
+        <label for="bdsm_1">Yes</label>
+    </div>
+    <div>
+        <input type="radio" name="bdsm" value="0" @checked(!$judge->bdsm) id="bdsm_0">
+        <label for="bdsm_0">No</label>
+    </div>
+</div>
 
-<flux:field>
-    <flux:radio.group name="childdeath" label="Child death/near death on the page:" :value="$judge->childdeath ? '1' : '0'">
-        <flux:radio value="1" label="Yes" />
-        <flux:radio value="0" label="No" />
-    </flux:radio.group>
-</flux:field>
+<div class="form-group">
+    <label>Child death/near death on the page:</label>
+    <div>
+        <input type="radio" name="childdeath" value="1" @checked($judge->childdeath) id="childdeath_1">
+        <label for="childdeath_1">Yes</label>
+    </div>
+    <div>
+        <input type="radio" name="childdeath" value="0" @checked(!$judge->childdeath) id="childdeath_0">
+        <label for="childdeath_0">No</label>
+    </div>
+</div>
 
 <div class="form-group">
     <!-- Comments or Notes field is currently disabled -->

@@ -8,5 +8,4 @@
         </div>
     </x-slot>
     <livewire:judge-listing/>
-
 </x-app-layout>
