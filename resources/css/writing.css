@@ -3,7 +3,11 @@
 }
 
 input[type="radio"].scorer {
-    margin-right: 15px;
+    margin: 0 0 0 0 !important;
+}
+label.scorer-label {
+    display: inline-flex;
+    width: auto;
 }
 
 .button-radius {

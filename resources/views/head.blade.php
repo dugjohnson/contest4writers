@@ -3,11 +3,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="_token" content="{{ csrf_token() }}"/>
 
-
-    <link href="/css/app.css" rel="stylesheet" type="text/css">
+    <link href="/css/foundation.min.css" rel="stylesheet" type="text/css">
+{{--    <link href="/css/app.css" rel="stylesheet" type="text/css">--}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
     @fluxAppearance
-    <link href="/css/foundation.min.css" rel="stylesheet" type="text/css">
+
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="/js/foundation.min.js"></script>

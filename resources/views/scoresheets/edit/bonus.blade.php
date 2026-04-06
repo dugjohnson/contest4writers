@@ -1,31 +1,33 @@
-<fieldset>
-    <legend>TIE BREAKER STATEMENT</legend>
-    <p>Please select the statement that best describes this particular entry, which will be added to the total score ONLY
+<flux:fieldset>
+    <flux:legend>TIE BREAKER STATEMENT</flux:legend>
+    <p class="text-sm text-gray-600 mb-4">Please select the statement that best describes this particular entry, which will be added to the total score ONLY
         in the event of a tie.</p>
 
-    <div class="form-group">
-        {!! Form::label('tiebreaker', 'Tiebreaker:') !!}
-        {!! Form::select('tiebreaker', $tieBreakerList ,$scoresheet->sheet->tiebreaker , ['class' => 'form-control','id'=>'tiebreaker']) !!}
-    </div>
-</fieldset>
+    <flux:field>
+        <flux:label>Tiebreaker:</flux:label>
+        <flux:select name="tiebreaker" id="tiebreaker">
+            @foreach($tieBreakerList as $value => $label_text)
+                <flux:select.option value="{{ $value }}" :selected="$scoresheet->sheet->tiebreaker == $value">{{ $label_text }}</flux:select.option>
+            @endforeach
+        </flux:select>
+    </flux:field>
+</flux:fieldset>
 
-<fieldset>
-    <legend>OVERALL MANUSCRIPT COMMENTS</legend>
+<flux:fieldset class="mt-8">
+    <flux:legend>OVERALL MANUSCRIPT COMMENTS</flux:legend>
 
-    <div class="form-group">
+    <flux:field>
         @if (! $scoresheet->published)
-            <p>Please use this area to provide additional thoughts or comments not included above or on the manuscript</p>
+            <p class="text-sm text-gray-600 mb-2">Please use this area to provide additional thoughts or comments not included above or on the manuscript</p>
         @endif
-        {!! Form::label('commentFinal', 'Comments:') !!}
-        {!! Form::textarea('commentFinal',$scoresheet->sheet->comments->commentFinal, ['class' => 'form-control']) !!}
-    </div>
-</fieldset>
+        <flux:label>Comments:</flux:label>
+        <flux:textarea name="commentFinal">{{ $scoresheet->sheet->comments->commentFinal }}</flux:textarea>
+    </flux:field>
+</flux:fieldset>
 
-<fieldset>
-
-    <div class="form-group">
-        {!! Form::label('judgeName', 'Judge name (optional):') !!}
-        {!! Form::text('judgeName',$scoresheet->sheet->judgeName, ['class' => 'form-control']) !!}
-    </div>
-
-</fieldset>
+<flux:fieldset class="mt-8">
+    <flux:field>
+        <flux:label>Judge name (optional):</flux:label>
+        <flux:input name="judgeName" value="{{ $scoresheet->sheet->judgeName }}" />
+    </flux:field>
+</flux:fieldset>

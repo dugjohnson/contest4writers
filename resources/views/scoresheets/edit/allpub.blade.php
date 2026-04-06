@@ -1,68 +1,56 @@
 @extends('scoresheets.layout')
 
 @section('content')
-    <div id="view-content">
-        <div class="panel">
-            <p><strong>Make sure you save your scoresheet before leaving this page.</strong> Closing the page or hitting
-                the back button will lose your scoring. You can use the submit button at the
-                bottom of the score sheet to save your scoring. You can come back to edit until you have completed the
-                score sheet. A complete button will appear when you have completed the requirements for the scoresheet
-            </p>
-        </div>
-
-        <fieldset>
-            <legend>SCORING (100 points max)</legend>
-            <ul>
+    <div id="view-content" class="space-y-8">
+        <flux:fieldset>
+            <flux:legend>SCORING (100 points max)</flux:legend>
+            <ul class="list-disc ml-6 space-y-1">
                 <li>5 = excellent</li>
                 <li>4 = good</li>
                 <li>3 = average</li>
                 <li>2 = fair</li>
                 <li>1 = poor</li>
             </ul>
-            <p>Important: All comments must be professional and encouraging. For any question scored 3 or less, judges
+            <p class="mt-4 text-sm text-gray-600 italic">Important: All comments must be professional and encouraging. For any question scored 3 or less, judges
                 are particularly encouraged to include an explanation.</p>
-        </fieldset>
-        {!! Form::open(array('url' => 'scoresheets/'.$scoresheet->id,'method'=>'put'))  !!}
-        @include('scoresheets.edit.formopen')
-        @include('scoresheets.edit.allscoresheets')
-        <fieldset>
-            <legend>ENDING</legend>
-            <div class="form-group">
-                {!! Form::label('score18',  $label['score18']) !!}
-                1 {!! Form::radio('score18[]','1',$scoresheet->sheet->scores->score18==1,['class'=>'scorer form-control']) !!}
-                2 {!! Form::radio('score18[]','2',$scoresheet->sheet->scores->score18==2,['class'=>'scorer form-control']) !!}
-                3 {!! Form::radio('score18[]','3',$scoresheet->sheet->scores->score18==3,['class'=>'scorer form-control']) !!}
-                4 {!! Form::radio('score18[]','4',$scoresheet->sheet->scores->score18==4,['class'=>'scorer form-control']) !!}
-                5 {!! Form::radio('score18[]','5',$scoresheet->sheet->scores->score18==5,['class'=>'scorer form-control']) !!}
-            </div>
+        </flux:fieldset>
 
-            <div class="form-group">
-                {!! Form::label('score19',  $label['score19']) !!}
-                1 {!! Form::radio('score19[]','1',$scoresheet->sheet->scores->score19==1,['class'=>'scorer form-control']) !!}
-                2 {!! Form::radio('score19[]','2',$scoresheet->sheet->scores->score19==2,['class'=>'scorer form-control']) !!}
-                3 {!! Form::radio('score19[]','3',$scoresheet->sheet->scores->score19==3,['class'=>'scorer form-control']) !!}
-                4 {!! Form::radio('score19[]','4',$scoresheet->sheet->scores->score19==4,['class'=>'scorer form-control']) !!}
-                5 {!! Form::radio('score19[]','5',$scoresheet->sheet->scores->score19==5,['class'=>'scorer form-control']) !!}
-            </div>
+        <form action="{{ url('scoresheets/'.$scoresheet->id) }}" method="POST">
+            @csrf
+            @method('PUT')
 
-            <div class="form-group">
-                {!! Form::label('score20',  $label['score20']) !!}
-                1 {!! Form::radio('score20[]','1',$scoresheet->sheet->scores->score20==1,['class'=>'scorer form-control']) !!}
-                2 {!! Form::radio('score20[]','2',$scoresheet->sheet->scores->score20==2,['class'=>'scorer form-control']) !!}
-                3 {!! Form::radio('score20[]','3',$scoresheet->sheet->scores->score20==3,['class'=>'scorer form-control']) !!}
-                4 {!! Form::radio('score20[]','4',$scoresheet->sheet->scores->score20==4,['class'=>'scorer form-control']) !!}
-                5 {!! Form::radio('score20[]','5',$scoresheet->sheet->scores->score20==5,['class'=>'scorer form-control']) !!}
-            </div>
+            @include('scoresheets.edit.formopen')
+            @include('scoresheets.edit.allscoresheets')
 
-            <div class="form-group">
-                {!! Form::label('comment20', 'Comments:') !!}
-                {!! Form::textarea('comment20',$scoresheet->sheet->comments->comment20, ['class' => 'form-control']) !!}
-            </div>
-        </fieldset>
+            <flux:fieldset>
+                <flux:legend>ENDING</flux:legend>
 
-        @include('scoresheets.edit.bonus')
-        @include('scoresheets.edit.formclose')
-        {!! Form::close() !!}
+                @foreach(['18', '19', '20'] as $num)
+                    <flux:field class="mt-4">
+                        <flux:label>{{ $label['score'.$num] }}</flux:label>
+                        <div class="flex flex-row gap-4 mt-2">
+                            @foreach([1,2,3,4,5] as $val)
+                                <label class="flex items-center gap-2 cursor-pointer scorer-label">
+                                    <input type="radio"
+                                           name="score{{ $num }}[]"
+                                           value="{{ $val }}"
+                                           class="scorer form-radio"
+                                           {{ $scoresheet->sheet->scores->{'score'.$num} == $val ? 'checked' : '' }}>
+                                    <span class="text-sm">{{ $val }}</span>
+                                </label>
+                            @endforeach
+                        </div>
+                    </flux:field>
+                @endforeach
 
+                <flux:field class="mt-4">
+                    <flux:label>Comments:</flux:label>
+                    <flux:textarea name="comment20">{{ $scoresheet->sheet->comments->comment20 }}</flux:textarea>
+                </flux:field>
+            </flux:fieldset>
+
+            @include('scoresheets.edit.bonus')
+            @include('scoresheets.edit.formclose')
+        </form>
     </div>
 @stop
