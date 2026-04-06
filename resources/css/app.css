@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 @import './flux-override.css';
 /*@import '../../vendor/livewire/flux/dist/flux.css' layer(utilities);*/
-@import './writing.css' layer(utilities);
+/*@import './writing.css' layer(utilities);*/
 
 @config '../../tailwind.config.js';
 
@@ -21,4 +21,28 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
+}
+
+#scorebox {
+    position: absolute;
+}
+
+input[type="radio"].scorer {
+    margin: 0 0 0 0 !important;
+}
+label.scorer-label {
+    display: inline-flex;
+    width: auto;
+}
+
+.button-radius {
+    @apply inline-block items-center rounded-md border border-transparent
+    bg-indigo-600 px-4 py-2 text-sm font-medium text-white
+    shadow-xs hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+}
+a.mybutton,
+input.button,
+button.button,
+a.button {
+    @apply m-2 px-8 py-2 bg-indigo-600 text-white rounded-lg  shadow-xs hover:bg-indigo-500 focus:ring-2 focus:ring-indigo-200;
 }
