@@ -1,9 +1,11 @@
 @if ($canDelete)
-    {!! Form::open(['url' => 'judges/'.$judge->id, 'method' => 'delete', 'id'=>'deleteform']) !!}
+    <form id="deleteform" action="{{ url('judges/' . $judge->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
     <input id="deleteOK" type="checkbox">  OK to delete<br>
     <p>You cannot undo this action!</p>
     <button id="deleteButton" class="!bg-red-600" type="button">Delete this judge</button>
-    {!! Form::close() !!}
+    </form>
 
     <script type="application/javascript">
         document.getElementById('deleteOK').onclick = checkSubmit;

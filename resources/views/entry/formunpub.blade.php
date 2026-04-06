@@ -1,29 +1,29 @@
 <!-- Author Name Form Input -->
-<div class="form-group">
-    {!! Form::label('author', 'Author Writing Name:') !!}
-    {!! Form::text('author',$entry->author, ['class' => 'form-control']) !!}
-</div>
+<flux:field>
+    <flux:label>Author Writing Name:</flux:label>
+    <flux:input name="author" value="{{ $entry->author }}" />
+</flux:field>
 <!-- Author Name Form Input -->
-<div class="form-group">
-    {!! Form::label('authorEmail', 'Author Email:') !!}
-    {!! Form::text('authorEmail',$entry->authorEmail, ['class' => 'form-control']) !!}
-</div>
+<flux:field>
+    <flux:label>Author Email:</flux:label>
+    <flux:input name="authorEmail" value="{{ $entry->authorEmail }}" />
+</flux:field>
 <!-- Title Form Input -->
-<div class="form-group">
-    {!! Form::label('title', 'Title:') !!}
-    {!! Form::text('title',$entry->title, ['class' => 'form-control']) !!}
-</div>
+<flux:field>
+    <flux:label>Title:</flux:label>
+    <flux:input name="title" value="{{ $entry->title }}" />
+</flux:field>
 <div class="panel radius">
     <p>Optional: Only fill in if two authors worked on this entry.</p>
     <!-- Author Name Form Input -->
-    <div class="form-group">
-        {!! Form::label('author2', 'Author 2 Writing Name:') !!}
-        {!! Form::text('author2',$entry->author2, ['class' => 'form-control']) !!}
-    </div>
+    <flux:field>
+        <flux:label>Author 2 Writing Name:</flux:label>
+        <flux:input name="author2" value="{{ $entry->author2 }}" />
+    </flux:field>
     <!-- Author Name Form Input -->
-    <div class="form-group">
-        {!! Form::label('author2Email', 'Author 2 Email:') !!}
-        {!! Form::text('author2Email',$entry->author2Email, ['class' => 'form-control']) !!}
-    </div>
+    <flux:field>
+        <flux:label>Author 2 Email:</flux:label>
+        <flux:input name="author2Email" value="{{ $entry->author2Email }}" />
+    </flux:field>
 </div>
 @include('entry.elements')

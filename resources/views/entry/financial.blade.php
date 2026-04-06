@@ -1,16 +1,15 @@
 <div class="panel callout radius">
     <!-- Invoice Number Form Input -->
     @if($entry->id)
-        <div class="form-group">
+        <flux:field>
             @if( Auth::user()->isAdministrator() )
-                {!! Form::label('invoiceNumber', 'Transaction number from PayPal:') !!}
-                {!! Form::text('invoiceNumber',$entry->invoiceNumber, ['class' => 'form-control','maxlength'=>'20']) !!}
-
+                <flux:label>Transaction number from PayPal:</flux:label>
+                <flux:input name="invoiceNumber" value="{{ $entry->invoiceNumber }}" maxlength="20"/>
             @else
                 Transaction number from PayPal: {{$entry->invoiceNumber}}
-                {{ Form::hidden('invoiceNumber', $entry->invoiceNumber) }}
+                <input type="hidden" name="invoiceNumber" value="{{ $entry->invoiceNumber }}">
             @endif
-        </div>
+        </flux:field>
     @endif
     <p>You will be able to pay your entry fee after completing this entry form.</p>
     <p>Payments will be processed using PayPal, Credit Card (through PayPal),

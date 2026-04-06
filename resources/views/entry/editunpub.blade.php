@@ -1,8 +1,10 @@
 @extends('layout-forms')
 
 @section('content')
-    {!! Form::open(array('files'=>'true','method'=>'put','url' => '/entries/'.$entry->id)) !!}
-    {!! Form::hidden('published',$entry->published) !!}
+    <form method="POST" action="{{ url('/entries/' . $entry->id) }}" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+        <input type="hidden" name="published" value="{{ $entry->published }}">
     @if ($isCoordinator)
         @include('entry.formadmin')
     @endif

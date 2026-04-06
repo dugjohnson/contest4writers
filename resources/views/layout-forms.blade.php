@@ -13,7 +13,7 @@
     </div>
 </div>
 <div class="row">
-@include('errors')
+    @include('errors')
 </div>
 <div class="row">
     <div class="large-9 columns" role="content">

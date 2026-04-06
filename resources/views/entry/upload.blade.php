@@ -1,8 +1,9 @@
 @extends('layout-forms')
 
 @section('content')
-    {!! Form::open(array('files'=>'true','method'=>'post','url' => '/entries/'.$entry->id.'/upload')) !!}
-    {!! Form::hidden('isCoordinator',$isCoordinator) !!}
+    <form method="POST" action="{{ url('/entries/' . $entry->id . '/upload') }}" enctype="multipart/form-data">
+        @csrf
+        <input type="hidden" name="isCoordinator" value="{{ $isCoordinator }}">
     @include('errors')
     @if($entry->published)
         @include('entry.fileuploadpub')

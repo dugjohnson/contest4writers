@@ -79,7 +79,7 @@
     <flux:label>Mainstream</flux:label>
     <flux:select name="mainstream">
         @foreach($preferenceLevels as $value => $label)
-            <option value="{{ $value }}" @selected($judge->mainstream == $value)>{{ $label }}</option>
+            <flux:select.option value="{{ $value }}" :selected="$judge->mainstream == $value">{{ $label }}</flux:select.option>
         @endforeach
     </flux:select>
 </flux:field>
@@ -88,7 +88,7 @@
     <flux:label>Short (40k-65k words)</flux:label>
     <flux:select name="shortTitle">
         @foreach($preferenceLevels as $value => $label)
-            <option value="{{ $value }}" @selected($judge->shortTitle == $value)>{{ $label }}</option>
+            <flux:select.option value="{{ $value }}" :selected="$judge->shortTitle == $value">{{ $label }}</flux:select.option>
         @endforeach
     </flux:select>
 </flux:field>
@@ -97,7 +97,7 @@
     <flux:label>Historical</flux:label>
     <flux:select name="historical">
         @foreach($preferenceLevels as $value => $label)
-            <option value="{{ $value }}" @selected($judge->historical == $value)>{{ $label }}</option>
+            <flux:select.option value="{{ $value }}" :selected="$judge->historical == $value">{{ $label }}</flux:select.option>
         @endforeach
     </flux:select>
 </flux:field>
@@ -106,7 +106,7 @@
     <flux:label>Long (65k+ words)</flux:label>
     <flux:select name="longTitle">
         @foreach($preferenceLevels as $value => $label)
-            <option value="{{ $value }}" @selected($judge->longTitle == $value)>{{ $label }}</option>
+            <flux:select.option value="{{ $value }}" :selected="$judge->longTitle == $value">{{ $label }}</flux:select.option>
         @endforeach
     </flux:select>
 </flux:field>
@@ -115,7 +115,7 @@
     <flux:label>Paranormal</flux:label>
     <flux:select name="paranormal">
         @foreach($preferenceLevels as $value => $label)
-            <option value="{{ $value }}" @selected($judge->paranormal == $value)>{{ $label }}</option>
+            <flux:select.option value="{{ $value }}" :selected="$judge->paranormal == $value">{{ $label }}</flux:select.option>
         @endforeach
     </flux:select>
 </flux:field>
@@ -124,7 +124,7 @@
     <flux:label>Novella (less than 40K words)</flux:label>
     <flux:select name="novella">
         @foreach($preferenceLevels as $value => $label)
-            <option value="{{ $value }}" @selected($judge->novella == $value)>{{ $label }}</option>
+            <flux:select.option value="{{ $value }}" :selected="$judge->novella == $value">{{ $label }}</flux:select.option>
         @endforeach
     </flux:select>
 </flux:field>
@@ -133,7 +133,7 @@
     <flux:label>Cozy</flux:label>
     <flux:select name="cozy">
         @foreach($preferenceLevels as $value => $label)
-            <option value="{{ $value }}" @selected($judge->cozy == $value)>{{ $label }}</option>
+            <flux:select.option value="{{ $value }}" :selected="$judge->cozy == $value">{{ $label }}</flux:select.option>
         @endforeach
     </flux:select>
 </flux:field>

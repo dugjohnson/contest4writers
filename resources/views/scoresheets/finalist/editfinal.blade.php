@@ -33,57 +33,57 @@
                                 Thank you for judging the Daphne! If you have any questions or problems, please contact
                                 <strong>Jennifer Graybeal at koddaphnecontest@gmail.com.</strong></p></div>
                     </fieldset>
-                    {!! Form::open(array('url' => 'scoresheets/final/'.$finalsheet->lookup_code.'/edit','method'=>'put'))  !!}
+                    <form method="POST" action="{{ url('scoresheets/final/'.$finalsheet->lookup_code.'/edit') }}">
+                        @csrf
+                        @method('PUT')
                     <fieldset>
                         <legend>Scoring</legend>
-                        <div class="form-group">
-                            {!! Form::label('standout', 'What area(s) of the judged manuscript standout as well done or excellent?') !!}
-                            {!! Form::textarea('standout',$finalsheet->standout, ['class' => 'form-control']) !!}
-                        </div>
+                        <flux:field>
+                            <flux:label>What area(s) of the judged manuscript standout as well done or excellent?</flux:label>
+                            <flux:textarea name="standout">{{ $finalsheet->standout }}</flux:textarea>
+                        </flux:field>
 
-                        <div class="form-group">
-                            {!! Form::label('improve', 'What area(s) of the manuscript does the author need to improve?') !!}
-                            {!! Form::textarea('improve',$finalsheet->improve, ['class' => 'form-control']) !!}
-                        </div>
+                        <flux:field>
+                            <flux:label>What area(s) of the manuscript does the author need to improve?</flux:label>
+                            <flux:textarea name="improve">{{ $finalsheet->improve }}</flux:textarea>
+                        </flux:field>
 
-                        <div class="form-group">
-                            {!! Form::label('assessment', 'What is your overall assessment of this entry?') !!}
-                            {!! Form::textarea('assessment',$finalsheet->assessment, ['class' => 'form-control']) !!}
-                        </div>
+                        <flux:field>
+                            <flux:label>What is your overall assessment of this entry?</flux:label>
+                            <flux:textarea name="assessment">{{ $finalsheet->assessment }}</flux:textarea>
+                        </flux:field>
 
-                        <div class="form-group">
-                            {!! Form::label('score', 'Score from 50 to 100:') !!}
-                            {!! Form::number('score',$finalsheet->score, ['class' => 'form-control']) !!}
-                        </div>
+                        <flux:field>
+                            <flux:label>Score from 50 to 100:</flux:label>
+                            <flux:input type="number" name="score" value="{{ $finalsheet->score }}" />
+                        </flux:field>
 
 
-                        <div class="form-group">
-                            {!! Form::label('rank', 'Out of all the entries I rank this entry number:') !!}
-                            {!! Form::number('rank',$finalsheet->rank, ['class' => 'form-control']) !!}
-                        </div>
-                        <div class="form-group">
+                        <flux:field>
+                            <flux:label>Out of all the entries I rank this entry number:</flux:label>
+                            <flux:input type="number" name="rank" value="{{ $finalsheet->rank }}" />
+                        </flux:field>
+                        <flux:field>
                         <h4>***Would you like to see more?***</h4>
                         <p>If so, please mark:</p>
-                            {!! Form::label('synopsis', 'Synopsis/3 chapters') !!}
-                            {!! Form::checkbox('synopsis',$finalsheet->synopsis) !!}
+                            <flux:checkbox name="synopsis" value="1" :checked="$finalsheet->synopsis" label="Synopsis/3 chapters" />
                             <br>
-                            {!! Form::label('full_manuscript', 'Full Manuscript') !!}
-                            {!! Form::checkbox('full_manuscript',$finalsheet->full_manuscript) !!}
+                            <flux:checkbox name="full_manuscript" value="1" :checked="$finalsheet->full_manuscript" label="Full Manuscript" />
                             <br>
-                            {!! Form::label('other', 'Other') !!}
-                            {!! Form::checkbox('other',$finalsheet->other) !!}
-                        </div>
+                            <flux:checkbox name="other" value="1" :checked="$finalsheet->other" label="Other" />
+                        </flux:field>
 
-                        <div class="form-group">
-                            {!! Form::label('comments', 'Comments:') !!}
-                            {!! Form::textarea('comments',$finalsheet->comments, ['class' => 'form-control']) !!}
-                        </div>
-                        <div class="form-group">
-                            {!! Form::label('signature', 'Electronic Signature (type your name):') !!}
-                            {!! Form::text('signature',$finalsheet->signature, ['class' => 'form-control']) !!}
-                        </div>
+                        <flux:field>
+                            <flux:label>Comments:</flux:label>
+                            <flux:textarea name="comments">{{ $finalsheet->comments }}</flux:textarea>
+                        </flux:field>
+                        <flux:field>
+                            <flux:label>Electronic Signature (type your name):</flux:label>
+                            <flux:input name="signature" value="{{ $finalsheet->signature }}" />
+                        </flux:field>
                     </fieldset>
-                    {!! Form::submit('Save Edits', array('id'=>'submitButton','name'=>'submitButton','class'=>'button radius')) !!}
+                    <flux:button type="submit" variant="primary" id="submitButton" name="submitButton">Save Edits</flux:button>
+                    </form>
 
                 </div>
             </div>

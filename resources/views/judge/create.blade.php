@@ -3,7 +3,8 @@
 @section('content')
 
     @include('errors')
-    {!! Form::open(array('url' => 'judges'))  !!}
+    <form method="POST" action="{{ url('judges') }}">
+        @csrf
 
     @include('judge.form')
     @include('judge.formclose')
