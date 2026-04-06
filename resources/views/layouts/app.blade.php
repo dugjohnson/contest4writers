@@ -14,7 +14,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     @fluxAppearance
-    @powerGridStyles
+{{--    @powerGridStyles--}}
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -48,7 +48,7 @@
 </div>
 @livewireScripts
 @fluxScripts
-@powerGridScripts
+{{--@powerGridScripts--}}
 
 </body>
 </html>
