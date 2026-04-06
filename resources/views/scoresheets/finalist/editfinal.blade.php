@@ -25,7 +25,6 @@
                         <p><em>Entry Number:</em> {{ $finalsheet->entry_id }}</p>
                         <p><em>Category:</em> {!! $categories[$finalsheet->category] !!} </p>
 
-                        <p><em>Judge's Name: </em>{{$finalsheet->judge->first_name}} {{$finalsheet->judge->last_name}}<em></p>
                         <div class="panel">
                             <p>The Daphne Committee has simplified score sheets. Because we need points to determine the
                                 Overall Daphne du Maurier Award, we need two numbers from you. First a score for the entry
