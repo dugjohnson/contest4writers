@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
-$filePath = './unpubbedentries.tsv';
+$filePath = './UnpubbedEntries.tsv';
 $handle = fopen($filePath, 'r');
 
 if (!$handle) {
