@@ -1,6 +1,11 @@
 @extends('scoresheets.layout')
 
 @section('content')
+    @if(! ($email ?? false))
+        <div>
+            <a href="/scoresheets" class="button small radius">Return to Scoresheets</a>
+        </div>
+    @endif
     <fieldset>
         <legend>SCORING (100 points max)</legend>
         <ul>
@@ -17,11 +22,6 @@
             <p><span class="text-red-500">Comments (leave blank if no issues)</span>: {{ $scoresheet->sheet->comments->comment01 }} </p>
         @endif
     </fieldset>
-    @if(! ($email ?? false))
-        <div>
-            <a href="/scoresheets" class="button small radius">Return to Scoresheets</a>
-        </div>
-    @endif
     <div id="view-content">
         @include('scoresheets.show.allscoresheets')
         <fieldset>

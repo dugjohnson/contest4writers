@@ -1,3 +1,9 @@
+@if(! ($email ?? false))
+    <div>
+        <a href="/scoresheets" class="button small radius">Return to Scoresheets</a>
+
+    </div>
+@endif
 <fieldset>
     <legend>SCORING (100 points max)</legend>
     <ul>
@@ -16,9 +22,3 @@
     @endif
 
 </fieldset>
-@if(! ($email ?? false))
-    <div>
-        <a href="/scoresheets" class="button small radius">Return to Scoresheets</a>
-
-    </div>
-@endif
