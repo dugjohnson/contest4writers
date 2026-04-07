@@ -1,10 +1,7 @@
-<flux:fieldset>
-    <flux:legend>Save or Save & Complete</flux:legend>
+<fieldset>
+    <legend>Save or Save & Complete</legend>
     <!--see scoresheet.js for handling of submits-->
     <input type="hidden" name="process_method" id="process_method" value="">
-
-    <div class="flex gap-4 mt-4">
-        <flux:button type="button" id="submitButton" variant="primary">Save Edits</flux:button>
-        <flux:button type="button" id="completeButton" variant="filled" class="ml-auto">Scoresheet is Complete</flux:button>
-    </div>
-</flux:fieldset>
+    <input type="submit" id="submitButton" name="submitButton" class="button radius" value="Save Edits">
+    <input type="submit" id="completeButton" name="completeButton" class="button radius right" value="Scoresheet is Complete">
+</fieldset>

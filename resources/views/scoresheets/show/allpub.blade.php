@@ -27,7 +27,9 @@
         <fieldset>
             <legend>ENDING</legend>
             <p>{{ $label['score18'] }} {{ $scoresheet->sheet->scores->score18 }} </p>
+            <p>Comments: {{ $scoresheet->sheet->comments->comment18 }}</p>
             <p>{{ $label['score19'] }} {{ $scoresheet->sheet->scores->score19 }} </p>
+            <p>Comments: {{ $scoresheet->sheet->comments->comment19 }}</p>
             <p>{{ $label['score20'] }} {{ $scoresheet->sheet->scores->score20 }} </p>
             <p>Comments: {{ $scoresheet->sheet->comments->comment20 }}</p>
         </fieldset>

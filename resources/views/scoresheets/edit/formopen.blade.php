@@ -14,5 +14,5 @@
 
 <flux:field>
     <flux:label>Comments (not required to have a response):</flux:label>
-    <flux:textarea name="comment01">{{ $scoresheet->sheet->comments->comment01 }}</flux:textarea>
+    <flux:textarea name="comment25">{{ $scoresheet->sheet->comments->comment25 }}</flux:textarea>
 </flux:field>
