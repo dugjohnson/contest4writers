@@ -20,8 +20,8 @@
         @if (! $scoresheet->published)
             <p class="text-sm text-gray-600 mb-2">Please use this area to provide additional thoughts or comments not included above or on the manuscript</p>
         @endif
-        <flux:label>Comments:</flux:label>
-        <flux:textarea name="commentFinal">{{ $scoresheet->sheet->comments->commentFinal }}</flux:textarea>
+        <flux:label>Comments: <span class="text-red-500">*</span></flux:label>
+        <flux:textarea name="commentFinal" class="required-comment">{{ $scoresheet->sheet->comments->commentFinal }}</flux:textarea>
     </flux:field>
 </flux:fieldset>
 

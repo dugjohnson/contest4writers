@@ -32,8 +32,8 @@
                         </div>
                     </flux:field>
                     <flux:field class="mt-4">
-                        <flux:label>Comments:</flux:label>
-                        <flux:textarea name="comment{{ $num }}">{{ $scoresheet->sheet->comments->{'comment'.$num} }}</flux:textarea>
+                        <flux:label>Comments: <span class="text-red-500">*</span></flux:label>
+                        <flux:textarea name="comment{{ $num }}" class="required-comment">{{ $scoresheet->sheet->comments->{'comment'.$num} }}</flux:textarea>
                     </flux:field>
                 @endforeach
             </flux:fieldset>
