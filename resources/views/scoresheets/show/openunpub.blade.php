@@ -13,6 +13,7 @@
         <li>2 = fair</li>
         <li>1 = poor</li>
     </ul>
+    <p>Important: Professional, constructive feedback is required for all elements regardless of score.</p>
 {{--    @if(! ($email ?? false))--}}
 {{--        <p class="text-red-500">Are there any concerns regarding category or content for this entry?--}}
 {{--            Any concerns to share with the contest committee? Please let us know if this book is entered in the wrong--}}
