@@ -41,12 +41,11 @@
                             @endforeach
                         </div>
                     </flux:field>
+                    <flux:field class="mt-4">
+                        <flux:label>Comments:</flux:label>
+                        <flux:textarea name="comment{{ $num }}">{{ $scoresheet->sheet->comments->{'comment'.$num} }}</flux:textarea>
+                    </flux:field>
                 @endforeach
-
-                <flux:field class="mt-4">
-                    <flux:label>Comments:</flux:label>
-                    <flux:textarea name="comment20">{{ $scoresheet->sheet->comments->comment20 }}</flux:textarea>
-                </flux:field>
             </flux:fieldset>
 
             @include('scoresheets.edit.bonus')
