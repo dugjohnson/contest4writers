@@ -11,8 +11,8 @@
                 <li>2 = fair</li>
                 <li>1 = poor</li>
             </ul>
-            <p class="mt-4 text-sm text-gray-600 italic">Important: All comments must be professional and encouraging. For any question scored 3 or less, judges
-                are particularly encouraged to include an explanation.</p>
+            <p class="mt-4 text-sm text-gray-600 italic">Important: Professional, constructive feedback is required for
+                all elements regardless of score.</p>
         </flux:fieldset>
 
         <form action="{{ url('scoresheets/'.$scoresheet->id) }}" method="POST">
@@ -35,7 +35,7 @@
                                            name="score{{ $num }}[]"
                                            value="{{ $val }}"
                                            class="scorer form-radio"
-                                           {{ $scoresheet->sheet->scores->{'score'.$num} == $val ? 'checked' : '' }}>
+                                        {{ $scoresheet->sheet->scores->{'score'.$num} == $val ? 'checked' : '' }}>
                                     <span class="text-sm">{{ $val }}</span>
                                 </label>
                             @endforeach
