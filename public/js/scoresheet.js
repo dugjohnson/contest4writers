@@ -37,7 +37,7 @@ function calculateScore(){
     $('#scoretotal').text('Total Score '+TotalScore.toFixed(0));
     $('#scorebox').toggle(TotalScore>0);
     let ScoresheetComplete = ((! (HowManyScores < scoreCount)) && (parseInt($('#tiebreaker').val())>0));
-    // $('#completeButton').toggle(ScoresheetComplete);
+    $('#completeButton').toggle(ScoresheetComplete);
 }
 
 function calcTotal(element){
