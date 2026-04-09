@@ -135,6 +135,8 @@ trait ScoresheetHelper
             'tieBreakerList' => $tieBreakerList, 'categories' => $this->categories(), 'email' => true),
             function ($message) use ($scoresheet, $user, $ccEmails) {
             $message->to($user->email, $user->writingName)->subject('Daphne score sheet judged for ' . $scoresheet->title);
+            $message->from('kodcontest@gmail.com','KOD Contest Commitee');
+            $message->replyTo('kodcontest@gmail.com','KOD Contest Commitee');
             foreach ($ccEmails as $email) {
                 $message->cc($email['email'], $email['name']);
             }
