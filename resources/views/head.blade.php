@@ -7,7 +7,7 @@
 {{--    <link href="/css/app.css" rel="stylesheet" type="text/css">--}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
-    @fluxAppearance
+{{--    @fluxAppearance--}}
 
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
